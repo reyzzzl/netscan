@@ -1,0 +1,15 @@
+id: backup2-012
+name: 'Exposed2 /swagger-ui.html'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /swagger-ui.html is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/swagger-ui.html'
+    matchers:
+      - type: status
+        status: [200]

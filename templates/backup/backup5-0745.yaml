@@ -1,0 +1,15 @@
+id: backup5-0745
+name: 'Exposed /init.php.db'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /init.php.db is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/init.php.db'
+    matchers:
+      - type: status
+        status: [200]

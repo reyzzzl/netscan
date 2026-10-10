@@ -1,0 +1,17 @@
+id: bypass-012
+name: 'Header bypass X-Method-Override'
+severity: high
+type: active
+tags:
+  - bypass
+  - auth
+  - headers
+description: 'Reaches /admin2 via X-Method-Override'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/admin2'
+    sendHeaders:
+      X-Method-Override: 'GET'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: xss5-0801
+name: 'Raw XSS5 in q'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '<style>@import ''javascript:nx50800'';</style>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50800'

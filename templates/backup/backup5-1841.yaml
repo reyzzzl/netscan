@@ -1,0 +1,15 @@
+id: backup5-1841
+name: 'Exposed /install.php.lock'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /install.php.lock is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/install.php.lock'
+    matchers:
+      - type: status
+        status: [200]

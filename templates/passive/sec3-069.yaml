@@ -1,0 +1,14 @@
+id: sec3-069
+name: 'Secret: 2checkout'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Possible secret in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - '2checkout'

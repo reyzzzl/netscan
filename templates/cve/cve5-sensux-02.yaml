@@ -1,0 +1,15 @@
+id: cve5-sensux-02
+name: 'sensux at /login'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'sensux at /login — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/login'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: lfi6-1408
+name: 'Traversal in lang'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via lang'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      lang:
+        - '/etc/motd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'motd'

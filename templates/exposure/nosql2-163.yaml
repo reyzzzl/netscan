@@ -1,0 +1,19 @@
+id: nosql2-163
+name: 'NoSQL $elemMatch in session'
+severity: high
+type: active
+tags:
+  - nosql
+  - injection
+  - api
+description: 'NoSQL operator $elemMatch accepted on /api/login'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/login'
+    body: '{"session":{"$elemMatch":""},"extra":"x"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'
+          - 'token'

@@ -1,0 +1,22 @@
+id: sqli6-sybase-08
+name: 'SQLi sybase probe in filter'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - sybase
+description: 'Triggers sybase error via filter'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      filter:
+        - '") OR ("1"="1'
+        - '1'' AND ''1''=''1'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'Sybase'
+          - 'Adaptive Server'

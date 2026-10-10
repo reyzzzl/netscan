@@ -1,0 +1,15 @@
+id: backup-031
+name: 'Exposed /requirements.txt'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /requirements.txt is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/requirements.txt'
+    matchers:
+      - type: status
+        status: [200]

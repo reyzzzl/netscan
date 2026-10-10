@@ -1,0 +1,18 @@
+id: mass3-149
+name: 'Mass field debit'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered debit on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"u1","debit":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

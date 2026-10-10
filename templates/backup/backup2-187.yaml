@@ -1,0 +1,15 @@
+id: backup2-187
+name: 'Exposed2 /.env.tmp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.tmp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.tmp'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup5-3841
+name: 'Exposed /sms.php.lock'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sms.php.lock is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sms.php.lock'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup3-050
+name: 'Exposed /wp-content/banana'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /wp-content/banana is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/banana'
+    matchers:
+      - type: status
+        status: [200]

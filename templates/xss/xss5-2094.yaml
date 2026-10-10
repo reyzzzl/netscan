@@ -1,0 +1,20 @@
+id: xss5-2094
+name: 'Raw XSS5 in data'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in data'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      data:
+        - '<p%09oncopy=nx52093>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52093'

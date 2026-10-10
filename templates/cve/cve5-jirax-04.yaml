@@ -1,0 +1,15 @@
+id: cve5-jirax-04
+name: 'jirax at /api'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'jirax at /api — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api'
+    matchers:
+      - type: status
+        status: [200]

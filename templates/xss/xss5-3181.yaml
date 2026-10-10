@@ -1,0 +1,20 @@
+id: xss5-3181
+name: 'Raw XSS5 in city'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in city'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      city:
+        - '<keygen%09autofocus%09onfocus=nx53180>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53180'

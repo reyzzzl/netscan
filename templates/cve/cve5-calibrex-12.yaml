@@ -1,0 +1,15 @@
+id: cve5-calibrex-12
+name: 'calibrex at /metrics'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'calibrex at /metrics — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/metrics'
+    matchers:
+      - type: status
+        status: [200]

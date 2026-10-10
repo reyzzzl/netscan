@@ -1,0 +1,20 @@
+id: xss2-083
+name: 'Reflected XSS2 ctx-22 via title'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in title'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      title:
+        - '<xss style=x onpointerover=alert(nx2082)>hover'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx2082'

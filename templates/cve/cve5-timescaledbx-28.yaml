@@ -1,0 +1,15 @@
+id: cve5-timescaledbx-28
+name: 'timescaledbx at /crossdomain.xml'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'timescaledbx at /crossdomain.xml — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/crossdomain.xml'
+    matchers:
+      - type: status
+        status: [200]

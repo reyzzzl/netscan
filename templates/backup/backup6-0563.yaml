@@ -1,0 +1,15 @@
+id: backup6-0563
+name: 'Exposed /tracking.php.dist'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /tracking.php.dist is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/tracking.php.dist'
+    matchers:
+      - type: status
+        status: [200]

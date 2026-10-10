@@ -1,0 +1,15 @@
+id: cve5-cronitorx-12
+name: 'cronitorx at /metrics'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'cronitorx at /metrics — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/metrics'
+    matchers:
+      - type: status
+        status: [200]

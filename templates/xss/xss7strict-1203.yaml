@@ -1,0 +1,25 @@
+id: xss7strict-1203
+name: 'Strict breakout XSS in search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      search:
+        - '</div><svg onload=sx71202>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx71202'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx71202'

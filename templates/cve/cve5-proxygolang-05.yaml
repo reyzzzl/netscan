@@ -1,0 +1,15 @@
+id: cve5-proxygolang-05
+name: 'proxygolang at /console'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'proxygolang at /console — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/console'
+    matchers:
+      - type: status
+        status: [200]

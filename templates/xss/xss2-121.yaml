@@ -1,0 +1,20 @@
+id: xss2-121
+name: 'Reflected XSS2 ctx-0 via q'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '<script>alert(nx2120)</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx2120'

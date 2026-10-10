@@ -1,0 +1,15 @@
+id: backup3-007
+name: 'Exposed /api/v6/users'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /api/v6/users is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/v6/users'
+    matchers:
+      - type: status
+        status: [200]

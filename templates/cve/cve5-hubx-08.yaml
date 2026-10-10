@@ -1,0 +1,15 @@
+id: cve5-hubx-08
+name: 'hubx at /test'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'hubx at /test — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/test'
+    matchers:
+      - type: status
+        status: [200]

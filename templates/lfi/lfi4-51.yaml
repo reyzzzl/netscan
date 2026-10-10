@@ -1,0 +1,20 @@
+id: lfi4-51
+name: 'System file /etc/hostname via file'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads /etc/hostname via file'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      file:
+        - '/etc/hostname'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'labhost'

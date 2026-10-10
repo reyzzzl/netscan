@@ -1,0 +1,15 @@
+id: backup5-3483
+name: 'Exposed /sync.php.tpl'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sync.php.tpl is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sync.php.tpl'
+    matchers:
+      - type: status
+        status: [200]

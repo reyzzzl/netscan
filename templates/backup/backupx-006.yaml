@@ -1,0 +1,15 @@
+id: backupx-006
+name: 'Exposed /.env.save'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /.env.save is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.save'
+    matchers:
+      - type: status
+        status: [200]

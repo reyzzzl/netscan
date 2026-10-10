@@ -1,0 +1,14 @@
+id: sec4-0528
+name: 'Token propfind2- (body)'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Possible token in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'propfind2-'

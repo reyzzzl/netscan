@@ -1,0 +1,15 @@
+id: cve5-undertowx-26
+name: 'undertowx at /robots.txt'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'undertowx at /robots.txt — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/robots.txt'
+    matchers:
+      - type: status
+        status: [200]

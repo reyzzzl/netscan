@@ -1,0 +1,20 @@
+id: xss5-3179
+name: 'Raw XSS5 in phone'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in phone'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      phone:
+        - '<select%0aautofocus%0aonfocus=nx53178>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53178'

@@ -1,0 +1,15 @@
+id: cve2-wordpress2-05
+name: 'WP JSON fingerprint /wp-json/ v5'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP JSON at /wp-json/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-json/'
+    matchers:
+      - type: status
+        status: [200]

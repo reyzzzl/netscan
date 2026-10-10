@@ -1,0 +1,15 @@
+id: cve5-bugzillax-25
+name: 'bugzillax at /.env'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'bugzillax at /.env — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env'
+    matchers:
+      - type: status
+        status: [200]

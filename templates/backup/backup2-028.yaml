@@ -1,0 +1,15 @@
+id: backup2-028
+name: 'Exposed2 /ocp.php'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /ocp.php is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/ocp.php'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup5-3476
+name: 'Exposed /sync.php.pkg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sync.php.pkg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sync.php.pkg'
+    matchers:
+      - type: status
+        status: [200]

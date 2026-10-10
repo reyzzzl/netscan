@@ -1,0 +1,14 @@
+id: hdr4-085
+name: 'Header x-fiddler-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-fiddler-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-fiddler-2'

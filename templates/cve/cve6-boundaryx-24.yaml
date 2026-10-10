@@ -1,0 +1,15 @@
+id: cve6-boundaryx-24
+name: 'boundaryx at /.git/HEAD'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'boundaryx at /.git/HEAD — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.git/HEAD'
+    matchers:
+      - type: status
+        status: [200]

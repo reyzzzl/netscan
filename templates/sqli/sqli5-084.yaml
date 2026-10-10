@@ -1,0 +1,21 @@
+id: sqli5-084
+name: 'Oracle SQLi in sort'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - oracle
+description: 'Triggers oracle error via sort'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      sort:
+        - ''' || UTL_HTTP.REQUEST(''http://x'') || '''
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'ORA-'
+          - 'Oracle error'

@@ -1,0 +1,20 @@
+id: xss5-1567
+name: 'Raw XSS5 in comment'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in comment'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      comment:
+        - '<input%09autofocus%09onfocus=nx51566>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51566'

@@ -1,0 +1,20 @@
+id: xss5-2991
+name: 'Raw XSS5 in headline'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in headline'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      headline:
+        - '<bgsound%09src=javascript:nx52990>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52990'

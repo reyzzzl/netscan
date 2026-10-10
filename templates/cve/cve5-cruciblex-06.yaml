@@ -1,0 +1,15 @@
+id: cve5-cruciblex-06
+name: 'cruciblex at /manager'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'cruciblex at /manager — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/manager'
+    matchers:
+      - type: status
+        status: [200]

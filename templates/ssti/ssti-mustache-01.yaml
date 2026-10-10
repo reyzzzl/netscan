@@ -1,0 +1,20 @@
+id: ssti-mustache-01
+name: 'SSTI mustache via view'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - mustache
+description: 'mustache evaluates payload in view'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      view:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

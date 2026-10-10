@@ -1,0 +1,15 @@
+id: cve6-argocdx-05
+name: 'argocdx at /console'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'argocdx at /console — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/console'
+    matchers:
+      - type: status
+        status: [200]

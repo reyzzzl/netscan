@@ -1,0 +1,15 @@
+id: cve5-equinoxx-30
+name: 'equinoxx at /.well-known/'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'equinoxx at /.well-known/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.well-known/'
+    matchers:
+      - type: status
+        status: [200]

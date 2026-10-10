@@ -1,0 +1,14 @@
+id: sec2-033
+name: 'Mailgun key alt'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Mailgun key alt in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'key-'

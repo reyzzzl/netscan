@@ -1,0 +1,20 @@
+id: xss5-0434
+name: 'Raw XSS5 in label'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in label'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      label:
+        - '<object%0adata=data:text/html,nx50433>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50433'

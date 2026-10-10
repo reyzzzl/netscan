@@ -1,0 +1,15 @@
+id: cve5-calibrex-11
+name: 'calibrex at /health'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'calibrex at /health — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/health'
+    matchers:
+      - type: status
+        status: [200]

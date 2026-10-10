@@ -1,0 +1,15 @@
+id: cve3-drupal-webform-10
+name: 'Drupal webform '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Drupal webform at /modules/contrib/webform/config/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/modules/contrib/webform/config/'
+    matchers:
+      - type: status
+        status: [200]

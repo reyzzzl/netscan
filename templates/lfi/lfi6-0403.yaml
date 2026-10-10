@@ -1,0 +1,20 @@
+id: lfi6-0403
+name: 'Traversal in page'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via page'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      page:
+        - '/proc/cmdline'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'node'

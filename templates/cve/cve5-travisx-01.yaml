@@ -1,0 +1,15 @@
+id: cve5-travisx-01
+name: 'travisx at /'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'travisx at / — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/'
+    matchers:
+      - type: status
+        status: [200]

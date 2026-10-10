@@ -1,0 +1,15 @@
+id: auth3-095
+name: 'Panel at /tautulli'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /tautulli returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/tautulli'
+    matchers:
+      - type: status
+        status: [200]

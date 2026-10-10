@@ -1,0 +1,20 @@
+id: xss-058
+name: 'Reflected XSS ctx-28 via title'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in title'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      title:
+        - '<video><source onerror=nx057c>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx057c'

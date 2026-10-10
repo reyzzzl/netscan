@@ -1,0 +1,24 @@
+id: ssrf-025
+name: 'SSRF via url'
+severity: high
+type: active
+tags:
+  - ssrf
+  - oob
+  - cloud
+description: 'Fetches internal URL via url (verify manually)'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      url:
+        - 'http://[::ffff:127.0.0.1]/'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'ami-id'
+          - 'instance-id'
+          - 'metadata'
+          - 'root:x:0:0'
+          - 'PONG'

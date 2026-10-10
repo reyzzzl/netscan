@@ -1,0 +1,15 @@
+id: backup2-098
+name: 'Exposed2 /pom.xml.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /pom.xml.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/pom.xml.bak'
+    matchers:
+      - type: status
+        status: [200]

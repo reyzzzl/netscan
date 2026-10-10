@@ -1,0 +1,15 @@
+id: cve3-ghost-api-09
+name: 'Ghost api/roles roles'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Ghost api/roles at /ghost/api/roles — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/ghost/api/roles'
+    matchers:
+      - type: status
+        status: [200]

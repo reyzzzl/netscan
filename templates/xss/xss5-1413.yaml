@@ -1,0 +1,20 @@
+id: xss5-1413
+name: 'Raw XSS5 in value'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in value'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      value:
+        - '<esi:include%09src=nx51412>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51412'

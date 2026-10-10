@@ -1,0 +1,15 @@
+id: auth3-001
+name: 'Panel at /debug/vars'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /debug/vars returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/debug/vars'
+    matchers:
+      - type: status
+        status: [200]

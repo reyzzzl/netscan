@@ -1,0 +1,15 @@
+id: cve6-caddyx-02
+name: 'caddyx at /login'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'caddyx at /login — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/login'
+    matchers:
+      - type: status
+        status: [200]

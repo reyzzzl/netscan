@@ -1,0 +1,15 @@
+id: cve2-grafana-03
+name: 'Grafana fingerprint /grafana/login v3'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Grafana at /grafana/login — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/grafana/login'
+    matchers:
+      - type: status
+        status: [200]

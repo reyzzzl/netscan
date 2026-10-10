@@ -1,0 +1,15 @@
+id: backup6-0193
+name: 'Exposed /forgot.php.sqlite'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /forgot.php.sqlite is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/forgot.php.sqlite'
+    matchers:
+      - type: status
+        status: [200]

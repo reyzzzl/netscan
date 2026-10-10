@@ -1,0 +1,15 @@
+id: cve5-verdacciox-11
+name: 'verdacciox at /health'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'verdacciox at /health — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/health'
+    matchers:
+      - type: status
+        status: [200]

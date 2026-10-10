@@ -1,0 +1,15 @@
+id: cve5-sensux-07
+name: 'sensux at /debug'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'sensux at /debug — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/debug'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,23 @@
+id: cmdi6-0409
+name: 'Shell injection in input'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - injection
+  - rce
+description: 'OS command runs via input'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      input:
+        - '%0aid'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='
+          - 'root:x:0:0'
+          - 'www-data'

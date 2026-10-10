@@ -1,0 +1,20 @@
+id: backup-045
+name: 'Exposed /phpmyadmin'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /phpmyadmin is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/phpmyadmin'
+    match-all: true
+    matchers:
+      - type: status
+        status: [200]
+      - type: word
+        part: body
+        words:
+          - 'phpMyAdmin'

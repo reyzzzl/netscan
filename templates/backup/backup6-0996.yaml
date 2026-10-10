@@ -1,0 +1,15 @@
+id: backup6-0996
+name: 'Exposed /refund.php.accdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /refund.php.accdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/refund.php.accdb'
+    matchers:
+      - type: status
+        status: [200]

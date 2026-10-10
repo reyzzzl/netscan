@@ -1,0 +1,15 @@
+id: backup5-3586
+name: 'Exposed /queue.php.ini'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /queue.php.ini is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/queue.php.ini'
+    matchers:
+      - type: status
+        status: [200]

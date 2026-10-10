@@ -1,0 +1,15 @@
+id: backup2-074
+name: 'Exposed2 /docker-compose.override.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /docker-compose.override.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/docker-compose.override.yml'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backupx-038
+name: 'Exposed /config.yaml.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /config.yaml.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/config.yaml.bak'
+    matchers:
+      - type: status
+        status: [200]

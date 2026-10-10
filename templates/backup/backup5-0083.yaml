@@ -1,0 +1,15 @@
+id: backup5-0083
+name: 'Exposed /wp-config.php.tpl'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /wp-config.php.tpl is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-config.php.tpl'
+    matchers:
+      - type: status
+        status: [200]

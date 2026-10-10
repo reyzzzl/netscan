@@ -1,0 +1,21 @@
+id: ssti-post-011
+name: 'POST SSTI velocity in template'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - post
+  - velocity
+description: 'velocity evaluates POST body on /render'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/render'
+    body: '{"template":"#set($x=7*7)$x"}'
+    sendHeaders:
+      Content-Type: 'application/json'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

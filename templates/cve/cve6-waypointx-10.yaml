@@ -1,0 +1,15 @@
+id: cve6-waypointx-10
+name: 'waypointx at /status'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'waypointx at /status — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/status'
+    matchers:
+      - type: status
+        status: [200]

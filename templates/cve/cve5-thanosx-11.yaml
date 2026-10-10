@@ -1,0 +1,15 @@
+id: cve5-thanosx-11
+name: 'thanosx at /health'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'thanosx at /health — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/health'
+    matchers:
+      - type: status
+        status: [200]

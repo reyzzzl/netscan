@@ -1,0 +1,14 @@
+id: sec2-024
+name: 'Sendgrid'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Sendgrid in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'SG.'

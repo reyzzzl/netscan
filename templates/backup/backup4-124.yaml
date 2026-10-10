@@ -1,0 +1,15 @@
+id: backup4-124
+name: 'Exposed /ajax.php.swp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /ajax.php.swp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/ajax.php.swp'
+    matchers:
+      - type: status
+        status: [200]

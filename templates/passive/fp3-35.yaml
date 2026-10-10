@@ -1,0 +1,14 @@
+id: fp3-35
+name: 'Stack nestjs10'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'nestjs10 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'nestjs10'

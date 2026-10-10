@@ -1,0 +1,15 @@
+id: cve6-packerx-30
+name: 'packerx at /.well-known/'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'packerx at /.well-known/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.well-known/'
+    matchers:
+      - type: status
+        status: [200]

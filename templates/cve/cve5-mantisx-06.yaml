@@ -1,0 +1,15 @@
+id: cve5-mantisx-06
+name: 'mantisx at /manager'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'mantisx at /manager — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/manager'
+    matchers:
+      - type: status
+        status: [200]

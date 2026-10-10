@@ -1,0 +1,15 @@
+id: cve5-mygetx-08
+name: 'mygetx at /test'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'mygetx at /test — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/test'
+    matchers:
+      - type: status
+        status: [200]

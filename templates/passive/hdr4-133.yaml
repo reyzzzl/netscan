@@ -1,0 +1,14 @@
+id: hdr4-133
+name: 'Header x-dna-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-dna-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-dna-2'

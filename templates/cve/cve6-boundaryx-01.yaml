@@ -1,0 +1,15 @@
+id: cve6-boundaryx-01
+name: 'boundaryx at /'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'boundaryx at / — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/'
+    matchers:
+      - type: status
+        status: [200]

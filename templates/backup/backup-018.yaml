@@ -1,0 +1,15 @@
+id: backup-018
+name: 'Exposed /openapi.json'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /openapi.json is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/openapi.json'
+    matchers:
+      - type: status
+        status: [200]

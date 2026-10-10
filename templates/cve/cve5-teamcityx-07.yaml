@@ -1,0 +1,15 @@
+id: cve5-teamcityx-07
+name: 'teamcityx at /debug'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'teamcityx at /debug — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/debug'
+    matchers:
+      - type: status
+        status: [200]

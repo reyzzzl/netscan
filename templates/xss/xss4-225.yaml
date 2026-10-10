@@ -1,0 +1,20 @@
+id: xss4-225
+name: 'Raw XSS4 #24 in comment'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in comment'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      comment:
+        - '<iframe src=mhtml:http://x!alert(nx4224)>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx4224'

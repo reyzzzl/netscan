@@ -1,0 +1,15 @@
+id: cve6-portainerx-12
+name: 'portainerx at /metrics'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'portainerx at /metrics — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/metrics'
+    matchers:
+      - type: status
+        status: [200]

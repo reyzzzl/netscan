@@ -1,0 +1,15 @@
+id: backup5-2587
+name: 'Exposed /cookie.php.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /cookie.php.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/cookie.php.yml'
+    matchers:
+      - type: status
+        status: [200]

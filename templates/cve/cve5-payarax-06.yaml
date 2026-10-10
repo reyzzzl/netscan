@@ -1,0 +1,15 @@
+id: cve5-payarax-06
+name: 'payarax at /manager'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'payarax at /manager — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/manager'
+    matchers:
+      - type: status
+        status: [200]

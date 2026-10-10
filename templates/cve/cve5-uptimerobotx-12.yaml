@@ -1,0 +1,15 @@
+id: cve5-uptimerobotx-12
+name: 'uptimerobotx at /metrics'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'uptimerobotx at /metrics — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/metrics'
+    matchers:
+      - type: status
+        status: [200]

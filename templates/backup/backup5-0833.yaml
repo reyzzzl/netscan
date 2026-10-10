@@ -1,0 +1,15 @@
+id: backup5-0833
+name: 'Exposed /routes.php.tpl'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /routes.php.tpl is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/routes.php.tpl'
+    matchers:
+      - type: status
+        status: [200]

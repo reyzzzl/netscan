@@ -1,0 +1,15 @@
+id: backup3-112
+name: 'Exposed /backup/file040.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /backup/file040.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/backup/file040.bak'
+    matchers:
+      - type: status
+        status: [200]

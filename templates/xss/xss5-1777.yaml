@@ -1,0 +1,20 @@
+id: xss5-1777
+name: 'Raw XSS5 in lastname'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in lastname'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      lastname:
+        - '<wbr%0aonmouseover=nx51776>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51776'

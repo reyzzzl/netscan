@@ -1,0 +1,14 @@
+id: err2-35
+name: 'Error page: elasticsearch.exceptions'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'elasticsearch.exceptions'

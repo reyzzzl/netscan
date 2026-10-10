@@ -1,0 +1,22 @@
+id: graphql3-12
+name: 'Mutation probe in operation'
+severity: medium
+type: active
+tags:
+  - graphql
+  - api
+  - mutation
+description: 'GraphQL mutation reachable via operation'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      operation:
+        - '{a:__typename,b:__typename}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '__schema'
+          - '__typename'
+          - 'data'

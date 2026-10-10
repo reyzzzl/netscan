@@ -1,0 +1,20 @@
+id: xss3-418
+name: 'Raw XSS3 #27 in email'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in email'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      email:
+        - '#{nx3417}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3417'

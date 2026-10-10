@@ -1,0 +1,15 @@
+id: cve5-checkmarxx-20
+name: 'checkmarxx at /graphql'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'checkmarxx at /graphql — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/graphql'
+    matchers:
+      - type: status
+        status: [200]

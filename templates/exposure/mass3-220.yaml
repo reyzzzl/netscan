@@ -1,0 +1,18 @@
+id: mass3-220
+name: 'Mass field survey'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered survey on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"t","survey":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

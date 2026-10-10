@@ -1,0 +1,14 @@
+id: hdr4-110
+name: 'Header x-staging-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-staging-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-staging-2'

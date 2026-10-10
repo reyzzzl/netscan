@@ -1,0 +1,15 @@
+id: cve5-bamboox-25
+name: 'bamboox at /.env'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'bamboox at /.env — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env'
+    matchers:
+      - type: status
+        status: [200]

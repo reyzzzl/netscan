@@ -1,0 +1,15 @@
+id: backup2-132
+name: 'Exposed2 /prometheus.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /prometheus.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/prometheus.yml'
+    matchers:
+      - type: status
+        status: [200]

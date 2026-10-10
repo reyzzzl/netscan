@@ -1,0 +1,15 @@
+id: cve6-packerx-20
+name: 'packerx at /graphql'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'packerx at /graphql — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/graphql'
+    matchers:
+      - type: status
+        status: [200]

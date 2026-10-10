@@ -1,0 +1,15 @@
+id: cve5-bitbucketx-16
+name: 'bitbucketx at /docs'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'bitbucketx at /docs — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/docs'
+    matchers:
+      - type: status
+        status: [200]

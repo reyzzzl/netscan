@@ -1,0 +1,14 @@
+id: fp4-213
+name: 'Stack cart11x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'cart11x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'cart11x'

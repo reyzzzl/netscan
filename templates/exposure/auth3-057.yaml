@@ -1,0 +1,15 @@
+id: auth3-057
+name: 'Panel at /uptime'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /uptime returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/uptime'
+    matchers:
+      - type: status
+        status: [200]

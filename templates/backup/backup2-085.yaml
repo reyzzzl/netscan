@@ -1,0 +1,15 @@
+id: backup2-085
+name: 'Exposed2 /serverless.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /serverless.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/serverless.yml'
+    matchers:
+      - type: status
+        status: [200]

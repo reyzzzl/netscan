@@ -1,0 +1,20 @@
+id: xss5-1543
+name: 'Raw XSS5 in state'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in state'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      state:
+        - '<marquee%09behavior=slide%09onstart=nx51542>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51542'

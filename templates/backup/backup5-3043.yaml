@@ -1,0 +1,15 @@
+id: backup5-3043
+name: 'Exposed /index.html.mod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /index.html.mod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/index.html.mod'
+    matchers:
+      - type: status
+        status: [200]

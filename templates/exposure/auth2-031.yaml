@@ -1,0 +1,15 @@
+id: auth2-031
+name: 'Horizon at /horizon'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Horizon returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/horizon'
+    matchers:
+      - type: status
+        status: [200]

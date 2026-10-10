@@ -1,0 +1,15 @@
+id: cve6-hypex-01
+name: 'hypex at /'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'hypex at / — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/'
+    matchers:
+      - type: status
+        status: [200]

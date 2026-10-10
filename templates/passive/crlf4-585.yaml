@@ -1,0 +1,20 @@
+id: crlf4-585
+name: 'CRLF into msg'
+severity: medium
+type: active
+tags:
+  - crlf
+  - injection
+  - headers
+description: 'CRLF header injection via msg'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      msg:
+        - '%0a%20X-Test: t'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'x-test'

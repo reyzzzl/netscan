@@ -1,0 +1,15 @@
+id: cve3-wp-classic-editor-10
+name: 'WP classic-editor screenshot.png'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP classic-editor at /wp-content/plugins/classic-editor/screenshot.png — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/classic-editor/screenshot.png'
+    matchers:
+      - type: status
+        status: [200]

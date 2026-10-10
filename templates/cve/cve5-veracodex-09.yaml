@@ -1,0 +1,15 @@
+id: cve5-veracodex-09
+name: 'veracodex at /dev'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'veracodex at /dev — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dev'
+    matchers:
+      - type: status
+        status: [200]

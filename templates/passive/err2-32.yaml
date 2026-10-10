@@ -1,0 +1,14 @@
+id: err2-32
+name: 'Error page: mongod'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'mongod'

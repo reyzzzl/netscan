@@ -1,0 +1,14 @@
+id: hdr3-04
+name: 'Debug header x-debug-token'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - debug
+description: 'Debug header x-debug-token present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-debug-token'

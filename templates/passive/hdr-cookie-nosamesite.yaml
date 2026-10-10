@@ -1,0 +1,14 @@
+id: hdr-cookie-nosamesite
+name: 'Cookie without SameSite'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - csrf
+description: 'Cookie without SameSite — check flags with show'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'set-cookie'

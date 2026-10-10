@@ -1,0 +1,15 @@
+id: auth4-570
+name: 'Panel at /payment/beta'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /payment/beta returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/payment/beta'
+    matchers:
+      - type: status
+        status: [200]

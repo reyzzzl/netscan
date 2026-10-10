@@ -1,0 +1,15 @@
+id: cve5-bamboox-01
+name: 'bamboox at /'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'bamboox at / — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/'
+    matchers:
+      - type: status
+        status: [200]

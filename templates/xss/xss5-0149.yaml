@@ -1,0 +1,20 @@
+id: xss5-0149
+name: 'Raw XSS5 in summary'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in summary'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      summary:
+        - '<select%0aautofocus%0aonfocus=nx50148>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50148'

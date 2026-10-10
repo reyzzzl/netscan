@@ -1,0 +1,15 @@
+id: backup5-0282
+name: 'Exposed /dump.sql.inc'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /dump.sql.inc is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dump.sql.inc'
+    matchers:
+      - type: status
+        status: [200]

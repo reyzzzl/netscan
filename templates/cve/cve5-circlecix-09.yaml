@@ -1,0 +1,15 @@
+id: cve5-circlecix-09
+name: 'circlecix at /dev'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'circlecix at /dev — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dev'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup5-3822
+name: 'Exposed /sms.php.duplicate'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sms.php.duplicate is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sms.php.duplicate'
+    matchers:
+      - type: status
+        status: [200]

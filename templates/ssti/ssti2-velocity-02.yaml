@@ -1,0 +1,20 @@
+id: ssti2-velocity-02
+name: 'SSTI2 velocity via content'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - velocity
+description: 'velocity evaluates payload in content'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      content:
+        - '#set($x=7*7)$x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

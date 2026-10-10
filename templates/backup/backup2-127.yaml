@@ -1,0 +1,15 @@
+id: backup2-127
+name: 'Exposed2 /elasticsearch.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /elasticsearch.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/elasticsearch.yml'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: redirect7-307
+name: 'Trusted bypass in dest'
+severity: high
+type: active
+tags:
+  - redirect
+  - open-redirect
+  - bypass
+description: 'Bypasses trusted.com allowlist via dest'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      dest:
+        - 'https://trusted.com./evil.example/'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

@@ -1,0 +1,15 @@
+id: backup6-0299
+name: 'Exposed /verify.php.sav'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /verify.php.sav is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/verify.php.sav'
+    matchers:
+      - type: status
+        status: [200]

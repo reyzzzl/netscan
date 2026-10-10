@@ -1,0 +1,20 @@
+id: patt-sqli-pg-time-01-id
+name: 'PATT sqli patt-sqli-pg-time-01 via id'
+severity: high
+type: active
+tags:
+  - sqli
+  - patt
+requires:
+  - python
+  - django
+description: 'PATT PG time-based pg_sleep(3) stacked. [patt:patt-sqli-pg-time-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/SQL%20Injection/PostgreSQL%20Injection.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      id:
+        - '''; SELECT pg_sleep(3)-- -'
+    matchers:
+      - type: time
+        ms: 2500

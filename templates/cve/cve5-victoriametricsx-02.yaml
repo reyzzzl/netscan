@@ -1,0 +1,15 @@
+id: cve5-victoriametricsx-02
+name: 'victoriametricsx at /login'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'victoriametricsx at /login — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/login'
+    matchers:
+      - type: status
+        status: [200]

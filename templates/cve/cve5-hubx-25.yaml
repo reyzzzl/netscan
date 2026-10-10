@@ -1,0 +1,15 @@
+id: cve5-hubx-25
+name: 'hubx at /.env'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'hubx at /.env — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: xss5-3781
+name: 'Raw XSS5 in city'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in city'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      city:
+        - '<video%0a><source%0aonerror=nx53780>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53780'

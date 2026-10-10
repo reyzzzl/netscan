@@ -1,0 +1,15 @@
+id: backup5-2594
+name: 'Exposed /cookie.php.sqlite'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /cookie.php.sqlite is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/cookie.php.sqlite'
+    matchers:
+      - type: status
+        status: [200]

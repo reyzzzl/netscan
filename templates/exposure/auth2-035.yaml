@@ -1,0 +1,15 @@
+id: auth2-035
+name: 'Orchid at /orchid'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Orchid returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/orchid'
+    matchers:
+      - type: status
+        status: [200]

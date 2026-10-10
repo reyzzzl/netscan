@@ -1,0 +1,15 @@
+id: auth2-008
+name: 'Admin console at /admin/console'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Admin console returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/admin/console'
+    matchers:
+      - type: status
+        status: [200]

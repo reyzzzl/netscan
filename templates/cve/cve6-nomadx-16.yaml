@@ -1,0 +1,15 @@
+id: cve6-nomadx-16
+name: 'nomadx at /docs'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'nomadx at /docs — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/docs'
+    matchers:
+      - type: status
+        status: [200]

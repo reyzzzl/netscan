@@ -1,0 +1,15 @@
+id: auth4-498
+name: 'Panel at /team/v1'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /team/v1 returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/team/v1'
+    matchers:
+      - type: status
+        status: [200]

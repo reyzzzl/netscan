@@ -1,0 +1,20 @@
+id: xss5-0431
+name: 'Raw XSS5 in headline'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in headline'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      headline:
+        - '<marquee%0aloop=1%0aonstart=nx50430>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50430'

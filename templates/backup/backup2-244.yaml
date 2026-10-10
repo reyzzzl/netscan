@@ -1,0 +1,15 @@
+id: backup2-244
+name: 'Exposed2 /site.zip.orig'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /site.zip.orig is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/site.zip.orig'
+    matchers:
+      - type: status
+        status: [200]

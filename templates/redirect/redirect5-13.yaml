@@ -1,0 +1,20 @@
+id: redirect5-13
+name: 'Scheme redirect in next'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+  - scheme
+description: 'Dangerous scheme via next'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      next:
+        - 'JaVaScRiPt:alert(1)'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'javascript:'

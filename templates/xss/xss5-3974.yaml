@@ -1,0 +1,20 @@
+id: xss5-3974
+name: 'Raw XSS5 in data'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in data'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      data:
+        - '<table%0abackground=javascript:nx53973>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53973'

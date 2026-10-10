@@ -1,0 +1,20 @@
+id: xss5-0928
+name: 'Raw XSS5 in title'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in title'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      title:
+        - '''><img%0asrc=x%0aonerror=nx50927>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50927'

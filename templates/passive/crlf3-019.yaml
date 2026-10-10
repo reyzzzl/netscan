@@ -1,0 +1,20 @@
+id: crlf3-019
+name: 'CRLF into next'
+severity: medium
+type: active
+tags:
+  - crlf
+  - injection
+  - headers
+description: 'CRLF header injection via next'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      next:
+        - 'x%250d%250aX-Test: c3'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'x-test'

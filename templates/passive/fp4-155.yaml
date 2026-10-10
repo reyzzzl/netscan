@@ -1,0 +1,14 @@
+id: fp4-155
+name: 'Stack wiki8x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'wiki8x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'wiki8x'

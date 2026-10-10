@@ -1,0 +1,20 @@
+id: xss5-1707
+name: 'Raw XSS5 in subject'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in subject'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      subject:
+        - '<a%0ahref=data:text/html,nx51706>click'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51706'

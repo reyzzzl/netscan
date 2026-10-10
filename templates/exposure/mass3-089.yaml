@@ -1,0 +1,18 @@
+id: mass3-089
+name: 'Mass field agent2'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered agent2 on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"u1","agent2":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

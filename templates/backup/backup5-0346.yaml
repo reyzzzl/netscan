@@ -1,0 +1,15 @@
+id: backup5-0346
+name: 'Exposed /db.sql.mdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /db.sql.mdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/db.sql.mdb'
+    matchers:
+      - type: status
+        status: [200]

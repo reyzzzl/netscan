@@ -1,0 +1,15 @@
+id: cve5-artifactoryx-11
+name: 'artifactoryx at /health'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'artifactoryx at /health — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/health'
+    matchers:
+      - type: status
+        status: [200]

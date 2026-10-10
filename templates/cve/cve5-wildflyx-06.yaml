@@ -1,0 +1,15 @@
+id: cve5-wildflyx-06
+name: 'wildflyx at /manager'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'wildflyx at /manager — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/manager'
+    matchers:
+      - type: status
+        status: [200]

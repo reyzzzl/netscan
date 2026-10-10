@@ -1,0 +1,20 @@
+id: xss5-1036
+name: 'Raw XSS5 in placeholder'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in placeholder'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      placeholder:
+        - '<details%0aopen%0aontoggle=nx51035>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51035'

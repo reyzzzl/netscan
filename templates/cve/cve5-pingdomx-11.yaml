@@ -1,0 +1,15 @@
+id: cve5-pingdomx-11
+name: 'pingdomx at /health'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'pingdomx at /health — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/health'
+    matchers:
+      - type: status
+        status: [200]

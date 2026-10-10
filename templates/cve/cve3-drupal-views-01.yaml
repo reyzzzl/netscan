@@ -1,0 +1,15 @@
+id: cve3-drupal-views-01
+name: 'Drupal views CHANGELOG.txt'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Drupal views at /modules/contrib/views/CHANGELOG.txt — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/modules/contrib/views/CHANGELOG.txt'
+    matchers:
+      - type: status
+        status: [200]

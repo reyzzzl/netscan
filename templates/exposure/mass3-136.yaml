@@ -1,0 +1,18 @@
+id: mass3-136
+name: 'Mass field transaction'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered transaction on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"t","transaction":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

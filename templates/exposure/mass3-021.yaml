@@ -1,0 +1,18 @@
+id: mass3-021
+name: 'Mass field devops'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered devops on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"a1","devops":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

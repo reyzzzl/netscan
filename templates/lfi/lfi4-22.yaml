@@ -1,0 +1,20 @@
+id: lfi4-22
+name: 'System file /proc/self/mounts via path'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads /proc/self/mounts via path'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      path:
+        - '/proc/self/mounts'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '/proc'

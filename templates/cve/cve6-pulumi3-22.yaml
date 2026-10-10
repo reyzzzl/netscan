@@ -1,0 +1,15 @@
+id: cve6-pulumi3-22
+name: 'pulumi3 at /phpinfo'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'pulumi3 at /phpinfo — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/phpinfo'
+    matchers:
+      - type: status
+        status: [200]

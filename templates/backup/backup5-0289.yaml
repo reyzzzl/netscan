@@ -1,0 +1,15 @@
+id: backup5-0289
+name: 'Exposed /dump.sql.json5'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /dump.sql.json5 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dump.sql.json5'
+    matchers:
+      - type: status
+        status: [200]

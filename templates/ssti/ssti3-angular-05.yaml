@@ -1,0 +1,20 @@
+id: ssti3-angular-05
+name: 'SSTI angular in desc'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - angular
+description: 'angular evaluates payload in desc'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      desc:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

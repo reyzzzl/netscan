@@ -1,0 +1,20 @@
+id: lfi4-12
+name: 'System file /etc/shells via path'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads /etc/shells via path'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      path:
+        - '/etc/shells'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '/bin/bash'

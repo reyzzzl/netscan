@@ -1,0 +1,15 @@
+id: cve5-cratesx-20
+name: 'cratesx at /graphql'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'cratesx at /graphql — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/graphql'
+    matchers:
+      - type: status
+        status: [200]

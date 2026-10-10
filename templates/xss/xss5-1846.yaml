@@ -1,0 +1,20 @@
+id: xss5-1846
+name: 'Raw XSS5 in message'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in message'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      message:
+        - '<marquee%09behavior=slide%09onstart=nx51845>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51845'

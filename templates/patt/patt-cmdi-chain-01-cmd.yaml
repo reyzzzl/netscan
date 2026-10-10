@@ -1,0 +1,20 @@
+id: patt-cmdi-chain-01-cmd
+name: 'PATT cmdi patt-cmdi-chain-01 via cmd'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - patt
+description: 'PATT chaining semicolon (run then new command). [patt:patt-cmdi-chain-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Command%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      cmd:
+        - ';id'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='

@@ -1,0 +1,20 @@
+id: xss5-0684
+name: 'Raw XSS5 in keyword'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in keyword'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      keyword:
+        - '<table%09background=data:text/html,nx50683>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50683'

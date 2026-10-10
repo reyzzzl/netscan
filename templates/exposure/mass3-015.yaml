@@ -1,0 +1,18 @@
+id: mass3-015
+name: 'Mass field god'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered god on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"a1","god":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

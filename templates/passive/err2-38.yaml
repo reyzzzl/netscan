@@ -1,0 +1,14 @@
+id: err2-38
+name: 'Error page: freemarker.core'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'freemarker.core'

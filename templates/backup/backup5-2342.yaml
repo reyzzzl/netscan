@@ -1,0 +1,15 @@
+id: backup5-2342
+name: 'Exposed /dbconnect.php.sum'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /dbconnect.php.sum is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dbconnect.php.sum'
+    matchers:
+      - type: status
+        status: [200]

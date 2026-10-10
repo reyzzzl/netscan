@@ -1,0 +1,19 @@
+id: patt-xss-attr-unq-01-message
+name: 'PATT xss patt-xss-attr-unq-01 via message'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+description: 'PATT injection attribute unquoted: add event handler without closing the tag. [patt:patt-xss-attr-unq-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      message:
+        - ' x onfocus=nxp0013 autofocus tabindex=1'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0013'

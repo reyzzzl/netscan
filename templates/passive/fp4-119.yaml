@@ -1,0 +1,14 @@
+id: fp4-119
+name: 'Stack web6x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'web6x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'web6x'

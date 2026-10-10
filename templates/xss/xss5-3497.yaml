@@ -1,0 +1,20 @@
+id: xss5-3497
+name: 'Raw XSS5 in lastname'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in lastname'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      lastname:
+        - '<bgsound%0asrc=javascript:nx53496>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53496'

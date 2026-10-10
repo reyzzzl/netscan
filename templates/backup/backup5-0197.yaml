@@ -1,0 +1,15 @@
+id: backup5-0197
+name: 'Exposed /.env.accdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.accdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.accdb'
+    matchers:
+      - type: status
+        status: [200]

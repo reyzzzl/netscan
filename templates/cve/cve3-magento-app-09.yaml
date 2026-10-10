@@ -1,0 +1,15 @@
+id: cve3-magento-app-09
+name: 'Magento app/bootstrap.php bootstrap.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Magento app/bootstrap.php at /app/etc/app/bootstrap.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/app/etc/app/bootstrap.php'
+    matchers:
+      - type: status
+        status: [200]

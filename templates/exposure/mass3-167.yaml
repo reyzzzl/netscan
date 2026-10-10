@@ -1,0 +1,18 @@
+id: mass3-167
+name: 'Mass field promo'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered promo on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"u1","promo":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

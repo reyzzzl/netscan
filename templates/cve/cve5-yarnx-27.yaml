@@ -1,0 +1,15 @@
+id: cve5-yarnx-27
+name: 'yarnx at /sitemap.xml'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'yarnx at /sitemap.xml — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sitemap.xml'
+    matchers:
+      - type: status
+        status: [200]

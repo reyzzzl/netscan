@@ -1,0 +1,15 @@
+id: backup5-0171
+name: 'Exposed /.env.clone'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.clone is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.clone'
+    matchers:
+      - type: status
+        status: [200]

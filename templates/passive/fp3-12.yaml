@@ -1,0 +1,14 @@
+id: fp3-12
+name: 'Stack flask3'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'flask3 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'flask3'

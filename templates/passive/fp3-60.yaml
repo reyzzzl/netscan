@@ -1,0 +1,14 @@
+id: fp3-60
+name: 'Stack pocketbase02'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'pocketbase02 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'pocketbase02'

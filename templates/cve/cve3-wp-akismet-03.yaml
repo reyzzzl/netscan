@@ -1,0 +1,15 @@
+id: cve3-wp-akismet-03
+name: 'WP akismet CHANGELOG.md'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP akismet at /wp-content/plugins/akismet/CHANGELOG.md — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/akismet/CHANGELOG.md'
+    matchers:
+      - type: status
+        status: [200]

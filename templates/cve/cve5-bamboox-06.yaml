@@ -1,0 +1,15 @@
+id: cve5-bamboox-06
+name: 'bamboox at /manager'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'bamboox at /manager — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/manager'
+    matchers:
+      - type: status
+        status: [200]

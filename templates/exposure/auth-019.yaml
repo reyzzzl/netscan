@@ -1,0 +1,15 @@
+id: auth-019
+name: 'Dev endpoint at /dev'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Dev endpoint returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dev'
+    matchers:
+      - type: status
+        status: [200]

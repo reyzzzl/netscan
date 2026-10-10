@@ -1,0 +1,14 @@
+id: hdr4-126
+name: 'Header x-liveness-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-liveness-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-liveness-2'

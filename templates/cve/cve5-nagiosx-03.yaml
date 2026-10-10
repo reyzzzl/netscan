@@ -1,0 +1,15 @@
+id: cve5-nagiosx-03
+name: 'nagiosx at /admin'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'nagiosx at /admin — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/admin'
+    matchers:
+      - type: status
+        status: [200]

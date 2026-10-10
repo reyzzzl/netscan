@@ -1,0 +1,15 @@
+id: backup3-063
+name: 'Exposed /server/build'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /server/build is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/server/build'
+    matchers:
+      - type: status
+        status: [200]

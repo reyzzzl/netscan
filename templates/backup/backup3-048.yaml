@@ -1,0 +1,15 @@
+id: backup3-048
+name: 'Exposed /wp-content/sunrise.php'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /wp-content/sunrise.php is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/sunrise.php'
+    matchers:
+      - type: status
+        status: [200]

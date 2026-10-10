@@ -1,0 +1,15 @@
+id: backup5-2316
+name: 'Exposed /dbconnect.php.dev'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /dbconnect.php.dev is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dbconnect.php.dev'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup5-1867
+name: 'Exposed /setup.php.test'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /setup.php.test is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/setup.php.test'
+    matchers:
+      - type: status
+        status: [200]

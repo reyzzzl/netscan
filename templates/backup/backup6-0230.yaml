@@ -1,0 +1,15 @@
+id: backup6-0230
+name: 'Exposed /reset.php.rar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /reset.php.rar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/reset.php.rar'
+    matchers:
+      - type: status
+        status: [200]

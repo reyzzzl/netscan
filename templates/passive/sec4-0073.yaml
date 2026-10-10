@@ -1,0 +1,14 @@
+id: sec4-0073
+name: 'Token zed2- (body)'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Possible token in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'zed2-'

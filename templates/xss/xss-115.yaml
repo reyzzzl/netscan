@@ -1,0 +1,20 @@
+id: xss-115
+name: 'Reflected XSS ctx-27 via name'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<select onfocus=nx114c autofocus>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx114c'

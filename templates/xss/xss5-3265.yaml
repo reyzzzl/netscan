@@ -1,0 +1,20 @@
+id: xss5-3265
+name: 'Raw XSS5 in company'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in company'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      company:
+        - '<form><button%09formaction=javascript:nx53264>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53264'

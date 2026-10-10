@@ -1,0 +1,15 @@
+id: backupx-027
+name: 'Exposed /api-docs.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /api-docs.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api-docs.bak'
+    matchers:
+      - type: status
+        status: [200]

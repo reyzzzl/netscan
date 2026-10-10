@@ -1,0 +1,15 @@
+id: cve6-backstagex-04
+name: 'backstagex at /api'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'backstagex at /api — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api'
+    matchers:
+      - type: status
+        status: [200]

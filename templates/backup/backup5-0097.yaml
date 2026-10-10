@@ -1,0 +1,15 @@
+id: backup5-0097
+name: 'Exposed /wp-config.php.accdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /wp-config.php.accdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-config.php.accdb'
+    matchers:
+      - type: status
+        status: [200]

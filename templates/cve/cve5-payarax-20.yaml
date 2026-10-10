@@ -1,0 +1,15 @@
+id: cve5-payarax-20
+name: 'payarax at /graphql'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'payarax at /graphql — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/graphql'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup5-2464
+name: 'Exposed /auth.php.dist'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /auth.php.dist is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/auth.php.dist'
+    matchers:
+      - type: status
+        status: [200]

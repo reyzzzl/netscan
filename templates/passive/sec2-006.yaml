@@ -1,0 +1,14 @@
+id: sec2-006
+name: 'GitHub OAuth'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'GitHub OAuth in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'gho_'

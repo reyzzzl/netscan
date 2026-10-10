@@ -1,0 +1,15 @@
+id: backup-092
+name: 'Exposed /fullchain.pem'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /fullchain.pem is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/fullchain.pem'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup5-2656
+name: 'Exposed /key.php.tmp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /key.php.tmp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/key.php.tmp'
+    matchers:
+      - type: status
+        status: [200]

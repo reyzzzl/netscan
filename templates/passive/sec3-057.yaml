@@ -1,0 +1,14 @@
+id: sec3-057
+name: 'Secret: asana'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Possible secret in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'asana'

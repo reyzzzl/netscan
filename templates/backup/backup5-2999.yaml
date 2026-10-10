@@ -1,0 +1,15 @@
+id: backup5-2999
+name: 'Exposed /hosts.php.back'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /hosts.php.back is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/hosts.php.back'
+    matchers:
+      - type: status
+        status: [200]

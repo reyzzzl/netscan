@@ -1,0 +1,20 @@
+id: patt-cors-null-01
+name: 'PATT CORS patt-cors-null-01'
+severity: medium
+type: active
+tags:
+  - cors
+  - patt
+  - headers
+  - api
+description: 'PATT CORS Null Origin (eksploit via iframe data: URI). [patt:patt-cors-null-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/CORS%20Misconfiguration/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/data'
+    sendHeaders:
+      Origin: 'null'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'null'

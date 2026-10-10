@@ -1,0 +1,15 @@
+id: cve5-glassfishx-14
+name: 'glassfishx at /info'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'glassfishx at /info — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/info'
+    matchers:
+      - type: status
+        status: [200]

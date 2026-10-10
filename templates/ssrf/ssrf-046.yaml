@@ -1,0 +1,24 @@
+id: ssrf-046
+name: 'SSRF via image'
+severity: high
+type: active
+tags:
+  - ssrf
+  - oob
+  - cloud
+description: 'Fetches internal URL via image (verify manually)'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      image:
+        - 'http://0.0.0.0/'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'ami-id'
+          - 'instance-id'
+          - 'metadata'
+          - 'root:x:0:0'
+          - 'PONG'

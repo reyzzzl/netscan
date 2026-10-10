@@ -1,0 +1,20 @@
+id: xss5-1990
+name: 'Raw XSS5 in details'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in details'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      details:
+        - '<input%09type=image%09formaction=javascript:nx51989>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51989'

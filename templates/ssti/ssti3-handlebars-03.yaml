@@ -1,0 +1,20 @@
+id: ssti3-handlebars-03
+name: 'SSTI handlebars in desc'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - handlebars
+description: 'handlebars evaluates payload in desc'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      desc:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

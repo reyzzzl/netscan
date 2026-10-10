@@ -1,0 +1,15 @@
+id: cve5-upsourcene-12
+name: 'upsourcene at /metrics'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'upsourcene at /metrics — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/metrics'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: cve5-zabbixx-02
+name: 'zabbixx at /login'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'zabbixx at /login — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/login'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,14 @@
+id: fp3-57
+name: 'Stack payload2'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'payload2 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'payload2'

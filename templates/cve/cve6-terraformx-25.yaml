@@ -1,0 +1,15 @@
+id: cve6-terraformx-25
+name: 'terraformx at /.env'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'terraformx at /.env — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup4-143
+name: 'Exposed /upload.php.1'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /upload.php.1 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/upload.php.1'
+    matchers:
+      - type: status
+        status: [200]

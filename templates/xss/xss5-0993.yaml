@@ -1,0 +1,20 @@
+id: xss5-0993
+name: 'Raw XSS5 in caption'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in caption'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      caption:
+        - 'jaVasCript%3anx50992'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50992'

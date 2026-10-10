@@ -1,0 +1,15 @@
+id: cve5-cratesx-30
+name: 'cratesx at /.well-known/'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'cratesx at /.well-known/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.well-known/'
+    matchers:
+      - type: status
+        status: [200]

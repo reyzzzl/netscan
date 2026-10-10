@@ -1,0 +1,15 @@
+id: auth4-434
+name: 'Panel at /account/dashboard'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /account/dashboard returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/account/dashboard'
+    matchers:
+      - type: status
+        status: [200]

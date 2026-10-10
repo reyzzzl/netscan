@@ -1,0 +1,15 @@
+id: backup3-038
+name: 'Exposed /.well-known/host-meta'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.well-known/host-meta is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.well-known/host-meta'
+    matchers:
+      - type: status
+        status: [200]

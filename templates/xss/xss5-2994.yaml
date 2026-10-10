@@ -1,0 +1,20 @@
+id: xss5-2994
+name: 'Raw XSS5 in label'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in label'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      label:
+        - '<meta%09http-equiv=refresh%09content="0;javascript:nx52993">'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52993'

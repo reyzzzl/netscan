@@ -1,0 +1,22 @@
+id: sqli6-informix-14
+name: 'SQLi informix probe in cat2'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - informix
+description: 'Triggers informix error via cat2'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      cat2:
+        - ''') UNION SELECT 1,2--'
+        - ''' HAVING 1=1--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'Informix'
+          - 'ISAM error'

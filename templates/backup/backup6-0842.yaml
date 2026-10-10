@@ -1,0 +1,15 @@
+id: backup6-0842
+name: 'Exposed /about.php.mod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /about.php.mod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/about.php.mod'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: ssti3-django-02
+name: 'SSTI django in desc'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - django
+description: 'django evaluates payload in desc'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      desc:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

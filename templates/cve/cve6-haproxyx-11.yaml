@@ -1,0 +1,15 @@
+id: cve6-haproxyx-11
+name: 'haproxyx at /health'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'haproxyx at /health — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/health'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: xss-173
+name: 'Reflected XSS ctx-27 via search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '<select onfocus=nx172c autofocus>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx172c'

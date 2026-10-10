@@ -1,0 +1,15 @@
+id: backupx-041
+name: 'Exposed /package.json.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /package.json.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/package.json.bak'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: xss5-3072
+name: 'Raw XSS5 in subtext'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in subtext'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      subtext:
+        - '<xss%0astyle=x%0aonpointerover=nx53071>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53071'

@@ -1,0 +1,14 @@
+id: err2-23
+name: 'Error page: at async'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'at async'

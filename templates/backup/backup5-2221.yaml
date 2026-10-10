@@ -1,0 +1,15 @@
+id: backup5-2221
+name: 'Exposed /sidebar.php.clone'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sidebar.php.clone is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sidebar.php.clone'
+    matchers:
+      - type: status
+        status: [200]

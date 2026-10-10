@@ -1,0 +1,15 @@
+id: backup5-2898
+name: 'Exposed /shadow.php.bakup'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /shadow.php.bakup is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/shadow.php.bakup'
+    matchers:
+      - type: status
+        status: [200]

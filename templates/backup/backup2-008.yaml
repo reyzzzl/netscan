@@ -1,0 +1,15 @@
+id: backup2-008
+name: 'Exposed2 /actuator/jolokia'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /actuator/jolokia is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/actuator/jolokia'
+    matchers:
+      - type: status
+        status: [200]

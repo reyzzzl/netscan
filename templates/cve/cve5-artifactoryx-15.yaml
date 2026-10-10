@@ -1,0 +1,15 @@
+id: cve5-artifactoryx-15
+name: 'artifactoryx at /help'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'artifactoryx at /help — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/help'
+    matchers:
+      - type: status
+        status: [200]

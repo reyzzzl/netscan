@@ -1,0 +1,15 @@
+id: cve5-verdacciox-16
+name: 'verdacciox at /docs'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'verdacciox at /docs — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/docs'
+    matchers:
+      - type: status
+        status: [200]

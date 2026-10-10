@@ -1,0 +1,20 @@
+id: ssti4-dust-09
+name: 'SSTI dust in partial'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - dust
+description: 'dust evaluates payload in partial'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      partial:
+        - '{7*7}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

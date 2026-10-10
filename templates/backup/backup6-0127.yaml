@@ -1,0 +1,15 @@
+id: backup6-0127
+name: 'Exposed /register.php.gz'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /register.php.gz is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/register.php.gz'
+    matchers:
+      - type: status
+        status: [200]

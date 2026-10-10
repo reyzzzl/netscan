@@ -1,0 +1,15 @@
+id: auth2-056
+name: 'Vault at /vault'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Vault returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/vault'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,14 @@
+id: fp3-09
+name: 'Stack solidstart'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'solidstart stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'solidstart'

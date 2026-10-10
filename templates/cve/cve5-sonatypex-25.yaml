@@ -1,0 +1,15 @@
+id: cve5-sonatypex-25
+name: 'sonatypex at /.env'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'sonatypex at /.env — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: cve5-payarax-19
+name: 'payarax at /api/v2'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'payarax at /api/v2 — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/v2'
+    matchers:
+      - type: status
+        status: [200]

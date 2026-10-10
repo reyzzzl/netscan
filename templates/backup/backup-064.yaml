@@ -1,0 +1,15 @@
+id: backup-064
+name: 'Exposed /dev'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /dev is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dev'
+    matchers:
+      - type: status
+        status: [200]

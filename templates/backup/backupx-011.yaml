@@ -1,0 +1,15 @@
+id: backupx-011
+name: 'Exposed /prod.sql'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /prod.sql is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/prod.sql'
+    matchers:
+      - type: status
+        status: [200]

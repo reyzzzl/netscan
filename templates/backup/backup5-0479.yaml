@@ -1,0 +1,15 @@
+id: backup5-0479
+name: 'Exposed /database.sqlite.zip2'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /database.sqlite.zip2 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/database.sqlite.zip2'
+    matchers:
+      - type: status
+        status: [200]

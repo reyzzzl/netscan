@@ -1,0 +1,19 @@
+id: redirect2-068
+name: 'Open redirect2 via redirect_to'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Unsafe redirect via redirect_to'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      redirect_to:
+        - 'https://evil.example/%2e'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

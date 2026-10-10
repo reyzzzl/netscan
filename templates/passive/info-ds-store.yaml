@@ -1,0 +1,14 @@
+id: info-ds-store
+name: 'DS_Store reference'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - exposure
+description: 'DS_Store reference — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - '.DS_Store'

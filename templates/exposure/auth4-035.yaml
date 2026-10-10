@@ -1,0 +1,15 @@
+id: auth4-035
+name: 'Panel at /api/api'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /api/api returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/api'
+    matchers:
+      - type: status
+        status: [200]

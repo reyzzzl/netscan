@@ -1,0 +1,15 @@
+id: auth4-401
+name: 'Panel at /sso/config'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /sso/config returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sso/config'
+    matchers:
+      - type: status
+        status: [200]

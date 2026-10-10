@@ -1,0 +1,20 @@
+id: crlf4-244
+name: 'CRLF into url'
+severity: medium
+type: active
+tags:
+  - crlf
+  - injection
+  - headers
+description: 'CRLF header injection via url'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      url:
+        - '%0d%0aX-Test: t'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'x-test'

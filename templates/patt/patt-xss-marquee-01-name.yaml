@@ -1,0 +1,19 @@
+id: patt-xss-marquee-01-name
+name: 'PATT xss patt-xss-marquee-01 via name'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+description: 'PATT marquee onstart. [patt:patt-xss-marquee-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<marquee loop=1 behavior=slide width=1 onstart=nxp0023>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0023'

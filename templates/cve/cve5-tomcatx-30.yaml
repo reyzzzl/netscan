@@ -1,0 +1,15 @@
+id: cve5-tomcatx-30
+name: 'tomcatx at /.well-known/'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'tomcatx at /.well-known/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.well-known/'
+    matchers:
+      - type: status
+        status: [200]

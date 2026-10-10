@@ -1,0 +1,20 @@
+id: ssti-thymeleaf-01
+name: 'SSTI thymeleaf via name'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - thymeleaf
+description: 'thymeleaf evaluates payload in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '${7*7}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

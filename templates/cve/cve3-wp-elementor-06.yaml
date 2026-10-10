@@ -1,0 +1,15 @@
+id: cve3-wp-elementor-06
+name: 'WP elementor uninstall.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP elementor at /wp-content/plugins/elementor/uninstall.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/elementor/uninstall.php'
+    matchers:
+      - type: status
+        status: [200]

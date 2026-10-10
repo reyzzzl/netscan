@@ -1,0 +1,20 @@
+id: xss-041
+name: 'Reflected XSS ctx-11 via q'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '<marquee onstart=nx040c>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx040c'

@@ -1,0 +1,15 @@
+id: backup6-0782
+name: 'Exposed /faq.php.tpl'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /faq.php.tpl is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/faq.php.tpl'
+    matchers:
+      - type: status
+        status: [200]

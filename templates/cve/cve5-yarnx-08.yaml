@@ -1,0 +1,15 @@
+id: cve5-yarnx-08
+name: 'yarnx at /test'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'yarnx at /test — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/test'
+    matchers:
+      - type: status
+        status: [200]

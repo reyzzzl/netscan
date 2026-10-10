@@ -1,0 +1,18 @@
+id: mass3-282
+name: 'Mass field micr'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered micr on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"a1","micr":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

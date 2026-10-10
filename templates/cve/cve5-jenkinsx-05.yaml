@@ -1,0 +1,15 @@
+id: cve5-jenkinsx-05
+name: 'jenkinsx at /console'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'jenkinsx at /console — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/console'
+    matchers:
+      - type: status
+        status: [200]

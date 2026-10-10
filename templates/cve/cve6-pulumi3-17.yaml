@@ -1,0 +1,15 @@
+id: cve6-pulumi3-17
+name: 'pulumi3 at /api/docs'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'pulumi3 at /api/docs — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/docs'
+    matchers:
+      - type: status
+        status: [200]

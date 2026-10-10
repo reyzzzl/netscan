@@ -1,0 +1,18 @@
+id: mass3-102
+name: 'Mass field partner'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered partner on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"a1","partner":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

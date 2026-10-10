@@ -1,0 +1,15 @@
+id: backup5-3793
+name: 'Exposed /mail.php.mod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /mail.php.mod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/mail.php.mod'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: cve6-gremlin2-20
+name: 'gremlin2 at /graphql'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'gremlin2 at /graphql — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/graphql'
+    matchers:
+      - type: status
+        status: [200]

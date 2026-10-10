@@ -1,0 +1,20 @@
+id: xss4-019
+name: 'Raw XSS4 #18 in input'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in input'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      input:
+        - '<link rel=stylesheet href=javascript:alert(nx4018)>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx4018'

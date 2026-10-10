@@ -1,0 +1,20 @@
+id: ssti-twig-01
+name: 'SSTI twig via template'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - twig
+description: 'twig evaluates payload in template'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      template:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

@@ -1,0 +1,14 @@
+id: fp4-244
+name: 'Stack library13x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'library13x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'library13x'

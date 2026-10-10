@@ -1,0 +1,15 @@
+id: auth4-409
+name: 'Panel at /sso/new'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /sso/new returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sso/new'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,18 @@
+id: mass3-289
+name: 'Mass field order2'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered order2 on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"t","order2":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

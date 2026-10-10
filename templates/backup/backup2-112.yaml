@@ -1,0 +1,15 @@
+id: backup2-112
+name: 'Exposed2 /firestore.rules'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /firestore.rules is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/firestore.rules'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,14 @@
+id: sec2-051
+name: 'Stripe live key alt'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Stripe live key alt in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'sk_live_'

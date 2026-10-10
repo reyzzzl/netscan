@@ -1,0 +1,20 @@
+id: ssti4-flask-12
+name: 'SSTI flask in template'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - flask
+description: 'flask evaluates payload in template'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      template:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

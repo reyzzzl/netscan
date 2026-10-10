@@ -1,0 +1,15 @@
+id: cve5-sourcetreex-12
+name: 'sourcetreex at /metrics'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'sourcetreex at /metrics — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/metrics'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: ssrf4-35
+name: 'SSRF scheme gopher via callback'
+severity: high
+type: active
+tags:
+  - ssrf
+  - oob
+  - scheme
+description: 'Fetches gopher URL via callback (verify manually)'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      callback:
+        - 'gopher://127.0.0.1:11211/_stats'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'PONG'

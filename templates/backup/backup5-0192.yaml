@@ -1,0 +1,15 @@
+id: backup5-0192
+name: 'Exposed /.env.sum'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.sum is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.sum'
+    matchers:
+      - type: status
+        status: [200]

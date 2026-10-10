@@ -1,0 +1,15 @@
+id: cve5-sentinelx-11
+name: 'sentinelx at /health'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'sentinelx at /health — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/health'
+    matchers:
+      - type: status
+        status: [200]

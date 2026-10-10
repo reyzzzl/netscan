@@ -1,0 +1,15 @@
+id: auth3-070
+name: 'Panel at /bugsnag'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /bugsnag returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/bugsnag'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup6-0362
+name: 'Exposed /confirm.php.5'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /confirm.php.5 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/confirm.php.5'
+    matchers:
+      - type: status
+        status: [200]

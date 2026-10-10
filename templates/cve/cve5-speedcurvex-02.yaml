@@ -1,0 +1,15 @@
+id: cve5-speedcurvex-02
+name: 'speedcurvex at /login'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'speedcurvex at /login — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/login'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,19 @@
+id: redirect2-099
+name: 'Open redirect2 via to'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Unsafe redirect via to'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      to:
+        - 'javascript:alert(1)'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'javascript:'

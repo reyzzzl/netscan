@@ -1,0 +1,15 @@
+id: cve5-cruciblex-17
+name: 'cruciblex at /api/docs'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'cruciblex at /api/docs — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/docs'
+    matchers:
+      - type: status
+        status: [200]

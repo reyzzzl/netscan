@@ -1,0 +1,15 @@
+id: backup5-0279
+name: 'Exposed /dump.sql.zip2'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /dump.sql.zip2 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dump.sql.zip2'
+    matchers:
+      - type: status
+        status: [200]

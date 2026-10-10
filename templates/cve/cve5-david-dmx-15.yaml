@@ -1,0 +1,15 @@
+id: cve5-david-dmx-15
+name: 'david-dmx at /help'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'david-dmx at /help — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/help'
+    matchers:
+      - type: status
+        status: [200]

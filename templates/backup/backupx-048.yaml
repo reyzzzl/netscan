@@ -1,0 +1,15 @@
+id: backupx-048
+name: 'Exposed /robots.txt.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /robots.txt.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/robots.txt.bak'
+    matchers:
+      - type: status
+        status: [200]

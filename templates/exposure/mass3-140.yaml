@@ -1,0 +1,18 @@
+id: mass3-140
+name: 'Mass field payment2'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered payment2 on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"u1","payment2":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

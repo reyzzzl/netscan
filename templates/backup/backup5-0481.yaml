@@ -1,0 +1,15 @@
+id: backup5-0481
+name: 'Exposed /database.sqlite.rar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /database.sqlite.rar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/database.sqlite.rar'
+    matchers:
+      - type: status
+        status: [200]

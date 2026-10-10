@@ -1,0 +1,15 @@
+id: backup5-0851
+name: 'Exposed /routes.php.bk'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /routes.php.bk is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/routes.php.bk'
+    matchers:
+      - type: status
+        status: [200]

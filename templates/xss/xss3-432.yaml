@@ -1,0 +1,20 @@
+id: xss3-432
+name: 'Raw XSS3 #11 in term'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in term'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      term:
+        - '<marquee%0aloop=1%0aonstart=nx3431>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3431'

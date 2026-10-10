@@ -1,0 +1,15 @@
+id: backup6-0627
+name: 'Exposed /returns.php.gz'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /returns.php.gz is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/returns.php.gz'
+    matchers:
+      - type: status
+        status: [200]

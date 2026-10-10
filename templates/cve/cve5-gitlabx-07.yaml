@@ -1,0 +1,15 @@
+id: cve5-gitlabx-07
+name: 'gitlabx at /debug'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'gitlabx at /debug — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/debug'
+    matchers:
+      - type: status
+        status: [200]

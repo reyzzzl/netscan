@@ -1,0 +1,15 @@
+id: backup5-0771
+name: 'Exposed /bootstrap.php.clone'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /bootstrap.php.clone is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/bootstrap.php.clone'
+    matchers:
+      - type: status
+        status: [200]

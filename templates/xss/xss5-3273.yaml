@@ -1,0 +1,20 @@
+id: xss5-3273
+name: 'Raw XSS5 in caption'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in caption'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      caption:
+        - '<xss%09style=x%09onauxclick=nx53272>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53272'

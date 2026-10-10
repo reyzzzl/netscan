@@ -1,0 +1,14 @@
+id: fp2-14
+name: 'Fingerprint laravel10'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'laravel10 detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'laravel10'

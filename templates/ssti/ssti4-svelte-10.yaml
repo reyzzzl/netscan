@@ -1,0 +1,20 @@
+id: ssti4-svelte-10
+name: 'SSTI svelte in desc'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - svelte
+description: 'svelte evaluates payload in desc'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      desc:
+        - '{7*7}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

@@ -1,0 +1,20 @@
+id: xss-186
+name: 'Reflected XSS ctx-11 via message'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in message'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      message:
+        - '<marquee onstart=nx185c>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx185c'

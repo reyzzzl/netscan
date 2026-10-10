@@ -1,0 +1,14 @@
+id: sec2-048
+name: 'Azure key alt'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Azure key alt in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'DefaultEndpointsProtocol'

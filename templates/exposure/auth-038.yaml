@@ -1,0 +1,15 @@
+id: auth-038
+name: 'Version at /version'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Version returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/version'
+    matchers:
+      - type: status
+        status: [200]

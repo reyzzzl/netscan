@@ -1,0 +1,15 @@
+id: backup5-2532
+name: 'Exposed /session.php.inc'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /session.php.inc is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/session.php.inc'
+    matchers:
+      - type: status
+        status: [200]

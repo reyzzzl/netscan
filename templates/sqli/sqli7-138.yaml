@@ -1,0 +1,25 @@
+id: sqli7-138
+name: 'UNION probe in mid'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - union
+description: 'Triggers DB error via mid'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      mid:
+        - ''' UNION SELECT 0x61646d696e--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'SQL syntax'
+          - 'mysql_fetch'
+          - 'PostgreSQL'
+          - 'ODBC'
+          - 'ORA-'
+          - 'SQLite'

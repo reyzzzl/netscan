@@ -1,0 +1,15 @@
+id: cve6-consulx-09
+name: 'consulx at /dev'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'consulx at /dev — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dev'
+    matchers:
+      - type: status
+        status: [200]

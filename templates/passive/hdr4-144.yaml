@@ -1,0 +1,14 @@
+id: hdr4-144
+name: 'Header x-pet-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-pet-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-pet-2'

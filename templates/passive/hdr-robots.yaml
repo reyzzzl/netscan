@@ -1,0 +1,15 @@
+id: hdr-robots
+name: 'Robots header missing'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Robots header missing — header not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-robots-tag'
+    negative: true

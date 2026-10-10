@@ -1,0 +1,25 @@
+id: sqli2-stacked-17
+name: 'SQLi stacked via id'
+severity: critical
+type: active
+tags:
+  - sqli
+  - injection
+  - stacked
+description: 'Extra SQL statement via id'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      id:
+        - '"; SELECT 1--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'SQL syntax'
+          - 'mysql_fetch'
+          - 'PostgreSQL'
+          - 'ODBC'
+          - 'ORA-'
+          - 'SQLite'

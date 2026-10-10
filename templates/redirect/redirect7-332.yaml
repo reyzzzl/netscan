@@ -1,0 +1,20 @@
+id: redirect7-332
+name: 'Trusted bypass in ref'
+severity: high
+type: active
+tags:
+  - redirect
+  - open-redirect
+  - bypass
+description: 'Bypasses trusted.com allowlist via ref'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      ref:
+        - 'https://trusted.com#@evil.example/'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

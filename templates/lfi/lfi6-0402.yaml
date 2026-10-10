@@ -1,0 +1,20 @@
+id: lfi6-0402
+name: 'Traversal in path'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via path'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      path:
+        - '/proc/version'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'Linux version'

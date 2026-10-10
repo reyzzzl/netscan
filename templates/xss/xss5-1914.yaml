@@ -1,0 +1,20 @@
+id: xss5-1914
+name: 'Raw XSS5 in label'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in label'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      label:
+        - '<div style="-moz-binding:url(''javascript:nx51913'')">'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51913'

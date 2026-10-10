@@ -1,0 +1,15 @@
+id: cve6-caddyx-16
+name: 'caddyx at /docs'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'caddyx at /docs — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/docs'
+    matchers:
+      - type: status
+        status: [200]

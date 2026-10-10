@@ -1,0 +1,20 @@
+id: ssti-smarty2-03
+name: 'SSTI smarty2 via name'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - smarty2
+description: 'smarty2 evaluates payload in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '{$x=7*7}{$x}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

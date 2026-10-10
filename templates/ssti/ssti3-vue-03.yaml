@@ -1,0 +1,20 @@
+id: ssti3-vue-03
+name: 'SSTI vue in body'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - vue
+description: 'vue evaluates payload in body'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      body:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

@@ -1,0 +1,15 @@
+id: auth4-576
+name: 'Panel at /order/console'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /order/console returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/order/console'
+    matchers:
+      - type: status
+        status: [200]

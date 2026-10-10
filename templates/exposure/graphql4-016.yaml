@@ -1,0 +1,22 @@
+id: graphql4-016
+name: 'GQL probe in operation'
+severity: medium
+type: active
+tags:
+  - graphql
+  - api
+  - introspection
+description: 'GraphQL schema exposed via operation'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      operation:
+        - '{__schema{queryType{name}}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '__schema'
+          - '__typename'
+          - 'data'

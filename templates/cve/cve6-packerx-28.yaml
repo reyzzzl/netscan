@@ -1,0 +1,15 @@
+id: cve6-packerx-28
+name: 'packerx at /crossdomain.xml'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'packerx at /crossdomain.xml — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/crossdomain.xml'
+    matchers:
+      - type: status
+        status: [200]

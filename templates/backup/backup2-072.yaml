@@ -1,0 +1,15 @@
+id: backup2-072
+name: 'Exposed2 /ansible.cfg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /ansible.cfg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/ansible.cfg'
+    matchers:
+      - type: status
+        status: [200]

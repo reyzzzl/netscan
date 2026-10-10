@@ -1,0 +1,15 @@
+id: backup5-0088
+name: 'Exposed /wp-config.php.yaml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /wp-config.php.yaml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-config.php.yaml'
+    matchers:
+      - type: status
+        status: [200]

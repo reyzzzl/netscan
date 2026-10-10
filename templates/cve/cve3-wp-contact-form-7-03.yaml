@@ -1,0 +1,15 @@
+id: cve3-wp-contact-form-7-03
+name: 'WP contact-form-7 CHANGELOG.md'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP contact-form-7 at /wp-content/plugins/contact-form-7/CHANGELOG.md — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/contact-form-7/CHANGELOG.md'
+    matchers:
+      - type: status
+        status: [200]

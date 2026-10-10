@@ -1,0 +1,14 @@
+id: err3-49
+name: 'Framework error: chakra-ui'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Framework error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'chakra-ui'

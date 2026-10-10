@@ -1,0 +1,15 @@
+id: cve5-lokiex-17
+name: 'lokiex at /api/docs'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'lokiex at /api/docs — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/docs'
+    matchers:
+      - type: status
+        status: [200]

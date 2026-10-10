@@ -1,0 +1,20 @@
+id: redirect5-17
+name: 'Scheme redirect in to'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+  - scheme
+description: 'Dangerous scheme via to'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      to:
+        - 'javascript:/*x*/alert(1)'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'javascript:'

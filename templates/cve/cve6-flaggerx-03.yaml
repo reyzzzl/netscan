@@ -1,0 +1,15 @@
+id: cve6-flaggerx-03
+name: 'flaggerx at /admin'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'flaggerx at /admin — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/admin'
+    matchers:
+      - type: status
+        status: [200]

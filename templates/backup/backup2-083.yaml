@@ -1,0 +1,15 @@
+id: backup2-083
+name: 'Exposed2 /main.tf'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /main.tf is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/main.tf'
+    matchers:
+      - type: status
+        status: [200]

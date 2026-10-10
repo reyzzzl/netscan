@@ -1,0 +1,15 @@
+id: cve5-statuscakex-17
+name: 'statuscakex at /api/docs'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'statuscakex at /api/docs — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/docs'
+    matchers:
+      - type: status
+        status: [200]

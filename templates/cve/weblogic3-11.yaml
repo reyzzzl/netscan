@@ -1,0 +1,15 @@
+id: weblogic3-11
+name: 'WebLogic3 root'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WebLogic3 at /bea_wls_internal/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/bea_wls_internal/?v=12'
+    matchers:
+      - type: status
+        status: [200]

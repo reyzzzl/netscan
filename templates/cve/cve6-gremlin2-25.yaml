@@ -1,0 +1,15 @@
+id: cve6-gremlin2-25
+name: 'gremlin2 at /.env'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'gremlin2 at /.env — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: ssti3-pebble-03
+name: 'SSTI pebble in content'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - pebble
+description: 'pebble evaluates payload in content'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      content:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

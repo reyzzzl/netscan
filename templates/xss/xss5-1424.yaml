@@ -1,0 +1,20 @@
+id: xss5-1424
+name: 'Raw XSS5 in zip'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in zip'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      zip:
+        - '<script%0d>alert(nx51423)</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51423'

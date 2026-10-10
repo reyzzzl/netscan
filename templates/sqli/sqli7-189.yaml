@@ -1,0 +1,25 @@
+id: sqli7-189
+name: 'UNION probe in pid'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - union
+description: 'Triggers DB error via pid'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      pid:
+        - ''' UNION ALL SELECT NULL--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'SQL syntax'
+          - 'mysql_fetch'
+          - 'PostgreSQL'
+          - 'ODBC'
+          - 'ORA-'
+          - 'SQLite'

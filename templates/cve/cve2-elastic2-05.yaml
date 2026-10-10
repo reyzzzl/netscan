@@ -1,0 +1,15 @@
+id: cve2-elastic2-05
+name: 'Elastic2 fingerprint /_cluster/health v5'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Elastic2 at /_cluster/health — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/_cluster/health'
+    matchers:
+      - type: status
+        status: [200]

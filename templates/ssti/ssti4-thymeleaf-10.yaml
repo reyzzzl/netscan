@@ -1,0 +1,20 @@
+id: ssti4-thymeleaf-10
+name: 'SSTI thymeleaf in d'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - thymeleaf
+description: 'thymeleaf evaluates payload in d'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      d:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

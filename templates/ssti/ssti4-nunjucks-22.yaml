@@ -1,0 +1,20 @@
+id: ssti4-nunjucks-22
+name: 'SSTI nunjucks in t'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - nunjucks
+description: 'nunjucks evaluates payload in t'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      t:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

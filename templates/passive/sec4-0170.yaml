@@ -1,0 +1,14 @@
+id: sec4-0170
+name: 'Token stack-ai2- (all)'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Possible token in all — verify manually'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'stack-ai2-'

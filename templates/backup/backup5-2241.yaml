@@ -1,0 +1,15 @@
+id: backup5-2241
+name: 'Exposed /sidebar.php.lock'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sidebar.php.lock is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sidebar.php.lock'
+    matchers:
+      - type: status
+        status: [200]

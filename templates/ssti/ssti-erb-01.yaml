@@ -1,0 +1,20 @@
+id: ssti-erb-01
+name: 'SSTI erb via name'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - erb
+description: 'erb evaluates payload in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<%= 7*7 %>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

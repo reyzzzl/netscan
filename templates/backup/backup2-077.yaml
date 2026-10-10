@@ -1,0 +1,15 @@
+id: backup2-077
+name: 'Exposed2 /kubernetes/'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /kubernetes/ is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/kubernetes/'
+    matchers:
+      - type: status
+        status: [200]

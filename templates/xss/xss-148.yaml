@@ -1,0 +1,20 @@
+id: xss-148
+name: 'Reflected XSS ctx-2 via title'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in title'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      title:
+        - '''"><svg onload=nx147c>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx147c'

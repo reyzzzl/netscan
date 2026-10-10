@@ -1,0 +1,14 @@
+id: hdr4-099
+name: 'Header x-session-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-session-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-session-2'

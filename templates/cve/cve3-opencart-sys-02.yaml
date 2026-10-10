@@ -1,0 +1,15 @@
+id: cve3-opencart-sys-02
+name: 'OpenCart configuration.php-dist configuration.php-dist'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'OpenCart configuration.php-dist at /system/configuration.php-dist — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/system/configuration.php-dist'
+    matchers:
+      - type: status
+        status: [200]

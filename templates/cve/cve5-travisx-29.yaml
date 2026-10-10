@@ -1,0 +1,15 @@
+id: cve5-travisx-29
+name: 'travisx at /clientaccesspolicy.xml'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'travisx at /clientaccesspolicy.xml — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/clientaccesspolicy.xml'
+    matchers:
+      - type: status
+        status: [200]

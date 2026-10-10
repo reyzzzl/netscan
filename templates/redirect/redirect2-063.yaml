@@ -1,0 +1,19 @@
+id: redirect2-063
+name: 'Open redirect2 via file'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Unsafe redirect via file'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      file:
+        - 'javascript:alert(1)'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'javascript:'

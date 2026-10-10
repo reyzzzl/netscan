@@ -1,0 +1,20 @@
+id: ssti4-velocity-04
+name: 'SSTI velocity in content'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - velocity
+description: 'velocity evaluates payload in content'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      content:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

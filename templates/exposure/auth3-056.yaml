@@ -1,0 +1,15 @@
+id: auth3-056
+name: 'Panel at /parca'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /parca returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/parca'
+    matchers:
+      - type: status
+        status: [200]

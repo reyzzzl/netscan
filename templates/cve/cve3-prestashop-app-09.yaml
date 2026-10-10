@@ -1,0 +1,15 @@
+id: cve3-prestashop-app-09
+name: 'PrestaShop themes/ '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'PrestaShop themes/ at /app/config/themes/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/app/config/themes/'
+    matchers:
+      - type: status
+        status: [200]

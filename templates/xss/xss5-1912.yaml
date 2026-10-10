@@ -1,0 +1,20 @@
+id: xss5-1912
+name: 'Raw XSS5 in subtext'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in subtext'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      subtext:
+        - '<style>@import ''javascript:nx51911'';</style>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51911'

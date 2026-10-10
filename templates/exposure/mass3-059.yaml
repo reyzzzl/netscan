@@ -1,0 +1,18 @@
+id: mass3-059
+name: 'Mass field master'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered master on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"u1","master":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

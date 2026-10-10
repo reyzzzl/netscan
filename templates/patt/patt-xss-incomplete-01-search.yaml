@@ -1,0 +1,20 @@
+id: patt-xss-incomplete-01-search
+name: 'PATT xss patt-xss-incomplete-01 via search'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+  - filterangle
+description: 'PATT Bypass with Incomplete HTML Tag (IE/Firefox/Chrome/Safari). [patt:patt-xss-incomplete-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/1%20-%20XSS%20Filter%20Bypass.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '<img src=''1'' onerror=''nxp0005'' <'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0005'

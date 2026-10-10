@@ -1,0 +1,15 @@
+id: backup-051
+name: 'Exposed /debug.log'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /debug.log is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/debug.log'
+    matchers:
+      - type: status
+        status: [200]

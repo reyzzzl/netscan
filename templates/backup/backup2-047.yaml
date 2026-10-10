@@ -1,0 +1,15 @@
+id: backup2-047
+name: 'Exposed2 /.storybook/'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.storybook/ is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.storybook/'
+    matchers:
+      - type: status
+        status: [200]

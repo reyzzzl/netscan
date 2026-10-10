@@ -1,0 +1,15 @@
+id: cve5-confluencex-17
+name: 'confluencex at /api/docs'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'confluencex at /api/docs — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/docs'
+    matchers:
+      - type: status
+        status: [200]

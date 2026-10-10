@@ -1,0 +1,21 @@
+id: backup-004
+name: 'Exposed /.env'
+severity: high
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env'
+    match-all: true
+    matchers:
+      - type: status
+        status: [200]
+      - type: word
+        part: body
+        words:
+          - 'APP_KEY'
+          - 'DB_PASSWORD'

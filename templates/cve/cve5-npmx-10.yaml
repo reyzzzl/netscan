@@ -1,0 +1,15 @@
+id: cve5-npmx-10
+name: 'npmx at /status'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'npmx at /status — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/status'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: cve3-wp-yoast-05
+name: 'WP yoast yoast.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP yoast at /wp-content/plugins/yoast/yoast.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/yoast/yoast.php'
+    matchers:
+      - type: status
+        status: [200]

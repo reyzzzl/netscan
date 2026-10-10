@@ -1,0 +1,14 @@
+id: hdr4-086
+name: 'Header x-wappalyzer-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-wappalyzer-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-wappalyzer-2'

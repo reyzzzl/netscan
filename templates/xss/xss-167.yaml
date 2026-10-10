@@ -1,0 +1,20 @@
+id: xss-167
+name: 'Reflected XSS ctx-21 via comment'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in comment'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      comment:
+        - '${nx166c}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx166c'

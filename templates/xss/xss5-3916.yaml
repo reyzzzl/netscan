@@ -1,0 +1,20 @@
+id: xss5-3916
+name: 'Raw XSS5 in placeholder'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in placeholder'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      placeholder:
+        - '<table%09background=data:text/html,nx53915>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53915'

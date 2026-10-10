@@ -1,0 +1,18 @@
+id: mass3-153
+name: 'Mass field loan'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered loan on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"a1","loan":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

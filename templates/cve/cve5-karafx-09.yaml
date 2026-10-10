@@ -1,0 +1,15 @@
+id: cve5-karafx-09
+name: 'karafx at /dev'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'karafx at /dev — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dev'
+    matchers:
+      - type: status
+        status: [200]

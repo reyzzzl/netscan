@@ -1,0 +1,20 @@
+id: lfi4-09
+name: 'System file /proc/cmdline via include'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads /proc/cmdline via include'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      include:
+        - '/proc/cmdline'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'BOOT_IMAGE'

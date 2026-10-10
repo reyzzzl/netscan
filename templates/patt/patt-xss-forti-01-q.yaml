@@ -1,0 +1,20 @@
+id: patt-xss-forti-01-q
+name: 'PATT xss patt-xss-forti-01 via q'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+  - waffortiweb
+description: 'PATT Fortiweb 9 Jul 2019: unicode-escape <h1>. [patt:patt-xss-forti-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/3%20-%20XSS%20Common%20WAF%20Bypass.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '\u003e\u003c\u0068\u0031 onclick=nxp0034\u003e'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0034'

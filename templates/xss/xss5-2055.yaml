@@ -1,0 +1,20 @@
+id: xss5-2055
+name: 'Raw XSS5 in word'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in word'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      word:
+        - '<table%0abackground=javascript:nx52054>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52054'

@@ -1,0 +1,15 @@
+id: backup5-3446
+name: 'Exposed /restore.php.mdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /restore.php.mdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/restore.php.mdb'
+    matchers:
+      - type: status
+        status: [200]

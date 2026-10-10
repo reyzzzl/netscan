@@ -1,0 +1,14 @@
+id: hdr4-117
+name: 'Header x-hsm-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-hsm-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-hsm-2'

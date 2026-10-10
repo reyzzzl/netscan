@@ -1,0 +1,20 @@
+id: lfi4-52
+name: 'System file /etc/resolv.conf via path'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads /etc/resolv.conf via path'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      path:
+        - '/etc/resolv.conf'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nameserver'

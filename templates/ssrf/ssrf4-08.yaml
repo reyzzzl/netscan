@@ -1,0 +1,20 @@
+id: ssrf4-08
+name: 'SSRF scheme ldap via link'
+severity: high
+type: active
+tags:
+  - ssrf
+  - oob
+  - scheme
+description: 'Fetches ldap URL via link (verify manually)'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      link:
+        - 'ldap://127.0.0.1/dc=lab'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'dn:'

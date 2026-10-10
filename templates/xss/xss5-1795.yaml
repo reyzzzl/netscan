@@ -1,0 +1,20 @@
+id: xss5-1795
+name: 'Raw XSS5 in hint'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in hint'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      hint:
+        - '<table%09background=data:text/html,nx51794>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51794'

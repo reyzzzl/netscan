@@ -1,0 +1,15 @@
+id: cve5-lokiex-24
+name: 'lokiex at /.git/HEAD'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'lokiex at /.git/HEAD — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.git/HEAD'
+    matchers:
+      - type: status
+        status: [200]

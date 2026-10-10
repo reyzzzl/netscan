@@ -1,0 +1,19 @@
+id: patt-ssti-poly-04-template
+name: 'PATT ssti patt-ssti-poly-04 via template'
+severity: critical
+type: active
+tags:
+  - ssti
+  - patt
+description: 'PATT universal detection: Pug/Ruby-string render 49. [patt:patt-ssti-poly-04] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Server%20Side%20Template%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      template:
+        - '#{7*7}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

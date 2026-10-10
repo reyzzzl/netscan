@@ -1,0 +1,20 @@
+id: xss5-3276
+name: 'Raw XSS5 in placeholder'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in placeholder'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      placeholder:
+        - '<video%0a><source%0aonerror=nx53275>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53275'

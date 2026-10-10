@@ -1,0 +1,20 @@
+id: ssti2-ejs-03
+name: 'SSTI2 ejs via msg2'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - ejs
+description: 'ejs evaluates payload in msg2'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      msg2:
+        - '<%= 7*7 %>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

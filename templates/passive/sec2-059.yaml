@@ -1,0 +1,14 @@
+id: sec2-059
+name: 'Twilio SK alt'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Twilio SK alt in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'SK'

@@ -1,0 +1,15 @@
+id: cve5-fisheyex-11
+name: 'fisheyex at /health'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'fisheyex at /health — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/health'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: redirect7-389
+name: 'Trusted bypass in forward'
+severity: high
+type: active
+tags:
+  - redirect
+  - open-redirect
+  - bypass
+description: 'Bypasses trusted.com allowlist via forward'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      forward:
+        - 'https://trusted.com%2f.evil.example/'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

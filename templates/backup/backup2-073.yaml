@@ -1,0 +1,15 @@
+id: backup2-073
+name: 'Exposed2 /Vagrantfile'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /Vagrantfile is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/Vagrantfile'
+    matchers:
+      - type: status
+        status: [200]

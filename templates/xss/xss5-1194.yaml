@@ -1,0 +1,20 @@
+id: xss5-1194
+name: 'Raw XSS5 in label'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in label'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      label:
+        - '<mi%0ahref=javascript:nx51193>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51193'

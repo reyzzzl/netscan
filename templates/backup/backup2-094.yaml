@@ -1,0 +1,15 @@
+id: backup2-094
+name: 'Exposed2 /hibernate.cfg.xml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /hibernate.cfg.xml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/hibernate.cfg.xml'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: lfi4-10
+name: 'System file /proc/self/mounts via view'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads /proc/self/mounts via view'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      view:
+        - '/proc/self/mounts'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '/proc'

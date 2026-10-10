@@ -1,0 +1,15 @@
+id: backup5-3540
+name: 'Exposed /cron.php.toml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /cron.php.toml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/cron.php.toml'
+    matchers:
+      - type: status
+        status: [200]

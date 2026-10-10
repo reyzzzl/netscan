@@ -1,0 +1,20 @@
+id: xss5-3042
+name: 'Raw XSS5 in s'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in s'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      s:
+        - '<sCrIpT%09>alert(nx53041)</sCrIpT>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53041'

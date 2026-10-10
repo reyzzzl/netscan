@@ -1,0 +1,20 @@
+id: xss5-0350
+name: 'Raw XSS5 in details'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in details'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      details:
+        - '<audio%0asrc=x%0aonerror=nx50349>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50349'

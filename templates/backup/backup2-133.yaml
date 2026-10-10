@@ -1,0 +1,15 @@
+id: backup2-133
+name: 'Exposed2 /alertmanager.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /alertmanager.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/alertmanager.yml'
+    matchers:
+      - type: status
+        status: [200]

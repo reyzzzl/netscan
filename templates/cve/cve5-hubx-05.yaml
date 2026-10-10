@@ -1,0 +1,15 @@
+id: cve5-hubx-05
+name: 'hubx at /console'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'hubx at /console — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/console'
+    matchers:
+      - type: status
+        status: [200]

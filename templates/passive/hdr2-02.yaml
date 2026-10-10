@@ -1,0 +1,15 @@
+id: hdr2-02
+name: 'Missing cross-origin-opener-policy'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header cross-origin-opener-policy not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'cross-origin-opener-policy'
+    negative: true

@@ -1,0 +1,20 @@
+id: xss5-0453
+name: 'Raw XSS5 in value'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in value'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      value:
+        - '<select%09autofocus%09onfocus=nx50452>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50452'

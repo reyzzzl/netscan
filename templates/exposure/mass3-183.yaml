@@ -1,0 +1,18 @@
+id: mass3-183
+name: 'Mass field rank'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered rank on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"a1","rank":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

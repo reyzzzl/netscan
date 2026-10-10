@@ -1,0 +1,20 @@
+id: crlf4-399
+name: 'CRLF into info'
+severity: medium
+type: active
+tags:
+  - crlf
+  - injection
+  - headers
+description: 'CRLF header injection via info'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      info:
+        - 'x%0d%0aLocation: /'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'x-test'

@@ -1,0 +1,15 @@
+id: cve5-fisheyex-13
+name: 'fisheyex at /version'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'fisheyex at /version — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/version'
+    matchers:
+      - type: status
+        status: [200]

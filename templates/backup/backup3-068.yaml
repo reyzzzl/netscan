@@ -1,0 +1,15 @@
+id: backup3-068
+name: 'Exposed /internal/status'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /internal/status is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/internal/status'
+    matchers:
+      - type: status
+        status: [200]

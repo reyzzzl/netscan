@@ -1,0 +1,15 @@
+id: cve5-pushmonx-04
+name: 'pushmonx at /api'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'pushmonx at /api — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api'
+    matchers:
+      - type: status
+        status: [200]

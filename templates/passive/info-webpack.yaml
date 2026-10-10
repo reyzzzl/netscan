@@ -1,0 +1,14 @@
+id: info-webpack
+name: 'Webpack dev server'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - debug
+description: 'Webpack dev server — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'webpackHotUpdate'

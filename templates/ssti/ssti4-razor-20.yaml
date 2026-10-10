@@ -1,0 +1,20 @@
+id: ssti4-razor-20
+name: 'SSTI razor in out'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - razor
+description: 'razor evaluates payload in out'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      out:
+        - '@(7*7)'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

@@ -1,0 +1,15 @@
+id: backup2-034
+name: 'Exposed2 /assets/'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /assets/ is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/assets/'
+    matchers:
+      - type: status
+        status: [200]

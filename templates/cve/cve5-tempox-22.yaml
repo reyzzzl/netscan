@@ -1,0 +1,15 @@
+id: cve5-tempox-22
+name: 'tempox at /phpinfo'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'tempox at /phpinfo — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/phpinfo'
+    matchers:
+      - type: status
+        status: [200]

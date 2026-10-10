@@ -1,0 +1,18 @@
+id: mass3-071
+name: 'Mass field leader'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered leader on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"u1","leader":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

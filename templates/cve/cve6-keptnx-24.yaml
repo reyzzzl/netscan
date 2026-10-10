@@ -1,0 +1,15 @@
+id: cve6-keptnx-24
+name: 'keptnx at /.git/HEAD'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'keptnx at /.git/HEAD — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.git/HEAD'
+    matchers:
+      - type: status
+        status: [200]

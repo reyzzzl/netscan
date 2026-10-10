@@ -1,0 +1,14 @@
+id: err3-10
+name: 'Framework error: adminjs'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Framework error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'adminjs'

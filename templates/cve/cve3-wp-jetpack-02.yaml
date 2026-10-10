@@ -1,0 +1,15 @@
+id: cve3-wp-jetpack-02
+name: 'WP jetpack readme.md'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP jetpack at /wp-content/plugins/jetpack/readme.md — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/jetpack/readme.md'
+    matchers:
+      - type: status
+        status: [200]

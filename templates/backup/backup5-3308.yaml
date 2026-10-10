@@ -1,0 +1,15 @@
+id: backup5-3308
+name: 'Exposed /local.php.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /local.php.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/local.php.bak'
+    matchers:
+      - type: status
+        status: [200]

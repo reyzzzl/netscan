@@ -1,0 +1,15 @@
+id: backup-002
+name: 'Exposed /.git/config'
+severity: high
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.git/config is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.git/config'
+    matchers:
+      - type: status
+        status: [200]

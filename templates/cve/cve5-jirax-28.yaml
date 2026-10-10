@@ -1,0 +1,15 @@
+id: cve5-jirax-28
+name: 'jirax at /crossdomain.xml'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'jirax at /crossdomain.xml — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/crossdomain.xml'
+    matchers:
+      - type: status
+        status: [200]

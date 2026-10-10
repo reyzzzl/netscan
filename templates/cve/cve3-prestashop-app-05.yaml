@@ -1,0 +1,15 @@
+id: cve3-prestashop-app-05
+name: 'PrestaShop classes/ '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'PrestaShop classes/ at /app/config/classes/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/app/config/classes/'
+    matchers:
+      - type: status
+        status: [200]

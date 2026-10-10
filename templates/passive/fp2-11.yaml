@@ -1,0 +1,14 @@
+id: fp2-11
+name: 'Fingerprint django4'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'django4 detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'django4'

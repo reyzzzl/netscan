@@ -1,0 +1,20 @@
+id: xss5-3654
+name: 'Raw XSS5 in data'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in data'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      data:
+        - '"><img%09src=x%09onerror=nx53653>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53653'

@@ -1,0 +1,19 @@
+id: cors3-102
+name: 'CORS origin https://e301.example'
+severity: medium
+type: active
+tags:
+  - cors
+  - headers
+  - api
+description: 'Origin reflected on /api/data'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/data'
+    sendHeaders:
+      Origin: 'https://e301.example'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'e301.example'

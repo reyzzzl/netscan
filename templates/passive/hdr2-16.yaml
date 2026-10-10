@@ -1,0 +1,15 @@
+id: hdr2-16
+name: 'Missing x-webkit-csp'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-webkit-csp not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-webkit-csp'
+    negative: true

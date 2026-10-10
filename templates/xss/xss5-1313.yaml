@@ -1,0 +1,20 @@
+id: xss5-1313
+name: 'Raw XSS5 in caption'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in caption'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      caption:
+        - '<xsl:value-of%09select=nx51312>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51312'

@@ -1,0 +1,15 @@
+id: backup5-3036
+name: 'Exposed /index.html.ini'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /index.html.ini is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/index.html.ini'
+    matchers:
+      - type: status
+        status: [200]

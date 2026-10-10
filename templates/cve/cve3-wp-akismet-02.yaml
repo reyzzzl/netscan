@@ -1,0 +1,15 @@
+id: cve3-wp-akismet-02
+name: 'WP akismet readme.md'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP akismet at /wp-content/plugins/akismet/readme.md — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/akismet/readme.md'
+    matchers:
+      - type: status
+        status: [200]

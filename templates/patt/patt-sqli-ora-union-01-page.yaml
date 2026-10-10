@@ -1,0 +1,22 @@
+id: patt-sqli-ora-union-01-page
+name: 'PATT sqli patt-sqli-ora-union-01 via page'
+severity: high
+type: active
+tags:
+  - sqli
+  - patt
+requires:
+  - java
+description: 'PATT Oracle UNION FROM dual. [patt:patt-sqli-ora-union-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/SQL%20Injection/OracleSQL%20Injection.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      page:
+        - '1'' UNION SELECT NULL FROM dual-- -'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'ORA-'
+          - 'Oracle error'

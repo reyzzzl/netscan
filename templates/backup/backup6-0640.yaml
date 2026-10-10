@@ -1,0 +1,15 @@
+id: backup6-0640
+name: 'Exposed /returns.php.lock'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /returns.php.lock is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/returns.php.lock'
+    matchers:
+      - type: status
+        status: [200]

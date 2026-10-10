@@ -1,0 +1,15 @@
+id: auth2-057
+name: 'Consul at /consul'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Consul returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/consul'
+    matchers:
+      - type: status
+        status: [200]

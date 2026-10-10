@@ -1,0 +1,20 @@
+id: cve3-wp-jetpack-01
+name: 'WP jetpack readme.txt'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP jetpack at /wp-content/plugins/jetpack/readme.txt — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/jetpack/readme.txt'
+    match-all: true
+    matchers:
+      - type: status
+        status: [200]
+      - type: word
+        part: body
+        words:
+          - 'Stable tag'

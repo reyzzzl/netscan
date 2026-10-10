@@ -1,0 +1,21 @@
+id: stored-004
+name: 'Stored XSS via notes.body'
+severity: high
+type: active
+tags:
+  - xss
+  - stored
+description: 'Stores canary, reads it back on /notes'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/notes'
+    body: 'body=<script>store004</script>'
+    sendHeaders:
+      Content-Type: 'application/x-www-form-urlencoded'
+  - method: GET
+    path: '{{BaseURL}}/notes'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'store004'

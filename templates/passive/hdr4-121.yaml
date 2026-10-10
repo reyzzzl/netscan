@@ -1,0 +1,14 @@
+id: hdr4-121
+name: 'Header x-mfa-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-mfa-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-mfa-2'

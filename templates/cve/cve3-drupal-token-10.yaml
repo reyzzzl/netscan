@@ -1,0 +1,15 @@
+id: cve3-drupal-token-10
+name: 'Drupal token '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Drupal token at /modules/contrib/token/config/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/modules/contrib/token/config/'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup5-2176
+name: 'Exposed /footer.php.pkg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /footer.php.pkg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/footer.php.pkg'
+    matchers:
+      - type: status
+        status: [200]

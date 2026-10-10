@@ -1,0 +1,15 @@
+id: backup6-0063
+name: 'Exposed /signout.php.dist'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /signout.php.dist is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/signout.php.dist'
+    matchers:
+      - type: status
+        status: [200]

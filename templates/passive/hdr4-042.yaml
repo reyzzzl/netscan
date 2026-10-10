@@ -1,0 +1,14 @@
+id: hdr4-042
+name: 'Header x-carbonblack-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-carbonblack-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-carbonblack-2'

@@ -1,0 +1,15 @@
+id: backup-100
+name: 'Exposed /config.yaml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /config.yaml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/config.yaml'
+    matchers:
+      - type: status
+        status: [200]

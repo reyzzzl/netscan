@@ -1,0 +1,14 @@
+id: fp2-02
+name: 'Fingerprint express'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'express detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'express'

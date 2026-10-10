@@ -1,0 +1,15 @@
+id: cve3-drupal-webform-04
+name: 'Drupal webform webform.info.yml'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Drupal webform at /modules/contrib/webform/webform.info.yml — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/modules/contrib/webform/webform.info.yml'
+    matchers:
+      - type: status
+        status: [200]

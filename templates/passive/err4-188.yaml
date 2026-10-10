@@ -1,0 +1,14 @@
+id: err4-188
+name: 'Error marker framework-error-187x'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Framework error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'framework-error-187x'

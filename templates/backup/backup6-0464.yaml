@@ -1,0 +1,15 @@
+id: backup6-0464
+name: 'Exposed /invoice.php.prod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /invoice.php.prod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/invoice.php.prod'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: hdr2-08
+name: 'Missing report-to'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header report-to not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'report-to'
+    negative: true

@@ -1,0 +1,15 @@
+id: backup5-0490
+name: 'Exposed /database.sqlite.toml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /database.sqlite.toml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/database.sqlite.toml'
+    matchers:
+      - type: status
+        status: [200]

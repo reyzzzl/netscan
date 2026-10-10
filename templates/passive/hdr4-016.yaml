@@ -1,0 +1,14 @@
+id: hdr4-016
+name: 'Header x-f5-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-f5-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-f5-2'

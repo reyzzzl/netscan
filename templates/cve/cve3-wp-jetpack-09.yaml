@@ -1,0 +1,15 @@
+id: cve3-wp-jetpack-09
+name: 'WP jetpack '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP jetpack at /wp-content/plugins/jetpack/languages/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/jetpack/languages/'
+    matchers:
+      - type: status
+        status: [200]

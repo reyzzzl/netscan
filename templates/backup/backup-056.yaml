@@ -1,0 +1,15 @@
+id: backup-056
+name: 'Exposed /CVS/Entries'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /CVS/Entries is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/CVS/Entries'
+    matchers:
+      - type: status
+        status: [200]

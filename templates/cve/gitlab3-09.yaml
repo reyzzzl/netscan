@@ -1,0 +1,15 @@
+id: gitlab3-09
+name: 'GitLab3 health'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'GitLab3 at /-/health — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/-/health?v=10'
+    matchers:
+      - type: status
+        status: [200]

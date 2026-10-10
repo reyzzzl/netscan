@@ -1,0 +1,15 @@
+id: cve5-weblogicx-09
+name: 'weblogicx at /dev'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'weblogicx at /dev — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dev'
+    matchers:
+      - type: status
+        status: [200]

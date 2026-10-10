@@ -1,0 +1,15 @@
+id: backup5-2487
+name: 'Exposed /auth.php.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /auth.php.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/auth.php.yml'
+    matchers:
+      - type: status
+        status: [200]

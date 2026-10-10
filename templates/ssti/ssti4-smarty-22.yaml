@@ -1,0 +1,20 @@
+id: ssti4-smarty-22
+name: 'SSTI smarty in y'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - smarty
+description: 'smarty evaluates payload in y'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      y:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

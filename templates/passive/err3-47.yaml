@@ -1,0 +1,14 @@
+id: err3-47
+name: 'Framework error: naive-ui'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Framework error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'naive-ui'

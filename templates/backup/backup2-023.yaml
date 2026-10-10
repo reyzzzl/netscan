@@ -1,0 +1,15 @@
+id: backup2-023
+name: 'Exposed2 /nginx-status'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /nginx-status is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/nginx-status'
+    matchers:
+      - type: status
+        status: [200]

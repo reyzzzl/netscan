@@ -1,0 +1,15 @@
+id: cve3-wp-contact-form-7-02
+name: 'WP contact-form-7 readme.md'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP contact-form-7 at /wp-content/plugins/contact-form-7/readme.md — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/contact-form-7/readme.md'
+    matchers:
+      - type: status
+        status: [200]

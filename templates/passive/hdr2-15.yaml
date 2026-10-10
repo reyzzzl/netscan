@@ -1,0 +1,15 @@
+id: hdr2-15
+name: 'Missing public-key-pins'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header public-key-pins not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'public-key-pins'
+    negative: true

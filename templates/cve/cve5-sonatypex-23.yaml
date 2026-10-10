@@ -1,0 +1,15 @@
+id: cve5-sonatypex-23
+name: 'sonatypex at /server-status'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'sonatypex at /server-status — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/server-status'
+    matchers:
+      - type: status
+        status: [200]

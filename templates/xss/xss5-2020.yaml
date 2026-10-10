@@ -1,0 +1,20 @@
+id: xss5-2020
+name: 'Raw XSS5 in address'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in address'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      address:
+        - '<xsl:value-of%09select=nx52019>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52019'

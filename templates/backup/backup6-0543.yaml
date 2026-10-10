@@ -1,0 +1,15 @@
+id: backup6-0543
+name: 'Exposed /shipping.php.sqlite'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /shipping.php.sqlite is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/shipping.php.sqlite'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: xss8-0620
+name: 'Raw XSS8 in address'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in address'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      address:
+        - '<keygen autofocus onfocus=nx80619%0d%0a>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx80619'

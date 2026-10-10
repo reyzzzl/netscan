@@ -1,0 +1,15 @@
+id: cve6-varnishx-04
+name: 'varnishx at /api'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'varnishx at /api — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api'
+    matchers:
+      - type: status
+        status: [200]

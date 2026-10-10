@@ -1,0 +1,15 @@
+id: cve5-bugzillax-01
+name: 'bugzillax at /'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'bugzillax at / — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/'
+    matchers:
+      - type: status
+        status: [200]

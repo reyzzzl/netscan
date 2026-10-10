@@ -1,0 +1,19 @@
+id: sqli3-time-070
+name: 'Time-blind delay in tid'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - blind
+  - time
+description: '3-second delay via tid'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      tid:
+        - '''; WAITFOR DELAY ''0:0:3''--'
+    matchers:
+      - type: time
+        ms: 2500

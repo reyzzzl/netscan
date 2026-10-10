@@ -1,0 +1,15 @@
+id: backup5-3821
+name: 'Exposed /sms.php.clone'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sms.php.clone is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sms.php.clone'
+    matchers:
+      - type: status
+        status: [200]

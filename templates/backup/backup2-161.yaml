@@ -1,0 +1,15 @@
+id: backup2-161
+name: 'Exposed2 /wp-config.php.copy'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /wp-config.php.copy is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-config.php.copy'
+    matchers:
+      - type: status
+        status: [200]

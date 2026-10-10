@@ -1,0 +1,23 @@
+id: cmdi6-0998
+name: 'Shell injection in job'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - injection
+  - rce
+description: 'OS command runs via job'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      job:
+        - ';echo${IFS}NX'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='
+          - 'root:x:0:0'
+          - 'www-data'

@@ -1,0 +1,15 @@
+id: backup6-0683
+name: 'Exposed /support.php.conf'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /support.php.conf is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/support.php.conf'
+    matchers:
+      - type: status
+        status: [200]

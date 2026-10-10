@@ -1,0 +1,15 @@
+id: cve6-traefikx-23
+name: 'traefikx at /server-status'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'traefikx at /server-status — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/server-status'
+    matchers:
+      - type: status
+        status: [200]

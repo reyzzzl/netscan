@@ -1,0 +1,15 @@
+id: backup2-136
+name: 'Exposed2 /nagios.cfg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /nagios.cfg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/nagios.cfg'
+    matchers:
+      - type: status
+        status: [200]

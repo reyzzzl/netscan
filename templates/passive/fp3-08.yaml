@@ -1,0 +1,14 @@
+id: fp3-08
+name: 'Stack astro3'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'astro3 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'astro3'

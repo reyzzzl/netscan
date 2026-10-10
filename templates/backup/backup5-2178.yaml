@@ -1,0 +1,15 @@
+id: backup5-2178
+name: 'Exposed /footer.php.gz'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /footer.php.gz is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/footer.php.gz'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: xss5-1000
+name: 'Raw XSS5 in nick'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in nick'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      nick:
+        - '<a%0ahref=data:text/html,nx50999>click'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50999'

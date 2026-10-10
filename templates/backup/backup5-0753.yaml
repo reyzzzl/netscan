@@ -1,0 +1,15 @@
+id: backup5-0753
+name: 'Exposed /bootstrap.php.orig'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /bootstrap.php.orig is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/bootstrap.php.orig'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: cve3-ghost-api-08
+name: 'Ghost api/tags tags'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Ghost api/tags at /ghost/api/tags — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/ghost/api/tags'
+    matchers:
+      - type: status
+        status: [200]

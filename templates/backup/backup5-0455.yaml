@@ -1,0 +1,15 @@
+id: backup5-0455
+name: 'Exposed /database.sqlite.swp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /database.sqlite.swp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/database.sqlite.swp'
+    matchers:
+      - type: status
+        status: [200]

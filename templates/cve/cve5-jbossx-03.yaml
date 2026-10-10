@@ -1,0 +1,15 @@
+id: cve5-jbossx-03
+name: 'jbossx at /admin'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'jbossx at /admin — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/admin'
+    matchers:
+      - type: status
+        status: [200]

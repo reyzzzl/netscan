@@ -1,0 +1,15 @@
+id: backup5-2903
+name: 'Exposed /group.php.orig'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /group.php.orig is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/group.php.orig'
+    matchers:
+      - type: status
+        status: [200]

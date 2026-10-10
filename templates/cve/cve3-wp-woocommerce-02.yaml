@@ -1,0 +1,15 @@
+id: cve3-wp-woocommerce-02
+name: 'WP woocommerce readme.md'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP woocommerce at /wp-content/plugins/woocommerce/readme.md — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/woocommerce/readme.md'
+    matchers:
+      - type: status
+        status: [200]

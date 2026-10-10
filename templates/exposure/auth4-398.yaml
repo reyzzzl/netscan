@@ -1,0 +1,15 @@
+id: auth4-398
+name: 'Panel at /sso/v1'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /sso/v1 returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sso/v1'
+    matchers:
+      - type: status
+        status: [200]

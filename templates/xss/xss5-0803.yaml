@@ -1,0 +1,20 @@
+id: xss5-0803
+name: 'Raw XSS5 in search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '<div style="-moz-binding:url(''javascript:nx50802'')">'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50802'

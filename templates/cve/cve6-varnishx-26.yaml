@@ -1,0 +1,15 @@
+id: cve6-varnishx-26
+name: 'varnishx at /robots.txt'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'varnishx at /robots.txt — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/robots.txt'
+    matchers:
+      - type: status
+        status: [200]

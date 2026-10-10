@@ -1,0 +1,15 @@
+id: backup5-0940
+name: 'Exposed /ajax.php.toml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /ajax.php.toml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/ajax.php.toml'
+    matchers:
+      - type: status
+        status: [200]

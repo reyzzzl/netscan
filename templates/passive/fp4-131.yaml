@@ -1,0 +1,14 @@
+id: fp4-131
+name: 'Stack shop7x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'shop7x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'shop7x'

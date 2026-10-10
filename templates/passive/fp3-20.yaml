@@ -1,0 +1,14 @@
+id: fp3-20
+name: 'Stack micronaut4'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'micronaut4 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'micronaut4'

@@ -1,0 +1,20 @@
+id: xss5-3342
+name: 'Raw XSS5 in country'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in country'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      country:
+        - '<script%09>alert(nx53341)</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53341'

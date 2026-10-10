@@ -1,0 +1,15 @@
+id: auth4-292
+name: 'Panel at /portal/'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /portal/ returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/portal/'
+    matchers:
+      - type: status
+        status: [200]

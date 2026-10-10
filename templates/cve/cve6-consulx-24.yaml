@@ -1,0 +1,15 @@
+id: cve6-consulx-24
+name: 'consulx at /.git/HEAD'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'consulx at /.git/HEAD — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.git/HEAD'
+    matchers:
+      - type: status
+        status: [200]

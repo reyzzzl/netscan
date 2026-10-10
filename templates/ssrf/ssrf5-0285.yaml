@@ -1,0 +1,24 @@
+id: ssrf5-0285
+name: 'SSRF probe in href'
+severity: high
+type: active
+tags:
+  - ssrf
+  - oob
+  - cloud
+description: 'Fetches internal URL via href (verify manually)'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      href:
+        - 'http://0/'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'ami-id'
+          - 'instance-id'
+          - 'metadata'
+          - 'root:x:0:0'
+          - 'PONG'

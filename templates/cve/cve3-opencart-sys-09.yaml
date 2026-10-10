@@ -1,0 +1,15 @@
+id: cve3-opencart-sys-09
+name: 'OpenCart plugins/ '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'OpenCart plugins/ at /system/plugins/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/system/plugins/'
+    matchers:
+      - type: status
+        status: [200]

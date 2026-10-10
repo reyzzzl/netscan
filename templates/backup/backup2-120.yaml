@@ -1,0 +1,15 @@
+id: backup2-120
+name: 'Exposed2 /web.config.orig'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /web.config.orig is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/web.config.orig'
+    matchers:
+      - type: status
+        status: [200]

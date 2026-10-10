@@ -1,0 +1,15 @@
+id: cve5-nettyx-22
+name: 'nettyx at /phpinfo'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'nettyx at /phpinfo — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/phpinfo'
+    matchers:
+      - type: status
+        status: [200]

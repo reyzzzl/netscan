@@ -1,0 +1,25 @@
+id: xss6strict-0600
+name: 'Strict raw XSS in nick'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      nick:
+        - '<input autofocus onfocus=sx60599>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx60599'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx60599'

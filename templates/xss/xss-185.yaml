@@ -1,0 +1,20 @@
+id: xss-185
+name: 'Reflected XSS ctx-10 via name'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<details open ontoggle=nx184c>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx184c'

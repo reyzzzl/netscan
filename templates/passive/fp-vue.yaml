@@ -1,0 +1,15 @@
+id: fp-vue
+name: 'Vue fingerprint'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'Vue fingerprint — detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'vue'
+      - '__VUE'

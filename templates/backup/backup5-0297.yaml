@@ -1,0 +1,15 @@
+id: backup5-0297
+name: 'Exposed /dump.sql.accdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /dump.sql.accdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dump.sql.accdb'
+    matchers:
+      - type: status
+        status: [200]

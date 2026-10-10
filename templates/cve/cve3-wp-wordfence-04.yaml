@@ -1,0 +1,15 @@
+id: cve3-wp-wordfence-04
+name: 'WP wordfence LICENSE'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP wordfence at /wp-content/plugins/wordfence/LICENSE — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/wordfence/LICENSE'
+    matchers:
+      - type: status
+        status: [200]

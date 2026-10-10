@@ -1,0 +1,20 @@
+id: cve3-wp-elementor-01
+name: 'WP elementor readme.txt'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP elementor at /wp-content/plugins/elementor/readme.txt — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/elementor/readme.txt'
+    match-all: true
+    matchers:
+      - type: status
+        status: [200]
+      - type: word
+        part: body
+        words:
+          - 'Stable tag'

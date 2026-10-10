@@ -1,0 +1,20 @@
+id: xss5-0484
+name: 'Raw XSS5 in keyword'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in keyword'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      keyword:
+        - '<svg><animate%09onbegin=nx50483 attributeName=x>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50483'

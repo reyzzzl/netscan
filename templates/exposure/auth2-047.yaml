@@ -1,0 +1,15 @@
+id: auth2-047
+name: 'Metabase at /metabase'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Metabase returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/metabase'
+    matchers:
+      - type: status
+        status: [200]

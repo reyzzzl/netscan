@@ -1,0 +1,16 @@
+id: hdr4-02
+name: 'Powered-by chain'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - fingerprint
+description: 'Powered-by headers present'
+matchers:
+  - type: regex
+    part: headers
+    regex:
+      - 'x-powered-by'
+      - 'x-aspnet'
+      - 'x-generator'

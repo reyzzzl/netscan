@@ -1,0 +1,15 @@
+id: cve5-thanosx-19
+name: 'thanosx at /api/v2'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'thanosx at /api/v2 — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/v2'
+    matchers:
+      - type: status
+        status: [200]

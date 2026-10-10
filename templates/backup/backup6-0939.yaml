@@ -1,0 +1,15 @@
+id: backup6-0939
+name: 'Exposed /privacy.php.toml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /privacy.php.toml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/privacy.php.toml'
+    matchers:
+      - type: status
+        status: [200]

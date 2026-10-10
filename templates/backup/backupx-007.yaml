@@ -1,0 +1,15 @@
+id: backupx-007
+name: 'Exposed /backup.sql.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /backup.sql.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/backup.sql.bak'
+    matchers:
+      - type: status
+        status: [200]

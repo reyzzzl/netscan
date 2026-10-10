@@ -1,0 +1,15 @@
+id: cve3-wp-akismet-10
+name: 'WP akismet screenshot.png'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP akismet at /wp-content/plugins/akismet/screenshot.png — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/akismet/screenshot.png'
+    matchers:
+      - type: status
+        status: [200]

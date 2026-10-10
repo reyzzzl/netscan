@@ -1,0 +1,15 @@
+id: cve5-lighthouse-ci-10
+name: 'lighthouse-ci at /status'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'lighthouse-ci at /status — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/status'
+    matchers:
+      - type: status
+        status: [200]

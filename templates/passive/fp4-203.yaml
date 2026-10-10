@@ -1,0 +1,14 @@
+id: fp4-203
+name: 'Stack framework11x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'framework11x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'framework11x'

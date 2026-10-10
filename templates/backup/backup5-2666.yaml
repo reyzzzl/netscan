@@ -1,0 +1,15 @@
+id: backup5-2666
+name: 'Exposed /key.php.dev'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /key.php.dev is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/key.php.dev'
+    matchers:
+      - type: status
+        status: [200]

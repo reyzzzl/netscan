@@ -1,0 +1,15 @@
+id: cve5-circlecix-21
+name: 'circlecix at /debug/console'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'circlecix at /debug/console — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/debug/console'
+    matchers:
+      - type: status
+        status: [200]

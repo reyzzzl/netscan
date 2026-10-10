@@ -1,0 +1,15 @@
+id: backup2-118
+name: 'Exposed2 /_headers'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /_headers is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/_headers'
+    matchers:
+      - type: status
+        status: [200]

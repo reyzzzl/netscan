@@ -1,0 +1,15 @@
+id: backup5-2064
+name: 'Exposed /common.php.dist'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /common.php.dist is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/common.php.dist'
+    matchers:
+      - type: status
+        status: [200]

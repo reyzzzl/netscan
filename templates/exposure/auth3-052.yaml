@@ -1,0 +1,15 @@
+id: auth3-052
+name: 'Panel at /mimir'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /mimir returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/mimir'
+    matchers:
+      - type: status
+        status: [200]

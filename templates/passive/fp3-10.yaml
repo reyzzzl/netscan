@@ -1,0 +1,14 @@
+id: fp3-10
+name: 'Stack qwik1'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'qwik1 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'qwik1'

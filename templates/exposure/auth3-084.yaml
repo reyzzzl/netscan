@@ -1,0 +1,15 @@
+id: auth3-084
+name: 'Panel at /logdna'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /logdna returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/logdna'
+    matchers:
+      - type: status
+        status: [200]

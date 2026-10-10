@@ -1,0 +1,15 @@
+id: cve5-verdacciox-29
+name: 'verdacciox at /clientaccesspolicy.xml'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'verdacciox at /clientaccesspolicy.xml — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/clientaccesspolicy.xml'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: cve3-wp-wordfence-01
+name: 'WP wordfence readme.txt'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP wordfence at /wp-content/plugins/wordfence/readme.txt — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/wordfence/readme.txt'
+    match-all: true
+    matchers:
+      - type: status
+        status: [200]
+      - type: word
+        part: body
+        words:
+          - 'Stable tag'

@@ -1,0 +1,15 @@
+id: backup5-2325
+name: 'Exposed /dbconnect.php.bundle'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /dbconnect.php.bundle is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dbconnect.php.bundle'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: xss5-0129
+name: 'Raw XSS5 in query'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in query'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      query:
+        - '<marquee%09behavior=slide%09onstart=nx50128>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50128'

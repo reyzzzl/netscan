@@ -1,0 +1,15 @@
+id: backup5-2423
+name: 'Exposed /query.php.backup'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /query.php.backup is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/query.php.backup'
+    matchers:
+      - type: status
+        status: [200]

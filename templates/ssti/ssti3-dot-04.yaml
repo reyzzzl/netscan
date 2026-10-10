@@ -1,0 +1,20 @@
+id: ssti3-dot-04
+name: 'SSTI dot in bio'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - dot
+description: 'dot evaluates payload in bio'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      bio:
+        - '{{=7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

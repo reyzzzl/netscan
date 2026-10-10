@@ -1,0 +1,14 @@
+id: hdr4-020
+name: 'Header x-paloalto-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-paloalto-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-paloalto-2'

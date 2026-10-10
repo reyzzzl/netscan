@@ -1,0 +1,15 @@
+id: cve5-sourcetreex-03
+name: 'sourcetreex at /admin'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'sourcetreex at /admin — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/admin'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: xss5-1008
+name: 'Raw XSS5 in title'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in title'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      title:
+        - '<!--#include virtual="nx51007"-->'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51007'

@@ -1,0 +1,15 @@
+id: cve5-circlecix-27
+name: 'circlecix at /sitemap.xml'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'circlecix at /sitemap.xml — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sitemap.xml'
+    matchers:
+      - type: status
+        status: [200]

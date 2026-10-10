@@ -1,0 +1,15 @@
+id: backup6-0441
+name: 'Exposed /checkout.php.sum'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /checkout.php.sum is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/checkout.php.sum'
+    matchers:
+      - type: status
+        status: [200]

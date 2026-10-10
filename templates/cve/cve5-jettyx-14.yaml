@@ -1,0 +1,15 @@
+id: cve5-jettyx-14
+name: 'jettyx at /info'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'jettyx at /info — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/info'
+    matchers:
+      - type: status
+        status: [200]

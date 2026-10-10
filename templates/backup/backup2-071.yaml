@@ -1,0 +1,15 @@
+id: backup2-071
+name: 'Exposed2 /inventory.ini'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /inventory.ini is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/inventory.ini'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: cve5-lighthouse-ci-28
+name: 'lighthouse-ci at /crossdomain.xml'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'lighthouse-ci at /crossdomain.xml — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/crossdomain.xml'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: xss5-3312
+name: 'Raw XSS5 in subtext'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in subtext'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      subtext:
+        - '<svg><animate%09onbegin=nx53311 attributeName=x>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53311'

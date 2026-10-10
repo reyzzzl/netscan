@@ -1,0 +1,20 @@
+id: xss5-3575
+name: 'Raw XSS5 in word'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in word'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      word:
+        - '<math><mtext%0ahref=javascript:nx53574>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53574'

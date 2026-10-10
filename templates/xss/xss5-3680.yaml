@@ -1,0 +1,20 @@
+id: xss5-3680
+name: 'Raw XSS5 in nick'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in nick'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      nick:
+        - '<video%0a><source%0aonerror=nx53679>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53679'

@@ -1,0 +1,20 @@
+id: xss5-3643
+name: 'Raw XSS5 in search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '<image src=x onerror=nx53642>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53642'

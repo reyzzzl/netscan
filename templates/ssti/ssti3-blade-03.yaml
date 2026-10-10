@@ -1,0 +1,20 @@
+id: ssti3-blade-03
+name: 'SSTI blade in desc'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - blade
+description: 'blade evaluates payload in desc'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      desc:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

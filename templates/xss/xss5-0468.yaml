@@ -1,0 +1,20 @@
+id: xss5-0468
+name: 'Raw XSS5 in about'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in about'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      about:
+        - '<link%09rel=stylesheet%09href=javascript:nx50467>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50467'

@@ -1,0 +1,14 @@
+id: fp2-40
+name: 'Fingerprint wordpress6'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'wordpress6 detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'wordpress6'

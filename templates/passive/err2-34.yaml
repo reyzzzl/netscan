@@ -1,0 +1,14 @@
+id: err2-34
+name: 'Error page: redis.exceptions'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'redis.exceptions'

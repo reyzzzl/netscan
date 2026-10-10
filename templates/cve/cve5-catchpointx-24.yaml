@@ -1,0 +1,15 @@
+id: cve5-catchpointx-24
+name: 'catchpointx at /.git/HEAD'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'catchpointx at /.git/HEAD — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.git/HEAD'
+    matchers:
+      - type: status
+        status: [200]

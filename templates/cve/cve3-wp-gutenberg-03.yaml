@@ -1,0 +1,15 @@
+id: cve3-wp-gutenberg-03
+name: 'WP gutenberg CHANGELOG.md'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP gutenberg at /wp-content/plugins/gutenberg/CHANGELOG.md — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/gutenberg/CHANGELOG.md'
+    matchers:
+      - type: status
+        status: [200]

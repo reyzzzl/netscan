@@ -1,0 +1,22 @@
+id: sqli3-mssql-01
+name: 'SQLi mssql prefix #0 in nid'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - mssql
+description: 'Triggers mssql error via nid'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      nid:
+        - ')'
+        - 'admin'')--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'ODBC'
+          - 'SQL Server'

@@ -1,0 +1,15 @@
+id: cve5-pypix-04
+name: 'pypix at /api'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'pypix at /api — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api'
+    matchers:
+      - type: status
+        status: [200]

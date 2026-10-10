@@ -1,0 +1,15 @@
+id: backup2-125
+name: 'Exposed2 /redis.conf'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /redis.conf is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/redis.conf'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: xss5-2570
+name: 'Raw XSS5 in text'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - '<video%09><source%09onerror=nx52569>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52569'

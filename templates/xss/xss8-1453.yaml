@@ -1,0 +1,20 @@
+id: xss8-1453
+name: 'Raw XSS8 in value'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in value'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      value:
+        - '<body onload=nx81452/>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx81452'

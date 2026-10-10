@@ -1,0 +1,20 @@
+id: redirect5-58
+name: 'Scheme redirect in return'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+  - scheme
+description: 'Dangerous scheme via return'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      return:
+        - 'javascript:void(alert(1))'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'javascript:'

@@ -1,0 +1,14 @@
+id: fp3-47
+name: 'Stack shopify2'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'shopify2 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'shopify2'

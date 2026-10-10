@@ -1,0 +1,19 @@
+id: redirect2-024
+name: 'Open redirect2 via callback'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Unsafe redirect via callback'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      callback:
+        - 'https://evil.example%2f..'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

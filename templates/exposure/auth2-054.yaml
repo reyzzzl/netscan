@@ -1,0 +1,15 @@
+id: auth2-054
+name: 'Nexus at /nexus'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Nexus returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/nexus'
+    matchers:
+      - type: status
+        status: [200]

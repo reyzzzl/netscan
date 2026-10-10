@@ -1,0 +1,15 @@
+id: backup5-0318
+name: 'Exposed /db.sql.stage'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /db.sql.stage is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/db.sql.stage'
+    matchers:
+      - type: status
+        status: [200]

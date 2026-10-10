@@ -1,0 +1,20 @@
+id: backup3-001
+name: 'Exposed /actuator/caches'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /actuator/caches is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/actuator/caches'
+    match-all: true
+    matchers:
+      - type: status
+        status: [200]
+      - type: word
+        part: body
+        words:
+          - 'caches'

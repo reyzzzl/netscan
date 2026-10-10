@@ -1,0 +1,20 @@
+id: xss2-118
+name: 'Reflected XSS2 ctx-27 via value'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in value'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      value:
+        - '{{constructor.constructor(''alert(nx2117)'')()}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx2117'

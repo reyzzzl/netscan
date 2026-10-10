@@ -1,0 +1,15 @@
+id: cve5-uptimerobotx-26
+name: 'uptimerobotx at /robots.txt'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'uptimerobotx at /robots.txt — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/robots.txt'
+    matchers:
+      - type: status
+        status: [200]

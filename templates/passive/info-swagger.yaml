@@ -1,0 +1,15 @@
+id: info-swagger
+name: 'Swagger in body'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - api
+description: 'Swagger in body — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'swagger.json'
+      - 'openapi'

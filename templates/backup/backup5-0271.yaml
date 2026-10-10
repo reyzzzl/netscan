@@ -1,0 +1,15 @@
+id: backup5-0271
+name: 'Exposed /dump.sql.clone'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /dump.sql.clone is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dump.sql.clone'
+    matchers:
+      - type: status
+        status: [200]

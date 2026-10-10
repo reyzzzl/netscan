@@ -1,0 +1,14 @@
+id: fp2-38
+name: 'Fingerprint strapi'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'strapi detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'strapi'

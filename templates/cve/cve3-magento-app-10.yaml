@@ -1,0 +1,15 @@
+id: cve3-magento-app-10
+name: 'Magento bin/magento magento'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Magento bin/magento at /app/etc/bin/magento — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/app/etc/bin/magento'
+    matchers:
+      - type: status
+        status: [200]

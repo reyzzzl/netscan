@@ -1,0 +1,15 @@
+id: backup5-1477
+name: 'Exposed /payment.php.tar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /payment.php.tar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/payment.php.tar'
+    matchers:
+      - type: status
+        status: [200]

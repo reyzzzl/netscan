@@ -1,0 +1,15 @@
+id: cve5-healthchecksx-09
+name: 'healthchecksx at /dev'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'healthchecksx at /dev — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dev'
+    matchers:
+      - type: status
+        status: [200]

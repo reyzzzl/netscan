@@ -1,0 +1,15 @@
+id: auth4-521
+name: 'Panel at /org/config'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /org/config returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/org/config'
+    matchers:
+      - type: status
+        status: [200]

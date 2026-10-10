@@ -1,0 +1,15 @@
+id: backup5-3025
+name: 'Exposed /index.html.bundle'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /index.html.bundle is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/index.html.bundle'
+    matchers:
+      - type: status
+        status: [200]

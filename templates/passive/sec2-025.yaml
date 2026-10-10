@@ -1,0 +1,14 @@
+id: sec2-025
+name: 'Mapbox'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Mapbox in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'pk.eyJ'

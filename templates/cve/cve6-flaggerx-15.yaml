@@ -1,0 +1,15 @@
+id: cve6-flaggerx-15
+name: 'flaggerx at /help'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'flaggerx at /help — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/help'
+    matchers:
+      - type: status
+        status: [200]

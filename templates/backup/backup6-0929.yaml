@@ -1,0 +1,15 @@
+id: backup6-0929
+name: 'Exposed /privacy.php.7z'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /privacy.php.7z is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/privacy.php.7z'
+    matchers:
+      - type: status
+        status: [200]

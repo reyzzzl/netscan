@@ -1,0 +1,15 @@
+id: cve3-laravel-misc-10
+name: 'Laravel artisan artisan'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Laravel artisan at /artisan — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/artisan'
+    matchers:
+      - type: status
+        status: [200]

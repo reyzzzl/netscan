@@ -1,0 +1,17 @@
+id: bypass-008
+name: 'Header bypass True-Client-IP'
+severity: high
+type: active
+tags:
+  - bypass
+  - auth
+  - headers
+description: 'Reaches /admin2 via True-Client-IP'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/admin2'
+    sendHeaders:
+      True-Client-IP: '127.0.0.1'
+    matchers:
+      - type: status
+        status: [200]

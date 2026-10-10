@@ -1,0 +1,20 @@
+id: ssti-blade-01
+name: 'SSTI blade via msg'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - blade
+description: 'blade evaluates payload in msg'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      msg:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

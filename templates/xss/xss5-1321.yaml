@@ -1,0 +1,20 @@
+id: xss5-1321
+name: 'Raw XSS5 in q'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '<script%0a>alert(nx51320)</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51320'

@@ -1,0 +1,15 @@
+id: backup2-117
+name: 'Exposed2 /_redirects'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /_redirects is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/_redirects'
+    matchers:
+      - type: status
+        status: [200]

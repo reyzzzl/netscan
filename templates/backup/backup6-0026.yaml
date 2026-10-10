@@ -1,0 +1,15 @@
+id: backup6-0026
+name: 'Exposed /signin.php.tar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /signin.php.tar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/signin.php.tar'
+    matchers:
+      - type: status
+        status: [200]

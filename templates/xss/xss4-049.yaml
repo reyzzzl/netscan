@@ -1,0 +1,20 @@
+id: xss4-049
+name: 'Raw XSS4 #8 in input'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in input'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      input:
+        - '<image src=x onerror=alert(nx4048)>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx4048'

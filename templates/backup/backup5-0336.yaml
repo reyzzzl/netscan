@@ -1,0 +1,15 @@
+id: backup5-0336
+name: 'Exposed /db.sql.ini'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /db.sql.ini is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/db.sql.ini'
+    matchers:
+      - type: status
+        status: [200]

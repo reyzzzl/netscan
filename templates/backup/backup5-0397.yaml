@@ -1,0 +1,15 @@
+id: backup5-0397
+name: 'Exposed /site.zip.accdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /site.zip.accdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/site.zip.accdb'
+    matchers:
+      - type: status
+        status: [200]

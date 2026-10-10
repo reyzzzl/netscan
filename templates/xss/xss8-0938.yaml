@@ -1,0 +1,20 @@
+id: xss8-0938
+name: 'Raw XSS8 in email'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in email'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      email:
+        - '<select autofocus onfocus=nx80937%09>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx80937'

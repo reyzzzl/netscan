@@ -1,0 +1,15 @@
+id: cve3-opencart-sys-10
+name: 'OpenCart templates/ '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'OpenCart templates/ at /system/templates/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/system/templates/'
+    matchers:
+      - type: status
+        status: [200]

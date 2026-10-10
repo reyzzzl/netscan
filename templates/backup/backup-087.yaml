@@ -1,0 +1,15 @@
+id: backup-087
+name: 'Exposed /.gitlab-ci.yml'
+severity: high
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.gitlab-ci.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.gitlab-ci.yml'
+    matchers:
+      - type: status
+        status: [200]

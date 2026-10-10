@@ -1,0 +1,15 @@
+id: backup5-3337
+name: 'Exposed /local.php.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /local.php.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/local.php.yml'
+    matchers:
+      - type: status
+        status: [200]

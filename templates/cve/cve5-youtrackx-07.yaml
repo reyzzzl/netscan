@@ -1,0 +1,15 @@
+id: cve5-youtrackx-07
+name: 'youtrackx at /debug'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'youtrackx at /debug — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/debug'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: jboss3-09
+name: 'JBoss3 root'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'JBoss3 at /web-console/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/web-console/?v=10'
+    matchers:
+      - type: status
+        status: [200]

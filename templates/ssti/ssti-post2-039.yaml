@@ -1,0 +1,21 @@
+id: ssti-post2-039
+name: 'POST SSTI genshi in text'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - post
+  - genshi
+description: 'genshi evaluates POST body on /render'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/render'
+    body: '{"text":"${7*7}"}'
+    sendHeaders:
+      Content-Type: 'application/json'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

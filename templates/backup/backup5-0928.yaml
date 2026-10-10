@@ -1,0 +1,15 @@
+id: backup5-0928
+name: 'Exposed /ajax.php.gz'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /ajax.php.gz is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/ajax.php.gz'
+    matchers:
+      - type: status
+        status: [200]

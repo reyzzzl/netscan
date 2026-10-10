@@ -1,0 +1,15 @@
+id: backup5-2577
+name: 'Exposed /cookie.php.tar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /cookie.php.tar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/cookie.php.tar'
+    matchers:
+      - type: status
+        status: [200]

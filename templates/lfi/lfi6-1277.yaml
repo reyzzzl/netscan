@@ -1,0 +1,20 @@
+id: lfi6-1277
+name: 'Traversal in path'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via path'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      path:
+        - '/etc/hosts'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'localhost'

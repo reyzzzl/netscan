@@ -1,0 +1,15 @@
+id: cve6-lighttpdx-11
+name: 'lighttpdx at /health'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'lighttpdx at /health — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/health'
+    matchers:
+      - type: status
+        status: [200]

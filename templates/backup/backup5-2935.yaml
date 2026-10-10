@@ -1,0 +1,15 @@
+id: backup5-2935
+name: 'Exposed /group.php.cfg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /group.php.cfg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/group.php.cfg'
+    matchers:
+      - type: status
+        status: [200]

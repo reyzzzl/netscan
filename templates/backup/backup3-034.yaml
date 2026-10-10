@@ -1,0 +1,15 @@
+id: backup3-034
+name: 'Exposed /.well-known/change-password'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.well-known/change-password is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.well-known/change-password'
+    matchers:
+      - type: status
+        status: [200]

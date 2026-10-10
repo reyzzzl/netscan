@@ -1,0 +1,21 @@
+id: mass-058
+name: 'Mass assignment field tier'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered tier on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"user1","tier":"unlimited"}'
+    match-all: true
+    matchers:
+      - type: status
+        status: [200]
+      - type: regex
+        part: body
+        regex:
+          - '"admin"\s*:\s*true'

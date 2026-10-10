@@ -1,0 +1,15 @@
+id: cve6-fluxcdx-07
+name: 'fluxcdx at /debug'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'fluxcdx at /debug — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/debug'
+    matchers:
+      - type: status
+        status: [200]

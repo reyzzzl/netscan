@@ -1,0 +1,20 @@
+id: redirect7-284
+name: 'Trusted bypass in return'
+severity: high
+type: active
+tags:
+  - redirect
+  - open-redirect
+  - bypass
+description: 'Bypasses trusted.com allowlist via return'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      return:
+        - 'https://trusted.com@evil.example/'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

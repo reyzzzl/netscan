@@ -1,0 +1,15 @@
+id: backup5-0068
+name: 'Exposed /wp-config.php.stage'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /wp-config.php.stage is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-config.php.stage'
+    matchers:
+      - type: status
+        status: [200]

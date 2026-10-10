@@ -1,0 +1,20 @@
+id: crlf5-060
+name: 'CRLF into desc'
+severity: medium
+type: active
+tags:
+  - crlf
+  - injection
+  - headers
+description: 'CRLF header injection via desc'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      desc:
+        - '%0A%0DX-Test: u'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'x-test'

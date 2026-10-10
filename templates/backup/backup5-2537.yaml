@@ -1,0 +1,15 @@
+id: backup5-2537
+name: 'Exposed /session.php.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /session.php.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/session.php.yml'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup5-2232
+name: 'Exposed /sidebar.php.inc'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sidebar.php.inc is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sidebar.php.inc'
+    matchers:
+      - type: status
+        status: [200]

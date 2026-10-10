@@ -1,0 +1,15 @@
+id: cve5-athensx-29
+name: 'athensx at /clientaccesspolicy.xml'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'athensx at /clientaccesspolicy.xml — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/clientaccesspolicy.xml'
+    matchers:
+      - type: status
+        status: [200]

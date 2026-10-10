@@ -1,0 +1,15 @@
+id: backup5-2240
+name: 'Exposed /sidebar.php.toml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sidebar.php.toml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sidebar.php.toml'
+    matchers:
+      - type: status
+        status: [200]

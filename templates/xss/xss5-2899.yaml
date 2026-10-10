@@ -1,0 +1,20 @@
+id: xss5-2899
+name: 'Raw XSS5 in phone'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in phone'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      phone:
+        - '<input%09type=image%09formaction=javascript:nx52898>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52898'

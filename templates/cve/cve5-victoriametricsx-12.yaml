@@ -1,0 +1,15 @@
+id: cve5-victoriametricsx-12
+name: 'victoriametricsx at /metrics'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'victoriametricsx at /metrics — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/metrics'
+    matchers:
+      - type: status
+        status: [200]

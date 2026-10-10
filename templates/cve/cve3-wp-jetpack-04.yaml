@@ -1,0 +1,15 @@
+id: cve3-wp-jetpack-04
+name: 'WP jetpack LICENSE'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP jetpack at /wp-content/plugins/jetpack/LICENSE — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/jetpack/LICENSE'
+    matchers:
+      - type: status
+        status: [200]

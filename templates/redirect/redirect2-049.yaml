@@ -1,0 +1,19 @@
+id: redirect2-049
+name: 'Open redirect2 via file'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Unsafe redirect via file'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      file:
+        - '//evil.example/%2f..'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

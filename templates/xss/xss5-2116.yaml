@@ -1,0 +1,20 @@
+id: xss5-2116
+name: 'Raw XSS5 in placeholder'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in placeholder'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      placeholder:
+        - '<div style="-moz-binding:url(''javascript:nx52115'')">'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52115'

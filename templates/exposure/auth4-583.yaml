@@ -1,0 +1,15 @@
+id: auth4-583
+name: 'Panel at /order/health'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /order/health returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/order/health'
+    matchers:
+      - type: status
+        status: [200]

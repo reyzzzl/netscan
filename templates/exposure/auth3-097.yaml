@@ -1,0 +1,15 @@
+id: auth3-097
+name: 'Panel at /sonarr'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /sonarr returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sonarr'
+    matchers:
+      - type: status
+        status: [200]

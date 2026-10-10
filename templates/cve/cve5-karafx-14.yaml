@@ -1,0 +1,15 @@
+id: cve5-karafx-14
+name: 'karafx at /info'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'karafx at /info — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/info'
+    matchers:
+      - type: status
+        status: [200]

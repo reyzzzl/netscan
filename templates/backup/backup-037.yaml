@@ -1,0 +1,15 @@
+id: backup-037
+name: 'Exposed /site.zip'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /site.zip is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/site.zip'
+    matchers:
+      - type: status
+        status: [200]

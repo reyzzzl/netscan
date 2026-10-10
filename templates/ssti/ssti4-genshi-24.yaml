@@ -1,0 +1,20 @@
+id: ssti4-genshi-24
+name: 'SSTI genshi in z'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - genshi
+description: 'genshi evaluates payload in z'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      z:
+        - '${7*7}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

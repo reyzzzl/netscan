@@ -1,0 +1,15 @@
+id: auth-026
+name: 'Uploads dir at /uploads'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Uploads dir returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/uploads'
+    matchers:
+      - type: status
+        status: [200]

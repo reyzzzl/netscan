@@ -1,0 +1,15 @@
+id: auth-018
+name: 'Test endpoint at /test'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Test endpoint returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/test'
+    matchers:
+      - type: status
+        status: [200]

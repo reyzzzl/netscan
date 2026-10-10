@@ -1,0 +1,20 @@
+id: lfi4-35
+name: 'System file /etc/motd via view'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads /etc/motd via view'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      view:
+        - '/etc/motd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'motd'

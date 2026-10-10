@@ -1,0 +1,20 @@
+id: redirect-021
+name: 'Open redirect via next'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Redirects to evil.example via next'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      next:
+        - 'https://evil.example/'
+        - '//evil.example/'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

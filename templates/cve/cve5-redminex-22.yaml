@@ -1,0 +1,15 @@
+id: cve5-redminex-22
+name: 'redminex at /phpinfo'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'redminex at /phpinfo — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/phpinfo'
+    matchers:
+      - type: status
+        status: [200]

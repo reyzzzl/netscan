@@ -1,0 +1,20 @@
+id: crlf2-097
+name: 'CRLF2 injection via msg'
+severity: medium
+type: active
+tags:
+  - crlf
+  - injection
+  - headers
+description: 'CRLF header injection via msg'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      msg:
+        - 'x%0aX-Test: crlf2'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'x-test'

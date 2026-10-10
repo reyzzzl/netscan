@@ -1,0 +1,15 @@
+id: cve3-joomla-banners-09
+name: 'Joomla banners '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Joomla banners at /components/com_banners/language/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/components/com_banners/language/'
+    matchers:
+      - type: status
+        status: [200]

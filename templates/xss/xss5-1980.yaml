@@ -1,0 +1,20 @@
+id: xss5-1980
+name: 'Raw XSS5 in address'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in address'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      address:
+        - '<wbr%09onmouseover=nx51979>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51979'

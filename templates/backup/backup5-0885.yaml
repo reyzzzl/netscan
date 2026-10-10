@@ -1,0 +1,15 @@
+id: backup5-0885
+name: 'Exposed /api.php.cfg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /api.php.cfg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api.php.cfg'
+    matchers:
+      - type: status
+        status: [200]

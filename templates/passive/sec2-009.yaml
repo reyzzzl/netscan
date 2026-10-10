@@ -1,0 +1,14 @@
+id: sec2-009
+name: 'Twilio SK'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Twilio SK in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'SK'

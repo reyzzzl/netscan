@@ -1,0 +1,15 @@
+id: backup3-037
+name: 'Exposed /.well-known/nodeinfo'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.well-known/nodeinfo is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.well-known/nodeinfo'
+    matchers:
+      - type: status
+        status: [200]

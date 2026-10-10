@@ -1,0 +1,20 @@
+id: xss5-3763
+name: 'Raw XSS5 in search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '<details%0aopen%0aontoggle=nx53762>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53762'

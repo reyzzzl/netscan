@@ -1,0 +1,20 @@
+id: ssti3-dust-01
+name: 'SSTI dust in desc'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - dust
+description: 'dust evaluates payload in desc'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      desc:
+        - '{7*7}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

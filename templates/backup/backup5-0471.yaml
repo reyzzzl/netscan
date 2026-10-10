@@ -1,0 +1,15 @@
+id: backup5-0471
+name: 'Exposed /database.sqlite.clone'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /database.sqlite.clone is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/database.sqlite.clone'
+    matchers:
+      - type: status
+        status: [200]

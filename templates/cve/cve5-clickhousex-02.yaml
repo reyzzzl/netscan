@@ -1,0 +1,15 @@
+id: cve5-clickhousex-02
+name: 'clickhousex at /login'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'clickhousex at /login — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/login'
+    matchers:
+      - type: status
+        status: [200]

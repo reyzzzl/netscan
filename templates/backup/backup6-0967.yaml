@@ -1,0 +1,15 @@
+id: backup6-0967
+name: 'Exposed /refund.php.stage'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /refund.php.stage is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/refund.php.stage'
+    matchers:
+      - type: status
+        status: [200]

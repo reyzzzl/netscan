@@ -1,0 +1,15 @@
+id: cve5-travisx-26
+name: 'travisx at /robots.txt'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'travisx at /robots.txt — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/robots.txt'
+    matchers:
+      - type: status
+        status: [200]

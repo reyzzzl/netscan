@@ -1,0 +1,15 @@
+id: spring2-03
+name: 'Spring log logfile'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Spring log at /actuator/logfile — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/actuator/logfile'
+    matchers:
+      - type: status
+        status: [200]

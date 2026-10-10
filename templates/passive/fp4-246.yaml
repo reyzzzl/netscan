@@ -1,0 +1,14 @@
+id: fp4-246
+name: 'Stack engine13x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'engine13x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'engine13x'

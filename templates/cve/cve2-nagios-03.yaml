@@ -1,0 +1,15 @@
+id: cve2-nagios-03
+name: 'Nagios fingerprint /nagios/ v3'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Nagios at /nagios/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/nagios/'
+    matchers:
+      - type: status
+        status: [200]

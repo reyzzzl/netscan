@@ -1,0 +1,18 @@
+id: mass3-307
+name: 'Mass field quota2'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered quota2 on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"t","quota2":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

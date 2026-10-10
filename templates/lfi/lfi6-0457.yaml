@@ -1,0 +1,20 @@
+id: lfi6-0457
+name: 'Traversal in doc'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via doc'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      doc:
+        - '/etc/resolv.conf'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nameserver'

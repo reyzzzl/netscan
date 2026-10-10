@@ -1,0 +1,15 @@
+id: backup4-104
+name: 'Exposed /routes.php.prod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /routes.php.prod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/routes.php.prod'
+    matchers:
+      - type: status
+        status: [200]

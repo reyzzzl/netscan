@@ -1,0 +1,15 @@
+id: auth3-044
+name: 'Panel at /reekoh'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /reekoh returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/reekoh'
+    matchers:
+      - type: status
+        status: [200]

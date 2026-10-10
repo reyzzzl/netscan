@@ -1,0 +1,21 @@
+id: graphql2-19
+name: 'Introspection probe in q'
+severity: medium
+type: active
+tags:
+  - graphql
+  - api
+  - introspection
+description: 'GraphQL schema exposed via q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '{__schema{queryType{name}}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '__schema'
+          - '__typename'

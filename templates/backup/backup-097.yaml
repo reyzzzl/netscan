@@ -1,0 +1,15 @@
+id: backup-097
+name: 'Exposed /settings.json'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /settings.json is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/settings.json'
+    matchers:
+      - type: status
+        status: [200]

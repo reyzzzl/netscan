@@ -1,0 +1,15 @@
+id: cve3-laravel-misc-03
+name: 'Laravel telescope telescope'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Laravel telescope at /telescope — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/telescope'
+    matchers:
+      - type: status
+        status: [200]

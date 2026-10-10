@@ -1,0 +1,15 @@
+id: backup5-1136
+name: 'Exposed /import.php.ini'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /import.php.ini is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/import.php.ini'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,14 @@
+id: info-aspnet-trace
+name: 'ASP.NET trace'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - debug
+description: 'ASP.NET trace — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'Trace Information'

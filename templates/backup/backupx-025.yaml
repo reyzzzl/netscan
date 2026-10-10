@@ -1,0 +1,15 @@
+id: backupx-025
+name: 'Exposed /swagger.json.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /swagger.json.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/swagger.json.bak'
+    matchers:
+      - type: status
+        status: [200]

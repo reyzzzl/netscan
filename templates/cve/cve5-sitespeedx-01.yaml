@@ -1,0 +1,15 @@
+id: cve5-sitespeedx-01
+name: 'sitespeedx at /'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'sitespeedx at / — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/'
+    matchers:
+      - type: status
+        status: [200]

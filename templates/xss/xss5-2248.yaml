@@ -1,0 +1,20 @@
+id: xss5-2248
+name: 'Raw XSS5 in title'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in title'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      title:
+        - '<details%0aopen%0aontoggle=nx52247>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52247'

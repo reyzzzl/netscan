@@ -1,0 +1,15 @@
+id: auth4-598
+name: 'Panel at /support/v1'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /support/v1 returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/support/v1'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: crlf4-471
+name: 'CRLF into note'
+severity: medium
+type: active
+tags:
+  - crlf
+  - injection
+  - headers
+description: 'CRLF header injection via note'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      note:
+        - '%0A%0DX-Test: t'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'x-test'

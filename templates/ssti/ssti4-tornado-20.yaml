@@ -1,0 +1,20 @@
+id: ssti4-tornado-20
+name: 'SSTI tornado in template'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - tornado
+description: 'tornado evaluates payload in template'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      template:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

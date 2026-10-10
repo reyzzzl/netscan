@@ -1,0 +1,14 @@
+id: fp4-245
+name: 'Stack platform13x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'platform13x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'platform13x'

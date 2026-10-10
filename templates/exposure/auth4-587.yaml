@@ -1,0 +1,15 @@
+id: auth4-587
+name: 'Panel at /order/dev'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /order/dev returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/order/dev'
+    matchers:
+      - type: status
+        status: [200]

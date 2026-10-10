@@ -1,0 +1,20 @@
+id: xss5-3313
+name: 'Raw XSS5 in caption'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in caption'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      caption:
+        - '<svg><animate%0aonbegin=nx53312 attributeName=x>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53312'

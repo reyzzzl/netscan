@@ -1,0 +1,14 @@
+id: fp3-02
+name: 'Stack express4'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'express4 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'express4'

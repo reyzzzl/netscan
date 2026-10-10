@@ -1,0 +1,15 @@
+id: backup5-3836
+name: 'Exposed /sms.php.ini'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sms.php.ini is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sms.php.ini'
+    matchers:
+      - type: status
+        status: [200]

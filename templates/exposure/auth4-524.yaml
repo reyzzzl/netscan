@@ -1,0 +1,15 @@
+id: auth4-524
+name: 'Panel at /org/metrics'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /org/metrics returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/org/metrics'
+    matchers:
+      - type: status
+        status: [200]

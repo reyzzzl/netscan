@@ -1,0 +1,25 @@
+id: xss7strict-1177
+name: 'Strict breakout XSS in lastname'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      lastname:
+        - '<iframe srcdoc=<script>sx71176</script>>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx71176'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx71176'

@@ -1,0 +1,20 @@
+id: xss5-2600
+name: 'Raw XSS5 in nick'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in nick'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      nick:
+        - '<p%0aoncut=nx52599>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52599'

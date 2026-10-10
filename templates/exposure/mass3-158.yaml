@@ -1,0 +1,18 @@
+id: mass3-158
+name: 'Mass field tax'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered tax on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"u1","tax":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

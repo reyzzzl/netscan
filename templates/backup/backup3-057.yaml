@@ -1,0 +1,15 @@
+id: backup3-057
+name: 'Exposed /media/.env'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /media/.env is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/media/.env'
+    matchers:
+      - type: status
+        status: [200]

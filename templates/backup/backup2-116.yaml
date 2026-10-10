@@ -1,0 +1,15 @@
+id: backup2-116
+name: 'Exposed2 /netlify.toml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /netlify.toml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/netlify.toml'
+    matchers:
+      - type: status
+        status: [200]

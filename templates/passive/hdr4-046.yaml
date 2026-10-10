@@ -1,0 +1,14 @@
+id: hdr4-046
+name: 'Header x-rapid7-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-rapid7-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-rapid7-2'

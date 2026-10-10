@@ -1,0 +1,15 @@
+id: auth4-164
+name: 'Panel at /private/metrics'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /private/metrics returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/private/metrics'
+    matchers:
+      - type: status
+        status: [200]

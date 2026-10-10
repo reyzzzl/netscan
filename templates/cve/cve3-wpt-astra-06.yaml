@@ -1,0 +1,15 @@
+id: cve3-wpt-astra-06
+name: 'Theme astra footer.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Theme astra at /wp-content/themes/astra/footer.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/themes/astra/footer.php'
+    matchers:
+      - type: status
+        status: [200]

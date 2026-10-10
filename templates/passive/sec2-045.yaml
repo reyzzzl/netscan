@@ -1,0 +1,14 @@
+id: sec2-045
+name: 'App key alt'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'App key alt in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'APP_KEY'

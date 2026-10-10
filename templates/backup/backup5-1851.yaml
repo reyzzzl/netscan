@@ -1,0 +1,15 @@
+id: backup5-1851
+name: 'Exposed /install.php.bk'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /install.php.bk is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/install.php.bk'
+    matchers:
+      - type: status
+        status: [200]

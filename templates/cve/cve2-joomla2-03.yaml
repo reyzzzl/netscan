@@ -1,0 +1,15 @@
+id: cve2-joomla2-03
+name: 'Joomla2 fingerprint /administrator/manifests/ v3'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Joomla2 at /administrator/manifests/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/administrator/manifests/'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: xss3-075
+name: 'Raw XSS3 #14 in word'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in word'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      word:
+        - '<form><button%09formaction=javascript:nx3074>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3074'

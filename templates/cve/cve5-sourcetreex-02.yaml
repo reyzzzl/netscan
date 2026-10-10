@@ -1,0 +1,15 @@
+id: cve5-sourcetreex-02
+name: 'sourcetreex at /login'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'sourcetreex at /login — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/login'
+    matchers:
+      - type: status
+        status: [200]

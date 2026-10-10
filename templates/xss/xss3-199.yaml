@@ -1,0 +1,20 @@
+id: xss3-199
+name: 'Raw XSS3 #18 in phone'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in phone'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      phone:
+        - '<xss%09style=x%09onauxclick=nx3198>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3198'

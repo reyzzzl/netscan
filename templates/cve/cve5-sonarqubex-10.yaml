@@ -1,0 +1,15 @@
+id: cve5-sonarqubex-10
+name: 'sonarqubex at /status'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'sonarqubex at /status — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/status'
+    matchers:
+      - type: status
+        status: [200]

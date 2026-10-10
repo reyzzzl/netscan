@@ -1,0 +1,15 @@
+id: backup6-0338
+name: 'Exposed /activate.php.json5'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /activate.php.json5 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/activate.php.json5'
+    matchers:
+      - type: status
+        status: [200]

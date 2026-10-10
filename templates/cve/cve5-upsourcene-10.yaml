@@ -1,0 +1,15 @@
+id: cve5-upsourcene-10
+name: 'upsourcene at /status'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'upsourcene at /status — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/status'
+    matchers:
+      - type: status
+        status: [200]

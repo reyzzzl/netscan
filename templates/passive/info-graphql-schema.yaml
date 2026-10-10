@@ -1,0 +1,15 @@
+id: info-graphql-schema
+name: 'GraphQL schema in body'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - graphql
+description: 'GraphQL schema in body — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - '__schema'
+      - '__typename'

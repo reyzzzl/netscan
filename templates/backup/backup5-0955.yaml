@@ -1,0 +1,15 @@
+id: backup5-0955
+name: 'Exposed /upload.php.swp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /upload.php.swp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/upload.php.swp'
+    matchers:
+      - type: status
+        status: [200]

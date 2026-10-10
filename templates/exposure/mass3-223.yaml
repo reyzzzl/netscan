@@ -1,0 +1,18 @@
+id: mass3-223
+name: 'Mass field quiz'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered quiz on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"t","quiz":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

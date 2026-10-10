@@ -1,0 +1,14 @@
+id: fp3-39
+name: 'Stack wp66'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'wp66 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'wp66'

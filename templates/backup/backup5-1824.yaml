@@ -1,0 +1,15 @@
+id: backup5-1824
+name: 'Exposed /install.php.archive'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /install.php.archive is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/install.php.archive'
+    matchers:
+      - type: status
+        status: [200]

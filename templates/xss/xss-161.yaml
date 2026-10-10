@@ -1,0 +1,20 @@
+id: xss-161
+name: 'Reflected XSS ctx-15 via q'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '''><script>nx160c</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx160c'

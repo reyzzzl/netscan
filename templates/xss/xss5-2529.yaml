@@ -1,0 +1,20 @@
+id: xss5-2529
+name: 'Raw XSS5 in query'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in query'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      query:
+        - '<svg%0d%0aonload=nx52528>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52528'

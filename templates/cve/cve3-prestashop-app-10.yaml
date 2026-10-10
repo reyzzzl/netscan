@@ -1,0 +1,15 @@
+id: cve3-prestashop-app-10
+name: 'PrestaShop var/ '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'PrestaShop var/ at /app/config/var/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/app/config/var/'
+    matchers:
+      - type: status
+        status: [200]

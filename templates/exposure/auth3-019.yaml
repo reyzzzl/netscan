@@ -1,0 +1,15 @@
+id: auth3-019
+name: 'Panel at /administrator/index.php'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /administrator/index.php returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/administrator/index.php'
+    matchers:
+      - type: status
+        status: [200]

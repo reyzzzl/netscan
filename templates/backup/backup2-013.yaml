@@ -1,0 +1,15 @@
+id: backup2-013
+name: 'Exposed2 /redoc'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /redoc is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/redoc'
+    matchers:
+      - type: status
+        status: [200]

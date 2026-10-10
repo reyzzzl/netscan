@@ -1,0 +1,15 @@
+id: backup5-0440
+name: 'Exposed /backup.zip.toml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /backup.zip.toml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/backup.zip.toml'
+    matchers:
+      - type: status
+        status: [200]

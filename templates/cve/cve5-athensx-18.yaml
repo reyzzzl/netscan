@@ -1,0 +1,15 @@
+id: cve5-athensx-18
+name: 'athensx at /api/v1'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'athensx at /api/v1 — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/v1'
+    matchers:
+      - type: status
+        status: [200]

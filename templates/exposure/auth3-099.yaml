@@ -1,0 +1,15 @@
+id: auth3-099
+name: 'Panel at /prowlarr'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /prowlarr returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/prowlarr'
+    matchers:
+      - type: status
+        status: [200]

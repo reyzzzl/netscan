@@ -1,0 +1,15 @@
+id: auth4-438
+name: 'Panel at /account/v1'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /account/v1 returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/account/v1'
+    matchers:
+      - type: status
+        status: [200]

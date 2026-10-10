@@ -1,0 +1,15 @@
+id: backup5-0153
+name: 'Exposed /.env.orig'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.orig is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.orig'
+    matchers:
+      - type: status
+        status: [200]

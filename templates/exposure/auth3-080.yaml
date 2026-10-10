@@ -1,0 +1,15 @@
+id: auth3-080
+name: 'Panel at /splunk'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /splunk returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/splunk'
+    matchers:
+      - type: status
+        status: [200]

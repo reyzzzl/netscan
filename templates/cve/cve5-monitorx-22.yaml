@@ -1,0 +1,15 @@
+id: cve5-monitorx-22
+name: 'monitorx at /phpinfo'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'monitorx at /phpinfo — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/phpinfo'
+    matchers:
+      - type: status
+        status: [200]

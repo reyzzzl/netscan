@@ -1,0 +1,15 @@
+id: cve3-joomla-newsfeeds-03
+name: 'Joomla newsfeeds index.html'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Joomla newsfeeds at /components/com_newsfeeds/index.html — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/components/com_newsfeeds/index.html'
+    matchers:
+      - type: status
+        status: [200]

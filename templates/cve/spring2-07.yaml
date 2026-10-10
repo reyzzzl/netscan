@@ -1,0 +1,15 @@
+id: spring2-07
+name: 'Spring quartz quartz'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Spring quartz at /actuator/quartz — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/actuator/quartz'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup5-0918
+name: 'Exposed /ajax.php.stage'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /ajax.php.stage is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/ajax.php.stage'
+    matchers:
+      - type: status
+        status: [200]

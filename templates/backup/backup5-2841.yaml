@@ -1,0 +1,15 @@
+id: backup5-2841
+name: 'Exposed /passwd.php.lock'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /passwd.php.lock is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/passwd.php.lock'
+    matchers:
+      - type: status
+        status: [200]

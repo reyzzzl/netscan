@@ -1,0 +1,15 @@
+id: cve3-wp-yoast-06
+name: 'WP yoast uninstall.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP yoast at /wp-content/plugins/yoast/uninstall.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/yoast/uninstall.php'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,14 @@
+id: err3-48
+name: 'Framework error: ant-design'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Framework error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'ant-design'

@@ -1,0 +1,15 @@
+id: backup5-1941
+name: 'Exposed /upgrade.php.lock'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /upgrade.php.lock is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/upgrade.php.lock'
+    matchers:
+      - type: status
+        status: [200]

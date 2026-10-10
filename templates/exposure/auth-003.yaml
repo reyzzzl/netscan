@@ -1,0 +1,15 @@
+id: auth-003
+name: 'WP admin at /wp-admin'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'WP admin returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-admin'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backupx-040
+name: 'Exposed /docker-compose.yml.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /docker-compose.yml.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/docker-compose.yml.bak'
+    matchers:
+      - type: status
+        status: [200]

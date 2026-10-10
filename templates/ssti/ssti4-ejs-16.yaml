@@ -1,0 +1,20 @@
+id: ssti4-ejs-16
+name: 'SSTI ejs in x'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - ejs
+description: 'ejs evaluates payload in x'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      x:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

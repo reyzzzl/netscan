@@ -1,0 +1,20 @@
+id: patt-redir-allow-03-redirect
+name: 'PATT redirect patt-redir-allow-03 via redirect'
+severity: high
+type: active
+tags:
+  - redirect
+  - patt
+  - allowlistuserinfo
+description: 'PATT allowlist bypass: userinfo @. [patt:patt-redir-allow-03] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Open%20Redirect/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      redirect:
+        - 'https://trusted.com@evil.example/'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

@@ -1,0 +1,15 @@
+id: backup5-1500
+name: 'Exposed /payment.php.sav'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /payment.php.sav is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/payment.php.sav'
+    matchers:
+      - type: status
+        status: [200]

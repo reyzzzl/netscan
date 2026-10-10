@@ -1,0 +1,23 @@
+id: cmdi2-009
+name: 'OS command injection2 via input'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - injection
+  - rce
+description: 'OS command runs via input'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      input:
+        - ';ping -c1 127.0.0.1'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='
+          - 'root:x:0:0'
+          - 'www-data'

@@ -1,0 +1,15 @@
+id: backup4-282
+name: 'Exposed /order.php.5'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /order.php.5 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/order.php.5'
+    matchers:
+      - type: status
+        status: [200]

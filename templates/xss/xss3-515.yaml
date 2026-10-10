@@ -1,0 +1,20 @@
+id: xss3-515
+name: 'Raw XSS3 #4 in word'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in word'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      word:
+        - '<ScRiPt>alert(nx3514)</ScRiPt>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3514'

@@ -1,0 +1,14 @@
+id: hdr3-03
+name: 'Debug header x-debug-url'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - debug
+description: 'Debug header x-debug-url present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-debug-url'

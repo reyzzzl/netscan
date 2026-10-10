@@ -1,0 +1,15 @@
+id: backup-042
+name: 'Exposed /administrator'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /administrator is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/administrator'
+    matchers:
+      - type: status
+        status: [200]

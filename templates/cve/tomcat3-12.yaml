@@ -1,0 +1,15 @@
+id: tomcat3-12
+name: 'Tomcat3 root'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Tomcat3 at /examples/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/examples/?v=13'
+    matchers:
+      - type: status
+        status: [200]

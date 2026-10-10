@@ -1,0 +1,14 @@
+id: hdr3-20
+name: 'Debug header x-aspnet-version'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - debug
+description: 'Debug header x-aspnet-version present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-aspnet-version'

@@ -1,0 +1,25 @@
+id: xss6strict-0264
+name: 'Strict raw XSS in zip'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      zip:
+        - '<details open ontoggle=sx60263>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx60263'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx60263'

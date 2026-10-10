@@ -1,0 +1,15 @@
+id: cve3-wp-wordfence-10
+name: 'WP wordfence screenshot.png'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP wordfence at /wp-content/plugins/wordfence/screenshot.png — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/wordfence/screenshot.png'
+    matchers:
+      - type: status
+        status: [200]

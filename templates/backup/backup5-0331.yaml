@@ -1,0 +1,15 @@
+id: backup5-0331
+name: 'Exposed /db.sql.rar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /db.sql.rar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/db.sql.rar'
+    matchers:
+      - type: status
+        status: [200]

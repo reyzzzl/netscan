@@ -1,0 +1,15 @@
+id: backup5-0491
+name: 'Exposed /database.sqlite.lock'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /database.sqlite.lock is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/database.sqlite.lock'
+    matchers:
+      - type: status
+        status: [200]

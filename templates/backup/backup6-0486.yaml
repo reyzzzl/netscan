@@ -1,0 +1,15 @@
+id: backup6-0486
+name: 'Exposed /invoice.php.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /invoice.php.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/invoice.php.yml'
+    matchers:
+      - type: status
+        status: [200]

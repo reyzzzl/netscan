@@ -1,0 +1,15 @@
+id: backup5-3486
+name: 'Exposed /sync.php.ini'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sync.php.ini is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sync.php.ini'
+    matchers:
+      - type: status
+        status: [200]

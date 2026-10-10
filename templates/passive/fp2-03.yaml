@@ -1,0 +1,14 @@
+id: fp2-03
+name: 'Fingerprint next-static'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'next-static detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'next-static'

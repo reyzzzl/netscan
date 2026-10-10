@@ -1,0 +1,20 @@
+id: xss5-2811
+name: 'Raw XSS5 in input'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in input'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      input:
+        - 'jaVasCript%3anx52810'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52810'

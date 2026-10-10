@@ -1,0 +1,20 @@
+id: xss5-1384
+name: 'Raw XSS5 in zip'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in zip'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      zip:
+        - '<input%09type=image%09formaction=javascript:nx51383>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51383'

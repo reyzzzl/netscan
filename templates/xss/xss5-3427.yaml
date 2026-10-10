@@ -1,0 +1,20 @@
+id: xss5-3427
+name: 'Raw XSS5 in subject'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in subject'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      subject:
+        - '<style>@import ''javascript:nx53426'';</style>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53426'

@@ -1,0 +1,25 @@
+id: xss7strict-1071
+name: 'Strict breakout XSS in headline'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      headline:
+        - '"><svg onload=sx71070>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx71070'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx71070'

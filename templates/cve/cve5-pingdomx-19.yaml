@@ -1,0 +1,15 @@
+id: cve5-pingdomx-19
+name: 'pingdomx at /api/v2'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'pingdomx at /api/v2 — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/v2'
+    matchers:
+      - type: status
+        status: [200]

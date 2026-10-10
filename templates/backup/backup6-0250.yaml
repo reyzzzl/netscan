@@ -1,0 +1,15 @@
+id: backup6-0250
+name: 'Exposed /reset.php.bk'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /reset.php.bk is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/reset.php.bk'
+    matchers:
+      - type: status
+        status: [200]

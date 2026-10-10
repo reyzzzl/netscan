@@ -1,0 +1,20 @@
+id: xss5-0989
+name: 'Raw XSS5 in summary'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in summary'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      summary:
+        - '<svg><animate%09onbegin=nx50988 attributeName=x>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50988'

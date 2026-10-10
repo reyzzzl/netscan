@@ -1,0 +1,15 @@
+id: backup5-2589
+name: 'Exposed /cookie.php.json5'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /cookie.php.json5 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/cookie.php.json5'
+    matchers:
+      - type: status
+        status: [200]

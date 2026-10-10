@@ -1,0 +1,15 @@
+id: backup6-0471
+name: 'Exposed /invoice.php.duplicate'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /invoice.php.duplicate is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/invoice.php.duplicate'
+    matchers:
+      - type: status
+        status: [200]

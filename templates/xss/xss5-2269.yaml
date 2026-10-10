@@ -1,0 +1,20 @@
+id: xss5-2269
+name: 'Raw XSS5 in summary'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in summary'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      summary:
+        - '<audio%0asrc=x%0aonerror=nx52268>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52268'

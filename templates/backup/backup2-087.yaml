@@ -1,0 +1,15 @@
+id: backup2-087
+name: 'Exposed2 /web.xml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /web.xml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/web.xml'
+    matchers:
+      - type: status
+        status: [200]

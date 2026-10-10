@@ -1,0 +1,15 @@
+id: cve3-drupal-pathauto-10
+name: 'Drupal pathauto '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Drupal pathauto at /modules/contrib/pathauto/config/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/modules/contrib/pathauto/config/'
+    matchers:
+      - type: status
+        status: [200]

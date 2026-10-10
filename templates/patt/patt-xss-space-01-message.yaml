@@ -1,0 +1,20 @@
+id: patt-xss-space-01-message
+name: 'PATT xss patt-xss-space-01 via message'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+  - filterspace
+description: 'PATT space bypass: slash as attribute separator (spaceless). [patt:patt-xss-space-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      message:
+        - '<svg/onload=nxp0007>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0007'

@@ -1,0 +1,20 @@
+id: xss5-1088
+name: 'Raw XSS5 in title'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in title'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      title:
+        - '<table%09background=data:text/html,nx51087>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51087'

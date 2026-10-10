@@ -1,0 +1,14 @@
+id: fp3-44
+name: 'Stack prestashop8'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'prestashop8 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'prestashop8'

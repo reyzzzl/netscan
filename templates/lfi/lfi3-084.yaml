@@ -1,0 +1,20 @@
+id: lfi3-084
+name: 'Traversal to system file via include'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via include'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      include:
+        - 'C:\Windows\System32\drivers\etc\hosts'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'localhost'

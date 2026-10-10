@@ -1,0 +1,15 @@
+id: backup3-033
+name: 'Exposed /.well-known/apple-app-site-association'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.well-known/apple-app-site-association is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.well-known/apple-app-site-association'
+    matchers:
+      - type: status
+        status: [200]

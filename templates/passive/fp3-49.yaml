@@ -1,0 +1,14 @@
+id: fp3-49
+name: 'Stack saleor3'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'saleor3 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'saleor3'

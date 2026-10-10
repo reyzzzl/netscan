@@ -1,0 +1,15 @@
+id: cve3-ghost-api-05
+name: 'Ghost api/members members'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Ghost api/members at /ghost/api/members — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/ghost/api/members'
+    matchers:
+      - type: status
+        status: [200]

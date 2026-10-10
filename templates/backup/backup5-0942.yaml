@@ -1,0 +1,15 @@
+id: backup5-0942
+name: 'Exposed /ajax.php.sum'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /ajax.php.sum is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/ajax.php.sum'
+    matchers:
+      - type: status
+        status: [200]

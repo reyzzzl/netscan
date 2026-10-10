@@ -1,0 +1,15 @@
+id: backup6-0054
+name: 'Exposed /signout.php.swp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /signout.php.swp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/signout.php.swp'
+    matchers:
+      - type: status
+        status: [200]

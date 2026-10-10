@@ -1,0 +1,15 @@
+id: cve6-portainerx-26
+name: 'portainerx at /robots.txt'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'portainerx at /robots.txt — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/robots.txt'
+    matchers:
+      - type: status
+        status: [200]

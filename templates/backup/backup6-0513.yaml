@@ -1,0 +1,15 @@
+id: backup6-0513
+name: 'Exposed /shipping.php.dist'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /shipping.php.dist is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/shipping.php.dist'
+    matchers:
+      - type: status
+        status: [200]

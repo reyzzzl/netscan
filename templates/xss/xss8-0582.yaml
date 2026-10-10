@@ -1,0 +1,20 @@
+id: xss8-0582
+name: 'Raw XSS8 in country'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in country'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      country:
+        - '<img src=x onerror=nx80581%09/>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx80581'

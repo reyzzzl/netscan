@@ -1,0 +1,20 @@
+id: xss5-1494
+name: 'Raw XSS5 in data'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in data'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      data:
+        - '<svg><animate%09onbegin=nx51493 attributeName=x>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51493'

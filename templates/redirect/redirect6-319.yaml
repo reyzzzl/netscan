@@ -1,0 +1,19 @@
+id: redirect6-319
+name: 'Redirect sink in callback'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Redirects to evil.example via callback'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      callback:
+        - 'http://evil.example/'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

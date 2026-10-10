@@ -1,0 +1,20 @@
+id: ssti4-pebble-06
+name: 'SSTI pebble in tpl'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - pebble
+description: 'pebble evaluates payload in tpl'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      tpl:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

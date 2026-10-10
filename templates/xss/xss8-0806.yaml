@@ -1,0 +1,20 @@
+id: xss8-0806
+name: 'Raw XSS8 in message'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in message'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      message:
+        - '<video><source onerror=nx80805%09/>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx80805'

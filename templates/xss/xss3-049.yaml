@@ -1,0 +1,20 @@
+id: xss3-049
+name: 'Raw XSS3 #18 in query'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in query'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      query:
+        - '<xss%09style=x%09onauxclick=nx3048>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3048'

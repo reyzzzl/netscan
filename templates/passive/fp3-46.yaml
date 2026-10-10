@@ -1,0 +1,14 @@
+id: fp3-46
+name: 'Stack bigcommerce'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'bigcommerce stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'bigcommerce'

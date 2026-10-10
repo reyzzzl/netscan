@@ -1,0 +1,21 @@
+id: graphql-15
+name: 'GraphQL introspection via q'
+severity: medium
+type: active
+tags:
+  - graphql
+  - api
+  - introspection
+description: 'GraphQL schema exposed via q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '{"query":"{__schema{types{name}}}"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '__schema'
+          - '__typename'

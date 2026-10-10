@@ -1,0 +1,25 @@
+id: xss6strict-1582
+name: 'Strict raw XSS in country'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      country:
+        - '<img src=x onerror=sx61581>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx61581'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx61581'

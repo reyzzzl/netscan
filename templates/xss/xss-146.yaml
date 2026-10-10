@@ -1,0 +1,20 @@
+id: xss-146
+name: 'Reflected XSS ctx-0 via message'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in message'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      message:
+        - '<script>nx145c</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx145c'

@@ -1,0 +1,20 @@
+id: xss5-2186
+name: 'Raw XSS5 in website'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in website'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      website:
+        - '<meta%09http-equiv=refresh%09content="0;javascript:nx52185">'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52185'

@@ -1,0 +1,15 @@
+id: backup6-0235
+name: 'Exposed /reset.php.ini'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /reset.php.ini is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/reset.php.ini'
+    matchers:
+      - type: status
+        status: [200]

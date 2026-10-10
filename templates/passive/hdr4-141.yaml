@@ -1,0 +1,14 @@
+id: hdr4-141
+name: 'Header x-gsr-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-gsr-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-gsr-2'

@@ -1,0 +1,15 @@
+id: cve3-laravel-misc-02
+name: 'Laravel _ignition/execute-solution execute-solution'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Laravel _ignition/execute-solution at /_ignition/execute-solution — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/_ignition/execute-solution'
+    matchers:
+      - type: status
+        status: [200]

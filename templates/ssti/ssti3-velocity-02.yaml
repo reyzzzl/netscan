@@ -1,0 +1,20 @@
+id: ssti3-velocity-02
+name: 'SSTI velocity in bio'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - velocity
+description: 'velocity evaluates payload in bio'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      bio:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

@@ -1,0 +1,15 @@
+id: cve5-bundlesizex-06
+name: 'bundlesizex at /manager'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'bundlesizex at /manager — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/manager'
+    matchers:
+      - type: status
+        status: [200]

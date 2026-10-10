@@ -1,0 +1,15 @@
+id: backup3-053
+name: 'Exposed /static/.env'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /static/.env is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/static/.env'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: cve5-victoriametricsx-20
+name: 'victoriametricsx at /graphql'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'victoriametricsx at /graphql — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/graphql'
+    matchers:
+      - type: status
+        status: [200]

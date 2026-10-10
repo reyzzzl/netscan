@@ -1,0 +1,14 @@
+id: err2-15
+name: 'Error page: rails stack'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'rails stack'

@@ -1,0 +1,25 @@
+id: xss7strict-0840
+name: 'Strict breakout XSS in nick'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      nick:
+        - '<table background=javascript:sx70839>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx70839'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx70839'

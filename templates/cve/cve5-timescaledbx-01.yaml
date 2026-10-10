@@ -1,0 +1,15 @@
+id: cve5-timescaledbx-01
+name: 'timescaledbx at /'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'timescaledbx at / — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/'
+    matchers:
+      - type: status
+        status: [200]

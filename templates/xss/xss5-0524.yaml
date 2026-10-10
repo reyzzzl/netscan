@@ -1,0 +1,20 @@
+id: xss5-0524
+name: 'Raw XSS5 in keyword'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in keyword'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      keyword:
+        - '''><img%0asrc=x%0aonerror=nx50523>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50523'

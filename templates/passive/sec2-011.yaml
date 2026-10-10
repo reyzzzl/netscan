@@ -1,0 +1,14 @@
+id: sec2-011
+name: 'Slack webhook'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Slack webhook in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'hooks.slack.com'

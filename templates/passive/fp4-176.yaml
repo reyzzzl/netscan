@@ -1,0 +1,14 @@
+id: fp4-176
+name: 'Stack docs9x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'docs9x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'docs9x'

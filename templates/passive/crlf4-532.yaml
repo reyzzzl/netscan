@@ -1,0 +1,20 @@
+id: crlf4-532
+name: 'CRLF into feedback'
+severity: medium
+type: active
+tags:
+  - crlf
+  - injection
+  - headers
+description: 'CRLF header injection via feedback'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      feedback:
+        - 'x%0d%0ax-test: t'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'x-test'

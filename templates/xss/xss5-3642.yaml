@@ -1,0 +1,20 @@
+id: xss5-3642
+name: 'Raw XSS5 in s'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in s'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      s:
+        - '<img%0asrc=x%0aonerror=nx53641>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53641'

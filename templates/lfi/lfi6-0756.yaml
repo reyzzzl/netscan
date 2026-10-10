@@ -1,0 +1,20 @@
+id: lfi6-0756
+name: 'Traversal in view'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via view'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      view:
+        - '/proc/version'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'Linux version'

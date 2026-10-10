@@ -1,0 +1,15 @@
+id: backup6-0273
+name: 'Exposed /verify.php.archive'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /verify.php.archive is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/verify.php.archive'
+    matchers:
+      - type: status
+        status: [200]

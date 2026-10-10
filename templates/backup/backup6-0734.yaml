@@ -1,0 +1,15 @@
+id: backup6-0734
+name: 'Exposed /contact.php.cfg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /contact.php.cfg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/contact.php.cfg'
+    matchers:
+      - type: status
+        status: [200]

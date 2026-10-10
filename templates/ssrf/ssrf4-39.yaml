@@ -1,0 +1,20 @@
+id: ssrf4-39
+name: 'SSRF scheme ldap via callback'
+severity: high
+type: active
+tags:
+  - ssrf
+  - oob
+  - scheme
+description: 'Fetches ldap URL via callback (verify manually)'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      callback:
+        - 'ldap://127.0.0.1:389/dc=x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'dn:'

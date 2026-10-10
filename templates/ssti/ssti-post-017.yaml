@@ -1,0 +1,21 @@
+id: ssti-post-017
+name: 'POST SSTI handlebars in template'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - post
+  - handlebars
+description: 'handlebars evaluates POST body on /render'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/render'
+    body: '{"template":"{{7*7}}"}'
+    sendHeaders:
+      Content-Type: 'application/json'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

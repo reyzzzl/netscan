@@ -1,0 +1,15 @@
+id: backup5-3569
+name: 'Exposed /queue.php.local'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /queue.php.local is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/queue.php.local'
+    matchers:
+      - type: status
+        status: [200]

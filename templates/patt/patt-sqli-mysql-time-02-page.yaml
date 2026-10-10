@@ -1,0 +1,19 @@
+id: patt-sqli-mysql-time-02-page
+name: 'PATT sqli patt-sqli-mysql-time-02 via page'
+severity: high
+type: active
+tags:
+  - sqli
+  - patt
+requires:
+  - php
+description: 'PATT MySQL BENCHMARK as alternatif SLEEP when comma difilter. [patt:patt-sqli-mysql-time-02] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/SQL%20Injection/MySQL%20Injection.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      page:
+        - ''' AND BENCHMARK(5000000,MD5(1))-- -'
+    matchers:
+      - type: time
+        ms: 2500

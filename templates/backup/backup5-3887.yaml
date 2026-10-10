@@ -1,0 +1,15 @@
+id: backup5-3887
+name: 'Exposed /notify.php.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /notify.php.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/notify.php.yml'
+    matchers:
+      - type: status
+        status: [200]

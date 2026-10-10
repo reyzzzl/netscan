@@ -1,0 +1,15 @@
+id: cve5-catchpointx-29
+name: 'catchpointx at /clientaccesspolicy.xml'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'catchpointx at /clientaccesspolicy.xml — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/clientaccesspolicy.xml'
+    matchers:
+      - type: status
+        status: [200]

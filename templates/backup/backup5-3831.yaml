@@ -1,0 +1,15 @@
+id: backup5-3831
+name: 'Exposed /sms.php.rar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sms.php.rar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sms.php.rar'
+    matchers:
+      - type: status
+        status: [200]

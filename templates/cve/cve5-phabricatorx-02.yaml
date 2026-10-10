@@ -1,0 +1,15 @@
+id: cve5-phabricatorx-02
+name: 'phabricatorx at /login'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'phabricatorx at /login — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/login'
+    matchers:
+      - type: status
+        status: [200]

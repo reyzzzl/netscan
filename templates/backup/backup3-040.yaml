@@ -1,0 +1,15 @@
+id: backup3-040
+name: 'Exposed /.well-known/security-policy'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.well-known/security-policy is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.well-known/security-policy'
+    matchers:
+      - type: status
+        status: [200]

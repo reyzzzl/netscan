@@ -1,0 +1,20 @@
+id: xss5-3530
+name: 'Raw XSS5 in text'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - '<div style="-moz-binding:url(''javascript:nx53529'')">'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53529'

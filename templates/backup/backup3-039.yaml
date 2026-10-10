@@ -1,0 +1,15 @@
+id: backup3-039
+name: 'Exposed /.well-known/webfinger'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.well-known/webfinger is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.well-known/webfinger'
+    matchers:
+      - type: status
+        status: [200]

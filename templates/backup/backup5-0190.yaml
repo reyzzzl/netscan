@@ -1,0 +1,15 @@
+id: backup5-0190
+name: 'Exposed /.env.toml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.toml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.toml'
+    matchers:
+      - type: status
+        status: [200]

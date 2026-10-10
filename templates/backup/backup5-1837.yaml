@@ -1,0 +1,15 @@
+id: backup5-1837
+name: 'Exposed /install.php.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /install.php.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/install.php.yml'
+    matchers:
+      - type: status
+        status: [200]

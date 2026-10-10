@@ -1,0 +1,15 @@
+id: cve5-mimirx-27
+name: 'mimirx at /sitemap.xml'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'mimirx at /sitemap.xml — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sitemap.xml'
+    matchers:
+      - type: status
+        status: [200]

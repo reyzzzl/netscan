@@ -1,0 +1,15 @@
+id: cve6-flaggerx-27
+name: 'flaggerx at /sitemap.xml'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'flaggerx at /sitemap.xml — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sitemap.xml'
+    matchers:
+      - type: status
+        status: [200]

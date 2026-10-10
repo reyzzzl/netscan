@@ -1,0 +1,15 @@
+id: auth3-035
+name: 'Panel at /vercel/admin'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /vercel/admin returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/vercel/admin'
+    matchers:
+      - type: status
+        status: [200]

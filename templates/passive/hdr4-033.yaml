@@ -1,0 +1,14 @@
+id: hdr4-033
+name: 'Header x-kaspersky-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-kaspersky-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-kaspersky-2'

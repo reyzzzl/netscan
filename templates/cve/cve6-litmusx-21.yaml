@@ -1,0 +1,15 @@
+id: cve6-litmusx-21
+name: 'litmusx at /debug/console'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'litmusx at /debug/console — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/debug/console'
+    matchers:
+      - type: status
+        status: [200]

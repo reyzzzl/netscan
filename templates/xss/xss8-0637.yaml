@@ -1,0 +1,20 @@
+id: xss8-0637
+name: 'Raw XSS8 in prefix'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in prefix'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      prefix:
+        - '<audio src=x onerror=nx80636/>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx80636'

@@ -1,0 +1,15 @@
+id: cve5-travisx-27
+name: 'travisx at /sitemap.xml'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'travisx at /sitemap.xml — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sitemap.xml'
+    matchers:
+      - type: status
+        status: [200]

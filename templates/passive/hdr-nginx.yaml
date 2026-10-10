@@ -1,0 +1,14 @@
+id: hdr-nginx
+name: 'Nginx version disclosed'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - fingerprint
+description: 'Nginx version disclosed — detected'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'nginx'

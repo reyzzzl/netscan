@@ -1,0 +1,15 @@
+id: backup5-2188
+name: 'Exposed /footer.php.yaml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /footer.php.yaml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/footer.php.yaml'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: cve3-drupal-token-02
+name: 'Drupal token README.md'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Drupal token at /modules/contrib/token/README.md — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/modules/contrib/token/README.md'
+    matchers:
+      - type: status
+        status: [200]

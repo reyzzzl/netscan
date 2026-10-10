@@ -1,0 +1,14 @@
+id: hdr4-048
+name: 'Header x-nessus-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-nessus-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-nessus-2'

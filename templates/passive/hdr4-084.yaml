@@ -1,0 +1,14 @@
+id: hdr4-084
+name: 'Header x-charles-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-charles-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-charles-2'

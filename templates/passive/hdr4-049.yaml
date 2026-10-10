@@ -1,0 +1,14 @@
+id: hdr4-049
+name: 'Header x-openvas-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-openvas-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-openvas-2'

@@ -1,0 +1,15 @@
+id: info-phpinfo
+name: 'phpinfo in body'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - exposure
+description: 'phpinfo in body — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'PHP Version'
+      - 'phpinfo()'

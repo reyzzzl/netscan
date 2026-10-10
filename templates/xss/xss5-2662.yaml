@@ -1,0 +1,20 @@
+id: xss5-2662
+name: 'Raw XSS5 in country'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in country'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      country:
+        - '<td%09background=javascript:nx52661>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52661'

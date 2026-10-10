@@ -1,0 +1,25 @@
+id: xss6strict-0308
+name: 'Strict raw XSS in about'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      about:
+        - '<audio src=x onerror=sx60307>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx60307'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx60307'

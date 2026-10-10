@@ -1,0 +1,14 @@
+id: fp3-23
+name: 'Stack dotnet8'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'dotnet8 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'dotnet8'

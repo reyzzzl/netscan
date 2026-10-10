@@ -1,0 +1,20 @@
+id: xss5-1654
+name: 'Raw XSS5 in data'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in data'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      data:
+        - '<iframe%0asrcdoc=<script>nx51653</script>>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51653'

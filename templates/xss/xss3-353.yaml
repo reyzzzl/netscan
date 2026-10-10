@@ -1,0 +1,20 @@
+id: xss3-353
+name: 'Raw XSS3 #22 in value'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in value'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      value:
+        - '<select%0aautofocus%0aonfocus=nx3352>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3352'

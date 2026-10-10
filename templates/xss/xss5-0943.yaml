@@ -1,0 +1,20 @@
+id: xss5-0943
+name: 'Raw XSS5 in state'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in state'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      state:
+        - '<form%0aaction=javascript:nx50942><input type=submit>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50942'

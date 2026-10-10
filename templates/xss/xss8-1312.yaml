@@ -1,0 +1,20 @@
+id: xss8-1312
+name: 'Raw XSS8 in subtext'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in subtext'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      subtext:
+        - '<img src=x onerror=nx81311%09%09>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx81311'

@@ -1,0 +1,20 @@
+id: xss5-3707
+name: 'Raw XSS5 in subject'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in subject'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      subject:
+        - '<input%09type=image%09formaction=javascript:nx53706>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53706'

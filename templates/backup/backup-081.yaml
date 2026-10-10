@@ -1,0 +1,15 @@
+id: backup-081
+name: 'Exposed /www.tar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /www.tar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/www.tar'
+    matchers:
+      - type: status
+        status: [200]

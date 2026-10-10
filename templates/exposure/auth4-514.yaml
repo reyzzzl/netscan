@@ -1,0 +1,15 @@
+id: auth4-514
+name: 'Panel at /org/dashboard'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /org/dashboard returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/org/dashboard'
+    matchers:
+      - type: status
+        status: [200]

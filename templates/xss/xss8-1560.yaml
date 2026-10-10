@@ -1,0 +1,20 @@
+id: xss8-1560
+name: 'Raw XSS8 in nick'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in nick'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      nick:
+        - '<keygen autofocus onfocus=nx81559%09%09>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx81559'

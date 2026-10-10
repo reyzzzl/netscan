@@ -1,0 +1,15 @@
+id: backup6-0331
+name: 'Exposed /activate.php.inc'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /activate.php.inc is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/activate.php.inc'
+    matchers:
+      - type: status
+        status: [200]

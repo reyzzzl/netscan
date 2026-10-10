@@ -1,0 +1,20 @@
+id: ssti3-smarty-01
+name: 'SSTI smarty in body'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - smarty
+description: 'smarty evaluates payload in body'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      body:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

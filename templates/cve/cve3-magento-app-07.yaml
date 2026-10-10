@@ -1,0 +1,15 @@
+id: cve3-magento-app-07
+name: 'Magento var/log/system.log system.log'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Magento var/log/system.log at /app/etc/var/log/system.log — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/app/etc/var/log/system.log'
+    matchers:
+      - type: status
+        status: [200]

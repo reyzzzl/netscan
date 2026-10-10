@@ -1,0 +1,15 @@
+id: backup5-0442
+name: 'Exposed /backup.zip.sum'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /backup.zip.sum is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/backup.zip.sum'
+    matchers:
+      - type: status
+        status: [200]

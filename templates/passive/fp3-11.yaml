@@ -1,0 +1,14 @@
+id: fp3-11
+name: 'Stack django42'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'django42 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'django42'

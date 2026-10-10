@@ -1,0 +1,15 @@
+id: cve3-magento-app-01
+name: 'Magento env.php env.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Magento env.php at /app/etc/env.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/app/etc/env.php'
+    matchers:
+      - type: status
+        status: [200]

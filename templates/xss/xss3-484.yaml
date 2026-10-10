@@ -1,0 +1,20 @@
+id: xss3-484
+name: 'Raw XSS3 #3 in keyword'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in keyword'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      keyword:
+        - '<script%0a>alert(nx3483)</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3483'

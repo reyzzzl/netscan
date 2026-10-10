@@ -1,0 +1,20 @@
+id: xss3-090
+name: 'Raw XSS3 #29 in text'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - '<bgsound%09src=javascript:nx3089>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3089'

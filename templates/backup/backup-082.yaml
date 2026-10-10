@@ -1,0 +1,15 @@
+id: backup-082
+name: 'Exposed /old/'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /old/ is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/old/'
+    matchers:
+      - type: status
+        status: [200]

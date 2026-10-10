@@ -1,0 +1,15 @@
+id: backup6-0152
+name: 'Exposed /forgot.php.orig'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /forgot.php.orig is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/forgot.php.orig'
+    matchers:
+      - type: status
+        status: [200]

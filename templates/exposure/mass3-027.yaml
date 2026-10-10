@@ -1,0 +1,18 @@
+id: mass3-027
+name: 'Mass field moderator'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered moderator on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"a1","moderator":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

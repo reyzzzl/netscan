@@ -1,0 +1,15 @@
+id: fp-angular
+name: 'Angular fingerprint'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'Angular fingerprint — detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'ng-version'
+      - 'angular'

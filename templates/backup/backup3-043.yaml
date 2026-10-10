@@ -1,0 +1,15 @@
+id: backup3-043
+name: 'Exposed /wp-content/uploads/db.sql'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /wp-content/uploads/db.sql is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/uploads/db.sql'
+    matchers:
+      - type: status
+        status: [200]

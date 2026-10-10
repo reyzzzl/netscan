@@ -1,0 +1,15 @@
+id: backup5-0322
+name: 'Exposed /db.sql.duplicate'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /db.sql.duplicate is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/db.sql.duplicate'
+    matchers:
+      - type: status
+        status: [200]

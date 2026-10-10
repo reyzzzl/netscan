@@ -1,0 +1,20 @@
+id: redirect5-16
+name: 'Scheme redirect in return'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+  - scheme
+description: 'Dangerous scheme via return'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      return:
+        - 'data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg=='
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'data:'

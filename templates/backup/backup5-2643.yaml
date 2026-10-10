@@ -1,0 +1,15 @@
+id: backup5-2643
+name: 'Exposed /token.php.mod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /token.php.mod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/token.php.mod'
+    matchers:
+      - type: status
+        status: [200]

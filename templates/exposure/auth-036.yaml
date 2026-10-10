@@ -1,0 +1,15 @@
+id: auth-036
+name: 'Ready at /ready'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Ready returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/ready'
+    matchers:
+      - type: status
+        status: [200]

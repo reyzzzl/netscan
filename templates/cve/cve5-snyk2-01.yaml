@@ -1,0 +1,15 @@
+id: cve5-snyk2-01
+name: 'snyk2 at /'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'snyk2 at / — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/'
+    matchers:
+      - type: status
+        status: [200]

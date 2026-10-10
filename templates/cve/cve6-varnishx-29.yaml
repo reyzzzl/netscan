@@ -1,0 +1,15 @@
+id: cve6-varnishx-29
+name: 'varnishx at /clientaccesspolicy.xml'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'varnishx at /clientaccesspolicy.xml — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/clientaccesspolicy.xml'
+    matchers:
+      - type: status
+        status: [200]

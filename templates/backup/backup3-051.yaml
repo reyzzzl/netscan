@@ -1,0 +1,15 @@
+id: backup3-051
+name: 'Exposed /wp-content/mu-plugins/'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /wp-content/mu-plugins/ is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/mu-plugins/'
+    matchers:
+      - type: status
+        status: [200]

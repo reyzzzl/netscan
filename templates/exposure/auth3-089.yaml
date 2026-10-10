@@ -1,0 +1,15 @@
+id: auth3-089
+name: 'Panel at /statuspage'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /statuspage returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/statuspage'
+    matchers:
+      - type: status
+        status: [200]

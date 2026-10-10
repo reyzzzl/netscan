@@ -1,0 +1,15 @@
+id: cve2-rancher-05
+name: 'Rancher fingerprint /rancher/ v5'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Rancher at /rancher/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/rancher/'
+    matchers:
+      - type: status
+        status: [200]

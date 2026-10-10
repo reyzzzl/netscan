@@ -1,0 +1,15 @@
+id: cve3-prestashop-app-02
+name: 'PrestaShop parameters.yml parameters.yml'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'PrestaShop parameters.yml at /app/config/parameters.yml — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/app/config/parameters.yml'
+    matchers:
+      - type: status
+        status: [200]

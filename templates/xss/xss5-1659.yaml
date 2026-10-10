@@ -1,0 +1,20 @@
+id: xss5-1659
+name: 'Raw XSS5 in phone'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in phone'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      phone:
+        - '<xss%0d%0astyle=x%0d%0aonfocusin=nx51658 tabindex=1>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51658'

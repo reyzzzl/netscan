@@ -1,0 +1,15 @@
+id: cve3-laravel-misc-07
+name: 'Laravel composer.lock composer.lock'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Laravel composer.lock at /composer.lock — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/composer.lock'
+    matchers:
+      - type: status
+        status: [200]

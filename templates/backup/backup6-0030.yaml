@@ -1,0 +1,15 @@
+id: backup6-0030
+name: 'Exposed /signin.php.rar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /signin.php.rar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/signin.php.rar'
+    matchers:
+      - type: status
+        status: [200]

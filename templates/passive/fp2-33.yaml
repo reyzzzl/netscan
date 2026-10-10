@@ -1,0 +1,14 @@
+id: fp2-33
+name: 'Fingerprint rocket'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'rocket detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'rocket'

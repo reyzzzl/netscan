@@ -1,0 +1,15 @@
+id: backup2-104
+name: 'Exposed2 /poetry.lock.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /poetry.lock.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/poetry.lock.bak'
+    matchers:
+      - type: status
+        status: [200]

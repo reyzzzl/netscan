@@ -1,0 +1,15 @@
+id: backup6-0236
+name: 'Exposed /reset.php.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /reset.php.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/reset.php.yml'
+    matchers:
+      - type: status
+        status: [200]

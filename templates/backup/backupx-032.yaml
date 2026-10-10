@@ -1,0 +1,15 @@
+id: backupx-032
+name: 'Exposed /.htpasswd.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /.htpasswd.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.htpasswd.bak'
+    matchers:
+      - type: status
+        status: [200]

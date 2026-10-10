@@ -1,0 +1,15 @@
+id: backup-058
+name: 'Exposed /META-INF/MANIFEST.MF'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /META-INF/MANIFEST.MF is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/META-INF/MANIFEST.MF'
+    matchers:
+      - type: status
+        status: [200]

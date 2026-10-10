@@ -1,0 +1,15 @@
+id: backup2-191
+name: 'Exposed2 /.env.copy'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.copy is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.copy'
+    matchers:
+      - type: status
+        status: [200]

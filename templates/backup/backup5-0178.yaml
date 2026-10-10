@@ -1,0 +1,15 @@
+id: backup5-0178
+name: 'Exposed /.env.gz'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.gz is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.gz'
+    matchers:
+      - type: status
+        status: [200]

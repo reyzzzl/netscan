@@ -1,0 +1,15 @@
+id: cve2-drupal2-06
+name: 'Drupal2 fingerprint /core/CHANGELOG.txt v6'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Drupal2 at /core/CHANGELOG.txt — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/core/CHANGELOG.txt'
+    matchers:
+      - type: status
+        status: [200]

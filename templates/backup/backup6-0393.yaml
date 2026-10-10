@@ -1,0 +1,15 @@
+id: backup6-0393
+name: 'Exposed /confirm.php.sqlite'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /confirm.php.sqlite is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/confirm.php.sqlite'
+    matchers:
+      - type: status
+        status: [200]

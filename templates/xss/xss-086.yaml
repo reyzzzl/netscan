@@ -1,0 +1,20 @@
+id: xss-086
+name: 'Reflected XSS ctx-27 via message'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in message'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      message:
+        - '<select onfocus=nx085c autofocus>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx085c'

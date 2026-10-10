@@ -1,0 +1,14 @@
+id: hdr4-045
+name: 'Header x-qualys-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-qualys-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-qualys-2'

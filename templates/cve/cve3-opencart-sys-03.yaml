@@ -1,0 +1,15 @@
+id: cve3-opencart-sys-03
+name: 'OpenCart logs/ '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'OpenCart logs/ at /system/logs/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/system/logs/'
+    matchers:
+      - type: status
+        status: [200]

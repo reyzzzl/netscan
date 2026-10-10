@@ -1,0 +1,25 @@
+id: xss6strict-1898
+name: 'Strict raw XSS in email'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      email:
+        - '<audio src=x onerror=sx61897>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx61897'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx61897'

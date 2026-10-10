@@ -1,0 +1,20 @@
+id: xss8-1505
+name: 'Raw XSS8 in company'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in company'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      company:
+        - '<marquee onstart=nx81504>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx81504'

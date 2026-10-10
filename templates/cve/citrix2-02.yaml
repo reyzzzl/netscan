@@ -1,0 +1,15 @@
+id: citrix2-02
+name: 'Citrix root'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Citrix at /logon/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/logon/?v=3'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: auth2-024
+name: 'Ops board at /opsboard'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Ops board returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/opsboard'
+    matchers:
+      - type: status
+        status: [200]

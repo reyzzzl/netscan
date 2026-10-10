@@ -1,0 +1,20 @@
+id: xss4-086
+name: 'Raw XSS4 #5 in title'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in title'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      title:
+        - '<script>confirm(nx4085)</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx4085'

@@ -1,0 +1,15 @@
+id: backup2-005
+name: 'Exposed2 /actuator/beans'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /actuator/beans is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/actuator/beans'
+    matchers:
+      - type: status
+        status: [200]

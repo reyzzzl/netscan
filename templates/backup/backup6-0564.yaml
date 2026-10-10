@@ -1,0 +1,15 @@
+id: backup6-0564
+name: 'Exposed /tracking.php.prod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /tracking.php.prod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/tracking.php.prod'
+    matchers:
+      - type: status
+        status: [200]

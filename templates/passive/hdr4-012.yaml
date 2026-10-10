@@ -1,0 +1,14 @@
+id: hdr4-012
+name: 'Header x-fastly-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-fastly-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-fastly-2'

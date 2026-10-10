@@ -1,0 +1,15 @@
+id: auth3-100
+name: 'Panel at /readarr'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /readarr returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/readarr'
+    matchers:
+      - type: status
+        status: [200]

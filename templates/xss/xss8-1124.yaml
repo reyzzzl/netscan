@@ -1,0 +1,20 @@
+id: xss8-1124
+name: 'Raw XSS8 in keyword'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in keyword'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      keyword:
+        - '<details open ontoggle=nx81123%0d%0a>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx81123'

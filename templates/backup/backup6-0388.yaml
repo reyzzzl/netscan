@@ -1,0 +1,15 @@
+id: backup6-0388
+name: 'Exposed /confirm.php.json5'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /confirm.php.json5 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/confirm.php.json5'
+    matchers:
+      - type: status
+        status: [200]

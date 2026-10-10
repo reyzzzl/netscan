@@ -1,0 +1,20 @@
+id: xss8-0384
+name: 'Raw XSS8 in zip'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in zip'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      zip:
+        - '<details open ontoggle=nx80383%09%09>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx80383'

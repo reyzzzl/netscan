@@ -1,0 +1,15 @@
+id: hdr2-09
+name: 'Missing content-security-policy-report-only'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header content-security-policy-report-only not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'content-security-policy-report-only'
+    negative: true

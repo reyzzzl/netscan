@@ -1,0 +1,15 @@
+id: backup4-231
+name: 'Exposed /profile.php.bkp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /profile.php.bkp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/profile.php.bkp'
+    matchers:
+      - type: status
+        status: [200]

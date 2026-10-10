@@ -1,0 +1,20 @@
+id: ssti4-dot-17
+name: 'SSTI dot in m'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - dot
+description: 'dot evaluates payload in m'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      m:
+        - '{{=7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

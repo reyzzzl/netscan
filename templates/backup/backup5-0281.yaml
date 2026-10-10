@@ -1,0 +1,15 @@
+id: backup5-0281
+name: 'Exposed /dump.sql.rar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /dump.sql.rar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dump.sql.rar'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: auth-016
+name: 'Profiler at /_profiler'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Profiler returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/_profiler'
+    matchers:
+      - type: status
+        status: [200]

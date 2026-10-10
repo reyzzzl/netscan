@@ -1,0 +1,20 @@
+id: xss2-184
+name: 'Reflected XSS2 ctx-3 via keyword'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in keyword'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      keyword:
+        - '<body onpageshow=alert(nx2183)>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx2183'

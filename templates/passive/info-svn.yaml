@@ -1,0 +1,14 @@
+id: info-svn
+name: 'SVN entries leaked'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - exposure
+description: 'SVN entries leaked — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - '.svn/entries'

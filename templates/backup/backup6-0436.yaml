@@ -1,0 +1,15 @@
+id: backup6-0436
+name: 'Exposed /checkout.php.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /checkout.php.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/checkout.php.yml'
+    matchers:
+      - type: status
+        status: [200]

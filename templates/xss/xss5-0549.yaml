@@ -1,0 +1,20 @@
+id: xss5-0549
+name: 'Raw XSS5 in summary'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in summary'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      summary:
+        - '<video%0a><source%0aonerror=nx50548>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50548'

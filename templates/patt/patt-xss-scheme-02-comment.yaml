@@ -1,0 +1,20 @@
+id: patt-xss-scheme-02-comment
+name: 'PATT xss patt-xss-scheme-02 via comment'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+  - schemejs
+description: 'PATT javascript polyglot with filter-splitting comment. [patt:patt-xss-scheme-02] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      comment:
+        - 'jaVasCript:/*-/*`/*\`/*''/*"/**/alert(nxp0019)//'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0019'

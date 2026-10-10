@@ -1,0 +1,19 @@
+id: redirect6-349
+name: 'Redirect sink in forward'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Redirects to evil.example via forward'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      forward:
+        - 'http://evil.example/'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

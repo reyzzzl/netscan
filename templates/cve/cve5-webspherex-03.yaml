@@ -1,0 +1,15 @@
+id: cve5-webspherex-03
+name: 'webspherex at /admin'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'webspherex at /admin — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/admin'
+    matchers:
+      - type: status
+        status: [200]

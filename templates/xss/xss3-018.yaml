@@ -1,0 +1,20 @@
+id: xss3-018
+name: 'Raw XSS3 #17 in email'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in email'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      email:
+        - '<math><mi%09xlink:href=javascript:nx3017>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3017'

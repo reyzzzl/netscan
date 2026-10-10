@@ -1,0 +1,15 @@
+id: backup5-2686
+name: 'Exposed /key.php.ini'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /key.php.ini is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/key.php.ini'
+    matchers:
+      - type: status
+        status: [200]

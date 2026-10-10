@@ -1,0 +1,15 @@
+id: backup2-109
+name: 'Exposed2 /manifest.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /manifest.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/manifest.yml'
+    matchers:
+      - type: status
+        status: [200]

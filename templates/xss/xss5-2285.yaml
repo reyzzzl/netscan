@@ -1,0 +1,20 @@
+id: xss5-2285
+name: 'Raw XSS5 in name'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<bgsound%0asrc=javascript:nx52284>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52284'

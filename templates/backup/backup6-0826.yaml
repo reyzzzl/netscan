@@ -1,0 +1,15 @@
+id: backup6-0826
+name: 'Exposed /about.php.tar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /about.php.tar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/about.php.tar'
+    matchers:
+      - type: status
+        status: [200]

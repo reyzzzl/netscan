@@ -1,0 +1,14 @@
+id: hdr4-130
+name: 'Header x-fingerprint-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-fingerprint-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-fingerprint-2'

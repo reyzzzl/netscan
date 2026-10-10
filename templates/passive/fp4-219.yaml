@@ -1,0 +1,14 @@
+id: fp4-219
+name: 'Stack web11x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'web11x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'web11x'

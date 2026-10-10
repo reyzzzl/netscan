@@ -1,0 +1,19 @@
+id: redirect6-245
+name: 'Redirect sink in to'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Redirects to evil.example via to'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      to:
+        - 'https://evil.example%252f'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

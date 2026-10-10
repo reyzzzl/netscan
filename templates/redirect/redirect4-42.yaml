@@ -1,0 +1,20 @@
+id: redirect4-42
+name: 'Allowlist trick in from'
+severity: high
+type: active
+tags:
+  - redirect
+  - open-redirect
+  - bypass
+description: 'Bypasses trusted.com allowlist via from'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      from:
+        - 'https://user:pass@trusted.com.evil.example/'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

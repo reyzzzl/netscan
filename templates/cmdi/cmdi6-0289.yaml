@@ -1,0 +1,23 @@
+id: cmdi6-0289
+name: 'Shell injection in operation'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - injection
+  - rce
+description: 'OS command runs via operation'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      operation:
+        - '%0aid'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='
+          - 'root:x:0:0'
+          - 'www-data'

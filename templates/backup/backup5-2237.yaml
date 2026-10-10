@@ -1,0 +1,15 @@
+id: backup5-2237
+name: 'Exposed /sidebar.php.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sidebar.php.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sidebar.php.yml'
+    matchers:
+      - type: status
+        status: [200]

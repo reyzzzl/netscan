@@ -1,0 +1,20 @@
+id: xss5-0182
+name: 'Raw XSS5 in country'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in country'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      country:
+        - '<svg><animate%0aonbegin=nx50181 attributeName=x>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50181'

@@ -1,0 +1,15 @@
+id: backup-027
+name: 'Exposed /docker-compose.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /docker-compose.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/docker-compose.yml'
+    matchers:
+      - type: status
+        status: [200]

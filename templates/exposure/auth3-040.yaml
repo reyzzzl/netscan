@@ -1,0 +1,15 @@
+id: auth3-040
+name: 'Panel at /dbgate'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /dbgate returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dbgate'
+    matchers:
+      - type: status
+        status: [200]

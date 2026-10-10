@@ -1,0 +1,14 @@
+id: fp2-26
+name: 'Fingerprint sinatra'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'sinatra detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'sinatra'

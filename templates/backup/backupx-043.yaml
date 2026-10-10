@@ -1,0 +1,15 @@
+id: backupx-043
+name: 'Exposed /Gemfile.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /Gemfile.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/Gemfile.bak'
+    matchers:
+      - type: status
+        status: [200]

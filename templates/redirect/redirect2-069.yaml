@@ -1,0 +1,19 @@
+id: redirect2-069
+name: 'Open redirect2 via next_url'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Unsafe redirect via next_url'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      next_url:
+        - 'javascript:alert(1)'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'javascript:'

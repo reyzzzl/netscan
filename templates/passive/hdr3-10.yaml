@@ -1,0 +1,14 @@
+id: hdr3-10
+name: 'Debug header x-drupal-cache'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - debug
+description: 'Debug header x-drupal-cache present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-drupal-cache'

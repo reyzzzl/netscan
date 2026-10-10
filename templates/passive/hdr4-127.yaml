@@ -1,0 +1,14 @@
+id: hdr4-127
+name: 'Header x-voice-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-voice-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-voice-2'

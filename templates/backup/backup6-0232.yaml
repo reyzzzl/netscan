@@ -1,0 +1,15 @@
+id: backup6-0232
+name: 'Exposed /reset.php.tpl'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /reset.php.tpl is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/reset.php.tpl'
+    matchers:
+      - type: status
+        status: [200]

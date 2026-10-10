@@ -1,0 +1,15 @@
+id: backup6-0091
+name: 'Exposed /signout.php.sum'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /signout.php.sum is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/signout.php.sum'
+    matchers:
+      - type: status
+        status: [200]

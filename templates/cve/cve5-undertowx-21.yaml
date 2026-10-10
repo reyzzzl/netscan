@@ -1,0 +1,15 @@
+id: cve5-undertowx-21
+name: 'undertowx at /debug/console'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'undertowx at /debug/console — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/debug/console'
+    matchers:
+      - type: status
+        status: [200]

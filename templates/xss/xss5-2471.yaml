@@ -1,0 +1,20 @@
+id: xss5-2471
+name: 'Raw XSS5 in headline'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in headline'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      headline:
+        - '<audio%0asrc=x%0aonerror=nx52470>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52470'

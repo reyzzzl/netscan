@@ -1,0 +1,15 @@
+id: cve2-prometheus-01
+name: 'Prometheus fingerprint /prometheus/graph v1'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Prometheus at /prometheus/graph — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/prometheus/graph'
+    matchers:
+      - type: status
+        status: [200]

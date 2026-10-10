@@ -1,0 +1,15 @@
+id: backup5-2608
+name: 'Exposed /token.php.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /token.php.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/token.php.bak'
+    matchers:
+      - type: status
+        status: [200]

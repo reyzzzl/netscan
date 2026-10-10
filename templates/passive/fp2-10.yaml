@@ -1,0 +1,14 @@
+id: fp2-10
+name: 'Fingerprint qwik'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'qwik detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'qwik'

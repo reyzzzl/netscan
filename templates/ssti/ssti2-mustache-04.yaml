@@ -1,0 +1,20 @@
+id: ssti2-mustache-04
+name: 'SSTI2 mustache via content'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - mustache
+description: 'mustache evaluates payload in content'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      content:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

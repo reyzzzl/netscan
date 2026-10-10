@@ -1,0 +1,15 @@
+id: cve5-bitbucketx-04
+name: 'bitbucketx at /api'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'bitbucketx at /api — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: info-stack-php
+name: 'PHP stacktrace'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - debug
+description: 'PHP stacktrace — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'Fatal error'
+      - 'Uncaught Exception'

@@ -1,0 +1,14 @@
+id: hdr4-083
+name: 'Header x-mitmproxy-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-mitmproxy-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-mitmproxy-2'

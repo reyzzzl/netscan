@@ -1,0 +1,15 @@
+id: cve3-wp-jetpack-10
+name: 'WP jetpack screenshot.png'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP jetpack at /wp-content/plugins/jetpack/screenshot.png — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/jetpack/screenshot.png'
+    matchers:
+      - type: status
+        status: [200]

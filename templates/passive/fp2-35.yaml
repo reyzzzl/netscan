@@ -1,0 +1,14 @@
+id: fp2-35
+name: 'Fingerprint hono'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'hono detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'hono'

@@ -1,0 +1,15 @@
+id: backup6-0185
+name: 'Exposed /forgot.php.ini'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /forgot.php.ini is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/forgot.php.ini'
+    matchers:
+      - type: status
+        status: [200]

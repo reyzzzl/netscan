@@ -1,0 +1,15 @@
+id: backup5-0676
+name: 'Exposed /lib.php.pkg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /lib.php.pkg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/lib.php.pkg'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,14 @@
+id: sec2-038
+name: 'AWS secret key alt'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'AWS secret key alt in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'aws_secret_access_key'

@@ -1,0 +1,20 @@
+id: xss3-230
+name: 'Raw XSS3 #19 in text'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - '<xss%0astyle=x%0aonpointerover=nx3229>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3229'

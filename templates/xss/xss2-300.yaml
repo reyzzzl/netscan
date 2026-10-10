@@ -1,0 +1,20 @@
+id: xss2-300
+name: 'Reflected XSS2 ctx-29 via word'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in word'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      word:
+        - '"><script src=data:,alert(nx2299)></script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx2299'

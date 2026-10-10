@@ -1,0 +1,15 @@
+id: backup5-1455
+name: 'Exposed /payment.php.swp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /payment.php.swp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/payment.php.swp'
+    matchers:
+      - type: status
+        status: [200]

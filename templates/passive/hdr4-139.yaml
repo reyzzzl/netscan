@@ -1,0 +1,14 @@
+id: hdr4-139
+name: 'Header x-spo2-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-spo2-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-spo2-2'

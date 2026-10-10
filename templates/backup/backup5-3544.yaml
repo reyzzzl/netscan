@@ -1,0 +1,15 @@
+id: backup5-3544
+name: 'Exposed /cron.php.sqlite'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /cron.php.sqlite is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/cron.php.sqlite'
+    matchers:
+      - type: status
+        status: [200]

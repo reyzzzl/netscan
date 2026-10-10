@@ -1,0 +1,15 @@
+id: cve5-lighthouse-ci-17
+name: 'lighthouse-ci at /api/docs'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'lighthouse-ci at /api/docs — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/docs'
+    matchers:
+      - type: status
+        status: [200]

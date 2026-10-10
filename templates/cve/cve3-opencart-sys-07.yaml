@@ -1,0 +1,15 @@
+id: cve3-opencart-sys-07
+name: 'OpenCart cli/ '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'OpenCart cli/ at /system/cli/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/system/cli/'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup5-3455
+name: 'Exposed /sync.php.swp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sync.php.swp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sync.php.swp'
+    matchers:
+      - type: status
+        status: [200]

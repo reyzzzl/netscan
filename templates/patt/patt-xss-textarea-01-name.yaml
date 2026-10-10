@@ -1,0 +1,19 @@
+id: patt-xss-textarea-01-name
+name: 'PATT xss patt-xss-textarea-01 via name'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+description: 'PATT breaks out of <textarea>/<title>/<style> that swallows tags. [patt:patt-xss-textarea-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '</textarea><svg onload=nxp0016>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0016'

@@ -1,0 +1,15 @@
+id: backupx-046
+name: 'Exposed /web.config.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /web.config.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/web.config.bak'
+    matchers:
+      - type: status
+        status: [200]

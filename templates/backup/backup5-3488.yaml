@@ -1,0 +1,15 @@
+id: backup5-3488
+name: 'Exposed /sync.php.yaml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sync.php.yaml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sync.php.yaml'
+    matchers:
+      - type: status
+        status: [200]

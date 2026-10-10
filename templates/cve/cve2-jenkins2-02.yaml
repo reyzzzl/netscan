@@ -1,0 +1,15 @@
+id: cve2-jenkins2-02
+name: 'Jenkins2 fingerprint /login v2'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Jenkins2 at /login — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/login'
+    matchers:
+      - type: status
+        status: [200]

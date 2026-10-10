@@ -1,0 +1,15 @@
+id: cve3-magento-app-02
+name: 'Magento config.php config.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Magento config.php at /app/etc/config.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/app/etc/config.php'
+    matchers:
+      - type: status
+        status: [200]

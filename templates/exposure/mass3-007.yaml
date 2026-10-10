@@ -1,0 +1,18 @@
+id: mass3-007
+name: 'Mass field root2'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered root2 on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"t","root2":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

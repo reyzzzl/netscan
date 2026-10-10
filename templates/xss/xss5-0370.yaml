@@ -1,0 +1,20 @@
+id: xss5-0370
+name: 'Raw XSS5 in text'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - '<applet%0acode=javascript:nx50369>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50369'

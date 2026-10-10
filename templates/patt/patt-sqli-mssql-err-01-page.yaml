@@ -1,0 +1,23 @@
+id: patt-sqli-mssql-err-01-page
+name: 'PATT sqli patt-sqli-mssql-err-01 via page'
+severity: high
+type: active
+tags:
+  - sqli
+  - patt
+requires:
+  - dotnet
+description: 'PATT MSSQL error-based. [patt:patt-sqli-mssql-err-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/SQL%20Injection/MSSQL%20Injection.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      page:
+        - ''' OR ''1''=''1'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'ODBC'
+          - 'SQL Server'
+          - 'Unclosed quotation mark'

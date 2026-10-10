@@ -1,0 +1,15 @@
+id: cve6-gremlin2-16
+name: 'gremlin2 at /docs'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'gremlin2 at /docs — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/docs'
+    matchers:
+      - type: status
+        status: [200]

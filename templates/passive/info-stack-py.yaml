@@ -1,0 +1,14 @@
+id: info-stack-py
+name: 'Python traceback'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - debug
+description: 'Python traceback — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'Traceback'

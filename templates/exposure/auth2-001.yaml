@@ -1,0 +1,15 @@
+id: auth2-001
+name: 'Go pprof at /debug/pprof'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Go pprof returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/debug/pprof'
+    matchers:
+      - type: status
+        status: [200]

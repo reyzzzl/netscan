@@ -1,0 +1,20 @@
+id: crlf4-477
+name: 'CRLF into subject'
+severity: medium
+type: active
+tags:
+  - crlf
+  - injection
+  - headers
+description: 'CRLF header injection via subject'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      subject:
+        - 'x%0d%0a%0d%0aX-Test: t'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'x-test'

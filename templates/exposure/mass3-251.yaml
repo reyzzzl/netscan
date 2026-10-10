@@ -1,0 +1,18 @@
+id: mass3-251
+name: 'Mass field ticket'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered ticket on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"u1","ticket":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

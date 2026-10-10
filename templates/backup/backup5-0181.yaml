@@ -1,0 +1,15 @@
+id: backup5-0181
+name: 'Exposed /.env.rar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.rar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.rar'
+    matchers:
+      - type: status
+        status: [200]

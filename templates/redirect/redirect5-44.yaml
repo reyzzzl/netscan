@@ -1,0 +1,20 @@
+id: redirect5-44
+name: 'Scheme redirect in url'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+  - scheme
+description: 'Dangerous scheme via url'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      url:
+        - 'javascript://evil.example/%0aalert(1)'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'javascript:'

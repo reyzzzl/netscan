@@ -1,0 +1,15 @@
+id: backup6-0736
+name: 'Exposed /contact.php.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /contact.php.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/contact.php.yml'
+    matchers:
+      - type: status
+        status: [200]

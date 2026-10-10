@@ -1,0 +1,20 @@
+id: xss5-2746
+name: 'Raw XSS5 in website'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in website'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      website:
+        - '''><img%0asrc=x%0aonerror=nx52745>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52745'

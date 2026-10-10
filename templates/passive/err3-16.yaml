@@ -1,0 +1,14 @@
+id: err3-16
+name: 'Framework error: typeorm'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Framework error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'typeorm'

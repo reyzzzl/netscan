@@ -1,0 +1,15 @@
+id: cve5-giteax-13
+name: 'giteax at /version'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'giteax at /version — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/version'
+    matchers:
+      - type: status
+        status: [200]

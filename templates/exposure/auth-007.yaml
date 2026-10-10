@@ -1,0 +1,15 @@
+id: auth-007
+name: 'Spring actuator at /actuator'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Spring actuator returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/actuator'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: ssti4-marko-04
+name: 'SSTI marko in layout'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - marko
+description: 'marko evaluates payload in layout'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      layout:
+        - '${7*7}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

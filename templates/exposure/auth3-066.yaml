@@ -1,0 +1,15 @@
+id: auth3-066
+name: 'Panel at /plausible'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /plausible returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/plausible'
+    matchers:
+      - type: status
+        status: [200]

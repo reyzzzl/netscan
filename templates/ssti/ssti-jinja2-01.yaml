@@ -1,0 +1,20 @@
+id: ssti-jinja2-01
+name: 'SSTI jinja2 via name'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - jinja2
+description: 'jinja2 evaluates payload in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

@@ -1,0 +1,20 @@
+id: xss8-1463
+name: 'Raw XSS8 in state'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in state'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      state:
+        - '<body onload=nx81462%20>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx81462'

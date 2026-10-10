@@ -1,0 +1,15 @@
+id: backup5-3986
+name: 'Exposed /debug.php.ini'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /debug.php.ini is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/debug.php.ini'
+    matchers:
+      - type: status
+        status: [200]

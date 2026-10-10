@@ -1,0 +1,20 @@
+id: ssti3-smarty-02
+name: 'SSTI smarty in desc'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - smarty
+description: 'smarty evaluates payload in desc'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      desc:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

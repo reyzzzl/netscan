@@ -1,0 +1,20 @@
+id: xss4-186
+name: 'Raw XSS4 #25 in title'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in title'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      title:
+        - '<t:script xlink:href=javascript:alert(nx4185)>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx4185'

@@ -1,0 +1,19 @@
+id: redirect2-040
+name: 'Open redirect2 via redirect_to'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Unsafe redirect via redirect_to'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      redirect_to:
+        - 'data:text/html,<script>alert(1)</script>'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'data:'

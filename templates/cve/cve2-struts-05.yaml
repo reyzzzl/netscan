@@ -1,0 +1,15 @@
+id: cve2-struts-05
+name: 'Struts fingerprint /struts-showcase/ v5'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Struts at /struts-showcase/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/struts-showcase/'
+    matchers:
+      - type: status
+        status: [200]

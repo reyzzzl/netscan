@@ -1,0 +1,15 @@
+id: hdr2-14
+name: 'Missing feature-policy'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header feature-policy not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'feature-policy'
+    negative: true

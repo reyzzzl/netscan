@@ -1,0 +1,21 @@
+id: stored-007
+name: 'Stored XSS via notes.comment'
+severity: high
+type: active
+tags:
+  - xss
+  - stored
+description: 'Stores canary, reads it back on /notes'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/notes'
+    body: '{"comment":"<script>store007</script>"}'
+    sendHeaders:
+      Content-Type: 'application/json'
+  - method: GET
+    path: '{{BaseURL}}/notes'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'store007'

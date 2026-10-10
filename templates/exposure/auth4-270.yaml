@@ -1,0 +1,15 @@
+id: auth4-270
+name: 'Panel at /control/beta'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /control/beta returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/control/beta'
+    matchers:
+      - type: status
+        status: [200]

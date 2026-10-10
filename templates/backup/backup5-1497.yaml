@@ -1,0 +1,15 @@
+id: backup5-1497
+name: 'Exposed /payment.php.accdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /payment.php.accdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/payment.php.accdb'
+    matchers:
+      - type: status
+        status: [200]

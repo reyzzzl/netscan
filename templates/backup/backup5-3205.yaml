@@ -1,0 +1,15 @@
+id: backup5-3205
+name: 'Exposed /prod.php.swp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /prod.php.swp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/prod.php.swp'
+    matchers:
+      - type: status
+        status: [200]

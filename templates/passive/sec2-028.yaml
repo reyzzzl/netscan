@@ -1,0 +1,14 @@
+id: sec2-028
+name: 'Slack bot token alt'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Slack bot token alt in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'xoxb-'

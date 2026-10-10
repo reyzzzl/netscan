@@ -1,0 +1,14 @@
+id: hdr3-28
+name: 'Debug header x-server-timing-debug'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - debug
+description: 'Debug header x-server-timing-debug present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-server-timing-debug'

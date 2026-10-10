@@ -1,0 +1,15 @@
+id: backup6-0589
+name: 'Exposed /tracking.php.toml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /tracking.php.toml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/tracking.php.toml'
+    matchers:
+      - type: status
+        status: [200]

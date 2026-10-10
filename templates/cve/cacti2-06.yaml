@@ -1,0 +1,15 @@
+id: cacti2-06
+name: 'Cacti auth_login.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Cacti at /auth_login.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/auth_login.php?v=7'
+    matchers:
+      - type: status
+        status: [200]

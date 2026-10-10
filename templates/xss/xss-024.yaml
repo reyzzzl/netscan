@@ -1,0 +1,20 @@
+id: xss-024
+name: 'Reflected XSS ctx-23 via keyword'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in keyword'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      keyword:
+        - '#{nx023c}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx023c'

@@ -1,0 +1,14 @@
+id: hdr4-090
+name: 'Header x-censys-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-censys-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-censys-2'

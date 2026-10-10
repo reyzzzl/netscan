@@ -1,0 +1,15 @@
+id: cve5-statuscakex-15
+name: 'statuscakex at /help'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'statuscakex at /help — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/help'
+    matchers:
+      - type: status
+        status: [200]

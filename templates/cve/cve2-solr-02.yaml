@@ -1,0 +1,15 @@
+id: cve2-solr-02
+name: 'Solr fingerprint /solr/admin/cores v2'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Solr at /solr/admin/cores — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/solr/admin/cores'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: fp-express
+name: 'Express fingerprint'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'Express fingerprint — detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'Express'
+      - 'connect.sid'

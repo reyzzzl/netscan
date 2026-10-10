@@ -1,0 +1,20 @@
+id: xss5-2520
+name: 'Raw XSS5 in nick'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in nick'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      nick:
+        - '<div style="-moz-binding:url(''javascript:nx52519'')">'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52519'

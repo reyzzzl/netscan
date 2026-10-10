@@ -1,0 +1,15 @@
+id: auth2-009
+name: 'Adminer at /adminer.php'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Adminer returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/adminer.php'
+    matchers:
+      - type: status
+        status: [200]

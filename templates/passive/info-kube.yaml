@@ -1,0 +1,14 @@
+id: info-kube
+name: 'Kubernetes dashboard'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - exposure
+description: 'Kubernetes dashboard — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'kubernetes-dashboard'

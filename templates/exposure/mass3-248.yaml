@@ -1,0 +1,18 @@
+id: mass3-248
+name: 'Mass field passport'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered passport on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"u1","passport":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

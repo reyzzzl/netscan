@@ -1,0 +1,20 @@
+id: xss5-3209
+name: 'Raw XSS5 in query'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in query'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      query:
+        - '<table%09background=data:text/html,nx53208>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53208'

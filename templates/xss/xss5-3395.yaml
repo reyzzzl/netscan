@@ -1,0 +1,20 @@
+id: xss5-3395
+name: 'Raw XSS5 in hint'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in hint'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      hint:
+        - '<bgsound%09src=javascript:nx53394>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53394'

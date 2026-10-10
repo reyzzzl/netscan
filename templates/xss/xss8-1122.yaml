@@ -1,0 +1,20 @@
+id: xss8-1122
+name: 'Raw XSS8 in s'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in s'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      s:
+        - '<img src=x onerror=nx81121%09>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx81121'

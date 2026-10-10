@@ -1,0 +1,15 @@
+id: backup2-004
+name: 'Exposed2 /actuator/mappings'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /actuator/mappings is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/actuator/mappings'
+    matchers:
+      - type: status
+        status: [200]

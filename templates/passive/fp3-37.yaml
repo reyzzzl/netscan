@@ -1,0 +1,14 @@
+id: fp3-37
+name: 'Stack strapi4'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'strapi4 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'strapi4'

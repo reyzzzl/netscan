@@ -1,0 +1,14 @@
+id: fp4-170
+name: 'Stack blog9x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'blog9x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'blog9x'

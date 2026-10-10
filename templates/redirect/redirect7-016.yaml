@@ -1,0 +1,20 @@
+id: redirect7-016
+name: 'Trusted bypass in file'
+severity: high
+type: active
+tags:
+  - redirect
+  - open-redirect
+  - bypass
+description: 'Bypasses trusted.com allowlist via file'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      file:
+        - 'https://trusted.CoM.evil.example/'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

@@ -1,0 +1,14 @@
+id: fp3-32
+name: 'Stack actix4'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'actix4 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'actix4'

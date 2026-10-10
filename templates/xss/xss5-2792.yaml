@@ -1,0 +1,20 @@
+id: xss5-2792
+name: 'Raw XSS5 in subtext'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in subtext'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      subtext:
+        - '<meta%09http-equiv=refresh%09content="0;javascript:nx52791">'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52791'

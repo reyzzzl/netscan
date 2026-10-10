@@ -1,0 +1,15 @@
+id: backup5-2419
+name: 'Exposed /query.php.local'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /query.php.local is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/query.php.local'
+    matchers:
+      - type: status
+        status: [200]

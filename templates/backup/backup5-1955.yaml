@@ -1,0 +1,15 @@
+id: backup5-1955
+name: 'Exposed /migrate.php.swp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /migrate.php.swp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/migrate.php.swp'
+    matchers:
+      - type: status
+        status: [200]

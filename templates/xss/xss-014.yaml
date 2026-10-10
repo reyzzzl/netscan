@@ -1,0 +1,20 @@
+id: xss-014
+name: 'Reflected XSS ctx-13 via keyword'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in keyword'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      keyword:
+        - 'JaVaScRiPt:nx013c'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx013c'

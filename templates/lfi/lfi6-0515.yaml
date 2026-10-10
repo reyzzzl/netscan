@@ -1,0 +1,20 @@
+id: lfi6-0515
+name: 'Traversal in root'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via root'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      root:
+        - '/etc/hostname'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'labhost'

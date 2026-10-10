@@ -1,0 +1,15 @@
+id: backup5-1936
+name: 'Exposed /upgrade.php.ini'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /upgrade.php.ini is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/upgrade.php.ini'
+    matchers:
+      - type: status
+        status: [200]

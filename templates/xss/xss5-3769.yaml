@@ -1,0 +1,20 @@
+id: xss5-3769
+name: 'Raw XSS5 in query'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in query'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      query:
+        - '<embed%0asrc=data:text/html,nx53768>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53768'

@@ -1,0 +1,20 @@
+id: redirect-016
+name: 'Open redirect via dest'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Redirects to evil.example via dest'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      dest:
+        - 'https://evil.example/'
+        - '//evil.example/'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

@@ -1,0 +1,14 @@
+id: fp3-43
+name: 'Stack magento2'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'magento2 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'magento2'

@@ -1,0 +1,15 @@
+id: info-sql-dump
+name: 'SQL dump in body'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - exposure
+description: 'SQL dump in body — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'CREATE TABLE'
+      - 'INSERT INTO'

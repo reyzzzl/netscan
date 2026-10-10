@@ -1,0 +1,14 @@
+id: fp-apache
+name: 'Apache fingerprint'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'Apache fingerprint — detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'apache'

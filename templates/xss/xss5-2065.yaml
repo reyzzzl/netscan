@@ -1,0 +1,20 @@
+id: xss5-2065
+name: 'Raw XSS5 in company'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in company'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      company:
+        - '<video%09><source%09onerror=nx52064>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52064'

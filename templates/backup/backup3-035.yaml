@@ -1,0 +1,15 @@
+id: backup3-035
+name: 'Exposed /.well-known/openid-configuration'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.well-known/openid-configuration is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.well-known/openid-configuration'
+    matchers:
+      - type: status
+        status: [200]

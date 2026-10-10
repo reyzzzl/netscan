@@ -1,0 +1,22 @@
+id: patt-ssti-blade-01-view
+name: 'PATT ssti patt-ssti-blade-01 via view'
+severity: critical
+type: active
+tags:
+  - ssti
+  - patt
+requires:
+  - php
+  - laravel
+description: 'PATT Blade (Laravel) detection. [patt:patt-ssti-blade-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Server%20Side%20Template%20Injection/PHP.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      view:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

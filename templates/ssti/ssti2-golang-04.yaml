@@ -1,0 +1,20 @@
+id: ssti2-golang-04
+name: 'SSTI2 golang via bio'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - golang
+description: 'golang evaluates payload in bio'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      bio:
+        - '{{.7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '7'

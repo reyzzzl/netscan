@@ -1,0 +1,14 @@
+id: hdr3-02
+name: 'Powered-by present'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - fingerprint
+description: 'X-Powered-By header present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-powered-by'

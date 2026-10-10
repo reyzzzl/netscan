@@ -1,0 +1,20 @@
+id: xss-100
+name: 'Reflected XSS ctx-12 via text'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - 'javascript:nx099c'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx099c'

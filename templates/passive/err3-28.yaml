@@ -1,0 +1,14 @@
+id: err3-28
+name: 'Framework error: directus error'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Framework error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'directus error'

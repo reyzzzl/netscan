@@ -1,0 +1,15 @@
+id: cve3-wpt-twentytwentyone-02
+name: 'Theme twentytwentyone screenshot.png'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Theme twentytwentyone at /wp-content/themes/twentytwentyone/screenshot.png — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/themes/twentytwentyone/screenshot.png'
+    matchers:
+      - type: status
+        status: [200]

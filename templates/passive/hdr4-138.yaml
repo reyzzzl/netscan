@@ -1,0 +1,14 @@
+id: hdr4-138
+name: 'Header x-ppg-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-ppg-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-ppg-2'

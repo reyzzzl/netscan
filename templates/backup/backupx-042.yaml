@@ -1,0 +1,15 @@
+id: backupx-042
+name: 'Exposed /composer.json.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /composer.json.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/composer.json.bak'
+    matchers:
+      - type: status
+        status: [200]

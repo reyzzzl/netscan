@@ -1,0 +1,18 @@
+id: mass3-226
+name: 'Mass field exam'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered exam on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"t","exam":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

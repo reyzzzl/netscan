@@ -1,0 +1,15 @@
+id: backup2-018
+name: 'Exposed2 /playground/console'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /playground/console is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/playground/console'
+    matchers:
+      - type: status
+        status: [200]

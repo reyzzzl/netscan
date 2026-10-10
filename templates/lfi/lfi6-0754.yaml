@@ -1,0 +1,20 @@
+id: lfi6-0754
+name: 'Traversal in include'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via include'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      include:
+        - '/etc/crontab'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'SHELL='

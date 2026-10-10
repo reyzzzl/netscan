@@ -1,0 +1,14 @@
+id: hdr4-031
+name: 'Header x-mcafee-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-mcafee-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-mcafee-2'

@@ -1,0 +1,15 @@
+id: backup6-0953
+name: 'Exposed /refund.php.save'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /refund.php.save is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/refund.php.save'
+    matchers:
+      - type: status
+        status: [200]

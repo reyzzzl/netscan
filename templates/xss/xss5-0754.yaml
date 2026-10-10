@@ -1,0 +1,20 @@
+id: xss5-0754
+name: 'Raw XSS5 in label'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in label'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      label:
+        - '<audio%0asrc=x%0aonerror=nx50753>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50753'

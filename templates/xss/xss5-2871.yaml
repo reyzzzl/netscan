@@ -1,0 +1,20 @@
+id: xss5-2871
+name: 'Raw XSS5 in headline'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in headline'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      headline:
+        - '<xss%0d%0astyle=x%0d%0aonfocusin=nx52870 tabindex=1>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52870'

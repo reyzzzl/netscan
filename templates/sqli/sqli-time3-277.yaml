@@ -1,0 +1,19 @@
+id: sqli-time3-277
+name: 'Delay probe in cat2'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - blind
+  - time
+description: '3-second delay via cat2'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      cat2:
+        - '''; SELECT pg_sleep(3)--'
+    matchers:
+      - type: time
+        ms: 2500

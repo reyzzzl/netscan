@@ -1,0 +1,14 @@
+id: err4-007
+name: 'Error marker framework-error-6x'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Framework error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'framework-error-6x'

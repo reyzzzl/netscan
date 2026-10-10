@@ -1,0 +1,20 @@
+id: xss5-1555
+name: 'Raw XSS5 in hint'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in hint'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      hint:
+        - '<math><mtext%0ahref=javascript:nx51554>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51554'

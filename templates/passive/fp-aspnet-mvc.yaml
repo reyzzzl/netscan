@@ -1,0 +1,15 @@
+id: fp-aspnet-mvc
+name: 'ASP.NET MVC fingerprint'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'ASP.NET MVC fingerprint — detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - '__VIEWSTATE'
+      - '__EVENTVALIDATION'

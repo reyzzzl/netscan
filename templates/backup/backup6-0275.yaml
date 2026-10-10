@@ -1,0 +1,15 @@
+id: backup6-0275
+name: 'Exposed /verify.php.pkg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /verify.php.pkg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/verify.php.pkg'
+    matchers:
+      - type: status
+        status: [200]

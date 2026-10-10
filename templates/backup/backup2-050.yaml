@@ -1,0 +1,15 @@
+id: backup2-050
+name: 'Exposed2 /LICENSE'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /LICENSE is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/LICENSE'
+    matchers:
+      - type: status
+        status: [200]

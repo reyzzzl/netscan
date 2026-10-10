@@ -1,0 +1,14 @@
+id: fp2-06
+name: 'Fingerprint svelte'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'svelte detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'svelte'

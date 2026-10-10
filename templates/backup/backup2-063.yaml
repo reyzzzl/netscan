@@ -1,0 +1,15 @@
+id: backup2-063
+name: 'Exposed2 /.env.staging'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.staging is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.staging'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup6-0374
+name: 'Exposed /confirm.php.bundle'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /confirm.php.bundle is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/confirm.php.bundle'
+    matchers:
+      - type: status
+        status: [200]

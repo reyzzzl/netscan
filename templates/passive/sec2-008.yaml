@@ -1,0 +1,14 @@
+id: sec2-008
+name: 'Mailgun key'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Mailgun key in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'key-'

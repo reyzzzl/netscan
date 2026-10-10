@@ -1,0 +1,15 @@
+id: cve3-drupal-views-03
+name: 'Drupal views LICENSE.txt'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Drupal views at /modules/contrib/views/LICENSE.txt — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/modules/contrib/views/LICENSE.txt'
+    matchers:
+      - type: status
+        status: [200]

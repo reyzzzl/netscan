@@ -1,0 +1,15 @@
+id: backup-023
+name: 'Exposed /crossdomain.xml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /crossdomain.xml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/crossdomain.xml'
+    matchers:
+      - type: status
+        status: [200]

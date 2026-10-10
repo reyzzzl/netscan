@@ -1,0 +1,15 @@
+id: fp-nextjs
+name: 'Next.js fingerprint'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'Next.js fingerprint — detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - '_next/static'
+      - '__NEXT_DATA__'

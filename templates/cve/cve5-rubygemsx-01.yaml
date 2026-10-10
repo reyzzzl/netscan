@@ -1,0 +1,15 @@
+id: cve5-rubygemsx-01
+name: 'rubygemsx at /'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'rubygemsx at / — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/'
+    matchers:
+      - type: status
+        status: [200]

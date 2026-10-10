@@ -1,0 +1,15 @@
+id: cve6-packerx-13
+name: 'packerx at /version'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'packerx at /version — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/version'
+    matchers:
+      - type: status
+        status: [200]

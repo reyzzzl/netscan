@@ -1,0 +1,15 @@
+id: auth2-045
+name: 'Airflow at /airflow'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Airflow returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/airflow'
+    matchers:
+      - type: status
+        status: [200]

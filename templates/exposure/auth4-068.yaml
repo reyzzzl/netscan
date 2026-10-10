@@ -1,0 +1,15 @@
+id: auth4-068
+name: 'Panel at /backend/old'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /backend/old returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/backend/old'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,25 @@
+id: sqli7-308
+name: 'UNION probe in cid'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - union
+description: 'Triggers DB error via cid'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      cid:
+        - '1'' UNION SELECT 1--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'SQL syntax'
+          - 'mysql_fetch'
+          - 'PostgreSQL'
+          - 'ODBC'
+          - 'ORA-'
+          - 'SQLite'

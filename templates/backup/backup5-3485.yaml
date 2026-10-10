@@ -1,0 +1,15 @@
+id: backup5-3485
+name: 'Exposed /sync.php.cfg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sync.php.cfg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sync.php.cfg'
+    matchers:
+      - type: status
+        status: [200]

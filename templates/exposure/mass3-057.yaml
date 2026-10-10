@@ -1,0 +1,18 @@
+id: mass3-057
+name: 'Mass field kernel'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered kernel on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"a1","kernel":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

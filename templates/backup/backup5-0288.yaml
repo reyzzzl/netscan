@@ -1,0 +1,15 @@
+id: backup5-0288
+name: 'Exposed /dump.sql.yaml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /dump.sql.yaml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dump.sql.yaml'
+    matchers:
+      - type: status
+        status: [200]

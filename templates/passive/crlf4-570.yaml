@@ -1,0 +1,20 @@
+id: crlf4-570
+name: 'CRLF into data'
+severity: medium
+type: active
+tags:
+  - crlf
+  - injection
+  - headers
+description: 'CRLF header injection via data'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      data:
+        - '%0d%0a%00X-Test: t'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'x-test'

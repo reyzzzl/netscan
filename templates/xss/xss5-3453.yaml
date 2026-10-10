@@ -1,0 +1,20 @@
+id: xss5-3453
+name: 'Raw XSS5 in value'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in value'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      value:
+        - '''><img%0asrc=x%0aonerror=nx53452>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53452'

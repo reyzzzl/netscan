@@ -1,0 +1,15 @@
+id: backup5-2578
+name: 'Exposed /cookie.php.gz'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /cookie.php.gz is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/cookie.php.gz'
+    matchers:
+      - type: status
+        status: [200]

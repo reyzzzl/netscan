@@ -1,0 +1,15 @@
+id: backup6-0779
+name: 'Exposed /faq.php.7z'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /faq.php.7z is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/faq.php.7z'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: xss8-1230
+name: 'Raw XSS8 in details'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in details'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      details:
+        - '<keygen autofocus onfocus=nx81229%09/>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx81229'

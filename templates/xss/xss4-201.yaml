@@ -1,0 +1,20 @@
+id: xss4-201
+name: 'Raw XSS4 #0 in q'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '<script/**/alert(nx4200)</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx4200'

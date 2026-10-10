@@ -1,0 +1,15 @@
+id: hdr-cache-private
+name: 'Sensitive page cacheable'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Sensitive page cacheable — header not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'max-age'
+    negative: true

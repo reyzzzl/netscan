@@ -1,0 +1,20 @@
+id: xss-195
+name: 'Reflected XSS ctx-20 via name'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '{{nx194c}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx194c'

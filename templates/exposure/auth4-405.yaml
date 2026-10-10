@@ -1,0 +1,15 @@
+id: auth4-405
+name: 'Panel at /sso/debug'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /sso/debug returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sso/debug'
+    matchers:
+      - type: status
+        status: [200]

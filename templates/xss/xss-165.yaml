@@ -1,0 +1,20 @@
+id: xss-165
+name: 'Reflected XSS ctx-19 via name'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<form><button formaction=javascript:nx164c>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx164c'

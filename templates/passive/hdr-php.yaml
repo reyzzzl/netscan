@@ -1,0 +1,14 @@
+id: hdr-php
+name: 'PHP version disclosed'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - fingerprint
+description: 'PHP version disclosed — detected'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'php'

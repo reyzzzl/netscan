@@ -1,0 +1,20 @@
+id: xss-194
+name: 'Reflected XSS ctx-19 via keyword'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in keyword'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      keyword:
+        - '<form><button formaction=javascript:nx193c>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx193c'

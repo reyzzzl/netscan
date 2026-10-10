@@ -1,0 +1,15 @@
+id: backup6-0871
+name: 'Exposed /terms.php.duplicate'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /terms.php.duplicate is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/terms.php.duplicate'
+    matchers:
+      - type: status
+        status: [200]

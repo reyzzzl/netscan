@@ -1,0 +1,23 @@
+id: patt-cmdi-win-01-exec
+name: 'PATT cmdi patt-cmdi-win-01 via exec'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - patt
+requires:
+  - dotnet
+description: 'PATT Windows cmd /c whoami. [patt:patt-cmdi-win-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Command%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      exec:
+        - ';cmd /c whoami'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'Administrator'
+          - 'NT AUTHORITY'

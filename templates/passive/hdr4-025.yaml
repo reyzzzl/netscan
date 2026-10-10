@@ -1,0 +1,14 @@
+id: hdr4-025
+name: 'Header x-sonicwall-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-sonicwall-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-sonicwall-2'

@@ -1,0 +1,20 @@
+id: ssti3-mustache-06
+name: 'SSTI mustache in bio'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - mustache
+description: 'mustache evaluates payload in bio'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      bio:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

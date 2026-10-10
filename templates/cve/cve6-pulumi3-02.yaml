@@ -1,0 +1,15 @@
+id: cve6-pulumi3-02
+name: 'pulumi3 at /login'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'pulumi3 at /login — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/login'
+    matchers:
+      - type: status
+        status: [200]

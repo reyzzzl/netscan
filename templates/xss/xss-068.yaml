@@ -1,0 +1,20 @@
+id: xss-068
+name: 'Reflected XSS ctx-9 via title'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in title'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      title:
+        - '<body onload=nx067c>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx067c'

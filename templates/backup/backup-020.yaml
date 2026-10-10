@@ -1,0 +1,15 @@
+id: backup-020
+name: 'Exposed /.well-known/security.txt'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.well-known/security.txt is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.well-known/security.txt'
+    matchers:
+      - type: status
+        status: [200]

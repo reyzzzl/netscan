@@ -1,0 +1,14 @@
+id: info-git-head
+name: 'Git HEAD leaked'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - exposure
+description: 'Git HEAD leaked — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'ref: refs/heads'

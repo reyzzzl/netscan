@@ -1,0 +1,15 @@
+id: auth3-024
+name: 'Panel at /forest'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /forest returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/forest'
+    matchers:
+      - type: status
+        status: [200]

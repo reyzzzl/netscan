@@ -1,0 +1,15 @@
+id: auth4-343
+name: 'Panel at /proxy/health'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /proxy/health returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/proxy/health'
+    matchers:
+      - type: status
+        status: [200]

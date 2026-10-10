@@ -1,0 +1,20 @@
+id: lfi5-047
+name: 'Wrapper file via doc'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - wrapper
+description: 'Reads file via file wrapper'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      doc:
+        - 'file:///C:/Windows/win.ini'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '[extensions]'

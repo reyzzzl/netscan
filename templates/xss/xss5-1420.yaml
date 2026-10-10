@@ -1,0 +1,20 @@
+id: xss5-1420
+name: 'Raw XSS5 in address'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in address'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      address:
+        - '<img%0asrc=x%0aonerror=nx51419>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51419'

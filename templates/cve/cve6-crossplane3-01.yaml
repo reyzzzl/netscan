@@ -1,0 +1,15 @@
+id: cve6-crossplane3-01
+name: 'crossplane3 at /'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'crossplane3 at / — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/'
+    matchers:
+      - type: status
+        status: [200]

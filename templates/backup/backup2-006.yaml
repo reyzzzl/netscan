@@ -1,0 +1,15 @@
+id: backup2-006
+name: 'Exposed2 /actuator/threaddump'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /actuator/threaddump is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/actuator/threaddump'
+    matchers:
+      - type: status
+        status: [200]

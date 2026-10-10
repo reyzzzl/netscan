@@ -1,0 +1,20 @@
+id: xss-013
+name: 'Reflected XSS ctx-12 via search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - 'javascript:nx012c'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx012c'

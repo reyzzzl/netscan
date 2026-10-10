@@ -1,0 +1,15 @@
+id: auth3-075
+name: 'Panel at /appsignal'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /appsignal returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/appsignal'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: cve3-wp-gutenberg-10
+name: 'WP gutenberg screenshot.png'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP gutenberg at /wp-content/plugins/gutenberg/screenshot.png — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/gutenberg/screenshot.png'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: xss5-0735
+name: 'Raw XSS5 in word'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in word'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      word:
+        - '<marquee%09behavior=slide%09onstart=nx50734>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50734'

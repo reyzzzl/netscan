@@ -1,0 +1,15 @@
+id: fp-cloudflare
+name: 'Cloudflare fingerprint'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'Cloudflare fingerprint — detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'cloudflare'
+      - '__cfduid'

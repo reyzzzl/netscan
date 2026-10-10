@@ -1,0 +1,20 @@
+id: xss5-1793
+name: 'Raw XSS5 in caption'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in caption'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      caption:
+        - '<summary%09onfocus=nx51792>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51792'

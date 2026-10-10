@@ -1,0 +1,15 @@
+id: cve2-tomcat2-03
+name: 'Tomcat2 fingerprint /docs/ v3'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Tomcat2 at /docs/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/docs/'
+    matchers:
+      - type: status
+        status: [200]

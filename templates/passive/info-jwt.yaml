@@ -1,0 +1,14 @@
+id: info-jwt
+name: 'JWT in body'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'JWT in body — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'eyJhbGciOi'

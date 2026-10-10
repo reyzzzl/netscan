@@ -1,0 +1,18 @@
+id: mass3-171
+name: 'Mass field gift'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered gift on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"a1","gift":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

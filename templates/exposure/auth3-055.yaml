@@ -1,0 +1,15 @@
+id: auth3-055
+name: 'Panel at /pyroscope'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /pyroscope returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/pyroscope'
+    matchers:
+      - type: status
+        status: [200]

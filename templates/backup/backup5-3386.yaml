@@ -1,0 +1,15 @@
+id: backup5-3386
+name: 'Exposed /backup.php.ini'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /backup.php.ini is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/backup.php.ini'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup-032
+name: 'Exposed /.npmrc'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.npmrc is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.npmrc'
+    matchers:
+      - type: status
+        status: [200]

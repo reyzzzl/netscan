@@ -1,0 +1,20 @@
+id: lfi4-20
+name: 'System file /proc/version via view'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads /proc/version via view'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      view:
+        - '/proc/version'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'Linux version'

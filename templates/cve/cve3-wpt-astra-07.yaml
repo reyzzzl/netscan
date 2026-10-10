@@ -1,0 +1,15 @@
+id: cve3-wpt-astra-07
+name: 'Theme astra index.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Theme astra at /wp-content/themes/astra/index.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/themes/astra/index.php'
+    matchers:
+      - type: status
+        status: [200]

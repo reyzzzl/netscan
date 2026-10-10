@@ -1,0 +1,20 @@
+id: xss5-3720
+name: 'Raw XSS5 in nick'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in nick'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      nick:
+        - 'jaVasCript%3anx53719'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53719'

@@ -1,0 +1,20 @@
+id: xss5-0232
+name: 'Raw XSS5 in subtext'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in subtext'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      subtext:
+        - '<object%0adata=data:text/html,nx50231>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50231'

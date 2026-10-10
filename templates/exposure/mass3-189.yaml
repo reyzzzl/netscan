@@ -1,0 +1,18 @@
+id: mass3-189
+name: 'Mass field badge'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered badge on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"a1","badge":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

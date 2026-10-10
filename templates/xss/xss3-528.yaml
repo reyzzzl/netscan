@@ -1,0 +1,20 @@
+id: xss3-528
+name: 'Raw XSS3 #17 in title'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in title'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      title:
+        - '<math><mi%09xlink:href=javascript:nx3527>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3527'

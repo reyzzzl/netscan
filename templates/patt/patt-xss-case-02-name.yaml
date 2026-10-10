@@ -1,0 +1,20 @@
+id: patt-xss-case-02-name
+name: 'PATT xss patt-xss-case-02 via name'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+  - filtercase
+description: 'PATT Bypass Case Sensitive variant 2. [patt:patt-xss-case-02] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/1%20-%20XSS%20Filter%20Bypass.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<ScrIPt>nxp0001</ScRipT>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0001'

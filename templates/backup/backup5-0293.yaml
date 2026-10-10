@@ -1,0 +1,15 @@
+id: backup5-0293
+name: 'Exposed /dump.sql.mod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /dump.sql.mod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dump.sql.mod'
+    matchers:
+      - type: status
+        status: [200]

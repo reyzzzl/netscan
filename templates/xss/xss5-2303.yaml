@@ -1,0 +1,20 @@
+id: xss5-2303
+name: 'Raw XSS5 in state'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in state'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      state:
+        - '<svg><animate%0aonbegin=nx52302 attributeName=x>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52302'

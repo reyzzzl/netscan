@@ -1,0 +1,15 @@
+id: backup5-2476
+name: 'Exposed /auth.php.pkg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /auth.php.pkg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/auth.php.pkg'
+    matchers:
+      - type: status
+        status: [200]

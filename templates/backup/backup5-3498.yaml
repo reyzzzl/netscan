@@ -1,0 +1,15 @@
+id: backup5-3498
+name: 'Exposed /sync.php.bakup'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sync.php.bakup is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sync.php.bakup'
+    matchers:
+      - type: status
+        status: [200]

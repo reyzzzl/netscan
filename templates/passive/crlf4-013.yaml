@@ -1,0 +1,20 @@
+id: crlf4-013
+name: 'CRLF into reply'
+severity: medium
+type: active
+tags:
+  - crlf
+  - injection
+  - headers
+description: 'CRLF header injection via reply'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      reply:
+        - 'x%0d%0aServer: evil'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'x-test'

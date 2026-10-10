@@ -1,0 +1,19 @@
+id: redirect2-009
+name: 'Open redirect2 via href'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Unsafe redirect via href'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      href:
+        - 'javascript:alert(1)'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'javascript:'

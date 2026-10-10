@@ -1,0 +1,15 @@
+id: cve2-sharepoint-04
+name: 'SharePoint fingerprint /_layouts/ v4'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'SharePoint at /_layouts/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/_layouts/'
+    matchers:
+      - type: status
+        status: [200]

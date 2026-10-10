@@ -1,0 +1,15 @@
+id: auth3-067
+name: 'Panel at /matomo'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /matomo returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/matomo'
+    matchers:
+      - type: status
+        status: [200]

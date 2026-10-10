@@ -1,0 +1,20 @@
+id: xss-094
+name: 'Reflected XSS ctx-6 via keyword'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in keyword'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      keyword:
+        - '''-alert(nx093c)-'''
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx093c'

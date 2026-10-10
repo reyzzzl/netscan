@@ -1,0 +1,14 @@
+id: hdr4-119
+name: 'Header x-sts-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-sts-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-sts-2'

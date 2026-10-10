@@ -1,0 +1,20 @@
+id: xss3-556
+name: 'Raw XSS3 #15 in firstname'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in firstname'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      firstname:
+        - '<table%0abackground=javascript:nx3555>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3555'

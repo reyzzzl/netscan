@@ -1,0 +1,20 @@
+id: xss5-0285
+name: 'Raw XSS5 in name'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<mi%0ahref=javascript:nx50284>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50284'

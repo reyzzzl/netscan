@@ -1,0 +1,20 @@
+id: xss3-051
+name: 'Raw XSS3 #20 in input'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in input'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      input:
+        - '<video%0a><source%0aonerror=nx3050>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3050'

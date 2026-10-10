@@ -1,0 +1,15 @@
+id: info-aws-key
+name: 'AWS key in body'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'AWS key in body — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'AKIA'
+      - 'aws_secret'

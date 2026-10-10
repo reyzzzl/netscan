@@ -1,0 +1,15 @@
+id: backup5-0776
+name: 'Exposed /bootstrap.php.pkg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /bootstrap.php.pkg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/bootstrap.php.pkg'
+    matchers:
+      - type: status
+        status: [200]

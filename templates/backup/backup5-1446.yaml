@@ -1,0 +1,15 @@
+id: backup5-1446
+name: 'Exposed /order.php.mdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /order.php.mdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/order.php.mdb'
+    matchers:
+      - type: status
+        status: [200]

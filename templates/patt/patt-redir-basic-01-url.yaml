@@ -1,0 +1,19 @@
+id: patt-redir-basic-01-url
+name: 'PATT redirect patt-redir-basic-01 via url'
+severity: medium
+type: active
+tags:
+  - redirect
+  - patt
+description: 'PATT baseline redirect (compare with allowlist bypasses below). [patt:patt-redir-basic-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Open%20Redirect/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      url:
+        - 'https://evil.example/'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

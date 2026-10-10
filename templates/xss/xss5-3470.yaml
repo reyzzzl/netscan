@@ -1,0 +1,20 @@
+id: xss5-3470
+name: 'Raw XSS5 in details'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in details'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      details:
+        - '<td%09background=javascript:nx53469>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53469'

@@ -1,0 +1,20 @@
+id: xss8-1369
+name: 'Raw XSS8 in query'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in query'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      query:
+        - '<input autofocus onfocus=nx81368>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx81368'

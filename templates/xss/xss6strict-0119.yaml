@@ -1,0 +1,25 @@
+id: xss6strict-0119
+name: 'Strict raw XSS in author'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      author:
+        - '<select autofocus onfocus=sx60118>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx60118'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx60118'

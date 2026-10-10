@@ -1,0 +1,20 @@
+id: ssti2-handlebars-02
+name: 'SSTI2 handlebars via text'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - handlebars
+description: 'handlebars evaluates payload in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

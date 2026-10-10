@@ -1,0 +1,15 @@
+id: auth2-042
+name: 'Elastic at /elastic'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Elastic returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/elastic'
+    matchers:
+      - type: status
+        status: [200]

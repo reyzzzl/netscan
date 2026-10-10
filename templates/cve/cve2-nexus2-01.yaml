@@ -1,0 +1,15 @@
+id: cve2-nexus2-01
+name: 'Nexus2 fingerprint /repository/ v1'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Nexus2 at /repository/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/repository/'
+    matchers:
+      - type: status
+        status: [200]

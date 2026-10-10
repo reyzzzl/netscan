@@ -1,0 +1,20 @@
+id: xss5-1323
+name: 'Raw XSS5 in search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '<script%0d>alert(nx51322)</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51322'

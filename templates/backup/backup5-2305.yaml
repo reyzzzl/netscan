@@ -1,0 +1,15 @@
+id: backup5-2305
+name: 'Exposed /dbconnect.php.swp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /dbconnect.php.swp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dbconnect.php.swp'
+    matchers:
+      - type: status
+        status: [200]

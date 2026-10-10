@@ -1,0 +1,20 @@
+id: xss5-0722
+name: 'Raw XSS5 in s'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in s'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      s:
+        - '<script> merely nx50721 </script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50721'

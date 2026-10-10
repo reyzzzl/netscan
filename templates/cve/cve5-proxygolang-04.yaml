@@ -1,0 +1,15 @@
+id: cve5-proxygolang-04
+name: 'proxygolang at /api'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'proxygolang at /api — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api'
+    matchers:
+      - type: status
+        status: [200]

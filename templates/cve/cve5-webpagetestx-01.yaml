@@ -1,0 +1,15 @@
+id: cve5-webpagetestx-01
+name: 'webpagetestx at /'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'webpagetestx at / — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/'
+    matchers:
+      - type: status
+        status: [200]

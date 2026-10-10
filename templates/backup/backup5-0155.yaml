@@ -1,0 +1,15 @@
+id: backup5-0155
+name: 'Exposed /.env.swp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.swp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.swp'
+    matchers:
+      - type: status
+        status: [200]

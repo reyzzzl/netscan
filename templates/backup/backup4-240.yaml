@@ -1,0 +1,15 @@
+id: backup4-240
+name: 'Exposed /profile.php.dev'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /profile.php.dev is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/profile.php.dev'
+    matchers:
+      - type: status
+        status: [200]

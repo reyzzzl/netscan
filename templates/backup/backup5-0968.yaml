@@ -1,0 +1,15 @@
+id: backup5-0968
+name: 'Exposed /upload.php.stage'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /upload.php.stage is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/upload.php.stage'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: spring2-08
+name: 'Spring breakers circuitbreakers'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Spring breakers at /actuator/circuitbreakers — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/actuator/circuitbreakers'
+    matchers:
+      - type: status
+        status: [200]

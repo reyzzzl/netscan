@@ -1,0 +1,15 @@
+id: auth4-596
+name: 'Panel at /support/console'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /support/console returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/support/console'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: auth4-600
+name: 'Panel at /support/admin'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /support/admin returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/support/admin'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup5-1028
+name: 'Exposed /download.php.gz'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /download.php.gz is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/download.php.gz'
+    matchers:
+      - type: status
+        status: [200]

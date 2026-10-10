@@ -1,0 +1,20 @@
+id: ssti2-twig-04
+name: 'SSTI2 twig via body'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - twig
+description: 'twig evaluates payload in body'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      body:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

@@ -1,0 +1,20 @@
+id: ssti3-vue-02
+name: 'SSTI vue in content'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - vue
+description: 'vue evaluates payload in content'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      content:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

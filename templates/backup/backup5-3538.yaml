@@ -1,0 +1,15 @@
+id: backup5-3538
+name: 'Exposed /cron.php.yaml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /cron.php.yaml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/cron.php.yaml'
+    matchers:
+      - type: status
+        status: [200]

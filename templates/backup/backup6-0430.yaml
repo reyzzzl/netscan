@@ -1,0 +1,15 @@
+id: backup6-0430
+name: 'Exposed /checkout.php.rar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /checkout.php.rar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/checkout.php.rar'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: xss5-1203
+name: 'Raw XSS5 in search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '<area%09href=javascript:nx51202>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51202'

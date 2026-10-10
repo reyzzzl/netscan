@@ -1,0 +1,18 @@
+id: mass3-190
+name: 'Mass field trophy'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered trophy on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"t","trophy":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

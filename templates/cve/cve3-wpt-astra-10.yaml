@@ -1,0 +1,15 @@
+id: cve3-wpt-astra-10
+name: 'Theme astra 404.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Theme astra at /wp-content/themes/astra/404.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/themes/astra/404.php'
+    matchers:
+      - type: status
+        status: [200]

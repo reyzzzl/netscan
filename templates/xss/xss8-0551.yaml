@@ -1,0 +1,20 @@
+id: xss8-0551
+name: 'Raw XSS8 in headline'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in headline'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      headline:
+        - '<svg onload=nx80550%20>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx80550'

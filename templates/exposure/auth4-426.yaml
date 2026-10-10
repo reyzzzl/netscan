@@ -1,0 +1,15 @@
+id: auth4-426
+name: 'Panel at /oauth/test'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /oauth/test returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/oauth/test'
+    matchers:
+      - type: status
+        status: [200]

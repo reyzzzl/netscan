@@ -1,0 +1,14 @@
+id: fp2-19
+name: 'Fingerprint spring6'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'spring6 detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'spring6'

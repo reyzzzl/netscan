@@ -1,0 +1,14 @@
+id: fp3-33
+name: 'Stack axum07'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'axum07 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'axum07'

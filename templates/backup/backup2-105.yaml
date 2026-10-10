@@ -1,0 +1,15 @@
+id: backup2-105
+name: 'Exposed2 /.python-version'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.python-version is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.python-version'
+    matchers:
+      - type: status
+        status: [200]

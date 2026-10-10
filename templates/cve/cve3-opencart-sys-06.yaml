@@ -1,0 +1,15 @@
+id: cve3-opencart-sys-06
+name: 'OpenCart administrator/ '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'OpenCart administrator/ at /system/administrator/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/system/administrator/'
+    matchers:
+      - type: status
+        status: [200]

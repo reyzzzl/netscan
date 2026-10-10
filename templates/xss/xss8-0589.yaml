@@ -1,0 +1,20 @@
+id: xss8-0589
+name: 'Raw XSS8 in summary'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in summary'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      summary:
+        - '<input autofocus onfocus=nx80588/>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx80588'

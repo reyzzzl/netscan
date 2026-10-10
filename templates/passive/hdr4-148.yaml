@@ -1,0 +1,14 @@
+id: hdr4-148
+name: 'Header x-ultrasound-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-ultrasound-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-ultrasound-2'

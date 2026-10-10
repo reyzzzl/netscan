@@ -1,0 +1,18 @@
+id: mass3-022
+name: 'Mass field operator'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered operator on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"t","operator":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

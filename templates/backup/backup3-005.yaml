@@ -1,0 +1,15 @@
+id: backup3-005
+name: 'Exposed /version.json'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /version.json is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/version.json'
+    matchers:
+      - type: status
+        status: [200]

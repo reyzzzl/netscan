@@ -1,0 +1,20 @@
+id: crlf2-022
+name: 'CRLF2 injection via q'
+severity: medium
+type: active
+tags:
+  - crlf
+  - injection
+  - headers
+description: 'CRLF header injection via q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - 'x%0aX-Test: crlf2'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'x-test'

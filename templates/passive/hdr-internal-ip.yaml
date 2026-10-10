@@ -1,0 +1,14 @@
+id: hdr-internal-ip
+name: 'Internal IP in headers'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - info
+description: 'Internal IP in headers — detected'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - '192.168.'

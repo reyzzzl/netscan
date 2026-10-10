@@ -1,0 +1,15 @@
+id: backup6-0506
+name: 'Exposed /shipping.php.bkp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /shipping.php.bkp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/shipping.php.bkp'
+    matchers:
+      - type: status
+        status: [200]

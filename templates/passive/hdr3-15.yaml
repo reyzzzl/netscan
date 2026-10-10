@@ -1,0 +1,14 @@
+id: hdr3-15
+name: 'Debug header x-rails-debug'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - debug
+description: 'Debug header x-rails-debug present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-rails-debug'

@@ -1,0 +1,14 @@
+id: fp2-34
+name: 'Fingerprint axum'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'axum detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'axum'

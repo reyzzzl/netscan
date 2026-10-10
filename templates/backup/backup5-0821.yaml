@@ -1,0 +1,15 @@
+id: backup5-0821
+name: 'Exposed /routes.php.clone'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /routes.php.clone is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/routes.php.clone'
+    matchers:
+      - type: status
+        status: [200]

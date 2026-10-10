@@ -1,0 +1,15 @@
+id: auth-029
+name: 'Media dir at /media'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Media dir returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/media'
+    matchers:
+      - type: status
+        status: [200]

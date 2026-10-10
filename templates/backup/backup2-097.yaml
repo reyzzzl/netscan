@@ -1,0 +1,15 @@
+id: backup2-097
+name: 'Exposed2 /.m2/settings.xml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.m2/settings.xml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.m2/settings.xml'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup2-106
+name: 'Exposed2 /runtime.txt'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /runtime.txt is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/runtime.txt'
+    matchers:
+      - type: status
+        status: [200]

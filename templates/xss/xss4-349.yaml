@@ -1,0 +1,20 @@
+id: xss4-349
+name: 'Raw XSS4 #28 in input'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in input'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      input:
+        - '<esi:include src=javascript:alert(nx4348)>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx4348'

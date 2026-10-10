@@ -1,0 +1,20 @@
+id: xss5-0909
+name: 'Raw XSS5 in summary'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in summary'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      summary:
+        - '<xsl:value-of%09select=nx50908>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50908'

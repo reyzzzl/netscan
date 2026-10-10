@@ -1,0 +1,20 @@
+id: xss-031
+name: 'Reflected XSS ctx-1 via q'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '"><script>nx030c</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx030c'

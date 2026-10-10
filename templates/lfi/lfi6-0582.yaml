@@ -1,0 +1,20 @@
+id: lfi6-0582
+name: 'Traversal in doc'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via doc'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      doc:
+        - '/etc/motd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'motd'

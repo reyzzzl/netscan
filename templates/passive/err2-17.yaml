@@ -1,0 +1,14 @@
+id: err2-17
+name: 'Error page: node:internal'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'node:internal'

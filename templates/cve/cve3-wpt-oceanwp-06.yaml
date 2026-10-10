@@ -1,0 +1,15 @@
+id: cve3-wpt-oceanwp-06
+name: 'Theme oceanwp footer.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Theme oceanwp at /wp-content/themes/oceanwp/footer.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/themes/oceanwp/footer.php'
+    matchers:
+      - type: status
+        status: [200]

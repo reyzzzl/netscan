@@ -1,0 +1,15 @@
+id: backup5-2051
+name: 'Exposed /functions.php.bk'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /functions.php.bk is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/functions.php.bk'
+    matchers:
+      - type: status
+        status: [200]

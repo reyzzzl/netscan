@@ -1,0 +1,15 @@
+id: backup5-0651
+name: 'Exposed /core.php.bk'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /core.php.bk is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/core.php.bk'
+    matchers:
+      - type: status
+        status: [200]

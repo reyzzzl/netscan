@@ -1,0 +1,20 @@
+id: ssti4-svelte-09
+name: 'SSTI svelte in name'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - svelte
+description: 'svelte evaluates payload in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '{7*7}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

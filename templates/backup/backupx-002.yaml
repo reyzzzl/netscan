@@ -1,0 +1,15 @@
+id: backupx-002
+name: 'Exposed /index.php~'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /index.php~ is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/index.php~'
+    matchers:
+      - type: status
+        status: [200]

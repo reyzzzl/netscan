@@ -1,0 +1,19 @@
+id: redirect2-089
+name: 'Open redirect2 via page'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Unsafe redirect via page'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      page:
+        - '/%09/evil.example'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

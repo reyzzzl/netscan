@@ -1,0 +1,15 @@
+id: backup5-0509
+name: 'Exposed /app.php.1'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /app.php.1 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/app.php.1'
+    matchers:
+      - type: status
+        status: [200]

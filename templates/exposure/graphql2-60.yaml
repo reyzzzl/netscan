@@ -1,0 +1,21 @@
+id: graphql2-60
+name: 'Introspection probe in operation'
+severity: medium
+type: active
+tags:
+  - graphql
+  - api
+  - introspection
+description: 'GraphQL schema exposed via operation'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      operation:
+        - '{viewer{__typename}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '__schema'
+          - '__typename'

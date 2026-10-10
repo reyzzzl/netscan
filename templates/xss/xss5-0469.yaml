@@ -1,0 +1,20 @@
+id: xss5-0469
+name: 'Raw XSS5 in summary'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in summary'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      summary:
+        - '<meta%09http-equiv=refresh%09content="0;javascript:nx50468">'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50468'

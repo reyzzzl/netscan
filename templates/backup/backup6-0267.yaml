@@ -1,0 +1,15 @@
+id: backup6-0267
+name: 'Exposed /verify.php.stage'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /verify.php.stage is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/verify.php.stage'
+    matchers:
+      - type: status
+        status: [200]

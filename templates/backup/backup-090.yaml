@@ -1,0 +1,15 @@
+id: backup-090
+name: 'Exposed /server.key'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /server.key is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/server.key'
+    matchers:
+      - type: status
+        status: [200]

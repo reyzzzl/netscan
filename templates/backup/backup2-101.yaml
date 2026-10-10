@@ -1,0 +1,15 @@
+id: backup2-101
+name: 'Exposed2 /yarn.lock.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /yarn.lock.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/yarn.lock.bak'
+    matchers:
+      - type: status
+        status: [200]

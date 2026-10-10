@@ -1,0 +1,14 @@
+id: fp3-03
+name: 'Stack next13'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'next13 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'next13'

@@ -1,0 +1,20 @@
+id: xss5-2189
+name: 'Raw XSS5 in summary'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in summary'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      summary:
+        - '<frame%09src=javascript:nx52188>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52188'

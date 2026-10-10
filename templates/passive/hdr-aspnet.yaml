@@ -1,0 +1,14 @@
+id: hdr-aspnet
+name: 'ASP.NET version disclosed'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - fingerprint
+description: 'ASP.NET version disclosed — detected'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'asp.net'

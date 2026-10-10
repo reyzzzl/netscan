@@ -1,0 +1,15 @@
+id: backup2-158
+name: 'Exposed2 /wp-config.php.bkp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /wp-config.php.bkp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-config.php.bkp'
+    matchers:
+      - type: status
+        status: [200]

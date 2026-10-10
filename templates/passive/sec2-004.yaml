@@ -1,0 +1,14 @@
+id: sec2-004
+name: 'Slack user token'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Slack user token in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'xoxp-'

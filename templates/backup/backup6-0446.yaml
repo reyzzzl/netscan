@@ -1,0 +1,15 @@
+id: backup6-0446
+name: 'Exposed /checkout.php.accdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /checkout.php.accdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/checkout.php.accdb'
+    matchers:
+      - type: status
+        status: [200]

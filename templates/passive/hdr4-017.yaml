@@ -1,0 +1,14 @@
+id: hdr4-017
+name: 'Header x-citrix-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-citrix-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-citrix-2'

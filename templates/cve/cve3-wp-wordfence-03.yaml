@@ -1,0 +1,15 @@
+id: cve3-wp-wordfence-03
+name: 'WP wordfence CHANGELOG.md'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP wordfence at /wp-content/plugins/wordfence/CHANGELOG.md — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/wordfence/CHANGELOG.md'
+    matchers:
+      - type: status
+        status: [200]

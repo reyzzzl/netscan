@@ -1,0 +1,15 @@
+id: backup5-0483
+name: 'Exposed /database.sqlite.tpl'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /database.sqlite.tpl is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/database.sqlite.tpl'
+    matchers:
+      - type: status
+        status: [200]

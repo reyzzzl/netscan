@@ -1,0 +1,14 @@
+id: hdr3-17
+name: 'Debug header x-express-debug'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - debug
+description: 'Debug header x-express-debug present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-express-debug'

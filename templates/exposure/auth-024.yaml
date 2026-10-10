@@ -1,0 +1,15 @@
+id: auth-024
+name: 'Old dir at /old'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Old dir returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/old'
+    matchers:
+      - type: status
+        status: [200]

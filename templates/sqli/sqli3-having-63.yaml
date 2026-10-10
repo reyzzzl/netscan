@@ -1,0 +1,21 @@
+id: sqli3-having-63
+name: 'HAVING/GROUP injection in aid'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+description: 'Triggers DB error via aid'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      aid:
+        - ''') HAVING 1=1--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'SQL syntax'
+          - 'mysql_fetch'
+          - 'PostgreSQL'

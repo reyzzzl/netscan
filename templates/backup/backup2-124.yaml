@@ -1,0 +1,15 @@
+id: backup2-124
+name: 'Exposed2 /pg_hba.conf'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /pg_hba.conf is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/pg_hba.conf'
+    matchers:
+      - type: status
+        status: [200]

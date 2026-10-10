@@ -1,0 +1,20 @@
+id: xss-103
+name: 'Reflected XSS ctx-15 via search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '''><script>nx102c</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx102c'

@@ -1,0 +1,18 @@
+id: mass3-236
+name: 'Mass field cert'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered cert on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"u1","cert":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

@@ -1,0 +1,15 @@
+id: backup5-1493
+name: 'Exposed /payment.php.mod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /payment.php.mod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/payment.php.mod'
+    matchers:
+      - type: status
+        status: [200]

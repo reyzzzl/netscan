@@ -1,0 +1,15 @@
+id: backup6-0197
+name: 'Exposed /forgot.php.bakup'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /forgot.php.bakup is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/forgot.php.bakup'
+    matchers:
+      - type: status
+        status: [200]

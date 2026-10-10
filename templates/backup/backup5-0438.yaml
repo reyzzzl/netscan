@@ -1,0 +1,15 @@
+id: backup5-0438
+name: 'Exposed /backup.zip.yaml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /backup.zip.yaml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/backup.zip.yaml'
+    matchers:
+      - type: status
+        status: [200]

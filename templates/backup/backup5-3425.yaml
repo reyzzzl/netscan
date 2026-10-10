@@ -1,0 +1,15 @@
+id: backup5-3425
+name: 'Exposed /restore.php.bundle'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /restore.php.bundle is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/restore.php.bundle'
+    matchers:
+      - type: status
+        status: [200]

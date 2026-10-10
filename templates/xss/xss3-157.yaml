@@ -1,0 +1,20 @@
+id: xss3-157
+name: 'Raw XSS3 #6 in lastname'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in lastname'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      lastname:
+        - '"><svg%0aonload=nx3156>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3156'

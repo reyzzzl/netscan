@@ -1,0 +1,15 @@
+id: sharepoint2-09
+name: 'SharePoint root'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'SharePoint at /_vti_bin/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/_vti_bin/?v=10'
+    matchers:
+      - type: status
+        status: [200]

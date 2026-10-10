@@ -1,0 +1,15 @@
+id: backup2-007
+name: 'Exposed2 /actuator/heapdump'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /actuator/heapdump is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/actuator/heapdump'
+    matchers:
+      - type: status
+        status: [200]

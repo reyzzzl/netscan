@@ -1,0 +1,15 @@
+id: backup5-2568
+name: 'Exposed /cookie.php.stage'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /cookie.php.stage is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/cookie.php.stage'
+    matchers:
+      - type: status
+        status: [200]

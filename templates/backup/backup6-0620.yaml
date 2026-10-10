@@ -1,0 +1,15 @@
+id: backup6-0620
+name: 'Exposed /returns.php.clone'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /returns.php.clone is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/returns.php.clone'
+    matchers:
+      - type: status
+        status: [200]

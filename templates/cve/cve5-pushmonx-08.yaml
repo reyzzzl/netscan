@@ -1,0 +1,15 @@
+id: cve5-pushmonx-08
+name: 'pushmonx at /test'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'pushmonx at /test — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/test'
+    matchers:
+      - type: status
+        status: [200]

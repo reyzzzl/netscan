@@ -1,0 +1,20 @@
+id: ssti2-velocity-01
+name: 'SSTI2 velocity via msg2'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - velocity
+description: 'velocity evaluates payload in msg2'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      msg2:
+        - '#set($x=7*7)$x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

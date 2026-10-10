@@ -1,0 +1,15 @@
+id: backup2-246
+name: 'Exposed2 /site.zip.swp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /site.zip.swp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/site.zip.swp'
+    matchers:
+      - type: status
+        status: [200]

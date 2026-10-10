@@ -1,0 +1,14 @@
+id: fp4-243
+name: 'Stack framework13x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'framework13x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'framework13x'

@@ -1,0 +1,23 @@
+id: cmdi6-0692
+name: 'Shell injection in tool'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - injection
+  - rce
+description: 'OS command runs via tool'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      tool:
+        - '%3bid'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='
+          - 'root:x:0:0'
+          - 'www-data'

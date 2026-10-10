@@ -1,0 +1,20 @@
+id: ssti2-jinja2-02
+name: 'SSTI2 jinja2 via desc'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - jinja2
+description: 'jinja2 evaluates payload in desc'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      desc:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

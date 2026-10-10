@@ -1,0 +1,20 @@
+id: xss5-1797
+name: 'Raw XSS5 in prefix'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in prefix'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      prefix:
+        - '<svg><animate%09onbegin=nx51796 attributeName=x>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51796'

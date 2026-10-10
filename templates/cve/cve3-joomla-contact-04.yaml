@@ -1,0 +1,15 @@
+id: cve3-joomla-contact-04
+name: 'Joomla contact '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Joomla contact at /components/com_contact/tmpl/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/components/com_contact/tmpl/'
+    matchers:
+      - type: status
+        status: [200]

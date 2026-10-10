@@ -1,0 +1,20 @@
+id: xss5-1254
+name: 'Raw XSS5 in data'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in data'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      data:
+        - '<xss%0astyle=x%0aonpointerover=nx51253>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51253'

@@ -1,0 +1,15 @@
+id: auth-034
+name: 'Metrics at /metrics'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Metrics returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/metrics'
+    matchers:
+      - type: status
+        status: [200]

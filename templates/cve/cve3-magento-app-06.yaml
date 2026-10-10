@@ -1,0 +1,15 @@
+id: cve3-magento-app-06
+name: 'Magento pub/errors/default/ '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Magento pub/errors/default/ at /app/etc/pub/errors/default/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/app/etc/pub/errors/default/'
+    matchers:
+      - type: status
+        status: [200]

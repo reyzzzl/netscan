@@ -1,0 +1,15 @@
+id: cve5-tracx-21
+name: 'tracx at /debug/console'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'tracx at /debug/console — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/debug/console'
+    matchers:
+      - type: status
+        status: [200]

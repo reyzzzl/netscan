@@ -1,0 +1,20 @@
+id: xss3-141
+name: 'Raw XSS3 #20 in q'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '<video%0a><source%0aonerror=nx3140>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3140'

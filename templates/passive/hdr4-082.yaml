@@ -1,0 +1,14 @@
+id: hdr4-082
+name: 'Header x-responder-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-responder-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-responder-2'

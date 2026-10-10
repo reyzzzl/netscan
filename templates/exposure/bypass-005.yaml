@@ -1,0 +1,17 @@
+id: bypass-005
+name: 'Header bypass X-Remote-IP'
+severity: high
+type: active
+tags:
+  - bypass
+  - auth
+  - headers
+description: 'Reaches /admin2 via X-Remote-IP'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/admin2'
+    sendHeaders:
+      X-Remote-IP: '127.0.0.1'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,14 @@
+id: sec3-043
+name: 'Secret: oauth-client-secret'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Possible secret in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'oauth-client-secret'

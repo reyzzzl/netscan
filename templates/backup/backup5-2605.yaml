@@ -1,0 +1,15 @@
+id: backup5-2605
+name: 'Exposed /token.php.swp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /token.php.swp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/token.php.swp'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup5-0290
+name: 'Exposed /dump.sql.toml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /dump.sql.toml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dump.sql.toml'
+    matchers:
+      - type: status
+        status: [200]

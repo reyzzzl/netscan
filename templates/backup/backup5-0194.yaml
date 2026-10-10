@@ -1,0 +1,15 @@
+id: backup5-0194
+name: 'Exposed /.env.sqlite'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.sqlite is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.sqlite'
+    matchers:
+      - type: status
+        status: [200]

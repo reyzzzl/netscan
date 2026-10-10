@@ -1,0 +1,15 @@
+id: cve3-drupal-pathauto-04
+name: 'Drupal pathauto pathauto.info.yml'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Drupal pathauto at /modules/contrib/pathauto/pathauto.info.yml — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/modules/contrib/pathauto/pathauto.info.yml'
+    matchers:
+      - type: status
+        status: [200]

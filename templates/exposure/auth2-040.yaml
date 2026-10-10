@@ -1,0 +1,15 @@
+id: auth2-040
+name: 'Alertmanager at /alertmanager'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Alertmanager returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/alertmanager'
+    matchers:
+      - type: status
+        status: [200]

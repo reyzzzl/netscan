@@ -1,0 +1,14 @@
+id: hdr3-08
+name: 'Debug header x-amz-request-id'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - debug
+description: 'Debug header x-amz-request-id present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-amz-request-id'

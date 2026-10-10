@@ -1,0 +1,20 @@
+id: xss5-2191
+name: 'Raw XSS5 in headline'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in headline'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      headline:
+        - '<isindex%09formaction=javascript:nx52190>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52190'

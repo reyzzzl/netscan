@@ -1,0 +1,20 @@
+id: xss-071
+name: 'Reflected XSS ctx-12 via q'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - 'javascript:nx070c'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx070c'

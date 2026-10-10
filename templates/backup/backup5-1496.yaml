@@ -1,0 +1,15 @@
+id: backup5-1496
+name: 'Exposed /payment.php.mdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /payment.php.mdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/payment.php.mdb'
+    matchers:
+      - type: status
+        status: [200]

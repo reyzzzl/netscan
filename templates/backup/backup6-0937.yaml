@@ -1,0 +1,15 @@
+id: backup6-0937
+name: 'Exposed /privacy.php.yaml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /privacy.php.yaml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/privacy.php.yaml'
+    matchers:
+      - type: status
+        status: [200]

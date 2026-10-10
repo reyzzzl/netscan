@@ -1,0 +1,14 @@
+id: err4-004
+name: 'Error marker framework-error-3x'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Framework error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'framework-error-3x'

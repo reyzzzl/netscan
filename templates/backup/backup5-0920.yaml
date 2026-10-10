@@ -1,0 +1,15 @@
+id: backup5-0920
+name: 'Exposed /ajax.php.copy'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /ajax.php.copy is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/ajax.php.copy'
+    matchers:
+      - type: status
+        status: [200]

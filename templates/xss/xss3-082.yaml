@@ -1,0 +1,20 @@
+id: xss3-082
+name: 'Raw XSS3 #21 in s'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in s'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      s:
+        - '<audio%09src=x%09onerror=nx3081>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3081'

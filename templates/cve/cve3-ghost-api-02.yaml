@@ -1,0 +1,15 @@
+id: cve3-ghost-api-02
+name: 'Ghost api/admin/users users'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Ghost api/admin/users at /ghost/api/admin/users — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/ghost/api/admin/users'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup2-093
+name: 'Exposed2 /struts.xml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /struts.xml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/struts.xml'
+    matchers:
+      - type: status
+        status: [200]

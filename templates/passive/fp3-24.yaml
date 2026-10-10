@@ -1,0 +1,14 @@
+id: fp3-24
+name: 'Stack blazor8'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'blazor8 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'blazor8'

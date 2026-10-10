@@ -1,0 +1,15 @@
+id: cve5-deadmanssnitchx-05
+name: 'deadmanssnitchx at /console'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'deadmanssnitchx at /console — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/console'
+    matchers:
+      - type: status
+        status: [200]

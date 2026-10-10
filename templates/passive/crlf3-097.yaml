@@ -1,0 +1,20 @@
+id: crlf3-097
+name: 'CRLF into comment'
+severity: medium
+type: active
+tags:
+  - crlf
+  - injection
+  - headers
+description: 'CRLF header injection via comment'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      comment:
+        - '%0d%0aLocation: https://evil.example/'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'x-test'

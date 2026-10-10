@@ -1,0 +1,20 @@
+id: xss5-1277
+name: 'Raw XSS5 in prefix'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in prefix'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      prefix:
+        - '<meta%09http-equiv=refresh%09content="0;javascript:nx51276">'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51276'

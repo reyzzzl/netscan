@@ -1,0 +1,15 @@
+id: backup5-0175
+name: 'Exposed /.env.bundle'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.bundle is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.bundle'
+    matchers:
+      - type: status
+        status: [200]

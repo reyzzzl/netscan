@@ -1,0 +1,15 @@
+id: cve6-crossplane3-15
+name: 'crossplane3 at /help'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'crossplane3 at /help — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/help'
+    matchers:
+      - type: status
+        status: [200]

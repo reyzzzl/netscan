@@ -1,0 +1,20 @@
+id: xss8-0256
+name: 'Raw XSS8 in firstname'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in firstname'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      firstname:
+        - '<video><source onerror=nx80255%09%09>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx80255'

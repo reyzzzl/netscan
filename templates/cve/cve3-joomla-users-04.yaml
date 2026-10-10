@@ -1,0 +1,15 @@
+id: cve3-joomla-users-04
+name: 'Joomla users '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Joomla users at /components/com_users/tmpl/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/components/com_users/tmpl/'
+    matchers:
+      - type: status
+        status: [200]

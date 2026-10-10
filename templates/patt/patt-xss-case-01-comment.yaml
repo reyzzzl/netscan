@@ -1,0 +1,20 @@
+id: patt-xss-case-01-comment
+name: 'PATT xss patt-xss-case-01 via comment'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+  - filtercase
+description: 'PATT Bypass Case Sensitive: mixed case to pass case-sensitive filters. [patt:patt-xss-case-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/1%20-%20XSS%20Filter%20Bypass.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      comment:
+        - '<sCrIpt>nxp0000</ScRipt>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0000'

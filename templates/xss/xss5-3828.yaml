@@ -1,0 +1,20 @@
+id: xss5-3828
+name: 'Raw XSS5 in about'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in about'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      about:
+        - '<a%0ahref=data:text/html,nx53827>click'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53827'

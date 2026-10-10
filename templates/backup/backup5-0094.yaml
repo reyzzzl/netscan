@@ -1,0 +1,15 @@
+id: backup5-0094
+name: 'Exposed /wp-config.php.sqlite'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /wp-config.php.sqlite is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-config.php.sqlite'
+    matchers:
+      - type: status
+        status: [200]

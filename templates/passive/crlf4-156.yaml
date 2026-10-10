@@ -1,0 +1,20 @@
+id: crlf4-156
+name: 'CRLF into body'
+severity: medium
+type: active
+tags:
+  - crlf
+  - injection
+  - headers
+description: 'CRLF header injection via body'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      body:
+        - '%0dX-Test: t'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'x-test'

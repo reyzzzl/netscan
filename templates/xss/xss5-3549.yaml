@@ -1,0 +1,20 @@
+id: xss5-3549
+name: 'Raw XSS5 in summary'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in summary'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      summary:
+        - '<script>alert(String.fromCharCode(nx53548))</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53548'

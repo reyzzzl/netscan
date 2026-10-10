@@ -1,0 +1,15 @@
+id: backup5-0188
+name: 'Exposed /.env.yaml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.yaml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.yaml'
+    matchers:
+      - type: status
+        status: [200]

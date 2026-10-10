@@ -1,0 +1,21 @@
+id: ssti-post-014
+name: 'POST SSTI erb in view'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - post
+  - erb
+description: 'erb evaluates POST body on /render'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/render'
+    body: '{"view":"<%= 7*7 %>"}'
+    sendHeaders:
+      Content-Type: 'application/json'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

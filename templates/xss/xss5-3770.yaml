@@ -1,0 +1,20 @@
+id: xss5-3770
+name: 'Raw XSS5 in text'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - '<form><button%09formaction=javascript:nx53769>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53769'

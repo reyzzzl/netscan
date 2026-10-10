@@ -1,0 +1,15 @@
+id: backup4-319
+name: 'Exposed /api/v7/login'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /api/v7/login is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/v7/login'
+    matchers:
+      - type: status
+        status: [200]

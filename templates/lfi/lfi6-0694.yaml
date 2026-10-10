@@ -1,0 +1,20 @@
+id: lfi6-0694
+name: 'Traversal in download'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via download'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      download:
+        - '/etc/fstab'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '/etc/fstab'

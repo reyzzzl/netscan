@@ -1,0 +1,15 @@
+id: backup5-1670
+name: 'Exposed /settings.php.copy'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /settings.php.copy is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/settings.php.copy'
+    matchers:
+      - type: status
+        status: [200]

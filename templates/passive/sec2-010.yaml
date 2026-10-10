@@ -1,0 +1,14 @@
+id: sec2-010
+name: 'Discord webhook'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Discord webhook in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'discord.com/api/webhooks'

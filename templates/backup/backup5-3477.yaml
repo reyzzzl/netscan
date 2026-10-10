@@ -1,0 +1,15 @@
+id: backup5-3477
+name: 'Exposed /sync.php.tar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sync.php.tar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sync.php.tar'
+    matchers:
+      - type: status
+        status: [200]

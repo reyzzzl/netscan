@@ -1,0 +1,15 @@
+id: backup2-015
+name: 'Exposed2 /graphiql/console'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /graphiql/console is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/graphiql/console'
+    matchers:
+      - type: status
+        status: [200]

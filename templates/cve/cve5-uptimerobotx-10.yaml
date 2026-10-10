@@ -1,0 +1,15 @@
+id: cve5-uptimerobotx-10
+name: 'uptimerobotx at /status'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'uptimerobotx at /status — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/status'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,14 @@
+id: fp3-40
+name: 'Stack drupal10'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'drupal10 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'drupal10'

@@ -1,0 +1,21 @@
+id: ssti-post2-005
+name: 'POST SSTI jinja2 in content'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - post
+  - jinja2
+description: 'jinja2 evaluates POST body on /render'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/render'
+    body: '{"content":"{{7*7}}"}'
+    sendHeaders:
+      Content-Type: 'application/json'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

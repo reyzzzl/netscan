@@ -1,0 +1,14 @@
+id: hdr3-26
+name: 'Debug header x-varnish-debug'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - debug
+description: 'Debug header x-varnish-debug present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-varnish-debug'

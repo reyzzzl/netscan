@@ -1,0 +1,15 @@
+id: cve2-zabbix-04
+name: 'Zabbix fingerprint /zabbix/ v4'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Zabbix at /zabbix/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/zabbix/'
+    matchers:
+      - type: status
+        status: [200]

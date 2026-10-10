@@ -1,0 +1,14 @@
+id: fp3-58
+name: 'Stack keystone6'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'keystone6 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'keystone6'

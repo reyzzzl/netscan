@@ -1,0 +1,15 @@
+id: auth3-093
+name: 'Panel at /organizr'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /organizr returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/organizr'
+    matchers:
+      - type: status
+        status: [200]

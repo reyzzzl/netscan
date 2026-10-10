@@ -1,0 +1,14 @@
+id: info-redis
+name: 'Redis commander'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - exposure
+description: 'Redis commander — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'redis-commander'

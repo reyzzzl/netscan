@@ -1,0 +1,14 @@
+id: hdr-debug
+name: 'Debug header present'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Debug header present — detected'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-debug'

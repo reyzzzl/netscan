@@ -1,0 +1,20 @@
+id: xss-090
+name: 'Reflected XSS ctx-2 via text'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - '''"><svg onload=nx089c>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx089c'

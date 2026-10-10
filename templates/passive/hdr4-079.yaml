@@ -1,0 +1,14 @@
+id: hdr4-079
+name: 'Header x-dsniff-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-dsniff-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-dsniff-2'

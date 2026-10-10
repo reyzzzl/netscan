@@ -1,0 +1,20 @@
+id: xss5-3872
+name: 'Raw XSS5 in subtext'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in subtext'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      subtext:
+        - '<form%0aaction=javascript:nx53871><input type=submit>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53871'

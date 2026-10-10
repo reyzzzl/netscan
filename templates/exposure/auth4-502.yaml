@@ -1,0 +1,15 @@
+id: auth4-502
+name: 'Panel at /team/status'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /team/status returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/team/status'
+    matchers:
+      - type: status
+        status: [200]

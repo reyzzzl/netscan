@@ -1,0 +1,15 @@
+id: backup5-0919
+name: 'Exposed /ajax.php.local'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /ajax.php.local is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/ajax.php.local'
+    matchers:
+      - type: status
+        status: [200]

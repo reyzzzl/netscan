@@ -1,0 +1,15 @@
+id: backup5-3635
+name: 'Exposed /worker.php.cfg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /worker.php.cfg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/worker.php.cfg'
+    matchers:
+      - type: status
+        status: [200]

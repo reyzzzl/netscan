@@ -1,0 +1,15 @@
+id: backup-046
+name: 'Exposed /pma'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /pma is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/pma'
+    matchers:
+      - type: status
+        status: [200]

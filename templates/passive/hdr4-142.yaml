@@ -1,0 +1,14 @@
+id: hdr4-142
+name: 'Header x-eeg2-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-eeg2-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-eeg2-2'

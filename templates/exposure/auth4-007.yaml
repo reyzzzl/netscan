@@ -1,0 +1,15 @@
+id: auth4-007
+name: 'Panel at /staff/api2'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /staff/api2 returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/staff/api2'
+    matchers:
+      - type: status
+        status: [200]

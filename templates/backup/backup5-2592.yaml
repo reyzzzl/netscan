@@ -1,0 +1,15 @@
+id: backup5-2592
+name: 'Exposed /cookie.php.sum'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /cookie.php.sum is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/cookie.php.sum'
+    matchers:
+      - type: status
+        status: [200]

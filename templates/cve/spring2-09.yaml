@@ -1,0 +1,15 @@
+id: spring2-09
+name: 'Spring tasks scheduledtasks'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Spring tasks at /actuator/scheduledtasks — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/actuator/scheduledtasks'
+    matchers:
+      - type: status
+        status: [200]

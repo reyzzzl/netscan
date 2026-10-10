@@ -1,0 +1,15 @@
+id: auth3-073
+name: 'Panel at /honeybadger'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /honeybadger returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/honeybadger'
+    matchers:
+      - type: status
+        status: [200]

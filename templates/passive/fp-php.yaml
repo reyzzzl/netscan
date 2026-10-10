@@ -1,0 +1,15 @@
+id: fp-php
+name: 'PHP fingerprint'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'PHP fingerprint — detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'PHPSESSID'
+      - '.php'

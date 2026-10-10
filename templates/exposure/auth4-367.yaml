@@ -1,0 +1,15 @@
+id: auth4-367
+name: 'Panel at /auth/dev'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /auth/dev returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/auth/dev'
+    matchers:
+      - type: status
+        status: [200]

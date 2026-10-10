@@ -1,0 +1,15 @@
+id: cve5-david-dmx-21
+name: 'david-dmx at /debug/console'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'david-dmx at /debug/console — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/debug/console'
+    matchers:
+      - type: status
+        status: [200]

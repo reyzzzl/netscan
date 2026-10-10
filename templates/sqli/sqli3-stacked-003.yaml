@@ -1,0 +1,25 @@
+id: sqli3-stacked-003
+name: 'Stacked query in aid'
+severity: critical
+type: active
+tags:
+  - sqli
+  - injection
+  - stacked
+description: 'Extra SQL statement via aid'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      aid:
+        - ''' AND 1=1; SELECT 1--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'SQL syntax'
+          - 'mysql_fetch'
+          - 'PostgreSQL'
+          - 'ODBC'
+          - 'ORA-'
+          - 'SQLite'

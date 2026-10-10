@@ -1,0 +1,14 @@
+id: hdr4-123
+name: 'Header x-webauthn-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-webauthn-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-webauthn-2'

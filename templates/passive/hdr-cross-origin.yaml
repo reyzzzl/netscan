@@ -1,0 +1,15 @@
+id: hdr-cross-origin
+name: 'Missing Cross-Origin policies'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Missing Cross-Origin policies — header not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'cross-origin'
+    negative: true

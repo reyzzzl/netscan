@@ -1,0 +1,15 @@
+id: backup5-0326
+name: 'Exposed /db.sql.pkg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /db.sql.pkg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/db.sql.pkg'
+    matchers:
+      - type: status
+        status: [200]

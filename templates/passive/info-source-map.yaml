@@ -1,0 +1,15 @@
+id: info-source-map
+name: 'Source map exposed'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - exposure
+description: 'Source map exposed — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - '.js.map'
+      - 'sourceMappingURL'

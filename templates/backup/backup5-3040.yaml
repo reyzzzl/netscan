@@ -1,0 +1,15 @@
+id: backup5-3040
+name: 'Exposed /index.html.toml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /index.html.toml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/index.html.toml'
+    matchers:
+      - type: status
+        status: [200]

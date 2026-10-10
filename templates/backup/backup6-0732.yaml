@@ -1,0 +1,15 @@
+id: backup6-0732
+name: 'Exposed /contact.php.tpl'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /contact.php.tpl is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/contact.php.tpl'
+    matchers:
+      - type: status
+        status: [200]

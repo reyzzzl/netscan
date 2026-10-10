@@ -1,0 +1,19 @@
+id: redirect2-011
+name: 'Open redirect2 via returnTo'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Unsafe redirect via returnTo'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      returnTo:
+        - '/%09/evil.example'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

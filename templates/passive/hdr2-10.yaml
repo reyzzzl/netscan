@@ -1,0 +1,15 @@
+id: hdr2-10
+name: 'Missing timing-allow-origin'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header timing-allow-origin not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'timing-allow-origin'
+    negative: true

@@ -1,0 +1,20 @@
+id: cve3-wpt-generatepress-03
+name: 'Theme generatepress readme.txt'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Theme generatepress at /wp-content/themes/generatepress/readme.txt — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/themes/generatepress/readme.txt'
+    match-all: true
+    matchers:
+      - type: status
+        status: [200]
+      - type: word
+        part: body
+        words:
+          - 'Stable tag'

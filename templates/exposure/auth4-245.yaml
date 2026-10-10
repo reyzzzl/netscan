@@ -1,0 +1,15 @@
+id: auth4-245
+name: 'Panel at /panel/debug'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /panel/debug returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/panel/debug'
+    matchers:
+      - type: status
+        status: [200]

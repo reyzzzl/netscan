@@ -1,0 +1,15 @@
+id: backup5-0893
+name: 'Exposed /api.php.mod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /api.php.mod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api.php.mod'
+    matchers:
+      - type: status
+        status: [200]

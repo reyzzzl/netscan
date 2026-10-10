@@ -1,0 +1,15 @@
+id: auth3-098
+name: 'Panel at /radarr'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /radarr returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/radarr'
+    matchers:
+      - type: status
+        status: [200]

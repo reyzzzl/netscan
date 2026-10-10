@@ -1,0 +1,20 @@
+id: xss3-419
+name: 'Raw XSS3 #28 in phone'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in phone'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      phone:
+        - '<wbr%0aonmouseover=nx3418>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3418'

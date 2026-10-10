@@ -1,0 +1,14 @@
+id: hdr4-057
+name: 'Header x-w3af-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-w3af-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-w3af-2'

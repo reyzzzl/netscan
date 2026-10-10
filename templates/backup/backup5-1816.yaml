@@ -1,0 +1,15 @@
+id: backup5-1816
+name: 'Exposed /install.php.dev'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /install.php.dev is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/install.php.dev'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: xss5-1083
+name: 'Raw XSS5 in search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '<div%0aonpointerleave=nx51082>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51082'

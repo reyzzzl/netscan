@@ -1,0 +1,14 @@
+id: sec2-044
+name: 'DB password alt'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'DB password alt in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'DB_PASSWORD'

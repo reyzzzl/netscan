@@ -1,0 +1,15 @@
+id: backup2-055
+name: 'Exposed2 /manifest.webmanifest'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /manifest.webmanifest is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/manifest.webmanifest'
+    matchers:
+      - type: status
+        status: [200]

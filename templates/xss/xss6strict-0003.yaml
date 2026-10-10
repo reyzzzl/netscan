@@ -1,0 +1,25 @@
+id: xss6strict-0003
+name: 'Strict raw XSS in search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      search:
+        - '<script>sx60002>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx60002'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx60002'

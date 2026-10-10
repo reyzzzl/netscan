@@ -1,0 +1,15 @@
+id: auth4-121
+name: 'Panel at /staff/config'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /staff/config returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/staff/config'
+    matchers:
+      - type: status
+        status: [200]

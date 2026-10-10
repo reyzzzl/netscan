@@ -1,0 +1,20 @@
+id: backup-021
+name: 'Exposed /robots.txt'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /robots.txt is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/robots.txt'
+    match-all: true
+    matchers:
+      - type: status
+        status: [200]
+      - type: word
+        part: body
+        words:
+          - 'Disallow'

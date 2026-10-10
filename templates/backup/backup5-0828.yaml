@@ -1,0 +1,15 @@
+id: backup5-0828
+name: 'Exposed /routes.php.gz'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /routes.php.gz is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/routes.php.gz'
+    matchers:
+      - type: status
+        status: [200]

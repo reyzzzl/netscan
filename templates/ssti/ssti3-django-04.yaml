@@ -1,0 +1,20 @@
+id: ssti3-django-04
+name: 'SSTI django in bio'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - django
+description: 'django evaluates payload in bio'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      bio:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

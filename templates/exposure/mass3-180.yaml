@@ -1,0 +1,18 @@
+id: mass3-180
+name: 'Mass field score2'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered score2 on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"a1","score2":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

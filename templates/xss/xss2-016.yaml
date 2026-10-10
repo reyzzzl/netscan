@@ -1,0 +1,20 @@
+id: xss2-016
+name: 'Reflected XSS2 ctx-15 via q'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '<isindex formaction="javascript:alert(nx2015)">'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx2015'

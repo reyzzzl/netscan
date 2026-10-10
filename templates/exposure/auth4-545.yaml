@@ -1,0 +1,15 @@
+id: auth4-545
+name: 'Panel at /billing/debug'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /billing/debug returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/billing/debug'
+    matchers:
+      - type: status
+        status: [200]

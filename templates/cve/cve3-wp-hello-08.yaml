@@ -1,0 +1,15 @@
+id: cve3-wp-hello-08
+name: 'WP hello '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP hello at /wp-content/plugins/hello/assets/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/hello/assets/'
+    matchers:
+      - type: status
+        status: [200]

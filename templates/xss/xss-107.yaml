@@ -1,0 +1,20 @@
+id: xss-107
+name: 'Reflected XSS ctx-19 via comment'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in comment'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      comment:
+        - '<form><button formaction=javascript:nx106c>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx106c'

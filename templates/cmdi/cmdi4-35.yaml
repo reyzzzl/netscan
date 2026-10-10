@@ -1,0 +1,23 @@
+id: cmdi4-35
+name: 'PowerShell injection in file'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - injection
+  - powershell
+description: 'OS command runs via file'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      file:
+        - ';cmd /c whoami'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='
+          - 'root:x:0:0'
+          - 'www-data'

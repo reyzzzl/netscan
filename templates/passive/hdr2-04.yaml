@@ -1,0 +1,15 @@
+id: hdr2-04
+name: 'Missing origin-agent-cluster'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header origin-agent-cluster not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'origin-agent-cluster'
+    negative: true

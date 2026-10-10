@@ -1,0 +1,15 @@
+id: backup5-1640
+name: 'Exposed /config.inc.php.toml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /config.inc.php.toml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/config.inc.php.toml'
+    matchers:
+      - type: status
+        status: [200]

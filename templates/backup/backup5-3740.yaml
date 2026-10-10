@@ -1,0 +1,15 @@
+id: backup5-3740
+name: 'Exposed /task.php.toml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /task.php.toml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/task.php.toml'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: ssti4-razor-19
+name: 'SSTI razor in c'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - razor
+description: 'razor evaluates payload in c'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      c:
+        - '@(7*7)'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

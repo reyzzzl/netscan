@@ -1,0 +1,15 @@
+id: backup5-0925
+name: 'Exposed /ajax.php.bundle'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /ajax.php.bundle is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/ajax.php.bundle'
+    matchers:
+      - type: status
+        status: [200]

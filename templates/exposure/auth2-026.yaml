@@ -1,0 +1,15 @@
+id: auth2-026
+name: 'Support admin at /support/admin'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Support admin returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/support/admin'
+    matchers:
+      - type: status
+        status: [200]

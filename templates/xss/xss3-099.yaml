@@ -1,0 +1,20 @@
+id: xss3-099
+name: 'Raw XSS3 #8 in phone'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in phone'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      phone:
+        - '</textarea><svg%0aonload=nx3098>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3098'

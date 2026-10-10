@@ -1,0 +1,15 @@
+id: cve5-clickhousex-15
+name: 'clickhousex at /help'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'clickhousex at /help — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/help'
+    matchers:
+      - type: status
+        status: [200]

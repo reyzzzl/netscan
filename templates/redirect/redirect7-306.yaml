@@ -1,0 +1,20 @@
+id: redirect7-306
+name: 'Trusted bypass in from'
+severity: high
+type: active
+tags:
+  - redirect
+  - open-redirect
+  - bypass
+description: 'Bypasses trusted.com allowlist via from'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      from:
+        - 'https://trusted.com:443.evil.example/'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

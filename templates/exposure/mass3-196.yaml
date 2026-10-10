@@ -1,0 +1,18 @@
+id: mass3-196
+name: 'Mass field crown'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered crown on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"t","crown":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

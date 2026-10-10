@@ -1,0 +1,14 @@
+id: err3-45
+name: 'Framework error: vuetify error'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Framework error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'vuetify error'

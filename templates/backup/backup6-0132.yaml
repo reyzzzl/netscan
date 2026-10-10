@@ -1,0 +1,15 @@
+id: backup6-0132
+name: 'Exposed /register.php.tpl'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /register.php.tpl is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/register.php.tpl'
+    matchers:
+      - type: status
+        status: [200]

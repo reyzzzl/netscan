@@ -1,0 +1,20 @@
+id: xss3-363
+name: 'Raw XSS3 #2 in search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '<img%09src=x%09onerror=nx3362>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3362'

@@ -1,0 +1,15 @@
+id: backup5-0183
+name: 'Exposed /.env.tpl'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.tpl is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.tpl'
+    matchers:
+      - type: status
+        status: [200]

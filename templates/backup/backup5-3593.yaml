@@ -1,0 +1,15 @@
+id: backup5-3593
+name: 'Exposed /queue.php.mod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /queue.php.mod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/queue.php.mod'
+    matchers:
+      - type: status
+        status: [200]

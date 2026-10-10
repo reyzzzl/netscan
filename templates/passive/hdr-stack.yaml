@@ -1,0 +1,14 @@
+id: hdr-stack
+name: 'Stacktrace header present'
+severity: medium
+type: passive
+tags:
+  - headers
+  - passive
+  - info
+description: 'Stacktrace header present — detected'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-exception'

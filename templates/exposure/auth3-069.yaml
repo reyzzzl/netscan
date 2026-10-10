@@ -1,0 +1,15 @@
+id: auth3-069
+name: 'Panel at /logrocket'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /logrocket returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/logrocket'
+    matchers:
+      - type: status
+        status: [200]

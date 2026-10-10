@@ -1,0 +1,15 @@
+id: backup6-0613
+name: 'Exposed /returns.php.dist'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /returns.php.dist is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/returns.php.dist'
+    matchers:
+      - type: status
+        status: [200]

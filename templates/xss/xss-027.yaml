@@ -1,0 +1,20 @@
+id: xss-027
+name: 'Reflected XSS ctx-26 via comment'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in comment'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      comment:
+        - '</textarea><script>nx026c</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx026c'

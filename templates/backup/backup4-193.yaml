@@ -1,0 +1,15 @@
+id: backup4-193
+name: 'Exposed /import.php.dist'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /import.php.dist is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/import.php.dist'
+    matchers:
+      - type: status
+        status: [200]

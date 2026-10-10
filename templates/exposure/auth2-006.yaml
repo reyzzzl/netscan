@@ -1,0 +1,15 @@
+id: auth2-006
+name: 'Metrics at /metrics/prometheus'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Metrics returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/metrics/prometheus'
+    matchers:
+      - type: status
+        status: [200]

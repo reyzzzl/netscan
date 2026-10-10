@@ -1,0 +1,20 @@
+id: ssti4-nunjucks-10
+name: 'SSTI nunjucks in view'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - nunjucks
+description: 'nunjucks evaluates payload in view'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      view:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

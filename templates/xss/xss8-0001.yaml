@@ -1,0 +1,20 @@
+id: xss8-0001
+name: 'Raw XSS8 in q'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '<svg onload=nx80000>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx80000'

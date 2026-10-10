@@ -1,0 +1,15 @@
+id: cve5-checkmarxx-11
+name: 'checkmarxx at /health'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'checkmarxx at /health — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/health'
+    matchers:
+      - type: status
+        status: [200]

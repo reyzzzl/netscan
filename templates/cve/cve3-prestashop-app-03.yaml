@@ -1,0 +1,15 @@
+id: cve3-prestashop-app-03
+name: 'PrestaShop install/index.php index.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'PrestaShop install/index.php at /app/config/install/index.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/app/config/install/index.php'
+    matchers:
+      - type: status
+        status: [200]

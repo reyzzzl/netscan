@@ -1,0 +1,20 @@
+id: xss-179
+name: 'Reflected XSS ctx-4 via query'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in query'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      query:
+        - '<svg onload=alert(nx178c)>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx178c'

@@ -1,0 +1,15 @@
+id: backup2-131
+name: 'Exposed2 /metricbeat.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /metricbeat.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/metricbeat.yml'
+    matchers:
+      - type: status
+        status: [200]

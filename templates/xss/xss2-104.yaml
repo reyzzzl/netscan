@@ -1,0 +1,20 @@
+id: xss2-104
+name: 'Reflected XSS2 ctx-13 via data'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in data'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      data:
+        - '<embed src="javascript:alert(nx2103)">'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx2103'

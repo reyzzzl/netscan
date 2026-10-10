@@ -1,0 +1,14 @@
+id: err3-15
+name: 'Framework error: drizzle error'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Framework error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'drizzle error'

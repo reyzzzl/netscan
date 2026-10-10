@@ -1,0 +1,22 @@
+id: sqli2-informix-07
+name: 'SQLi error informix via sort'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - informix
+description: 'Triggers informix error via sort'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      sort:
+        - ''''
+        - ''' UNION SELECT NULL,NULL--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'Informix'
+          - 'ISAM error'

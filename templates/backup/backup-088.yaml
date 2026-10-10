@@ -1,0 +1,15 @@
+id: backup-088
+name: 'Exposed /Jenkinsfile'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /Jenkinsfile is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/Jenkinsfile'
+    matchers:
+      - type: status
+        status: [200]

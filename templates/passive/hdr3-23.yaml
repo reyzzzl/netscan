@@ -1,0 +1,14 @@
+id: hdr3-23
+name: 'Debug header x-backend'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - debug
+description: 'Debug header x-backend present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-backend'

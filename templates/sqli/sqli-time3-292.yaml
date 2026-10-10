@@ -1,0 +1,19 @@
+id: sqli-time3-292
+name: 'Delay probe in nid'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - blind
+  - time
+description: '3-second delay via nid'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      nid:
+        - ''' OR (SELECT pg_sleep(3))--'
+    matchers:
+      - type: time
+        ms: 2500

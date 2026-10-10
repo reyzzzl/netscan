@@ -1,0 +1,14 @@
+id: hdr4-069
+name: 'Header x-john-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-john-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-john-2'

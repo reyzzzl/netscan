@@ -1,0 +1,14 @@
+id: sec2-055
+name: 'GitHub PAT alt'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'GitHub PAT alt in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'ghp_'

@@ -1,0 +1,15 @@
+id: backup5-0283
+name: 'Exposed /dump.sql.tpl'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /dump.sql.tpl is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dump.sql.tpl'
+    matchers:
+      - type: status
+        status: [200]

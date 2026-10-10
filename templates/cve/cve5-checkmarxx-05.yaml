@@ -1,0 +1,15 @@
+id: cve5-checkmarxx-05
+name: 'checkmarxx at /console'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'checkmarxx at /console — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/console'
+    matchers:
+      - type: status
+        status: [200]

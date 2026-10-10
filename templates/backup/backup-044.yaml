@@ -1,0 +1,15 @@
+id: backup-044
+name: 'Exposed /wp-admin'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /wp-admin is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-admin'
+    matchers:
+      - type: status
+        status: [200]

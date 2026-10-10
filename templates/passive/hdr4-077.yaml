@@ -1,0 +1,14 @@
+id: hdr4-077
+name: 'Header x-tcpdump-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-tcpdump-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-tcpdump-2'

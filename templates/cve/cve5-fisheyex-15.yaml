@@ -1,0 +1,15 @@
+id: cve5-fisheyex-15
+name: 'fisheyex at /help'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'fisheyex at /help — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/help'
+    matchers:
+      - type: status
+        status: [200]

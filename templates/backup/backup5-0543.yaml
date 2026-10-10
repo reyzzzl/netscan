@@ -1,0 +1,15 @@
+id: backup5-0543
+name: 'Exposed /app.php.mod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /app.php.mod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/app.php.mod'
+    matchers:
+      - type: status
+        status: [200]

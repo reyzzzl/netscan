@@ -1,0 +1,15 @@
+id: backup6-0530
+name: 'Exposed /shipping.php.rar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /shipping.php.rar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/shipping.php.rar'
+    matchers:
+      - type: status
+        status: [200]

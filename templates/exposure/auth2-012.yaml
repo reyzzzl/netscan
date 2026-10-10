@@ -1,0 +1,15 @@
+id: auth2-012
+name: 'My admin at /myadmin'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'My admin returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/myadmin'
+    matchers:
+      - type: status
+        status: [200]

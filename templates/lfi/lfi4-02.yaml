@@ -1,0 +1,20 @@
+id: lfi4-02
+name: 'System file /etc/issue via path'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads /etc/issue via path'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      path:
+        - '/etc/issue'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'Ubuntu'

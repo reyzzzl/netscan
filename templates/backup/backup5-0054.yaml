@@ -1,0 +1,15 @@
+id: backup5-0054
+name: 'Exposed /wp-config.php.save'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /wp-config.php.save is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-config.php.save'
+    matchers:
+      - type: status
+        status: [200]

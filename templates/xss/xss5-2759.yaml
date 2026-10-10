@@ -1,0 +1,20 @@
+id: xss5-2759
+name: 'Raw XSS5 in author'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in author'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      author:
+        - '<embed%0asrc=data:text/html,nx52758>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52758'

@@ -1,0 +1,15 @@
+id: backup6-0521
+name: 'Exposed /shipping.php.duplicate'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /shipping.php.duplicate is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/shipping.php.duplicate'
+    matchers:
+      - type: status
+        status: [200]

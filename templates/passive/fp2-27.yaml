@@ -1,0 +1,14 @@
+id: fp2-27
+name: 'Fingerprint hanami'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'hanami detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'hanami'

@@ -1,0 +1,23 @@
+id: cmdi4-09
+name: 'PowerShell injection in input'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - injection
+  - powershell
+description: 'OS command runs via input'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      input:
+        - ';type C:\Windows\win.ini'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='
+          - 'root:x:0:0'
+          - 'www-data'

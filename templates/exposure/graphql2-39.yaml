@@ -1,0 +1,21 @@
+id: graphql2-39
+name: 'Introspection probe in graphql'
+severity: medium
+type: active
+tags:
+  - graphql
+  - api
+  - introspection
+description: 'GraphQL schema exposed via graphql'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      graphql:
+        - 'fragment F on Query{__typename}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '__schema'
+          - '__typename'

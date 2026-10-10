@@ -1,0 +1,18 @@
+id: mass3-270
+name: 'Mass field iban'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered iban on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"a1","iban":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

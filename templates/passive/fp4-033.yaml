@@ -1,0 +1,14 @@
+id: fp4-033
+name: 'Stack cart2x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'cart2x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'cart2x'

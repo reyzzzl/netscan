@@ -1,0 +1,15 @@
+id: backup5-3531
+name: 'Exposed /cron.php.rar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /cron.php.rar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/cron.php.rar'
+    matchers:
+      - type: status
+        status: [200]

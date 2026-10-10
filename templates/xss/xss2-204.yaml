@@ -1,0 +1,20 @@
+id: xss2-204
+name: 'Reflected XSS2 ctx-23 via query'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in query'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      query:
+        - '<xss style=x onfocusin=alert(nx2203) tabindex=1>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx2203'

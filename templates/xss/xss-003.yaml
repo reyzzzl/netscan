@@ -1,0 +1,20 @@
+id: xss-003
+name: 'Reflected XSS ctx-2 via search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '''"><svg onload=nx002c>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx002c'

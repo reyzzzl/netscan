@@ -1,0 +1,14 @@
+id: hdr3-07
+name: 'Debug header x-request-id-debug'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - debug
+description: 'Debug header x-request-id-debug present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-request-id-debug'

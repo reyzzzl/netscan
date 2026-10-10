@@ -1,0 +1,20 @@
+id: ssti3-velocity-03
+name: 'SSTI velocity in comment'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - velocity
+description: 'velocity evaluates payload in comment'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      comment:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

@@ -1,0 +1,15 @@
+id: backup5-2637
+name: 'Exposed /token.php.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /token.php.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/token.php.yml'
+    matchers:
+      - type: status
+        status: [200]

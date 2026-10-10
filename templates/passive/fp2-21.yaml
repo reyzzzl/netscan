@@ -1,0 +1,14 @@
+id: fp2-21
+name: 'Fingerprint quarkus'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'quarkus detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'quarkus'

@@ -1,0 +1,14 @@
+id: hdr4-022
+name: 'Header x-checkpoint-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-checkpoint-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-checkpoint-2'

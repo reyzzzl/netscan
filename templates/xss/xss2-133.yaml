@@ -1,0 +1,20 @@
+id: xss2-133
+name: 'Reflected XSS2 ctx-12 via value'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in value'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      value:
+        - '<object data="javascript:alert(nx2132)">'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx2132'

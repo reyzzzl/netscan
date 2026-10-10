@@ -1,0 +1,14 @@
+id: sqli-error
+name: SQL injection error-based
+severity: high
+type: active
+description: Triggers DB errors with quotes
+requests:
+  - method: GET
+    path: "{{BaseURL}}"
+    payloads:
+      id: ["'", '"', "' OR '1'='1"]
+    matchers:
+      - type: regex
+        part: body
+        regex: ["SQL syntax", "mysql", "ORA-", "PostgreSQL", "SQLite", "ODBC"]

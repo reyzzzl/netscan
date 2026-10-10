@@ -1,0 +1,14 @@
+id: err2-22
+name: 'Error page: evalmachine.'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'evalmachine.'

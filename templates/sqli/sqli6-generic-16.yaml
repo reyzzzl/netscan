@@ -1,0 +1,22 @@
+id: sqli6-generic-16
+name: 'SQLi generic probe in id'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - generic
+description: 'Triggers generic error via id'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      id:
+        - '1" AND "1"="1'
+        - '''))--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'JDBC'
+          - 'Warning: mysql'

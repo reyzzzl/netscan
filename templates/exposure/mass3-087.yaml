@@ -1,0 +1,18 @@
+id: mass3-087
+name: 'Mass field runner'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered runner on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"a1","runner":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

@@ -1,0 +1,15 @@
+id: info-stack-node
+name: 'Node stacktrace'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - debug
+description: 'Node stacktrace — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'at Object.'
+      - 'node_modules'

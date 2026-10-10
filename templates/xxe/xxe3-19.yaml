@@ -1,0 +1,22 @@
+id: xxe3-19
+name: 'XXE DoS/entity in payload'
+severity: high
+type: active
+tags:
+  - xxe
+  - injection
+  - xml
+  - dos
+description: 'XXE entity via payload'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      payload:
+        - '<?xml version="1.0"?><!DOCTYPE lolz [<!ENTITY lol1 "looooooooool">]><r>&lol1;</r>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'
+          - 'XXE_OK'

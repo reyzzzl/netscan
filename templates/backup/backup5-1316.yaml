@@ -1,0 +1,15 @@
+id: backup5-1316
+name: 'Exposed /account.php.dev'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /account.php.dev is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/account.php.dev'
+    matchers:
+      - type: status
+        status: [200]

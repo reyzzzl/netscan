@@ -1,0 +1,15 @@
+id: auth3-071
+name: 'Panel at /rollbar'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /rollbar returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/rollbar'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup5-2162
+name: 'Exposed /footer.php.4'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /footer.php.4 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/footer.php.4'
+    matchers:
+      - type: status
+        status: [200]

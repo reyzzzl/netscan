@@ -1,0 +1,15 @@
+id: backup5-0185
+name: 'Exposed /.env.cfg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.cfg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.cfg'
+    matchers:
+      - type: status
+        status: [200]

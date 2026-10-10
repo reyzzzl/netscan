@@ -1,0 +1,20 @@
+id: ssti2-perl-02
+name: 'SSTI2 perl via desc'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - perl
+description: 'perl evaluates payload in desc'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      desc:
+        - '<% 7*7 %>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

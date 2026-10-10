@@ -1,0 +1,15 @@
+id: backup2-130
+name: 'Exposed2 /filebeat.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /filebeat.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/filebeat.yml'
+    matchers:
+      - type: status
+        status: [200]

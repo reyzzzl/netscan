@@ -1,0 +1,15 @@
+id: auth3-031
+name: 'Panel at /pocketbase/_/'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /pocketbase/_/ returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/pocketbase/_/'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup5-0090
+name: 'Exposed /wp-config.php.toml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /wp-config.php.toml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-config.php.toml'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: ssti2-razor-02
+name: 'SSTI2 razor via bio'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - razor
+description: 'razor evaluates payload in bio'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      bio:
+        - '@(7*7)'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

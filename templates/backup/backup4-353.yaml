@@ -1,0 +1,15 @@
+id: backup4-353
+name: 'Exposed /api/v11/docs'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /api/v11/docs is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/v11/docs'
+    matchers:
+      - type: status
+        status: [200]

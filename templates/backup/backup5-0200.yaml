@@ -1,0 +1,15 @@
+id: backup5-0200
+name: 'Exposed /.env.sav'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.sav is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.sav'
+    matchers:
+      - type: status
+        status: [200]

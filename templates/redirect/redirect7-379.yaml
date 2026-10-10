@@ -1,0 +1,20 @@
+id: redirect7-379
+name: 'Trusted bypass in callback'
+severity: high
+type: active
+tags:
+  - redirect
+  - open-redirect
+  - bypass
+description: 'Bypasses trusted.com allowlist via callback'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      callback:
+        - 'https://trusted.com%2e%2e/evil.example/'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

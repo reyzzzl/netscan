@@ -1,0 +1,15 @@
+id: backup5-2043
+name: 'Exposed /functions.php.mod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /functions.php.mod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/functions.php.mod'
+    matchers:
+      - type: status
+        status: [200]

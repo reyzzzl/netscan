@@ -1,0 +1,15 @@
+id: backup5-0189
+name: 'Exposed /.env.json5'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.json5 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.json5'
+    matchers:
+      - type: status
+        status: [200]

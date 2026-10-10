@@ -1,0 +1,20 @@
+id: xss5-0049
+name: 'Raw XSS5 in query'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in query'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      query:
+        - '<select%09autofocus%09onfocus=nx50048>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50048'

@@ -1,0 +1,20 @@
+id: xss3-020
+name: 'Raw XSS3 #19 in address'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in address'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      address:
+        - '<xss%0astyle=x%0aonpointerover=nx3019>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3019'

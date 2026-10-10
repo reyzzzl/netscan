@@ -1,0 +1,15 @@
+id: backup5-0775
+name: 'Exposed /bootstrap.php.bundle'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /bootstrap.php.bundle is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/bootstrap.php.bundle'
+    matchers:
+      - type: status
+        status: [200]

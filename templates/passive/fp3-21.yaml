@@ -1,0 +1,14 @@
+id: fp3-21
+name: 'Stack quarkus3'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'quarkus3 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'quarkus3'

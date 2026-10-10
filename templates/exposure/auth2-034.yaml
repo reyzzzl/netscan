@@ -1,0 +1,15 @@
+id: auth2-034
+name: 'Filament at /filament'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Filament returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/filament'
+    matchers:
+      - type: status
+        status: [200]

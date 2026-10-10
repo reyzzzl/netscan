@@ -1,0 +1,20 @@
+id: xss5-2815
+name: 'Raw XSS5 in word'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in word'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      word:
+        - 'vbscript%3amsgbox(nx52814)'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52814'

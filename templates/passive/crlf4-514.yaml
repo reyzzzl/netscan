@@ -1,0 +1,20 @@
+id: crlf4-514
+name: 'CRLF into review'
+severity: medium
+type: active
+tags:
+  - crlf
+  - injection
+  - headers
+description: 'CRLF header injection via review'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      review:
+        - '%0d%0aX-Test: t'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'x-test'

@@ -1,0 +1,15 @@
+id: backup5-3020
+name: 'Exposed /index.html.copy'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /index.html.copy is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/index.html.copy'
+    matchers:
+      - type: status
+        status: [200]

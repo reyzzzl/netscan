@@ -1,0 +1,15 @@
+id: backup5-1469
+name: 'Exposed /payment.php.local'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /payment.php.local is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/payment.php.local'
+    matchers:
+      - type: status
+        status: [200]

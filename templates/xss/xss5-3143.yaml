@@ -1,0 +1,20 @@
+id: xss5-3143
+name: 'Raw XSS5 in state'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in state'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      state:
+        - '<sCrIpT%09>alert(nx53142)</sCrIpT>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53142'

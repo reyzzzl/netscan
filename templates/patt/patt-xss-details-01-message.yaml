@@ -1,0 +1,19 @@
+id: patt-xss-details-01-message
+name: 'PATT xss patt-xss-details-01 via message'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+description: 'PATT details ontoggle no interaction. [patt:patt-xss-details-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      message:
+        - '<details open ontoggle=nxp0022>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0022'

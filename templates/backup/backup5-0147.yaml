@@ -1,0 +1,15 @@
+id: backup5-0147
+name: 'Exposed /config.php.accdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /config.php.accdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/config.php.accdb'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: cve3-wp-hello-03
+name: 'WP hello CHANGELOG.md'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP hello at /wp-content/plugins/hello/CHANGELOG.md — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/hello/CHANGELOG.md'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: xss-060
+name: 'Reflected XSS ctx-1 via text'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - '"><script>nx059c</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx059c'

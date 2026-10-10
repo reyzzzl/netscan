@@ -1,0 +1,15 @@
+id: hdr2-19
+name: 'Missing clear-site-data'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header clear-site-data not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'clear-site-data'
+    negative: true

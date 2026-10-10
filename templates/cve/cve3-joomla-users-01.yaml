@@ -1,0 +1,20 @@
+id: cve3-joomla-users-01
+name: 'Joomla users readme.txt'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Joomla users at /components/com_users/readme.txt — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/components/com_users/readme.txt'
+    match-all: true
+    matchers:
+      - type: status
+        status: [200]
+      - type: word
+        part: body
+        words:
+          - 'Stable tag'

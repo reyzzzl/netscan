@@ -1,0 +1,20 @@
+id: xss5-2284
+name: 'Raw XSS5 in keyword'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in keyword'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      keyword:
+        - '<bgsound%09src=javascript:nx52283>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52283'

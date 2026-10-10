@@ -1,0 +1,25 @@
+id: xss7strict-0264
+name: 'Strict breakout XSS in zip'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      zip:
+        - '<a href=javascript:sx70263>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx70263'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx70263'

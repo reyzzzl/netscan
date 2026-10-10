@@ -1,0 +1,21 @@
+id: patt-ssrf-local-01-fetch
+name: 'PATT ssrf patt-ssrf-local-01 via fetch'
+severity: high
+type: active
+tags:
+  - ssrf
+  - patt
+description: 'PATT AWS metadata baseline. [patt:patt-ssrf-local-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Server%20Side%20Request%20Forgery/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      fetch:
+        - 'http://169.254.169.254/latest/meta-data/'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'ami-id'
+          - 'instance-id'
+          - 'metadata'

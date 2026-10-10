@@ -1,0 +1,15 @@
+id: hdr2-11
+name: 'Missing x-dns-prefetch-control'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-dns-prefetch-control not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-dns-prefetch-control'
+    negative: true

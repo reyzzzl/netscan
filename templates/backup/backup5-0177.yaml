@@ -1,0 +1,15 @@
+id: backup5-0177
+name: 'Exposed /.env.tar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.tar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.tar'
+    matchers:
+      - type: status
+        status: [200]

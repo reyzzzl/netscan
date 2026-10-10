@@ -1,0 +1,14 @@
+id: hdr4-098
+name: 'Header x-id-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-id-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-id-2'

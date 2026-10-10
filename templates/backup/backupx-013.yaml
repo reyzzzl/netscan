@@ -1,0 +1,15 @@
+id: backupx-013
+name: 'Exposed /old.sql'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /old.sql is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/old.sql'
+    matchers:
+      - type: status
+        status: [200]

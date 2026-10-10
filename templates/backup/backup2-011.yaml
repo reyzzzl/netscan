@@ -1,0 +1,15 @@
+id: backup2-011
+name: 'Exposed2 /swagger/v1/swagger.json'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /swagger/v1/swagger.json is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/swagger/v1/swagger.json'
+    matchers:
+      - type: status
+        status: [200]

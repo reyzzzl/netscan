@@ -1,0 +1,15 @@
+id: auth3-065
+name: 'Panel at /umami'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /umami returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/umami'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,14 @@
+id: hdr4-129
+name: 'Header x-iris-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-iris-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-iris-2'

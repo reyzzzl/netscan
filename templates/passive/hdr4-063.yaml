@@ -1,0 +1,14 @@
+id: hdr4-063
+name: 'Header x-hydra-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-hydra-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-hydra-2'

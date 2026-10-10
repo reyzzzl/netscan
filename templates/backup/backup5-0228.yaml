@@ -1,0 +1,15 @@
+id: backup5-0228
+name: 'Exposed /backup.sql.gz'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /backup.sql.gz is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/backup.sql.gz'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,19 @@
+id: cors3-056
+name: 'CORS origin https://e255.example'
+severity: medium
+type: active
+tags:
+  - cors
+  - headers
+  - api
+description: 'Origin reflected on /api/data'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/data'
+    sendHeaders:
+      Origin: 'https://e255.example'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'e255.example'

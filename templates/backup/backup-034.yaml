@@ -1,0 +1,15 @@
+id: backup-034
+name: 'Exposed /id_rsa'
+severity: high
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /id_rsa is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/id_rsa'
+    matchers:
+      - type: status
+        status: [200]

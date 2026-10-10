@@ -1,0 +1,15 @@
+id: cve3-prestashop-app-06
+name: 'PrestaShop controllers/ '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'PrestaShop controllers/ at /app/config/controllers/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/app/config/controllers/'
+    matchers:
+      - type: status
+        status: [200]

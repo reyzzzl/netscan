@@ -1,0 +1,15 @@
+id: backup5-2796
+name: 'Exposed /pass.php.mdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /pass.php.mdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/pass.php.mdb'
+    matchers:
+      - type: status
+        status: [200]

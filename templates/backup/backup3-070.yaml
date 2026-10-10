@@ -1,0 +1,15 @@
+id: backup3-070
+name: 'Exposed /ops/version'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /ops/version is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/ops/version'
+    matchers:
+      - type: status
+        status: [200]

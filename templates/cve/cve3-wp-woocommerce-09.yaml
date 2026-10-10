@@ -1,0 +1,15 @@
+id: cve3-wp-woocommerce-09
+name: 'WP woocommerce '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP woocommerce at /wp-content/plugins/woocommerce/languages/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/woocommerce/languages/'
+    matchers:
+      - type: status
+        status: [200]

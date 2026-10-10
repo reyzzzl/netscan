@@ -1,0 +1,20 @@
+id: xss8-1043
+name: 'Raw XSS8 in search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '<body onload=nx81042%0a>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx81042'

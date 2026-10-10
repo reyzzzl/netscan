@@ -1,0 +1,19 @@
+id: sqli-time3-359
+name: 'Delay probe in sid'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - blind
+  - time
+description: '3-second delay via sid'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      sid:
+        - '1''%09AND%09SLEEP(3)--'
+    matchers:
+      - type: time
+        ms: 2500

@@ -1,0 +1,15 @@
+id: backup5-2870
+name: 'Exposed /shadow.php.copy'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /shadow.php.copy is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/shadow.php.copy'
+    matchers:
+      - type: status
+        status: [200]

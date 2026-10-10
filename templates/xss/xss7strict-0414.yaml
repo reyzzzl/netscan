@@ -1,0 +1,25 @@
+id: xss7strict-0414
+name: 'Strict breakout XSS in data'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      data:
+        - '<a href=javascript:sx70413>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx70413'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx70413'

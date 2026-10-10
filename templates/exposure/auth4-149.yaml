@@ -1,0 +1,15 @@
+id: auth4-149
+name: 'Panel at /internal/new'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /internal/new returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/internal/new'
+    matchers:
+      - type: status
+        status: [200]

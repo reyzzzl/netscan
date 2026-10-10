@@ -1,0 +1,20 @@
+id: xss5-2374
+name: 'Raw XSS5 in data'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in data'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      data:
+        - '<textarea%0aautofocus%0aonfocus=nx52373>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52373'

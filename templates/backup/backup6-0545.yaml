@@ -1,0 +1,15 @@
+id: backup6-0545
+name: 'Exposed /shipping.php.mdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /shipping.php.mdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/shipping.php.mdb'
+    matchers:
+      - type: status
+        status: [200]

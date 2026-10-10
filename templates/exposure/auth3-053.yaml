@@ -1,0 +1,15 @@
+id: auth3-053
+name: 'Panel at /loki'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /loki returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/loki'
+    matchers:
+      - type: status
+        status: [200]

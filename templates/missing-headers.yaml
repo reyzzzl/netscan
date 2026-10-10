@@ -1,0 +1,10 @@
+id: missing-headers
+name: Missing security headers (passive)
+severity: low
+type: passive
+description: Flags responses missing security headers
+matchers:
+  - type: word
+    part: headers
+    words: ["content-security-policy"]
+    negative: true

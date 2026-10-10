@@ -1,0 +1,15 @@
+id: cve5-greenkeeperx-16
+name: 'greenkeeperx at /docs'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'greenkeeperx at /docs — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/docs'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: auth2-003
+name: 'Internal API at /api/internal'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Internal API returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/internal'
+    matchers:
+      - type: status
+        status: [200]

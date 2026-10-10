@@ -1,0 +1,22 @@
+id: graphql3-33
+name: 'Mutation probe in query'
+severity: medium
+type: active
+tags:
+  - graphql
+  - api
+  - mutation
+description: 'GraphQL mutation reachable via query'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      query:
+        - 'mutation{createUser{__typename}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '__schema'
+          - '__typename'
+          - 'data'

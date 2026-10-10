@@ -1,0 +1,15 @@
+id: backup5-2633
+name: 'Exposed /token.php.tpl'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /token.php.tpl is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/token.php.tpl'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup2-049
+name: 'Exposed2 /CONTRIBUTING.md'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /CONTRIBUTING.md is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/CONTRIBUTING.md'
+    matchers:
+      - type: status
+        status: [200]

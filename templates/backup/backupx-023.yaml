@@ -1,0 +1,15 @@
+id: backupx-023
+name: 'Exposed /bundle.js.map'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /bundle.js.map is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/bundle.js.map'
+    matchers:
+      - type: status
+        status: [200]

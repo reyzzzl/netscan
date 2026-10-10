@@ -1,0 +1,20 @@
+id: ssti3-angular-06
+name: 'SSTI angular in text'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - angular
+description: 'angular evaluates payload in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

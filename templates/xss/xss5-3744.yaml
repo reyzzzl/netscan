@@ -1,0 +1,20 @@
+id: xss5-3744
+name: 'Raw XSS5 in zip'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in zip'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      zip:
+        - '<image src=x onerror=nx53743>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53743'

@@ -1,0 +1,15 @@
+id: backupx-030
+name: 'Exposed /fullchain.pem.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /fullchain.pem.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/fullchain.pem.bak'
+    matchers:
+      - type: status
+        status: [200]

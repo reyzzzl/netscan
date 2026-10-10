@@ -1,0 +1,15 @@
+id: backup5-0396
+name: 'Exposed /site.zip.mdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /site.zip.mdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/site.zip.mdb'
+    matchers:
+      - type: status
+        status: [200]

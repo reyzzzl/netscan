@@ -1,0 +1,15 @@
+id: backup5-0496
+name: 'Exposed /database.sqlite.mdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /database.sqlite.mdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/database.sqlite.mdb'
+    matchers:
+      - type: status
+        status: [200]

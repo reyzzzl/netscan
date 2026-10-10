@@ -1,0 +1,15 @@
+id: backup5-1632
+name: 'Exposed /config.inc.php.inc'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /config.inc.php.inc is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/config.inc.php.inc'
+    matchers:
+      - type: status
+        status: [200]

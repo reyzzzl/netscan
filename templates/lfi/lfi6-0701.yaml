@@ -1,0 +1,20 @@
+id: lfi6-0701
+name: 'Traversal in file'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via file'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      file:
+        - '/etc/shells'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '/bin/bash'

@@ -1,0 +1,15 @@
+id: backup6-0527
+name: 'Exposed /shipping.php.gz'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /shipping.php.gz is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/shipping.php.gz'
+    matchers:
+      - type: status
+        status: [200]

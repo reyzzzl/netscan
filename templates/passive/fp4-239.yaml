@@ -1,0 +1,14 @@
+id: fp4-239
+name: 'Stack web12x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'web12x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'web12x'

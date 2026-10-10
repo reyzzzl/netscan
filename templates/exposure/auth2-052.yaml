@@ -1,0 +1,15 @@
+id: auth2-052
+name: 'GHES at /github-enterprise'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'GHES returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/github-enterprise'
+    matchers:
+      - type: status
+        status: [200]

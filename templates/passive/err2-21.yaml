@@ -1,0 +1,14 @@
+id: err2-21
+name: 'Error page: syntaxerror:'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'syntaxerror:'

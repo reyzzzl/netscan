@@ -1,0 +1,14 @@
+id: hdr4-008
+name: 'Header x-origin-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-origin-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-origin-2'

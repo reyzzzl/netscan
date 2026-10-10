@@ -1,0 +1,20 @@
+id: xss5-1660
+name: 'Raw XSS5 in address'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in address'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      address:
+        - '<video%0a><source%0aonerror=nx51659>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51659'

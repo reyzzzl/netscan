@@ -1,0 +1,15 @@
+id: cve3-wp-elementor-02
+name: 'WP elementor readme.md'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP elementor at /wp-content/plugins/elementor/readme.md — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/elementor/readme.md'
+    matchers:
+      - type: status
+        status: [200]

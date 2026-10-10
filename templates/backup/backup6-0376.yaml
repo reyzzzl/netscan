@@ -1,0 +1,15 @@
+id: backup6-0376
+name: 'Exposed /confirm.php.tar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /confirm.php.tar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/confirm.php.tar'
+    matchers:
+      - type: status
+        status: [200]

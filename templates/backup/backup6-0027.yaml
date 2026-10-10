@@ -1,0 +1,15 @@
+id: backup6-0027
+name: 'Exposed /signin.php.gz'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /signin.php.gz is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/signin.php.gz'
+    matchers:
+      - type: status
+        status: [200]

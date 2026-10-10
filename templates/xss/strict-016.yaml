@@ -1,0 +1,25 @@
+id: strict-016
+name: 'Strict raw XSS via query'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      query:
+        - '<svg onload=sx015>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx015'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx015'

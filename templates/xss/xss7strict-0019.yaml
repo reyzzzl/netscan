@@ -1,0 +1,25 @@
+id: xss7strict-0019
+name: 'Strict breakout XSS in phone'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      phone:
+        - '<embed src=javascript:sx70018>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx70018'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx70018'

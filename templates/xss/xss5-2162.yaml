@@ -1,0 +1,20 @@
+id: xss5-2162
+name: 'Raw XSS5 in s'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in s'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      s:
+        - '<xss%09style=x%09onauxclick=nx52161>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52161'

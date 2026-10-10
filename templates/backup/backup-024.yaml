@@ -1,0 +1,15 @@
+id: backup-024
+name: 'Exposed /.htaccess'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.htaccess is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.htaccess'
+    matchers:
+      - type: status
+        status: [200]

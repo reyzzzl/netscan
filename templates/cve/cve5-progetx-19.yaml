@@ -1,0 +1,15 @@
+id: cve5-progetx-19
+name: 'progetx at /api/v2'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'progetx at /api/v2 — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/v2'
+    matchers:
+      - type: status
+        status: [200]

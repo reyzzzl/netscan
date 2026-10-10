@@ -1,0 +1,15 @@
+id: backup5-3493
+name: 'Exposed /sync.php.mod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sync.php.mod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sync.php.mod'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup-003
+name: 'Exposed /.svn/entries'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.svn/entries is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.svn/entries'
+    matchers:
+      - type: status
+        status: [200]

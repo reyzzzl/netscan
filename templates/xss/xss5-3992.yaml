@@ -1,0 +1,20 @@
+id: xss5-3992
+name: 'Raw XSS5 in subtext'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in subtext'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      subtext:
+        - '<button%0aautofocus%0aonfocus=nx53991>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53991'

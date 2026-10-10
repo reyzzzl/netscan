@@ -1,0 +1,15 @@
+id: backup5-3723
+name: 'Exposed /task.php.backup'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /task.php.backup is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/task.php.backup'
+    matchers:
+      - type: status
+        status: [200]

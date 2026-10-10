@@ -1,0 +1,20 @@
+id: cve3-wp-gutenberg-01
+name: 'WP gutenberg readme.txt'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP gutenberg at /wp-content/plugins/gutenberg/readme.txt — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/gutenberg/readme.txt'
+    match-all: true
+    matchers:
+      - type: status
+        status: [200]
+      - type: word
+        part: body
+        words:
+          - 'Stable tag'

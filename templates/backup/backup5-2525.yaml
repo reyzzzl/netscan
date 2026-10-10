@@ -1,0 +1,15 @@
+id: backup5-2525
+name: 'Exposed /session.php.bundle'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /session.php.bundle is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/session.php.bundle'
+    matchers:
+      - type: status
+        status: [200]

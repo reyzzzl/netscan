@@ -1,0 +1,14 @@
+id: fp3-16
+name: 'Stack codeigniter4'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'codeigniter4 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'codeigniter4'

@@ -1,0 +1,20 @@
+id: xss5-3472
+name: 'Raw XSS5 in subtext'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in subtext'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      subtext:
+        - '<iframe%0asrcdoc=<script>nx53471</script>>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53471'

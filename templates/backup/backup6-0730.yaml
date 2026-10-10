@@ -1,0 +1,15 @@
+id: backup6-0730
+name: 'Exposed /contact.php.rar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /contact.php.rar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/contact.php.rar'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: xss5-3282
+name: 'Raw XSS5 in s'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in s'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      s:
+        - '<keygen%09autofocus%09onfocus=nx53281>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53281'

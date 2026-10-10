@@ -1,0 +1,20 @@
+id: ssti3-tornado-03
+name: 'SSTI tornado in body'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - tornado
+description: 'tornado evaluates payload in body'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      body:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

@@ -1,0 +1,14 @@
+id: info-docker
+name: 'Docker registry'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - exposure
+description: 'Docker registry — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'Docker-Content-Digest'

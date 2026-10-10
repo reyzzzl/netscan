@@ -1,0 +1,15 @@
+id: backup5-3558
+name: 'Exposed /queue.php.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /queue.php.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/queue.php.bak'
+    matchers:
+      - type: status
+        status: [200]

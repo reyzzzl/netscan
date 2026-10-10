@@ -1,0 +1,15 @@
+id: auth-010
+name: 'GraphiQL at /graphiql'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'GraphiQL returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/graphiql'
+    matchers:
+      - type: status
+        status: [200]

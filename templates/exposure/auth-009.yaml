@@ -1,0 +1,15 @@
+id: auth-009
+name: 'GraphQL endpoint at /graphql'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'GraphQL endpoint returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/graphql'
+    matchers:
+      - type: status
+        status: [200]

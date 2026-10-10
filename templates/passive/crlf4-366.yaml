@@ -1,0 +1,20 @@
+id: crlf4-366
+name: 'CRLF into text'
+severity: medium
+type: active
+tags:
+  - crlf
+  - injection
+  - headers
+description: 'CRLF header injection via text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - '%0dX-Test: t'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'x-test'

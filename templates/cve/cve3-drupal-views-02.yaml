@@ -1,0 +1,15 @@
+id: cve3-drupal-views-02
+name: 'Drupal views README.md'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Drupal views at /modules/contrib/views/README.md — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/modules/contrib/views/README.md'
+    matchers:
+      - type: status
+        status: [200]

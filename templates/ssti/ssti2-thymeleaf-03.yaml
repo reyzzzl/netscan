@@ -1,0 +1,20 @@
+id: ssti2-thymeleaf-03
+name: 'SSTI2 thymeleaf via desc'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - thymeleaf
+description: 'thymeleaf evaluates payload in desc'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      desc:
+        - '${7*7}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

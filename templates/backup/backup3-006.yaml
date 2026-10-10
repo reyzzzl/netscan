@@ -1,0 +1,15 @@
+id: backup3-006
+name: 'Exposed /release.txt'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /release.txt is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/release.txt'
+    matchers:
+      - type: status
+        status: [200]

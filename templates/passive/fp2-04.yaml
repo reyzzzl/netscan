@@ -1,0 +1,14 @@
+id: fp2-04
+name: 'Fingerprint nuxt-app'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'nuxt-app detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'nuxt-app'

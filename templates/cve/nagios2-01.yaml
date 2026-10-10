@@ -1,0 +1,15 @@
+id: nagios2-01
+name: 'Nagios root'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Nagios at /cgi-bin/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/cgi-bin/?v=2'
+    matchers:
+      - type: status
+        status: [200]

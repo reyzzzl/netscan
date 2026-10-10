@@ -1,0 +1,14 @@
+id: hdr4-050
+name: 'Header x-nexpose-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-nexpose-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-nexpose-2'

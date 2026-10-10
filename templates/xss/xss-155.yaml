@@ -1,0 +1,20 @@
+id: xss-155
+name: 'Reflected XSS ctx-9 via name'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<body onload=nx154c>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx154c'

@@ -1,0 +1,19 @@
+id: sqli-time-06
+name: 'SQLi time-based via user'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - blind
+  - time
+description: '3-second delay via user'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      user:
+        - '''; SELECT pg_sleep(3)--'
+    matchers:
+      - type: time
+        ms: 2500

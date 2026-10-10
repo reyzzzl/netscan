@@ -1,0 +1,15 @@
+id: auth3-016
+name: 'Panel at /drupal-admin'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /drupal-admin returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/drupal-admin'
+    matchers:
+      - type: status
+        status: [200]

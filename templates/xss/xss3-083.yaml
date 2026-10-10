@@ -1,0 +1,20 @@
+id: xss3-083
+name: 'Raw XSS3 #22 in search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '<select%0aautofocus%0aonfocus=nx3082>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3082'

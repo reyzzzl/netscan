@@ -1,0 +1,20 @@
+id: xss5-3352
+name: 'Raw XSS5 in subtext'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in subtext'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      subtext:
+        - '''><img%0asrc=x%0aonerror=nx53351>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53351'

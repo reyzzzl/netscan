@@ -1,0 +1,25 @@
+id: xss6strict-0713
+name: 'Strict raw XSS in caption'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      caption:
+        - '<script>sx60712>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx60712'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx60712'

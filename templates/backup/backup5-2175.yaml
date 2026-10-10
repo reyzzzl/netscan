@@ -1,0 +1,15 @@
+id: backup5-2175
+name: 'Exposed /footer.php.bundle'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /footer.php.bundle is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/footer.php.bundle'
+    matchers:
+      - type: status
+        status: [200]

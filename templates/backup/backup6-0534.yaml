@@ -1,0 +1,15 @@
+id: backup6-0534
+name: 'Exposed /shipping.php.cfg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /shipping.php.cfg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/shipping.php.cfg'
+    matchers:
+      - type: status
+        status: [200]

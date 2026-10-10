@@ -1,0 +1,25 @@
+id: cmdi-038
+name: 'OS command injection via exec'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - injection
+  - rce
+description: 'OS command runs via exec'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      exec:
+        - '%7Cid'
+        - '%7Cid #'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='
+          - 'root:x:0:0'
+          - 'bin/bash'
+          - 'www-data'

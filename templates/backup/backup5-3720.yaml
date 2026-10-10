@@ -1,0 +1,15 @@
+id: backup5-3720
+name: 'Exposed /task.php.copy'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /task.php.copy is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/task.php.copy'
+    matchers:
+      - type: status
+        status: [200]

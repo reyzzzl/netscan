@@ -1,0 +1,15 @@
+id: backup5-3159
+name: 'Exposed /dev.php.1'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /dev.php.1 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dev.php.1'
+    matchers:
+      - type: status
+        status: [200]

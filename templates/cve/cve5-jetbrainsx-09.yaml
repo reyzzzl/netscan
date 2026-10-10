@@ -1,0 +1,15 @@
+id: cve5-jetbrainsx-09
+name: 'jetbrainsx at /dev'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'jetbrainsx at /dev — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dev'
+    matchers:
+      - type: status
+        status: [200]

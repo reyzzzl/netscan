@@ -1,0 +1,20 @@
+id: ssti4-vue-16
+name: 'SSTI vue in t'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - vue
+description: 'vue evaluates payload in t'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      t:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

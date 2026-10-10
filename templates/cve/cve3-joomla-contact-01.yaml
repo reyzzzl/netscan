@@ -1,0 +1,20 @@
+id: cve3-joomla-contact-01
+name: 'Joomla contact readme.txt'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Joomla contact at /components/com_contact/readme.txt — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/components/com_contact/readme.txt'
+    match-all: true
+    matchers:
+      - type: status
+        status: [200]
+      - type: word
+        part: body
+        words:
+          - 'Stable tag'

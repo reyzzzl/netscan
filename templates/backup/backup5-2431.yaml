@@ -1,0 +1,15 @@
+id: backup5-2431
+name: 'Exposed /query.php.rar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /query.php.rar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/query.php.rar'
+    matchers:
+      - type: status
+        status: [200]

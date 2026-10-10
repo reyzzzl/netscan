@@ -1,0 +1,15 @@
+id: backup6-0970
+name: 'Exposed /refund.php.clone'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /refund.php.clone is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/refund.php.clone'
+    matchers:
+      - type: status
+        status: [200]

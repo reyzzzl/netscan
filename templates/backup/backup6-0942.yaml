@@ -1,0 +1,15 @@
+id: backup6-0942
+name: 'Exposed /privacy.php.mod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /privacy.php.mod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/privacy.php.mod'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: xss3-371
+name: 'Raw XSS3 #10 in input'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in input'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      input:
+        - '<details%09open%09ontoggle=nx3370>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3370'

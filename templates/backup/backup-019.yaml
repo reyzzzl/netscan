@@ -1,0 +1,20 @@
+id: backup-019
+name: 'Exposed /graphql'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /graphql is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/graphql'
+    match-all: true
+    matchers:
+      - type: status
+        status: [200]
+      - type: word
+        part: body
+        words:
+          - '__schema'

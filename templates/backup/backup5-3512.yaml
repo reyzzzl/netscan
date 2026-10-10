@@ -1,0 +1,15 @@
+id: backup5-3512
+name: 'Exposed /cron.php.4'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /cron.php.4 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/cron.php.4'
+    matchers:
+      - type: status
+        status: [200]

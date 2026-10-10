@@ -1,0 +1,15 @@
+id: backup2-082
+name: 'Exposed2 /.terraform/'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.terraform/ is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.terraform/'
+    matchers:
+      - type: status
+        status: [200]

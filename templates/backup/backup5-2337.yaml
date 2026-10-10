@@ -1,0 +1,15 @@
+id: backup5-2337
+name: 'Exposed /dbconnect.php.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /dbconnect.php.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dbconnect.php.yml'
+    matchers:
+      - type: status
+        status: [200]

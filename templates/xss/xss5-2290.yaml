@@ -1,0 +1,20 @@
+id: xss5-2290
+name: 'Raw XSS5 in text'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - '<frame%09src=javascript:nx52289>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52289'

@@ -1,0 +1,20 @@
+id: xss5-1493
+name: 'Raw XSS5 in value'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in value'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      value:
+        - '<td%0abackground=data:text/html,nx51492>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51492'

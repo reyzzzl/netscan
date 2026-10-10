@@ -1,0 +1,18 @@
+id: mass3-079
+name: 'Mass field scheduler'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered scheduler on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"t","scheduler":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

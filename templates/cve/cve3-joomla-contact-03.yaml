@@ -1,0 +1,15 @@
+id: cve3-joomla-contact-03
+name: 'Joomla contact index.html'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Joomla contact at /components/com_contact/index.html — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/components/com_contact/index.html'
+    matchers:
+      - type: status
+        status: [200]

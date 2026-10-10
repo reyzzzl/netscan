@@ -1,0 +1,20 @@
+id: lfi6-1046
+name: 'Traversal in document'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via document'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      document:
+        - '/etc/hostname'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'labhost'

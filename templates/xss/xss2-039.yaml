@@ -1,0 +1,20 @@
+id: xss2-039
+name: 'Reflected XSS2 ctx-8 via query'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in query'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      query:
+        - '<textarea onfocus=alert(nx2038) autofocus>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx2038'

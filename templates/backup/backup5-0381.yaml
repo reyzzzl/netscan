@@ -1,0 +1,15 @@
+id: backup5-0381
+name: 'Exposed /site.zip.rar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /site.zip.rar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/site.zip.rar'
+    matchers:
+      - type: status
+        status: [200]

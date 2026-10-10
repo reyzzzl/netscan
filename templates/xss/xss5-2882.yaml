@@ -1,0 +1,20 @@
+id: xss5-2882
+name: 'Raw XSS5 in s'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in s'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      s:
+        - '{{nx52881}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52881'

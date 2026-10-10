@@ -1,0 +1,20 @@
+id: lfi4-40
+name: 'System file /etc/resolv.conf via view'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads /etc/resolv.conf via view'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      view:
+        - '/etc/resolv.conf'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nameserver'

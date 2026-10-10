@@ -1,0 +1,15 @@
+id: hdr2-12
+name: 'Missing x-download-options'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-download-options not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-download-options'
+    negative: true

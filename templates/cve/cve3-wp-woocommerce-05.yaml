@@ -1,0 +1,15 @@
+id: cve3-wp-woocommerce-05
+name: 'WP woocommerce woocommerce.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP woocommerce at /wp-content/plugins/woocommerce/woocommerce.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/woocommerce/woocommerce.php'
+    matchers:
+      - type: status
+        status: [200]

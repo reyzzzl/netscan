@@ -1,0 +1,15 @@
+id: auth2-027
+name: 'Backend at /backend'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Backend returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/backend'
+    matchers:
+      - type: status
+        status: [200]

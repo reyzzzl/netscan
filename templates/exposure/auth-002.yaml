@@ -1,0 +1,15 @@
+id: auth-002
+name: 'Admin panel at /administrator'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Admin panel returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/administrator'
+    matchers:
+      - type: status
+        status: [200]

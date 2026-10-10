@@ -1,0 +1,14 @@
+id: sec4-0047
+name: 'Token chatgpt2- (headers)'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Possible token in headers — verify manually'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'chatgpt2-'

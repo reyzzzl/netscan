@@ -1,0 +1,15 @@
+id: cve3-drupal-webform-01
+name: 'Drupal webform CHANGELOG.txt'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Drupal webform at /modules/contrib/webform/CHANGELOG.txt — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/modules/contrib/webform/CHANGELOG.txt'
+    matchers:
+      - type: status
+        status: [200]

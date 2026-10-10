@@ -1,0 +1,15 @@
+id: backup6-0642
+name: 'Exposed /returns.php.mod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /returns.php.mod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/returns.php.mod'
+    matchers:
+      - type: status
+        status: [200]

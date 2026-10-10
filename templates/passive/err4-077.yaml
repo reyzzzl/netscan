@@ -1,0 +1,14 @@
+id: err4-077
+name: 'Error marker framework-error-76x'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Framework error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'framework-error-76x'

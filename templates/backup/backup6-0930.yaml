@@ -1,0 +1,15 @@
+id: backup6-0930
+name: 'Exposed /privacy.php.rar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /privacy.php.rar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/privacy.php.rar'
+    matchers:
+      - type: status
+        status: [200]

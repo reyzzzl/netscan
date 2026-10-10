@@ -1,0 +1,15 @@
+id: cve3-drupal-views-06
+name: 'Drupal views '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Drupal views at /modules/contrib/views/src/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/modules/contrib/views/src/'
+    matchers:
+      - type: status
+        status: [200]

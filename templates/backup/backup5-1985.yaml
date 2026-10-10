@@ -1,0 +1,15 @@
+id: backup5-1985
+name: 'Exposed /migrate.php.cfg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /migrate.php.cfg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/migrate.php.cfg'
+    matchers:
+      - type: status
+        status: [200]

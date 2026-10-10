@@ -1,0 +1,14 @@
+id: fp2-07
+name: 'Fingerprint remix'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'remix detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'remix'

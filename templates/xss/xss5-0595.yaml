@@ -1,0 +1,20 @@
+id: xss5-0595
+name: 'Raw XSS5 in hint'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in hint'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      hint:
+        - '<a%09href=javascript:nx50594>click'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50594'

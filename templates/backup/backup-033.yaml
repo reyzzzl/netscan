@@ -1,0 +1,15 @@
+id: backup-033
+name: 'Exposed /.pypirc'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.pypirc is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.pypirc'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup5-3470
+name: 'Exposed /sync.php.copy'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sync.php.copy is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sync.php.copy'
+    matchers:
+      - type: status
+        status: [200]

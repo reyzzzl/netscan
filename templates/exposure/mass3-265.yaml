@@ -1,0 +1,18 @@
+id: mass3-265
+name: 'Mass field bank'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered bank on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"t","bank":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

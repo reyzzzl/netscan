@@ -1,0 +1,18 @@
+id: mass3-062
+name: 'Mass field primary'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered primary on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"u1","primary":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

@@ -1,0 +1,15 @@
+id: grafana2-06
+name: 'Grafana health'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Grafana at /api/health — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/health?v=7'
+    matchers:
+      - type: status
+        status: [200]

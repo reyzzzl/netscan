@@ -1,0 +1,15 @@
+id: backup5-1119
+name: 'Exposed /import.php.local'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /import.php.local is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/import.php.local'
+    matchers:
+      - type: status
+        status: [200]

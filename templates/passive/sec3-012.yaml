@@ -1,0 +1,14 @@
+id: sec3-012
+name: 'Secret: phc_'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Possible secret in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'phc_'

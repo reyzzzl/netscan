@@ -1,0 +1,15 @@
+id: backup6-0180
+name: 'Exposed /forgot.php.rar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /forgot.php.rar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/forgot.php.rar'
+    matchers:
+      - type: status
+        status: [200]

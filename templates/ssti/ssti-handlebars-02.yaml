@@ -1,0 +1,20 @@
+id: ssti-handlebars-02
+name: 'SSTI handlebars via view'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - handlebars
+description: 'handlebars evaluates payload in view'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      view:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

@@ -1,0 +1,20 @@
+id: xss-182
+name: 'Reflected XSS ctx-7 via s'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in s'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      s:
+        - '"-alert(nx181c)-"'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx181c'

@@ -1,0 +1,15 @@
+id: backup5-2765
+name: 'Exposed /pass.php.prod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /pass.php.prod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/pass.php.prod'
+    matchers:
+      - type: status
+        status: [200]

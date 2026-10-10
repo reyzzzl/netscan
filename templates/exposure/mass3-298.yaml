@@ -1,0 +1,18 @@
+id: mass3-298
+name: 'Mass field customs'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered customs on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"t","customs":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

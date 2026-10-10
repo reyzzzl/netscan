@@ -1,0 +1,14 @@
+id: fp3-34
+name: 'Stack hono3'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'hono3 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'hono3'

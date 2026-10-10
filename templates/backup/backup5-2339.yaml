@@ -1,0 +1,15 @@
+id: backup5-2339
+name: 'Exposed /dbconnect.php.json5'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /dbconnect.php.json5 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dbconnect.php.json5'
+    matchers:
+      - type: status
+        status: [200]

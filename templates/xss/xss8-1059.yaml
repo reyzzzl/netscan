@@ -1,0 +1,20 @@
+id: xss8-1059
+name: 'Raw XSS8 in phone'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in phone'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      phone:
+        - '<input autofocus onfocus=nx81058%0a>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx81058'

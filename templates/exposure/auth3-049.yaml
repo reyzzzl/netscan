@@ -1,0 +1,15 @@
+id: auth3-049
+name: 'Panel at /alertmanager2'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /alertmanager2 returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/alertmanager2'
+    matchers:
+      - type: status
+        status: [200]

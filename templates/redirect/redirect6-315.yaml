@@ -1,0 +1,19 @@
+id: redirect6-315
+name: 'Redirect sink in view'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Redirects to evil.example via view'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      view:
+        - 'https:evil.example'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

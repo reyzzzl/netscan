@@ -1,0 +1,15 @@
+id: cve5-tomcatx-18
+name: 'tomcatx at /api/v1'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'tomcatx at /api/v1 — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/v1'
+    matchers:
+      - type: status
+        status: [200]

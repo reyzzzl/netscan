@@ -1,0 +1,14 @@
+id: hdr4-014
+name: 'Header x-sucuri-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-sucuri-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-sucuri-2'

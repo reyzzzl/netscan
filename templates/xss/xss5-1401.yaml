@@ -1,0 +1,20 @@
+id: xss5-1401
+name: 'Raw XSS5 in q'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - 'vbscript%3amsgbox(nx51400)'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51400'

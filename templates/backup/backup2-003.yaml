@@ -1,0 +1,15 @@
+id: backup2-003
+name: 'Exposed2 /actuator/loggers'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /actuator/loggers is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/actuator/loggers'
+    matchers:
+      - type: status
+        status: [200]

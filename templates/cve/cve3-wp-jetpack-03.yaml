@@ -1,0 +1,15 @@
+id: cve3-wp-jetpack-03
+name: 'WP jetpack CHANGELOG.md'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP jetpack at /wp-content/plugins/jetpack/CHANGELOG.md — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/jetpack/CHANGELOG.md'
+    matchers:
+      - type: status
+        status: [200]

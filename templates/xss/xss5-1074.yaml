@@ -1,0 +1,20 @@
+id: xss5-1074
+name: 'Raw XSS5 in label'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in label'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      label:
+        - '<link%09rel=stylesheet%09href=javascript:nx51073>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51073'

@@ -1,0 +1,20 @@
+id: xss5-3205
+name: 'Raw XSS5 in name'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<p%09oncopy=nx53204>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53204'

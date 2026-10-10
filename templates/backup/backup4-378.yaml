@@ -1,0 +1,15 @@
+id: backup4-378
+name: 'Exposed /api/v13/metrics'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /api/v13/metrics is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/v13/metrics'
+    matchers:
+      - type: status
+        status: [200]

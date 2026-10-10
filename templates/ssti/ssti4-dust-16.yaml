@@ -1,0 +1,20 @@
+id: ssti4-dust-16
+name: 'SSTI dust in text'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - dust
+description: 'dust evaluates payload in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - '{7*7}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

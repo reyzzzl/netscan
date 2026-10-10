@@ -1,0 +1,20 @@
+id: xss-189
+name: 'Reflected XSS ctx-14 via query'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in query'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      query:
+        - '"><a href=javascript:nx188c>click'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx188c'

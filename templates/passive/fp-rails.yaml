@@ -1,0 +1,15 @@
+id: fp-rails
+name: 'Rails fingerprint'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'Rails fingerprint — detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'rails'
+      - '_session_id'

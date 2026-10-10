@@ -1,0 +1,20 @@
+id: xss3-268
+name: 'Raw XSS3 #27 in title'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in title'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      title:
+        - '#{nx3267}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3267'

@@ -1,0 +1,23 @@
+id: cmdi4-37
+name: 'PowerShell injection in arg'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - injection
+  - powershell
+description: 'OS command runs via arg'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      arg:
+        - ';$env:USERNAME'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='
+          - 'root:x:0:0'
+          - 'www-data'

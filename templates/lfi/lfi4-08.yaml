@@ -1,0 +1,20 @@
+id: lfi4-08
+name: 'System file /proc/version via page'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads /proc/version via page'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      page:
+        - '/proc/version'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'Linux version'

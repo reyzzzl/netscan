@@ -1,0 +1,14 @@
+id: err2-45
+name: 'Error page: vite error'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'vite error'

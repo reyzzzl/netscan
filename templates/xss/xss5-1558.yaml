@@ -1,0 +1,20 @@
+id: xss5-1558
+name: 'Raw XSS5 in suffix'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in suffix'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      suffix:
+        - '<xss%0d%0astyle=x%0d%0aonfocusin=nx51557 tabindex=1>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51557'

@@ -1,0 +1,14 @@
+id: err2-12
+name: 'Error page: django.core.exceptions'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'django.core.exceptions'

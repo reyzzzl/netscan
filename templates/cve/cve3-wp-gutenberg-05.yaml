@@ -1,0 +1,15 @@
+id: cve3-wp-gutenberg-05
+name: 'WP gutenberg gutenberg.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP gutenberg at /wp-content/plugins/gutenberg/gutenberg.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/gutenberg/gutenberg.php'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: info-jenkins
+name: 'Jenkins in body'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - exposure
+description: 'Jenkins in body — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'Jenkins ['
+      - 'jenkins'

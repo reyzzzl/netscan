@@ -1,0 +1,20 @@
+id: lfi4-24
+name: 'System file /etc/shells via include'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads /etc/shells via include'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      include:
+        - '/etc/shells'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '/bin/bash'

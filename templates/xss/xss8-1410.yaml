@@ -1,0 +1,20 @@
+id: xss8-1410
+name: 'Raw XSS8 in text'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - '<keygen autofocus onfocus=nx81409%09>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx81409'

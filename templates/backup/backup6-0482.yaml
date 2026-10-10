@@ -1,0 +1,15 @@
+id: backup6-0482
+name: 'Exposed /invoice.php.tpl'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /invoice.php.tpl is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/invoice.php.tpl'
+    matchers:
+      - type: status
+        status: [200]

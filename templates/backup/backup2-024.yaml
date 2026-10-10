@@ -1,0 +1,15 @@
+id: backup2-024
+name: 'Exposed2 /fpm-status'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /fpm-status is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/fpm-status'
+    matchers:
+      - type: status
+        status: [200]

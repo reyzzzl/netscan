@@ -1,0 +1,15 @@
+id: backup5-3042
+name: 'Exposed /index.html.sum'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /index.html.sum is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/index.html.sum'
+    matchers:
+      - type: status
+        status: [200]

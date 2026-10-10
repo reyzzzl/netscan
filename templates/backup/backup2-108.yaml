@@ -1,0 +1,15 @@
+id: backup2-108
+name: 'Exposed2 /app.json'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /app.json is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/app.json'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup5-2242
+name: 'Exposed /sidebar.php.sum'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sidebar.php.sum is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sidebar.php.sum'
+    matchers:
+      - type: status
+        status: [200]

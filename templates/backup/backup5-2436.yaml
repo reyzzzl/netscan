@@ -1,0 +1,15 @@
+id: backup5-2436
+name: 'Exposed /query.php.ini'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /query.php.ini is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/query.php.ini'
+    matchers:
+      - type: status
+        status: [200]

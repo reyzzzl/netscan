@@ -1,0 +1,20 @@
+id: lfi3-035
+name: 'Traversal to system file via template'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via template'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      template:
+        - '/windows/system32/drivers/etc/hosts'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'localhost'

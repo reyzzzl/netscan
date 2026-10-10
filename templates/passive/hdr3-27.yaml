@@ -1,0 +1,14 @@
+id: hdr3-27
+name: 'Debug header x-edge-debug'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - debug
+description: 'Debug header x-edge-debug present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-edge-debug'

@@ -1,0 +1,15 @@
+id: backup5-1457
+name: 'Exposed /payment.php.bkp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /payment.php.bkp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/payment.php.bkp'
+    matchers:
+      - type: status
+        status: [200]

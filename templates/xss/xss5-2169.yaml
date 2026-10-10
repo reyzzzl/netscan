@@ -1,0 +1,20 @@
+id: xss5-2169
+name: 'Raw XSS5 in query'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in query'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      query:
+        - '<select%0aautofocus%0aonfocus=nx52168>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52168'

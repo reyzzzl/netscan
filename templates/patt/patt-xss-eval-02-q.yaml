@@ -1,0 +1,20 @@
+id: patt-xss-eval-02-q
+name: 'PATT xss patt-xss-eval-02 via q'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+  - filterquote
+description: 'PATT Function constructor as alternatif eval. [patt:patt-xss-eval-02] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/1%20-%20XSS%20Filter%20Bypass.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - ''';Function("ale"+"rt(nxp0004)")();roles.htmlescape//'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0004'

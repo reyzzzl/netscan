@@ -1,0 +1,15 @@
+id: backup6-0927
+name: 'Exposed /privacy.php.gz'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /privacy.php.gz is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/privacy.php.gz'
+    matchers:
+      - type: status
+        status: [200]

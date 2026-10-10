@@ -1,0 +1,20 @@
+id: lfi6-0995
+name: 'Traversal in upload'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via upload'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      upload:
+        - '/etc/motd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'motd'

@@ -1,0 +1,14 @@
+id: fp4-047
+name: 'Stack runtime3x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'runtime3x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'runtime3x'

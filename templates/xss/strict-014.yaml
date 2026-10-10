@@ -1,0 +1,25 @@
+id: strict-014
+name: 'Strict raw XSS via s'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      s:
+        - '"><script>sx013</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx013'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx013'

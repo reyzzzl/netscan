@@ -1,0 +1,15 @@
+id: backup4-322
+name: 'Exposed /api/v8/admin'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /api/v8/admin is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/v8/admin'
+    matchers:
+      - type: status
+        status: [200]

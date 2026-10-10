@@ -1,0 +1,15 @@
+id: auth3-074
+name: 'Panel at /raygun'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /raygun returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/raygun'
+    matchers:
+      - type: status
+        status: [200]

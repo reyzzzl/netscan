@@ -1,0 +1,15 @@
+id: backup5-0772
+name: 'Exposed /bootstrap.php.duplicate'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /bootstrap.php.duplicate is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/bootstrap.php.duplicate'
+    matchers:
+      - type: status
+        status: [200]

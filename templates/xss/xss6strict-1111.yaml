@@ -1,0 +1,25 @@
+id: xss6strict-1111
+name: 'Strict raw XSS in headline'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      headline:
+        - '<svg onload=sx61110>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx61110'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx61110'

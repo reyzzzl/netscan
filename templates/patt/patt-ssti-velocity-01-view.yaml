@@ -1,0 +1,21 @@
+id: patt-ssti-velocity-01-view
+name: 'PATT ssti patt-ssti-velocity-01 via view'
+severity: critical
+type: active
+tags:
+  - ssti
+  - patt
+requires:
+  - java
+description: 'PATT Velocity detection. [patt:patt-ssti-velocity-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Server%20Side%20Template%20Injection/Java.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      view:
+        - '#set($x=7*7)$x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

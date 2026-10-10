@@ -1,0 +1,15 @@
+id: backup5-3183
+name: 'Exposed /dev.php.tpl'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /dev.php.tpl is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dev.php.tpl'
+    matchers:
+      - type: status
+        status: [200]

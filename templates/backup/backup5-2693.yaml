@@ -1,0 +1,15 @@
+id: backup5-2693
+name: 'Exposed /key.php.mod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /key.php.mod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/key.php.mod'
+    matchers:
+      - type: status
+        status: [200]

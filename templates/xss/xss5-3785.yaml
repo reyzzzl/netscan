@@ -1,0 +1,20 @@
+id: xss5-3785
+name: 'Raw XSS5 in company'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in company'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      company:
+        - '<select%0aautofocus%0aonfocus=nx53784>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53784'

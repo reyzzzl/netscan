@@ -1,0 +1,15 @@
+id: backup5-1972
+name: 'Exposed /migrate.php.duplicate'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /migrate.php.duplicate is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/migrate.php.duplicate'
+    matchers:
+      - type: status
+        status: [200]

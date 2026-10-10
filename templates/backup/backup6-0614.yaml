@@ -1,0 +1,15 @@
+id: backup6-0614
+name: 'Exposed /returns.php.prod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /returns.php.prod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/returns.php.prod'
+    matchers:
+      - type: status
+        status: [200]

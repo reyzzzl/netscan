@@ -1,0 +1,20 @@
+id: xss3-007
+name: 'Raw XSS3 #6 in comment'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in comment'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      comment:
+        - '"><svg%0aonload=nx3006>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3006'

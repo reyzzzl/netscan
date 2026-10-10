@@ -1,0 +1,20 @@
+id: xss5-1621
+name: 'Raw XSS5 in city'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in city'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      city:
+        - '<img%09src=x%09onerror=nx51620>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51620'

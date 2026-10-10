@@ -1,0 +1,20 @@
+id: backup-011
+name: 'Exposed /phpinfo.php'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /phpinfo.php is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/phpinfo.php'
+    match-all: true
+    matchers:
+      - type: status
+        status: [200]
+      - type: word
+        part: body
+        words:
+          - 'PHP Version'

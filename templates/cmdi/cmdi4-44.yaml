@@ -1,0 +1,23 @@
+id: cmdi4-44
+name: 'PowerShell injection in query'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - injection
+  - powershell
+description: 'OS command runs via query'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      query:
+        - ';Get-ChildItem'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='
+          - 'root:x:0:0'
+          - 'www-data'

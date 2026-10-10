@@ -1,0 +1,15 @@
+id: backup2-020
+name: 'Exposed2 /debug/pprof/'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /debug/pprof/ is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/debug/pprof/'
+    matchers:
+      - type: status
+        status: [200]

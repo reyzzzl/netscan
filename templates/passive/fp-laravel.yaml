@@ -1,0 +1,15 @@
+id: fp-laravel
+name: 'Laravel fingerprint'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'Laravel fingerprint — detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'laravel_session'
+      - '_token'

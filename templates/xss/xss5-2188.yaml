@@ -1,0 +1,20 @@
+id: xss5-2188
+name: 'Raw XSS5 in about'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in about'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      about:
+        - '<applet%0acode=javascript:nx52187>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52187'

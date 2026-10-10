@@ -1,0 +1,25 @@
+id: cmdi-037
+name: 'OS command injection via cmd'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - injection
+  - rce
+description: 'OS command runs via cmd'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      cmd:
+        - '%3Bid'
+        - '%3Bid #'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='
+          - 'root:x:0:0'
+          - 'bin/bash'
+          - 'www-data'

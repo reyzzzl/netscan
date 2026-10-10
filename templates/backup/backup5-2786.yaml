@@ -1,0 +1,15 @@
+id: backup5-2786
+name: 'Exposed /pass.php.ini'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /pass.php.ini is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/pass.php.ini'
+    matchers:
+      - type: status
+        status: [200]

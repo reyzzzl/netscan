@@ -1,0 +1,15 @@
+id: cve5-jenkinsx-08
+name: 'jenkinsx at /test'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'jenkinsx at /test — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/test'
+    matchers:
+      - type: status
+        status: [200]

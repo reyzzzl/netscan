@@ -1,0 +1,15 @@
+id: auth2-028
+name: 'Manage at /manage'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Manage returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/manage'
+    matchers:
+      - type: status
+        status: [200]

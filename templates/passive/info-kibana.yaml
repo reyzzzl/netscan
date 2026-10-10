@@ -1,0 +1,14 @@
+id: info-kibana
+name: 'Kibana in body'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - exposure
+description: 'Kibana in body — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'kbn-version'

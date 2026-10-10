@@ -1,0 +1,20 @@
+id: xss-105
+name: 'Reflected XSS ctx-17 via name'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<iframe src=javascript:nx104c>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx104c'

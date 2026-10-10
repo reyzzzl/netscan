@@ -1,0 +1,15 @@
+id: hdr-xssprot
+name: 'Missing X-XSS-Protection'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Missing X-XSS-Protection — header not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-xss-protection'
+    negative: true

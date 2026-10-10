@@ -1,0 +1,15 @@
+id: cve2-spring-03
+name: 'Spring Gateway fingerprint /actuator/gateway/routes v3'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Spring Gateway at /actuator/gateway/routes — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/actuator/gateway/routes'
+    matchers:
+      - type: status
+        status: [200]

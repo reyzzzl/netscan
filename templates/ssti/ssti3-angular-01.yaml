@@ -1,0 +1,20 @@
+id: ssti3-angular-01
+name: 'SSTI angular in bio'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - angular
+description: 'angular evaluates payload in bio'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      bio:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

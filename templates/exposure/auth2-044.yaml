@@ -1,0 +1,15 @@
+id: auth2-044
+name: 'NiFi at /nifi'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'NiFi returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/nifi'
+    matchers:
+      - type: status
+        status: [200]

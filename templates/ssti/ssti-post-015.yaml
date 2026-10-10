@@ -1,0 +1,21 @@
+id: ssti-post-015
+name: 'POST SSTI ejs in template'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - post
+  - ejs
+description: 'ejs evaluates POST body on /render'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/render'
+    body: '{"template":"<%= 7*7 %>"}'
+    sendHeaders:
+      Content-Type: 'application/json'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

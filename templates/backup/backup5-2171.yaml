@@ -1,0 +1,15 @@
+id: backup5-2171
+name: 'Exposed /footer.php.clone'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /footer.php.clone is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/footer.php.clone'
+    matchers:
+      - type: status
+        status: [200]

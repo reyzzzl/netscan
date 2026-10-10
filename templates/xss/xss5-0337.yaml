@@ -1,0 +1,20 @@
+id: xss5-0337
+name: 'Raw XSS5 in lastname'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in lastname'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      lastname:
+        - '<form%0aaction=javascript:nx50336><input type=submit>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50336'

@@ -1,0 +1,15 @@
+id: backup2-111
+name: 'Exposed2 /firebase.json'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /firebase.json is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/firebase.json'
+    matchers:
+      - type: status
+        status: [200]

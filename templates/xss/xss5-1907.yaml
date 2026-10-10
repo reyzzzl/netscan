@@ -1,0 +1,20 @@
+id: xss5-1907
+name: 'Raw XSS5 in subject'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in subject'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      subject:
+        - 'mhtml%3ahttp://x!nx51906'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51906'

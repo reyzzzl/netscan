@@ -1,0 +1,15 @@
+id: backup6-0413
+name: 'Exposed /checkout.php.dist'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /checkout.php.dist is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/checkout.php.dist'
+    matchers:
+      - type: status
+        status: [200]

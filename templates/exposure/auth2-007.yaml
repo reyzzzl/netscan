@@ -1,0 +1,15 @@
+id: auth2-007
+name: 'Admin API at /admin/api'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Admin API returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/admin/api'
+    matchers:
+      - type: status
+        status: [200]

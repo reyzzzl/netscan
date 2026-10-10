@@ -1,0 +1,14 @@
+id: fp4-104
+name: 'Stack library6x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'library6x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'library6x'

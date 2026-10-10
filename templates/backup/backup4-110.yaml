@@ -1,0 +1,15 @@
+id: backup4-110
+name: 'Exposed /api.php.tmp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /api.php.tmp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api.php.tmp'
+    matchers:
+      - type: status
+        status: [200]

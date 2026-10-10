@@ -1,0 +1,15 @@
+id: auth2-046
+name: 'Superset at /superset'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Superset returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/superset'
+    matchers:
+      - type: status
+        status: [200]

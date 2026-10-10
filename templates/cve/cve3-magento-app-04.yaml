@@ -1,0 +1,15 @@
+id: cve3-magento-app-04
+name: 'Magento errors/local.xml local.xml'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Magento errors/local.xml at /app/etc/errors/local.xml — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/app/etc/errors/local.xml'
+    matchers:
+      - type: status
+        status: [200]

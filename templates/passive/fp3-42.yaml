@@ -1,0 +1,14 @@
+id: fp3-42
+name: 'Stack typo312'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'typo312 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'typo312'

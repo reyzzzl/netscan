@@ -1,0 +1,22 @@
+id: graphql4-147
+name: 'GQL probe in graphql'
+severity: medium
+type: active
+tags:
+  - graphql
+  - api
+  - introspection
+description: 'GraphQL schema exposed via graphql'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      graphql:
+        - 'query {a:__typename,b:__typename}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '__schema'
+          - '__typename'
+          - 'data'

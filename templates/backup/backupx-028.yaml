@@ -1,0 +1,15 @@
+id: backupx-028
+name: 'Exposed /server.key.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /server.key.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/server.key.bak'
+    matchers:
+      - type: status
+        status: [200]

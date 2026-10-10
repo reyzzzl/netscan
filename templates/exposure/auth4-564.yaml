@@ -1,0 +1,15 @@
+id: auth4-564
+name: 'Panel at /payment/metrics'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /payment/metrics returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/payment/metrics'
+    matchers:
+      - type: status
+        status: [200]

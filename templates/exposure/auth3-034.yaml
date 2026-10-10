@@ -1,0 +1,15 @@
+id: auth3-034
+name: 'Panel at /netlify/admin'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /netlify/admin returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/netlify/admin'
+    matchers:
+      - type: status
+        status: [200]

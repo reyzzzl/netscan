@@ -1,0 +1,20 @@
+id: xss4-336
+name: 'Raw XSS4 #15 in title'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in title'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      title:
+        - '<p oncopy=alert(nx4335)>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx4335'

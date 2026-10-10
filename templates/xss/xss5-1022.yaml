@@ -1,0 +1,20 @@
+id: xss5-1022
+name: 'Raw XSS5 in country'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in country'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      country:
+        - '<sCrIpT%09>alert(nx51021)</sCrIpT>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51021'

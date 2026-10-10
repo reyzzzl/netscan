@@ -1,0 +1,15 @@
+id: backup2-002
+name: 'Exposed2 /actuator/prometheus'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /actuator/prometheus is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/actuator/prometheus'
+    matchers:
+      - type: status
+        status: [200]

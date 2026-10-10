@@ -1,0 +1,15 @@
+id: backup2-033
+name: 'Exposed2 /staticfiles/'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /staticfiles/ is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/staticfiles/'
+    matchers:
+      - type: status
+        status: [200]

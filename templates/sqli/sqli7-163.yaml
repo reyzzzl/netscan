@@ -1,0 +1,25 @@
+id: sqli7-163
+name: 'UNION probe in page'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - union
+description: 'Triggers DB error via page'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      page:
+        - ''' UNION SELECT NULL,NULL,NULL--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'SQL syntax'
+          - 'mysql_fetch'
+          - 'PostgreSQL'
+          - 'ODBC'
+          - 'ORA-'
+          - 'SQLite'

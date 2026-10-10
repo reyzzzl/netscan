@@ -1,0 +1,15 @@
+id: backup-086
+name: 'Exposed /.gitignore'
+severity: high
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.gitignore is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.gitignore'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,14 @@
+id: err3-27
+name: 'Framework error: payload error'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Framework error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'payload error'

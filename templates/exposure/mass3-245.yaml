@@ -1,0 +1,18 @@
+id: mass3-245
+name: 'Mass field visa'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered visa on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"u1","visa":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

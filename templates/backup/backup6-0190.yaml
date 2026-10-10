@@ -1,0 +1,15 @@
+id: backup6-0190
+name: 'Exposed /forgot.php.lock'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /forgot.php.lock is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/forgot.php.lock'
+    matchers:
+      - type: status
+        status: [200]

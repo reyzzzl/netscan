@@ -1,0 +1,20 @@
+id: patt-cors-reflect-01
+name: 'PATT CORS patt-cors-reflect-01'
+severity: medium
+type: active
+tags:
+  - cors
+  - patt
+  - headers
+  - api
+description: 'PATT CORS Origin Reflection (butuh ACAO: evil + ACAC: true for eksploit kredensial). [patt:patt-cors-reflect-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/CORS%20Misconfiguration/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/data'
+    sendHeaders:
+      Origin: 'https://evil.example'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

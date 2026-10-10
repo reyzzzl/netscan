@@ -1,0 +1,20 @@
+id: xss5-1163
+name: 'Raw XSS5 in search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '<input%09autofocus%09onfocus=nx51162>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51162'

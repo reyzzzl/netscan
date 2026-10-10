@@ -1,0 +1,20 @@
+id: xss5-1956
+name: 'Raw XSS5 in placeholder'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in placeholder'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      placeholder:
+        - '<iframe%09src=javascript:nx51955>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51955'

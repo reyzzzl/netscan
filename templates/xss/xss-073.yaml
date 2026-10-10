@@ -1,0 +1,20 @@
+id: xss-073
+name: 'Reflected XSS ctx-14 via search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '"><a href=javascript:nx072c>click'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx072c'

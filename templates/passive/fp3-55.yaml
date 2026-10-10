@@ -1,0 +1,14 @@
+id: fp3-55
+name: 'Stack ghost55'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'ghost55 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'ghost55'

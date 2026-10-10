@@ -1,0 +1,20 @@
+id: ssti-pebble-01
+name: 'SSTI pebble via template'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - pebble
+description: 'pebble evaluates payload in template'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      template:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

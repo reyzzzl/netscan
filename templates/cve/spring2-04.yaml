@@ -1,0 +1,15 @@
+id: spring2-04
+name: 'Spring dump dump'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Spring dump at /actuator/dump — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/actuator/dump'
+    matchers:
+      - type: status
+        status: [200]

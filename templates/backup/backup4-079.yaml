@@ -1,0 +1,15 @@
+id: backup4-079
+name: 'Exposed /bootstrap.php.swp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /bootstrap.php.swp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/bootstrap.php.swp'
+    matchers:
+      - type: status
+        status: [200]

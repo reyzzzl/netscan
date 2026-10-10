@@ -1,0 +1,21 @@
+id: patt-ssti-twig-01-template
+name: 'PATT ssti patt-ssti-twig-01 via template'
+severity: critical
+type: active
+tags:
+  - ssti
+  - patt
+requires:
+  - php
+description: 'PATT Twig detection (Symfony). [patt:patt-ssti-twig-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Server%20Side%20Template%20Injection/PHP.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      template:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

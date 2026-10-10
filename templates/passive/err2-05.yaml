@@ -1,0 +1,14 @@
+id: err2-05
+name: 'Error page: allowed memory size'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'allowed memory size'

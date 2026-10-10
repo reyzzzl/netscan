@@ -1,0 +1,15 @@
+id: backup5-1320
+name: 'Exposed /account.php.copy'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /account.php.copy is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/account.php.copy'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: auth4-010
+name: 'Panel at /secure-admin2'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /secure-admin2 returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/secure-admin2'
+    matchers:
+      - type: status
+        status: [200]

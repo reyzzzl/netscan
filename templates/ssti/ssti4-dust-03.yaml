@@ -1,0 +1,20 @@
+id: ssti4-dust-03
+name: 'SSTI dust in y'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - dust
+description: 'dust evaluates payload in y'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      y:
+        - '{7*7}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

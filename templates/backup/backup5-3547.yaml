@@ -1,0 +1,15 @@
+id: backup5-3547
+name: 'Exposed /cron.php.accdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /cron.php.accdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/cron.php.accdb'
+    matchers:
+      - type: status
+        status: [200]

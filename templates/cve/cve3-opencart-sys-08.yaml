@@ -1,0 +1,15 @@
+id: cve3-opencart-sys-08
+name: 'OpenCart libraries/ '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'OpenCart libraries/ at /system/libraries/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/system/libraries/'
+    matchers:
+      - type: status
+        status: [200]

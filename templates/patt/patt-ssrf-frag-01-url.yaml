@@ -1,0 +1,22 @@
+id: patt-ssrf-frag-01-url
+name: 'PATT ssrf patt-ssrf-frag-01 via url'
+severity: high
+type: active
+tags:
+  - ssrf
+  - patt
+  - encodefragment
+description: 'PATT encoded TAB setelah IP. [patt:patt-ssrf-frag-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Server%20Side%20Request%20Forgery/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      url:
+        - 'http://127.0.0.1%09/'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'ami-id'
+          - 'instance-id'
+          - 'metadata'

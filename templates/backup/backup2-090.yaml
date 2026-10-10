@@ -1,0 +1,15 @@
+id: backup2-090
+name: 'Exposed2 /bootstrap.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /bootstrap.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/bootstrap.yml'
+    matchers:
+      - type: status
+        status: [200]

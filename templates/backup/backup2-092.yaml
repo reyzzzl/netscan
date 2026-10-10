@@ -1,0 +1,15 @@
+id: backup2-092
+name: 'Exposed2 /logging.properties'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /logging.properties is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/logging.properties'
+    matchers:
+      - type: status
+        status: [200]

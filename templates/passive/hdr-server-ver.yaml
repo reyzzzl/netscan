@@ -1,0 +1,14 @@
+id: hdr-server-ver
+name: 'Server version disclosed'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - fingerprint
+description: 'Server version disclosed — detected'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'apache'

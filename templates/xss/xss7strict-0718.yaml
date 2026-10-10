@@ -1,0 +1,25 @@
+id: xss7strict-0718
+name: 'Strict breakout XSS in suffix'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      suffix:
+        - '<object data=javascript:sx70717>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx70717'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx70717'

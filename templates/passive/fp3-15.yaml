@@ -1,0 +1,14 @@
+id: fp3-15
+name: 'Stack symfony6'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'symfony6 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'symfony6'

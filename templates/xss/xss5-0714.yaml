@@ -1,0 +1,20 @@
+id: xss5-0714
+name: 'Raw XSS5 in label'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in label'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      label:
+        - '<image src=x onerror=nx50713>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50713'

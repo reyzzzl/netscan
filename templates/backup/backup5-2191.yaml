@@ -1,0 +1,15 @@
+id: backup5-2191
+name: 'Exposed /footer.php.lock'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /footer.php.lock is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/footer.php.lock'
+    matchers:
+      - type: status
+        status: [200]

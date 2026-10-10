@@ -1,0 +1,15 @@
+id: backup5-3993
+name: 'Exposed /debug.php.mod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /debug.php.mod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/debug.php.mod'
+    matchers:
+      - type: status
+        status: [200]

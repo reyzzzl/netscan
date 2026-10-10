@@ -1,0 +1,15 @@
+id: backup5-0369
+name: 'Exposed /site.zip.local'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /site.zip.local is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/site.zip.local'
+    matchers:
+      - type: status
+        status: [200]

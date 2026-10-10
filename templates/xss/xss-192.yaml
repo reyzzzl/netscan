@@ -1,0 +1,20 @@
+id: xss-192
+name: 'Reflected XSS ctx-17 via s'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in s'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      s:
+        - '<iframe src=javascript:nx191c>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx191c'

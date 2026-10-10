@@ -1,0 +1,15 @@
+id: backup5-3164
+name: 'Exposed /dev.php.dist'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /dev.php.dist is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dev.php.dist'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,14 @@
+id: err4-016
+name: 'Error marker framework-error-15x'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Framework error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'framework-error-15x'

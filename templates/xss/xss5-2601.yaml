@@ -1,0 +1,20 @@
+id: xss5-2601
+name: 'Raw XSS5 in q'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '<summary%09onfocus=nx52600>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52600'

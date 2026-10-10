@@ -1,0 +1,15 @@
+id: backup5-0393
+name: 'Exposed /site.zip.mod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /site.zip.mod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/site.zip.mod'
+    matchers:
+      - type: status
+        status: [200]

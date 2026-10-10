@@ -1,0 +1,15 @@
+id: backup5-0196
+name: 'Exposed /.env.mdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.mdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.mdb'
+    matchers:
+      - type: status
+        status: [200]

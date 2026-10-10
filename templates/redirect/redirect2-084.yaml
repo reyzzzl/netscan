@@ -1,0 +1,19 @@
+id: redirect2-084
+name: 'Open redirect2 via image'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Unsafe redirect via image'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      image:
+        - 'https://evil.example%2f..'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

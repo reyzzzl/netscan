@@ -1,0 +1,20 @@
+id: ssti3-nunjucks-02
+name: 'SSTI nunjucks in body'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - nunjucks
+description: 'nunjucks evaluates payload in body'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      body:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

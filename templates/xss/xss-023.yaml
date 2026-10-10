@@ -1,0 +1,20 @@
+id: xss-023
+name: 'Reflected XSS ctx-22 via search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '<%= nx022c %>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx022c'

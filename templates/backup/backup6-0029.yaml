@@ -1,0 +1,15 @@
+id: backup6-0029
+name: 'Exposed /signin.php.7z'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /signin.php.7z is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/signin.php.7z'
+    matchers:
+      - type: status
+        status: [200]

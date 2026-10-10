@@ -1,0 +1,20 @@
+id: xss3-406
+name: 'Raw XSS3 #15 in message'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in message'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      message:
+        - '<table%0abackground=javascript:nx3405>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3405'

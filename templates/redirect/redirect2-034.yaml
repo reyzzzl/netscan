@@ -1,0 +1,19 @@
+id: redirect2-034
+name: 'Open redirect2 via view'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Unsafe redirect via view'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      view:
+        - 'data:text/html,<script>alert(1)</script>'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'data:'

@@ -1,0 +1,15 @@
+id: backup3-002
+name: 'Exposed /healthz'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /healthz is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/healthz'
+    matchers:
+      - type: status
+        status: [200]

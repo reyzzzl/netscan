@@ -1,0 +1,15 @@
+id: backup5-1997
+name: 'Exposed /migrate.php.accdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /migrate.php.accdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/migrate.php.accdb'
+    matchers:
+      - type: status
+        status: [200]

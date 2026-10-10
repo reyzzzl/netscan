@@ -1,0 +1,14 @@
+id: fp3-18
+name: 'Stack yii2'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'yii2 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'yii2'

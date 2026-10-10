@@ -1,0 +1,20 @@
+id: ssti3-django-06
+name: 'SSTI django in content'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - django
+description: 'django evaluates payload in content'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      content:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

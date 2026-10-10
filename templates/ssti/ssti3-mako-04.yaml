@@ -1,0 +1,20 @@
+id: ssti3-mako-04
+name: 'SSTI mako in comment'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - mako
+description: 'mako evaluates payload in comment'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      comment:
+        - '${7*7}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

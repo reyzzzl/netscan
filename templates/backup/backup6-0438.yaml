@@ -1,0 +1,15 @@
+id: backup6-0438
+name: 'Exposed /checkout.php.json5'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /checkout.php.json5 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/checkout.php.json5'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,18 @@
+id: mass3-217
+name: 'Mass field poll'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered poll on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"t","poll":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

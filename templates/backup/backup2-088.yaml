@@ -1,0 +1,15 @@
+id: backup2-088
+name: 'Exposed2 /application.properties'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /application.properties is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/application.properties'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup5-2206
+name: 'Exposed /sidebar.php.tmp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sidebar.php.tmp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sidebar.php.tmp'
+    matchers:
+      - type: status
+        status: [200]

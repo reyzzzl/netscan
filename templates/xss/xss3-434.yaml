@@ -1,0 +1,20 @@
+id: xss3-434
+name: 'Raw XSS3 #13 in data'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in data'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      data:
+        - '<embed%09src=javascript:nx3433>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3433'

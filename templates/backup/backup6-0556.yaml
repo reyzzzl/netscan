@@ -1,0 +1,15 @@
+id: backup6-0556
+name: 'Exposed /tracking.php.bkp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /tracking.php.bkp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/tracking.php.bkp'
+    matchers:
+      - type: status
+        status: [200]

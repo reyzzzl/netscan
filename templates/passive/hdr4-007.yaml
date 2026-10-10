@@ -1,0 +1,14 @@
+id: hdr4-007
+name: 'Header x-backend-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-backend-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-backend-2'

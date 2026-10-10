@@ -1,0 +1,15 @@
+id: backup5-1478
+name: 'Exposed /payment.php.gz'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /payment.php.gz is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/payment.php.gz'
+    matchers:
+      - type: status
+        status: [200]

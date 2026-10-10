@@ -1,0 +1,20 @@
+id: lfi4-53
+name: 'System file /etc/fstab via page'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads /etc/fstab via page'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      page:
+        - '/etc/fstab'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '/etc/fstab'

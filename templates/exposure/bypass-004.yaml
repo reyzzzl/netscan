@@ -1,0 +1,17 @@
+id: bypass-004
+name: 'Header bypass X-Forwarded-For'
+severity: high
+type: active
+tags:
+  - bypass
+  - auth
+  - headers
+description: 'Reaches /admin2 via X-Forwarded-For'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/admin2'
+    sendHeaders:
+      X-Forwarded-For: '127.0.0.1'
+    matchers:
+      - type: status
+        status: [200]

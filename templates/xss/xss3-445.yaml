@@ -1,0 +1,20 @@
+id: xss3-445
+name: 'Raw XSS3 #24 in name'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '{{nx3444}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3444'

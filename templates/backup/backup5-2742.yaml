@@ -1,0 +1,15 @@
+id: backup5-2742
+name: 'Exposed /secret.php.sum'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /secret.php.sum is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/secret.php.sum'
+    matchers:
+      - type: status
+        status: [200]

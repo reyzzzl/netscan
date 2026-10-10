@@ -1,0 +1,15 @@
+id: backup5-0225
+name: 'Exposed /backup.sql.bundle'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /backup.sql.bundle is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/backup.sql.bundle'
+    matchers:
+      - type: status
+        status: [200]

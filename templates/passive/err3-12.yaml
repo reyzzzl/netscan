@@ -1,0 +1,14 @@
+id: err3-12
+name: 'Framework error: refine error'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Framework error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'refine error'

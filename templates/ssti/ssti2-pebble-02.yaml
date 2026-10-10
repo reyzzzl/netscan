@@ -1,0 +1,20 @@
+id: ssti2-pebble-02
+name: 'SSTI2 pebble via body'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - pebble
+description: 'pebble evaluates payload in body'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      body:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

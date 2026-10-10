@@ -1,0 +1,17 @@
+id: bypass-010
+name: 'Header bypass Forwarded'
+severity: high
+type: active
+tags:
+  - bypass
+  - auth
+  - headers
+description: 'Reaches /admin2 via Forwarded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/admin2'
+    sendHeaders:
+      Forwarded: 'for=127.0.0.1'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup-026
+name: 'Exposed /Dockerfile'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /Dockerfile is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/Dockerfile'
+    matchers:
+      - type: status
+        status: [200]

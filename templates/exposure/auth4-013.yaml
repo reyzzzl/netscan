@@ -1,0 +1,15 @@
+id: auth4-013
+name: 'Panel at /admin/login'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /admin/login returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/admin/login'
+    matchers:
+      - type: status
+        status: [200]

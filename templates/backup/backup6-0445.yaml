@@ -1,0 +1,15 @@
+id: backup6-0445
+name: 'Exposed /checkout.php.mdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /checkout.php.mdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/checkout.php.mdb'
+    matchers:
+      - type: status
+        status: [200]

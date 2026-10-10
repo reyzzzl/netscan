@@ -1,0 +1,14 @@
+id: hdr4-003
+name: 'Header x-debug-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-debug-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-debug-2'

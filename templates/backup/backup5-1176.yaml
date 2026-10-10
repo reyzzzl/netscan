@@ -1,0 +1,15 @@
+id: backup5-1176
+name: 'Exposed /report.php.pkg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /report.php.pkg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/report.php.pkg'
+    matchers:
+      - type: status
+        status: [200]

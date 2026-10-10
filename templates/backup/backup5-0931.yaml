@@ -1,0 +1,15 @@
+id: backup5-0931
+name: 'Exposed /ajax.php.rar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /ajax.php.rar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/ajax.php.rar'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: cve3-drupal-pathauto-03
+name: 'Drupal pathauto LICENSE.txt'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Drupal pathauto at /modules/contrib/pathauto/LICENSE.txt — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/modules/contrib/pathauto/LICENSE.txt'
+    matchers:
+      - type: status
+        status: [200]

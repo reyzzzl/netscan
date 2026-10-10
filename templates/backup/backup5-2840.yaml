@@ -1,0 +1,15 @@
+id: backup5-2840
+name: 'Exposed /passwd.php.toml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /passwd.php.toml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/passwd.php.toml'
+    matchers:
+      - type: status
+        status: [200]

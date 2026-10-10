@@ -1,0 +1,20 @@
+id: xss3-354
+name: 'Raw XSS3 #23 in data'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in data'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      data:
+        - '<keygen%09autofocus%09onfocus=nx3353>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3353'

@@ -1,0 +1,20 @@
+id: xss-043
+name: 'Reflected XSS ctx-13 via search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - 'JaVaScRiPt:nx042c'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx042c'

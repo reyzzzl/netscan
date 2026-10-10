@@ -1,0 +1,15 @@
+id: backup2-076
+name: 'Exposed2 /k8s/'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /k8s/ is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/k8s/'
+    matchers:
+      - type: status
+        status: [200]

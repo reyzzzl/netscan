@@ -1,0 +1,14 @@
+id: fp2-25
+name: 'Fingerprint rails7'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'rails7 detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'rails7'

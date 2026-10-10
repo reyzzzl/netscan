@@ -1,0 +1,20 @@
+id: xss-039
+name: 'Reflected XSS ctx-9 via query'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in query'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      query:
+        - '<body onload=nx038c>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx038c'

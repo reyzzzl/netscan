@@ -1,0 +1,15 @@
+id: cve3-wp-gutenberg-06
+name: 'WP gutenberg uninstall.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP gutenberg at /wp-content/plugins/gutenberg/uninstall.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/gutenberg/uninstall.php'
+    matchers:
+      - type: status
+        status: [200]

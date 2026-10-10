@@ -1,0 +1,14 @@
+id: fp3-31
+name: 'Stack fiber2'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'fiber2 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'fiber2'

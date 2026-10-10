@@ -1,0 +1,24 @@
+id: patt-gql-intro-01-query
+name: 'PATT GraphQL patt-gql-intro-01 via query'
+severity: medium
+type: active
+tags:
+  - graphql
+  - patt
+  - api
+  - introspection
+requires:
+  - graphql
+description: 'PATT GraphQL introspection penuh. [patt:patt-gql-intro-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/GraphQL%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      query:
+        - '{__schema{types{name}}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '__schema'
+          - '__typename'

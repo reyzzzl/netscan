@@ -1,0 +1,25 @@
+id: sqli7-216
+name: 'UNION probe in dir'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - union
+description: 'Triggers DB error via dir'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      dir:
+        - ''' UNION SELECT 1#'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'SQL syntax'
+          - 'mysql_fetch'
+          - 'PostgreSQL'
+          - 'ODBC'
+          - 'ORA-'
+          - 'SQLite'

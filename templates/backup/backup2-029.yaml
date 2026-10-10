@@ -1,0 +1,15 @@
+id: backup2-029
+name: 'Exposed2 /wp-content/debug.log'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /wp-content/debug.log is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/debug.log'
+    matchers:
+      - type: status
+        status: [200]

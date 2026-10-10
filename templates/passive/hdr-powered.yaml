@@ -1,0 +1,14 @@
+id: hdr-powered
+name: 'X-Powered-By disclosed'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - fingerprint
+description: 'X-Powered-By disclosed — detected'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-powered-by'

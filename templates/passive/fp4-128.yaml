@@ -1,0 +1,14 @@
+id: fp4-128
+name: 'Stack server7x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'server7x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'server7x'

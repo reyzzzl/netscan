@@ -1,0 +1,15 @@
+id: auth4-188
+name: 'Panel at /secure/old'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /secure/old returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/secure/old'
+    matchers:
+      - type: status
+        status: [200]

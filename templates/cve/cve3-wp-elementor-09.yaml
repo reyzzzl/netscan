@@ -1,0 +1,15 @@
+id: cve3-wp-elementor-09
+name: 'WP elementor '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP elementor at /wp-content/plugins/elementor/languages/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/elementor/languages/'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: cve5-jetbrainsx-15
+name: 'jetbrainsx at /help'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'jetbrainsx at /help — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/help'
+    matchers:
+      - type: status
+        status: [200]

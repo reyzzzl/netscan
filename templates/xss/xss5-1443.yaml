@@ -1,0 +1,20 @@
+id: xss5-1443
+name: 'Raw XSS5 in search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '<object%09data=javascript:nx51442>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51442'

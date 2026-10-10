@@ -1,0 +1,20 @@
+id: xss5-2221
+name: 'Raw XSS5 in city'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in city'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      city:
+        - '<esi:include%09src=nx52220>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52220'

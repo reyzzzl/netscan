@@ -1,0 +1,15 @@
+id: backup5-0387
+name: 'Exposed /site.zip.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /site.zip.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/site.zip.yml'
+    matchers:
+      - type: status
+        status: [200]

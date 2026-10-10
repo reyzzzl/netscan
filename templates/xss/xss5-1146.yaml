@@ -1,0 +1,20 @@
+id: xss5-1146
+name: 'Raw XSS5 in website'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in website'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      website:
+        - '<table%0abackground=javascript:nx51145>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51145'

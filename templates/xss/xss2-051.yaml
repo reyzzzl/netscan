@@ -1,0 +1,20 @@
+id: xss2-051
+name: 'Reflected XSS2 ctx-20 via message'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in message'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      message:
+        - '</style><script>alert(nx2050)</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx2050'

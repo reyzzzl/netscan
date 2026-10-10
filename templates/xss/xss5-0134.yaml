@@ -1,0 +1,20 @@
+id: xss5-0134
+name: 'Raw XSS5 in data'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in data'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      data:
+        - '<form><button%09formaction=javascript:nx50133>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50133'

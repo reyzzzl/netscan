@@ -1,0 +1,15 @@
+id: cve5-deadmanssnitchx-06
+name: 'deadmanssnitchx at /manager'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'deadmanssnitchx at /manager — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/manager'
+    matchers:
+      - type: status
+        status: [200]

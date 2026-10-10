@@ -1,0 +1,20 @@
+id: xss-044
+name: 'Reflected XSS ctx-14 via keyword'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in keyword'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      keyword:
+        - '"><a href=javascript:nx043c>click'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx043c'

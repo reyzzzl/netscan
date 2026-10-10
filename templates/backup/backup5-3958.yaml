@@ -1,0 +1,15 @@
+id: backup5-3958
+name: 'Exposed /debug.php.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /debug.php.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/debug.php.bak'
+    matchers:
+      - type: status
+        status: [200]

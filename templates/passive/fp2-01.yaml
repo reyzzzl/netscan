@@ -1,0 +1,14 @@
+id: fp2-01
+name: 'Fingerprint nodejs'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'nodejs detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'nodejs'

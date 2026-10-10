@@ -1,0 +1,14 @@
+id: fp3-50
+name: 'Stack wix2'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'wix2 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'wix2'

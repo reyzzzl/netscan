@@ -1,0 +1,20 @@
+id: xss8-0159
+name: 'Raw XSS8 in author'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in author'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      author:
+        - '<input autofocus onfocus=nx80158%20>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx80158'

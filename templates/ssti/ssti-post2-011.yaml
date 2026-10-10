@@ -1,0 +1,21 @@
+id: ssti-post2-011
+name: 'POST SSTI twig in name'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - post
+  - twig
+description: 'twig evaluates POST body on /render'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/render'
+    body: '{"name":"{{7*7}}"}'
+    sendHeaders:
+      Content-Type: 'application/json'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

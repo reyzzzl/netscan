@@ -1,0 +1,20 @@
+id: ssti3-mako-03
+name: 'SSTI mako in bio'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - mako
+description: 'mako evaluates payload in bio'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      bio:
+        - '${7*7}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

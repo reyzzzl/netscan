@@ -1,0 +1,15 @@
+id: backup5-1814
+name: 'Exposed /install.php.dist'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /install.php.dist is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/install.php.dist'
+    matchers:
+      - type: status
+        status: [200]

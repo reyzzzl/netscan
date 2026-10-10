@@ -1,0 +1,20 @@
+id: patt-redir-scheme-data-01-url
+name: 'PATT redirect patt-redir-scheme-data-01 via url'
+severity: medium
+type: active
+tags:
+  - redirect
+  - patt
+  - schemedata
+description: 'PATT dangerous scheme data:. [patt:patt-redir-scheme-data-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Open%20Redirect/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      url:
+        - 'data:text/html,<script>alert(1)</script>'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'data:'

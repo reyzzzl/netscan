@@ -1,0 +1,15 @@
+id: backup6-0526
+name: 'Exposed /shipping.php.tar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /shipping.php.tar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/shipping.php.tar'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,14 @@
+id: hdr4-070
+name: 'Header x-hashcat-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-hashcat-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-hashcat-2'

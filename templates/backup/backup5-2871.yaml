@@ -1,0 +1,15 @@
+id: backup5-2871
+name: 'Exposed /shadow.php.clone'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /shadow.php.clone is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/shadow.php.clone'
+    matchers:
+      - type: status
+        status: [200]

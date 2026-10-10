@@ -1,0 +1,20 @@
+id: xss5-1223
+name: 'Raw XSS5 in state'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in state'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      state:
+        - '<ScRiPt%0a>alert(nx51222)</ScRiPt>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51222'

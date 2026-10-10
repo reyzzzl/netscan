@@ -1,0 +1,15 @@
+id: cve3-wp-akismet-06
+name: 'WP akismet uninstall.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP akismet at /wp-content/plugins/akismet/uninstall.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/akismet/uninstall.php'
+    matchers:
+      - type: status
+        status: [200]

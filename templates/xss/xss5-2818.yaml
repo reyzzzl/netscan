@@ -1,0 +1,20 @@
+id: xss5-2818
+name: 'Raw XSS5 in email'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in email'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      email:
+        - '<a%0ahref=data:text/html,nx52817>click'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52817'

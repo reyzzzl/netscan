@@ -1,0 +1,15 @@
+id: backup5-0777
+name: 'Exposed /bootstrap.php.tar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /bootstrap.php.tar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/bootstrap.php.tar'
+    matchers:
+      - type: status
+        status: [200]

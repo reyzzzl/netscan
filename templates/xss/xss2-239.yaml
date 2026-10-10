@@ -1,0 +1,20 @@
+id: xss2-239
+name: 'Reflected XSS2 ctx-28 via data'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in data'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      data:
+        - '<img src=x:x onerror=alert(nx2238)>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx2238'

@@ -1,0 +1,14 @@
+id: fp2-28
+name: 'Fingerprint phoenix'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'phoenix detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'phoenix'

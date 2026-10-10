@@ -1,0 +1,21 @@
+id: ssti-post2-028
+name: 'POST SSTI cheetah in msg'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - post
+  - cheetah
+description: 'cheetah evaluates POST body on /render'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/render'
+    body: '{"msg":"#echo 7*7"}'
+    sendHeaders:
+      Content-Type: 'application/json'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

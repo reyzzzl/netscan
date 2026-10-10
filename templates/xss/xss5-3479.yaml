@@ -1,0 +1,20 @@
+id: xss5-3479
+name: 'Raw XSS5 in author'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in author'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      author:
+        - '<video%09><source%09onerror=nx53478>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53478'

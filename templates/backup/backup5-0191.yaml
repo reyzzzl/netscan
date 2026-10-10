@@ -1,0 +1,15 @@
+id: backup5-0191
+name: 'Exposed /.env.lock'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.lock is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.lock'
+    matchers:
+      - type: status
+        status: [200]

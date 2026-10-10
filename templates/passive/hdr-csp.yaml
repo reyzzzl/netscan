@@ -1,0 +1,15 @@
+id: hdr-csp
+name: 'Missing Content-Security-Policy'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Missing Content-Security-Policy — header not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'content-security-policy'
+    negative: true

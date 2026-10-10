@@ -1,0 +1,20 @@
+id: xss-133
+name: 'Reflected XSS ctx-16 via search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '"><ScRiPt>nx132c</ScRiPt>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx132c'

@@ -1,0 +1,15 @@
+id: auth3-096
+name: 'Panel at /overseerr'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /overseerr returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/overseerr'
+    matchers:
+      - type: status
+        status: [200]

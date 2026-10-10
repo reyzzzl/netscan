@@ -1,0 +1,15 @@
+id: backup2-044
+name: 'Exposed2 /cypress/'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /cypress/ is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/cypress/'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: xss3-392
+name: 'Raw XSS3 #1 in term'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in term'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      term:
+        - '<svg%09onload=nx3391>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3391'

@@ -1,0 +1,15 @@
+id: backup5-2555
+name: 'Exposed /cookie.php.swp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /cookie.php.swp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/cookie.php.swp'
+    matchers:
+      - type: status
+        status: [200]

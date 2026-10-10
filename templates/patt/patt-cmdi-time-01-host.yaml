@@ -1,0 +1,17 @@
+id: patt-cmdi-time-01-host
+name: 'PATT cmdi patt-cmdi-time-01 via host'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - patt
+description: 'PATT Time-Based Data Exfil: sleep as oracle buta. [patt:patt-cmdi-time-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Command%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      host:
+        - ';sleep 3'
+    matchers:
+      - type: time
+        ms: 2500

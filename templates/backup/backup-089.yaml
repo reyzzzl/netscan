@@ -1,0 +1,15 @@
+id: backup-089
+name: 'Exposed /.travis.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.travis.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.travis.yml'
+    matchers:
+      - type: status
+        status: [200]

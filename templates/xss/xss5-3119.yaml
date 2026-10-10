@@ -1,0 +1,20 @@
+id: xss5-3119
+name: 'Raw XSS5 in author'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in author'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      author:
+        - 'mhtml%3ahttp://x!nx53118'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53118'

@@ -1,0 +1,18 @@
+id: mass3-084
+name: 'Mass field executor'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered executor on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"a1","executor":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

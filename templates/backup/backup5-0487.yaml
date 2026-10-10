@@ -1,0 +1,15 @@
+id: backup5-0487
+name: 'Exposed /database.sqlite.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /database.sqlite.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/database.sqlite.yml'
+    matchers:
+      - type: status
+        status: [200]

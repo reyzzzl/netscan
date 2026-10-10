@@ -1,0 +1,15 @@
+id: auth3-061
+name: 'Panel at /betterstack'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /betterstack returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/betterstack'
+    matchers:
+      - type: status
+        status: [200]

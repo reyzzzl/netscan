@@ -1,0 +1,15 @@
+id: backup5-2044
+name: 'Exposed /functions.php.sqlite'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /functions.php.sqlite is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/functions.php.sqlite'
+    matchers:
+      - type: status
+        status: [200]

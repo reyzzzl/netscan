@@ -1,0 +1,20 @@
+id: xss4-383
+name: 'Raw XSS4 #22 in name'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<frame src=javascript:alert(nx4382)>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx4382'

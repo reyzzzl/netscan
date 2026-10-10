@@ -1,0 +1,16 @@
+id: open-redirect
+name: Open redirect via next/url/redirect
+severity: medium
+type: active
+description: Checks Location header for evil.example
+requests:
+  - method: GET
+    path: "{{BaseURL}}"
+    payloads:
+      next: ["https://evil.example/"]
+      url: ["https://evil.example/"]
+      redirect: ["https://evil.example/"]
+    matchers:
+      - type: word
+        part: headers
+        words: ["evil.example"]

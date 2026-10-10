@@ -1,0 +1,20 @@
+id: xss-144
+name: 'Reflected XSS ctx-27 via keyword'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in keyword'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      keyword:
+        - '<select onfocus=nx143c autofocus>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx143c'

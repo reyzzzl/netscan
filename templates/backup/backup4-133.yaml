@@ -1,0 +1,15 @@
+id: backup4-133
+name: 'Exposed /ajax.php.dist'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /ajax.php.dist is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/ajax.php.dist'
+    matchers:
+      - type: status
+        status: [200]

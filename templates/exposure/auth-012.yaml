@@ -1,0 +1,15 @@
+id: auth-012
+name: 'Swagger UI at /swagger-ui'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Swagger UI returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/swagger-ui'
+    matchers:
+      - type: status
+        status: [200]

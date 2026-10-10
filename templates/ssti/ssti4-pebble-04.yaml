@@ -1,0 +1,20 @@
+id: ssti4-pebble-04
+name: 'SSTI pebble in m'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - pebble
+description: 'pebble evaluates payload in m'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      m:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

@@ -1,0 +1,20 @@
+id: xss5-3040
+name: 'Raw XSS5 in nick'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in nick'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      nick:
+        - '<script%0d>alert(nx53039)</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53039'

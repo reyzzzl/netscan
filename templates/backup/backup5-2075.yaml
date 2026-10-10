@@ -1,0 +1,15 @@
+id: backup5-2075
+name: 'Exposed /common.php.bundle'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /common.php.bundle is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/common.php.bundle'
+    matchers:
+      - type: status
+        status: [200]

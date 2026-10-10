@@ -1,0 +1,21 @@
+id: ssti-post2-134
+name: 'POST SSTI erb in body'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - post
+  - erb
+description: 'erb evaluates POST body on /render'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/render'
+    body: '{"body":"{{7*7}}"}'
+    sendHeaders:
+      Content-Type: 'application/json'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

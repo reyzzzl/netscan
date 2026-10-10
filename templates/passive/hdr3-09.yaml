@@ -1,0 +1,14 @@
+id: hdr3-09
+name: 'Debug header x-cloud-trace'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - debug
+description: 'Debug header x-cloud-trace present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-cloud-trace'

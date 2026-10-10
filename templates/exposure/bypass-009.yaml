@@ -1,0 +1,17 @@
+id: bypass-009
+name: 'Header bypass X-Real-IP'
+severity: high
+type: active
+tags:
+  - bypass
+  - auth
+  - headers
+description: 'Reaches /admin2 via X-Real-IP'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/admin2'
+    sendHeaders:
+      X-Real-IP: '127.0.0.1'
+    matchers:
+      - type: status
+        status: [200]

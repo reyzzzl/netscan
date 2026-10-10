@@ -1,0 +1,15 @@
+id: auth4-336
+name: 'Panel at /proxy/console'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /proxy/console returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/proxy/console'
+    matchers:
+      - type: status
+        status: [200]

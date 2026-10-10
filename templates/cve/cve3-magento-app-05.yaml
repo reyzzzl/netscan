@@ -1,0 +1,15 @@
+id: cve3-magento-app-05
+name: 'Magento setup/index.php index.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Magento setup/index.php at /app/etc/setup/index.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/app/etc/setup/index.php'
+    matchers:
+      - type: status
+        status: [200]

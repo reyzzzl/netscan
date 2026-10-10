@@ -1,0 +1,18 @@
+id: mass3-073
+name: 'Mass field follower'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered follower on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"t","follower":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

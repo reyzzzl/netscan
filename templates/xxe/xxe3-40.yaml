@@ -1,0 +1,22 @@
+id: xxe3-40
+name: 'XXE DoS/entity in content'
+severity: high
+type: active
+tags:
+  - xxe
+  - injection
+  - xml
+  - dos
+description: 'XXE entity via content'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      content:
+        - '<?xml version="1.0"?><r xmlns:xi="http://www.w3.org/2003/XInclude">x</r>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'
+          - 'XXE_OK'

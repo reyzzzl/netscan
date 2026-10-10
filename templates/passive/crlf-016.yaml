@@ -1,0 +1,20 @@
+id: crlf-016
+name: 'CRLF injection via url'
+severity: medium
+type: active
+tags:
+  - crlf
+  - injection
+  - headers
+description: 'CRLF header injection via url'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      url:
+        - '%0d%0aSet-Cookie: x=1'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'x-test'

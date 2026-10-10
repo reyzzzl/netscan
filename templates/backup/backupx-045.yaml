@@ -1,0 +1,15 @@
+id: backupx-045
+name: 'Exposed /.npmrc.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /.npmrc.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.npmrc.bak'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,14 @@
+id: hdr4-137
+name: 'Header x-eog-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-eog-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-eog-2'

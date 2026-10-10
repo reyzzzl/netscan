@@ -1,0 +1,15 @@
+id: backupx-031
+name: 'Exposed /id_rsa.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /id_rsa.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/id_rsa.bak'
+    matchers:
+      - type: status
+        status: [200]

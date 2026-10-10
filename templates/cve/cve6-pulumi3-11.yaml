@@ -1,0 +1,15 @@
+id: cve6-pulumi3-11
+name: 'pulumi3 at /health'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'pulumi3 at /health — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/health'
+    matchers:
+      - type: status
+        status: [200]

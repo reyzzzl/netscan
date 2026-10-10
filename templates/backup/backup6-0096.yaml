@@ -1,0 +1,15 @@
+id: backup6-0096
+name: 'Exposed /signout.php.accdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /signout.php.accdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/signout.php.accdb'
+    matchers:
+      - type: status
+        status: [200]

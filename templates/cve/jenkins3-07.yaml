@@ -1,0 +1,15 @@
+id: jenkins3-07
+name: 'Jenkins3 json'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Jenkins3 at /api/json — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/json?v=8'
+    matchers:
+      - type: status
+        status: [200]

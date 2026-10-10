@@ -1,0 +1,15 @@
+id: cve3-prestashop-app-01
+name: 'PrestaShop parameters.php parameters.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'PrestaShop parameters.php at /app/config/parameters.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/app/config/parameters.php'
+    matchers:
+      - type: status
+        status: [200]

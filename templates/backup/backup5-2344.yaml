@@ -1,0 +1,15 @@
+id: backup5-2344
+name: 'Exposed /dbconnect.php.sqlite'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /dbconnect.php.sqlite is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dbconnect.php.sqlite'
+    matchers:
+      - type: status
+        status: [200]

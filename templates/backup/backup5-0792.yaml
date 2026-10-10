@@ -1,0 +1,15 @@
+id: backup5-0792
+name: 'Exposed /bootstrap.php.sum'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /bootstrap.php.sum is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/bootstrap.php.sum'
+    matchers:
+      - type: status
+        status: [200]

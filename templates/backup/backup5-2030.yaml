@@ -1,0 +1,15 @@
+id: backup5-2030
+name: 'Exposed /functions.php.7z'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /functions.php.7z is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/functions.php.7z'
+    matchers:
+      - type: status
+        status: [200]

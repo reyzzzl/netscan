@@ -1,0 +1,15 @@
+id: cve3-laravel-misc-08
+name: 'Laravel package-lock.json package-lock.json'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Laravel package-lock.json at /package-lock.json — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/package-lock.json'
+    matchers:
+      - type: status
+        status: [200]

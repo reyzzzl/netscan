@@ -1,0 +1,15 @@
+id: hdr2-01
+name: 'Missing cross-origin-embedder-policy'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header cross-origin-embedder-policy not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'cross-origin-embedder-policy'
+    negative: true

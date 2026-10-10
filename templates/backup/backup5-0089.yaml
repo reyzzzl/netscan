@@ -1,0 +1,15 @@
+id: backup5-0089
+name: 'Exposed /wp-config.php.json5'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /wp-config.php.json5 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-config.php.json5'
+    matchers:
+      - type: status
+        status: [200]

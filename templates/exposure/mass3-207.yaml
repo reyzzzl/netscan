@@ -1,0 +1,18 @@
+id: mass3-207
+name: 'Mass field like'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered like on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"a1","like":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

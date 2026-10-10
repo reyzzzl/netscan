@@ -1,0 +1,19 @@
+id: redirect2-028
+name: 'Open redirect2 via image'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Unsafe redirect via image'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      image:
+        - 'data:text/html,<script>alert(1)</script>'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'data:'

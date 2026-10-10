@@ -1,0 +1,15 @@
+id: backup5-3805
+name: 'Exposed /sms.php.swp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sms.php.swp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sms.php.swp'
+    matchers:
+      - type: status
+        status: [200]

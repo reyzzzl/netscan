@@ -1,0 +1,14 @@
+id: sec2-015
+name: 'Passwd assign'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Passwd assign in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'passwd='

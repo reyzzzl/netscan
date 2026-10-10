@@ -1,0 +1,15 @@
+id: backup5-3962
+name: 'Exposed /debug.php.4'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /debug.php.4 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/debug.php.4'
+    matchers:
+      - type: status
+        status: [200]

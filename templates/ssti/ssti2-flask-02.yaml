@@ -1,0 +1,20 @@
+id: ssti2-flask-02
+name: 'SSTI2 flask via bio'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - flask
+description: 'flask evaluates payload in bio'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      bio:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

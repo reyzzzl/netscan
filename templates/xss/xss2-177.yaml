@@ -1,0 +1,20 @@
+id: xss2-177
+name: 'Reflected XSS2 ctx-26 via term'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in term'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      term:
+        - '<wbr onmouseover=alert(nx2176)>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx2176'

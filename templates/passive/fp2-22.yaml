@@ -1,0 +1,14 @@
+id: fp2-22
+name: 'Fingerprint helidon'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'helidon detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'helidon'

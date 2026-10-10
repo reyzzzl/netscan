@@ -1,0 +1,15 @@
+id: hdr2-13
+name: 'Missing x-content-duration'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-content-duration not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-content-duration'
+    negative: true

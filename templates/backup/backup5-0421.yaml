@@ -1,0 +1,15 @@
+id: backup5-0421
+name: 'Exposed /backup.zip.clone'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /backup.zip.clone is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/backup.zip.clone'
+    matchers:
+      - type: status
+        status: [200]

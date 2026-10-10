@@ -1,0 +1,15 @@
+id: backup5-0854
+name: 'Exposed /api.php.save'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /api.php.save is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api.php.save'
+    matchers:
+      - type: status
+        status: [200]

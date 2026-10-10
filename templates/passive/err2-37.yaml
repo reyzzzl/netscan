@@ -1,0 +1,14 @@
+id: err2-37
+name: 'Error page: lucene'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'lucene'

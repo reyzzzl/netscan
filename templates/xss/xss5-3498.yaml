@@ -1,0 +1,20 @@
+id: xss5-3498
+name: 'Raw XSS5 in email'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in email'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      email:
+        - '<link%09rel=stylesheet%09href=javascript:nx53497>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53497'

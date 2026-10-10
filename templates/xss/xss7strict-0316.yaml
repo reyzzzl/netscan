@@ -1,0 +1,25 @@
+id: xss7strict-0316
+name: 'Strict breakout XSS in placeholder'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      placeholder:
+        - '<button formaction=javascript:sx70315>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx70315'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx70315'

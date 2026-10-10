@@ -1,0 +1,15 @@
+id: backup2-054
+name: 'Exposed2 /manifest.json'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /manifest.json is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/manifest.json'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: auth-040
+name: 'Settings at /settings'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Settings returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/settings'
+    matchers:
+      - type: status
+        status: [200]

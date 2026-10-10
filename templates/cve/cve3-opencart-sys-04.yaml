@@ -1,0 +1,15 @@
+id: cve3-opencart-sys-04
+name: 'OpenCart tmp/ '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'OpenCart tmp/ at /system/tmp/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/system/tmp/'
+    matchers:
+      - type: status
+        status: [200]

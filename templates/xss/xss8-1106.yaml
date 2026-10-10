@@ -1,0 +1,20 @@
+id: xss8-1106
+name: 'Raw XSS8 in website'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in website'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      website:
+        - '<video><source onerror=nx81105%09>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx81105'

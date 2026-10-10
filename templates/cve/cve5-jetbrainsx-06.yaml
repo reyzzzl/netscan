@@ -1,0 +1,15 @@
+id: cve5-jetbrainsx-06
+name: 'jetbrainsx at /manager'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'jetbrainsx at /manager — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/manager'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup5-0781
+name: 'Exposed /bootstrap.php.rar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /bootstrap.php.rar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/bootstrap.php.rar'
+    matchers:
+      - type: status
+        status: [200]

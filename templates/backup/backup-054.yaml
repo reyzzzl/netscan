@@ -1,0 +1,15 @@
+id: backup-054
+name: 'Exposed /.hg/store'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.hg/store is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.hg/store'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,14 @@
+id: hdr4-041
+name: 'Header x-sentinelone-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-sentinelone-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-sentinelone-2'

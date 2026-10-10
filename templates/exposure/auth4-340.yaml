@@ -1,0 +1,15 @@
+id: auth4-340
+name: 'Panel at /proxy/admin'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /proxy/admin returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/proxy/admin'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,14 @@
+id: fp2-17
+name: 'Fingerprint cakephp'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'cakephp detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'cakephp'

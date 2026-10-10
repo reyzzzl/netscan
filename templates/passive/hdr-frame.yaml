@@ -1,0 +1,15 @@
+id: hdr-frame
+name: 'Missing X-Frame-Options'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - clickjacking
+description: 'Missing X-Frame-Options — header not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-frame-options'
+    negative: true

@@ -1,0 +1,15 @@
+id: cve3-laravel-misc-06
+name: 'Laravel .env.example .env.example'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Laravel .env.example at /.env.example — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.example'
+    matchers:
+      - type: status
+        status: [200]

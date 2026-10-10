@@ -1,0 +1,15 @@
+id: backup6-0638
+name: 'Exposed /returns.php.json5'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /returns.php.json5 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/returns.php.json5'
+    matchers:
+      - type: status
+        status: [200]

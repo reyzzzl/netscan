@@ -1,0 +1,20 @@
+id: xss5-3106
+name: 'Raw XSS5 in website'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in website'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      website:
+        - '<summary%09onfocus=nx53105>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53105'

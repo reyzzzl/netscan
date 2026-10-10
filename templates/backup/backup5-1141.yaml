@@ -1,0 +1,15 @@
+id: backup5-1141
+name: 'Exposed /import.php.lock'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /import.php.lock is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/import.php.lock'
+    matchers:
+      - type: status
+        status: [200]

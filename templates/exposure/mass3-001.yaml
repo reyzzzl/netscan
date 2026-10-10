@@ -1,0 +1,18 @@
+id: mass3-001
+name: 'Mass field owner2'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered owner2 on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"t","owner2":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

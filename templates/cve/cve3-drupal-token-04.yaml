@@ -1,0 +1,15 @@
+id: cve3-drupal-token-04
+name: 'Drupal token token.info.yml'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Drupal token at /modules/contrib/token/token.info.yml — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/modules/contrib/token/token.info.yml'
+    matchers:
+      - type: status
+        status: [200]

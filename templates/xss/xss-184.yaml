@@ -1,0 +1,20 @@
+id: xss-184
+name: 'Reflected XSS ctx-9 via keyword'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in keyword'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      keyword:
+        - '<body onload=nx183c>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx183c'

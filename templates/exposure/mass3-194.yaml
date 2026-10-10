@@ -1,0 +1,18 @@
+id: mass3-194
+name: 'Mass field medal'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered medal on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"u1","medal":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

@@ -1,0 +1,19 @@
+id: redirect2-006
+name: 'Open redirect2 via view'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Unsafe redirect via view'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      view:
+        - 'https://evil.example%2f..'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

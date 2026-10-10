@@ -1,0 +1,14 @@
+id: hdr3-06
+name: 'Debug header x-trace-id'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - debug
+description: 'Debug header x-trace-id present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-trace-id'

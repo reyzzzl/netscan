@@ -1,0 +1,14 @@
+id: fp4-192
+name: 'Stack store10x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'store10x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'store10x'

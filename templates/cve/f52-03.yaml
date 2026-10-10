@@ -1,0 +1,15 @@
+id: f52-03
+name: 'F5 my.policy'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'F5 at /my.policy — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/my.policy?v=4'
+    matchers:
+      - type: status
+        status: [200]

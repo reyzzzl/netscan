@@ -1,0 +1,20 @@
+id: lfi4-29
+name: 'System file /etc/fstab via include'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads /etc/fstab via include'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      include:
+        - '/etc/fstab'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '/etc/fstab'

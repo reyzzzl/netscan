@@ -1,0 +1,22 @@
+id: sqli6-sybase-25
+name: 'SQLi sybase probe in pid'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - sybase
+description: 'Triggers sybase error via pid'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      pid:
+        - '''%09OR%091=1--'
+        - '"'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'Sybase'
+          - 'Adaptive Server'

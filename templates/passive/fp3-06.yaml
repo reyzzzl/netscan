@@ -1,0 +1,14 @@
+id: fp3-06
+name: 'Stack sveltekit'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'sveltekit stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'sveltekit'

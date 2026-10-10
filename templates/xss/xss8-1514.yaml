@@ -1,0 +1,20 @@
+id: xss8-1514
+name: 'Raw XSS8 in label'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in label'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      label:
+        - '<details open ontoggle=nx81513%09>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx81513'

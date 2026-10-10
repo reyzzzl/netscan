@@ -1,0 +1,15 @@
+id: xss-reflected
+name: Reflected XSS in query param
+severity: high
+type: active
+description: Injects canary, fires on raw reflection
+requests:
+  - method: GET
+    path: "{{BaseURL}}"
+    payloads:
+      q: ["<script>netscan7492</script>"]
+      s: ['"><img src=x onerror=alert(1)>']
+    matchers:
+      - type: word
+        part: body
+        words: ["netscan7492"]

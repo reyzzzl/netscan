@@ -1,0 +1,20 @@
+id: xss5-3231
+name: 'Raw XSS5 in headline'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in headline'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      headline:
+        - '<esi:include%09src=nx53230>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53230'

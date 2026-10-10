@@ -1,0 +1,15 @@
+id: backup5-0242
+name: 'Exposed /backup.sql.sum'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /backup.sql.sum is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/backup.sql.sum'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: ssti2-flask-03
+name: 'SSTI2 flask via body'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - flask
+description: 'flask evaluates payload in body'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      body:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

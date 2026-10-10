@@ -1,0 +1,20 @@
+id: xss-162
+name: 'Reflected XSS ctx-16 via s'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in s'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      s:
+        - '"><ScRiPt>nx161c</ScRiPt>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx161c'

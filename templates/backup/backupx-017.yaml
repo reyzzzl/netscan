@@ -1,0 +1,15 @@
+id: backupx-017
+name: 'Exposed /backup.tar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /backup.tar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/backup.tar'
+    matchers:
+      - type: status
+        status: [200]

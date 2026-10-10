@@ -1,0 +1,25 @@
+id: xss6strict-0375
+name: 'Strict raw XSS in word'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      word:
+        - '<body onload=sx60374>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx60374'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx60374'

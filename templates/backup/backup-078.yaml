@@ -1,0 +1,15 @@
+id: backup-078
+name: 'Exposed /.config'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.config is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.config'
+    matchers:
+      - type: status
+        status: [200]

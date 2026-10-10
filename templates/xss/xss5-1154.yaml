@@ -1,0 +1,20 @@
+id: xss5-1154
+name: 'Raw XSS5 in label'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in label'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      label:
+        - '<xss%0d%0astyle=x%0d%0aonfocusin=nx51153 tabindex=1>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51153'

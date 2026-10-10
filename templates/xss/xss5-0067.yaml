@@ -1,0 +1,20 @@
+id: xss5-0067
+name: 'Raw XSS5 in subject'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in subject'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      subject:
+        - '<applet%0acode=javascript:nx50066>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50066'

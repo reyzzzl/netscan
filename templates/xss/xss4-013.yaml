@@ -1,0 +1,20 @@
+id: xss4-013
+name: 'Raw XSS4 #12 in name'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<div onpointerenter=alert(nx4012)>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx4012'

@@ -1,0 +1,20 @@
+id: xss5-2014
+name: 'Raw XSS5 in data'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in data'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      data:
+        - '<div style="width:expression(nx52013)">'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52013'

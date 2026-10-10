@@ -1,0 +1,20 @@
+id: xss5-2774
+name: 'Raw XSS5 in data'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in data'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      data:
+        - '<audio%0asrc=x%0aonerror=nx52773>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52773'

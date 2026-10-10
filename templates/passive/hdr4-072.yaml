@@ -1,0 +1,14 @@
+id: hdr4-072
+name: 'Header x-l0pht-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-l0pht-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-l0pht-2'

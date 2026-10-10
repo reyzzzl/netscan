@@ -1,0 +1,15 @@
+id: prom2-08
+name: 'Prometheus healthy'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Prometheus at /-/healthy — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/-/healthy?v=9'
+    matchers:
+      - type: status
+        status: [200]

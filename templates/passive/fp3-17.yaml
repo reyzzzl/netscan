@@ -1,0 +1,14 @@
+id: fp3-17
+name: 'Stack cakephp4'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'cakephp4 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'cakephp4'

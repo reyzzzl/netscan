@@ -1,0 +1,20 @@
+id: xss4-188
+name: 'Raw XSS4 #27 in text'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - '<xsl:stylesheet xmlns:xsl="x"><xsl:template>alert(nx4187)</xsl:template></xsl:stylesheet>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx4187'

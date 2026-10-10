@@ -1,0 +1,20 @@
+id: xss5-0283
+name: 'Raw XSS5 in search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '<svg><animate%0aonbegin=nx50282 attributeName=x>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50282'

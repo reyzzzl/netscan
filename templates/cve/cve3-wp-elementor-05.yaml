@@ -1,0 +1,15 @@
+id: cve3-wp-elementor-05
+name: 'WP elementor elementor.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP elementor at /wp-content/plugins/elementor/elementor.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/elementor/elementor.php'
+    matchers:
+      - type: status
+        status: [200]

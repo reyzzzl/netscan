@@ -1,0 +1,14 @@
+id: fp2-24
+name: 'Fingerprint blazor'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'blazor detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'blazor'

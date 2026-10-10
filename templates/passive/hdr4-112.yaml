@@ -1,0 +1,14 @@
+id: hdr4-112
+name: 'Header x-internal-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-internal-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-internal-2'

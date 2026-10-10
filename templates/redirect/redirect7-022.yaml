@@ -1,0 +1,20 @@
+id: redirect7-022
+name: 'Trusted bypass in url'
+severity: high
+type: active
+tags:
+  - redirect
+  - open-redirect
+  - bypass
+description: 'Bypasses trusted.com allowlist via url'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      url:
+        - 'https://trusted.com%2eevil.example/'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

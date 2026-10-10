@@ -1,0 +1,20 @@
+id: xss5-0548
+name: 'Raw XSS5 in about'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in about'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      about:
+        - '<xss%0d%0astyle=x%0d%0aonfocusin=nx50547 tabindex=1>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50547'

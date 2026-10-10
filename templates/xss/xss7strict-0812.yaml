@@ -1,0 +1,25 @@
+id: xss7strict-0812
+name: 'Strict breakout XSS in term'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      term:
+        - '''><img src=x onerror=sx70811>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx70811'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx70811'

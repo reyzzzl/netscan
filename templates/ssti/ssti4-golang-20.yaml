@@ -1,0 +1,20 @@
+id: ssti4-golang-20
+name: 'SSTI golang in tpl'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - golang
+description: 'golang evaluates payload in tpl'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      tpl:
+        - '{{.7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '7'

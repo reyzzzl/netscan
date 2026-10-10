@@ -1,0 +1,15 @@
+id: cve3-wpt-generatepress-09
+name: 'Theme generatepress page.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Theme generatepress at /wp-content/themes/generatepress/page.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/themes/generatepress/page.php'
+    matchers:
+      - type: status
+        status: [200]

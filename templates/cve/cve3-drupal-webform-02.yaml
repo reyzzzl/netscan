@@ -1,0 +1,15 @@
+id: cve3-drupal-webform-02
+name: 'Drupal webform README.md'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Drupal webform at /modules/contrib/webform/README.md — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/modules/contrib/webform/README.md'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backupx-016
+name: 'Exposed /www.zip.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /www.zip.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/www.zip.bak'
+    matchers:
+      - type: status
+        status: [200]

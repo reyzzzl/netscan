@@ -1,0 +1,15 @@
+id: backup5-2488
+name: 'Exposed /auth.php.yaml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /auth.php.yaml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/auth.php.yaml'
+    matchers:
+      - type: status
+        status: [200]

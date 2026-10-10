@@ -1,0 +1,19 @@
+id: redirect6-128
+name: 'Redirect sink in r'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Redirects to evil.example via r'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      r:
+        - 'https://user@evil.example/'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

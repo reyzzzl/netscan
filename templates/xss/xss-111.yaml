@@ -1,0 +1,20 @@
+id: xss-111
+name: 'Reflected XSS ctx-23 via q'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '#{nx110c}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx110c'

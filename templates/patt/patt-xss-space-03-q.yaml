@@ -1,0 +1,20 @@
+id: patt-xss-space-03-q
+name: 'PATT xss patt-xss-space-03 via q'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+  - filterspace
+description: 'PATT space bypass: %09 (TAB) as space. [patt:patt-xss-space-03] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '<svg%09onload=nxp0009>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0009'

@@ -1,0 +1,15 @@
+id: fp-react
+name: 'React fingerprint'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'React fingerprint — detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'react'
+      - '__REACT'

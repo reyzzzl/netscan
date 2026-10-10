@@ -1,0 +1,15 @@
+id: cve6-crossplane3-06
+name: 'crossplane3 at /manager'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'crossplane3 at /manager — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/manager'
+    matchers:
+      - type: status
+        status: [200]

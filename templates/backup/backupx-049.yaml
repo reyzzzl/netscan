@@ -1,0 +1,15 @@
+id: backupx-049
+name: 'Exposed /sitemap.xml.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /sitemap.xml.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sitemap.xml.bak'
+    matchers:
+      - type: status
+        status: [200]

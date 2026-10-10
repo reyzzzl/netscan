@@ -1,0 +1,14 @@
+id: fp4-017
+name: 'Stack api1x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'api1x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'api1x'

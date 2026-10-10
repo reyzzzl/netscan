@@ -1,0 +1,20 @@
+id: xss4-207
+name: 'Raw XSS4 #6 in query'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in query'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      query:
+        - '<svg/onload=alert(nx4206)>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx4206'

@@ -1,0 +1,14 @@
+id: hdr4-058
+name: 'Header x-skipfish-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-skipfish-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-skipfish-2'

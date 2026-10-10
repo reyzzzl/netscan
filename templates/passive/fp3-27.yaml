@@ -1,0 +1,14 @@
+id: fp3-27
+name: 'Stack hanami2'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'hanami2 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'hanami2'

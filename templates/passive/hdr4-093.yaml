@@ -1,0 +1,14 @@
+id: hdr4-093
+name: 'Header x-fofa-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-fofa-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-fofa-2'

@@ -1,0 +1,15 @@
+id: backup5-3404
+name: 'Exposed /restore.php.save'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /restore.php.save is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/restore.php.save'
+    matchers:
+      - type: status
+        status: [200]

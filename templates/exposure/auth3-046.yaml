@@ -1,0 +1,15 @@
+id: auth3-046
+name: 'Panel at /kibana2'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /kibana2 returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/kibana2'
+    matchers:
+      - type: status
+        status: [200]

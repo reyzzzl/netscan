@@ -1,0 +1,15 @@
+id: backup5-3860
+name: 'Exposed /notify.php.2'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /notify.php.2 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/notify.php.2'
+    matchers:
+      - type: status
+        status: [200]

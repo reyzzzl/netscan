@@ -1,0 +1,15 @@
+id: backupx-039
+name: 'Exposed /Dockerfile.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /Dockerfile.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/Dockerfile.bak'
+    matchers:
+      - type: status
+        status: [200]

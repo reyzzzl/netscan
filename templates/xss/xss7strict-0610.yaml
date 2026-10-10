@@ -1,0 +1,25 @@
+id: xss7strict-0610
+name: 'Strict breakout XSS in text'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      text:
+        - '<table background=javascript:sx70609>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx70609'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx70609'

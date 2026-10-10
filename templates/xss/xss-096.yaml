@@ -1,0 +1,20 @@
+id: xss-096
+name: 'Reflected XSS ctx-8 via message'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in message'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      message:
+        - '</script><script>nx095c</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx095c'

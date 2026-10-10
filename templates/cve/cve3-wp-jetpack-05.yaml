@@ -1,0 +1,15 @@
+id: cve3-wp-jetpack-05
+name: 'WP jetpack jetpack.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP jetpack at /wp-content/plugins/jetpack/jetpack.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/jetpack/jetpack.php'
+    matchers:
+      - type: status
+        status: [200]

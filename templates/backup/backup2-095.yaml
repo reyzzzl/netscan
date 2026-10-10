@@ -1,0 +1,15 @@
+id: backup2-095
+name: 'Exposed2 /persistence.xml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /persistence.xml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/persistence.xml'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: hdr-frame-deny
+name: 'Clickjacking: no frame-ancestors/DENY'
+severity: medium
+type: passive
+tags:
+  - headers
+  - passive
+  - clickjacking
+description: 'Clickjacking: no frame-ancestors/DENY — header not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'deny'
+    negative: true

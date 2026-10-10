@@ -1,0 +1,25 @@
+id: xss7strict-1269
+name: 'Strict breakout XSS in summary'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      summary:
+        - '<embed src=javascript:sx71268>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx71268'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx71268'

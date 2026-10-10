@@ -1,0 +1,20 @@
+id: ssti4-mako-21
+name: 'SSTI mako in name'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - mako
+description: 'mako evaluates payload in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '${7*7}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

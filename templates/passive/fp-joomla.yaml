@@ -1,0 +1,15 @@
+id: fp-joomla
+name: 'Joomla fingerprint'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'Joomla fingerprint — detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'joomla'
+      - 'com_content'

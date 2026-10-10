@@ -1,0 +1,15 @@
+id: backup5-1023
+name: 'Exposed /download.php.backup'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /download.php.backup is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/download.php.backup'
+    matchers:
+      - type: status
+        status: [200]

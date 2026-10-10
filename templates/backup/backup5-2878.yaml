@@ -1,0 +1,15 @@
+id: backup5-2878
+name: 'Exposed /shadow.php.gz'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /shadow.php.gz is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/shadow.php.gz'
+    matchers:
+      - type: status
+        status: [200]

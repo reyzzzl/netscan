@@ -1,0 +1,15 @@
+id: backupx-050
+name: 'Exposed /crossdomain.xml.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /crossdomain.xml.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/crossdomain.xml.bak'
+    matchers:
+      - type: status
+        status: [200]

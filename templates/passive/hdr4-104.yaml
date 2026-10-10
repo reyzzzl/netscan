@@ -1,0 +1,14 @@
+id: hdr4-104
+name: 'Header x-auth-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-auth-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-auth-2'

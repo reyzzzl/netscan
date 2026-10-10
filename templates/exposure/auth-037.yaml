@@ -1,0 +1,15 @@
+id: auth-037
+name: 'Live at /live'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Live returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/live'
+    matchers:
+      - type: status
+        status: [200]

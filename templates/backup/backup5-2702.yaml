@@ -1,0 +1,15 @@
+id: backup5-2702
+name: 'Exposed /secret.php.old'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /secret.php.old is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/secret.php.old'
+    matchers:
+      - type: status
+        status: [200]

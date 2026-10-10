@@ -1,0 +1,20 @@
+id: backup-013
+name: 'Exposed /server-status'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /server-status is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/server-status'
+    match-all: true
+    matchers:
+      - type: status
+        status: [200]
+      - type: word
+        part: body
+        words:
+          - 'Apache Status'

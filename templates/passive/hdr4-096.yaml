@@ -1,0 +1,14 @@
+id: hdr4-096
+name: 'Header x-spur-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-spur-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-spur-2'

@@ -1,0 +1,15 @@
+id: backup5-1471
+name: 'Exposed /payment.php.clone'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /payment.php.clone is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/payment.php.clone'
+    matchers:
+      - type: status
+        status: [200]

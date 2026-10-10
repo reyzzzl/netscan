@@ -1,0 +1,19 @@
+id: redirect6-427
+name: 'Redirect sink in dest'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Redirects to evil.example via dest'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      dest:
+        - 'https://evil.example:443/'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

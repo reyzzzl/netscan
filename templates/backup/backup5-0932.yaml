@@ -1,0 +1,15 @@
+id: backup5-0932
+name: 'Exposed /ajax.php.inc'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /ajax.php.inc is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/ajax.php.inc'
+    matchers:
+      - type: status
+        status: [200]

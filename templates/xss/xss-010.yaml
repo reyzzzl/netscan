@@ -1,0 +1,20 @@
+id: xss-010
+name: 'Reflected XSS ctx-9 via text'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - '<body onload=nx009c>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx009c'

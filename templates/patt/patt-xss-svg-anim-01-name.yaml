@@ -1,0 +1,19 @@
+id: patt-xss-svg-anim-01-name
+name: 'PATT xss patt-xss-svg-anim-01 via name'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+description: 'PATT SVG animate onbegin (jarang diblacklist). [patt:patt-xss-svg-anim-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<svg><animate onbegin=nxp0021 attributeName=x>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0021'

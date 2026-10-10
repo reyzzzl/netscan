@@ -1,0 +1,20 @@
+id: xss2-199
+name: 'Reflected XSS2 ctx-18 via keyword'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in keyword'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      keyword:
+        - '''/*\''/*\"/**/alert(nx2198)//'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx2198'

@@ -1,0 +1,15 @@
+id: backup5-0176
+name: 'Exposed /.env.pkg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.pkg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.pkg'
+    matchers:
+      - type: status
+        status: [200]

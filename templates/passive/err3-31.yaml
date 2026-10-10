@@ -1,0 +1,14 @@
+id: err3-31
+name: 'Framework error: graphql-yoga'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Framework error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'graphql-yoga'

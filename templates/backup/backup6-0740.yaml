@@ -1,0 +1,15 @@
+id: backup6-0740
+name: 'Exposed /contact.php.lock'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /contact.php.lock is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/contact.php.lock'
+    matchers:
+      - type: status
+        status: [200]

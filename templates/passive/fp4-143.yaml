@@ -1,0 +1,14 @@
+id: fp4-143
+name: 'Stack framework8x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'framework8x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'framework8x'

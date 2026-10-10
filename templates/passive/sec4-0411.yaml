@@ -1,0 +1,14 @@
+id: sec4-0411
+name: 'Token sftpgo2- (headers)'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Possible token in headers — verify manually'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'sftpgo2-'

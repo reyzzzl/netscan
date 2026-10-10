@@ -1,0 +1,20 @@
+id: patt-xss-cf-04-comment
+name: 'PATT xss patt-xss-cf-04 via comment'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+  - wafcloudflare
+description: 'PATT Cloudflare 5 Jun 2019: img/src + pipe operator. [patt:patt-xss-cf-04] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/3%20-%20XSS%20Common%20WAF%20Bypass.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      comment:
+        - '1''"><img/src/onerror=.1|nxp0027>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0027'

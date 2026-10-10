@@ -1,0 +1,20 @@
+id: xss-130
+name: 'Reflected XSS ctx-13 via text'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - 'JaVaScRiPt:nx129c'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx129c'

@@ -1,0 +1,15 @@
+id: backup6-0242
+name: 'Exposed /reset.php.mod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /reset.php.mod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/reset.php.mod'
+    matchers:
+      - type: status
+        status: [200]

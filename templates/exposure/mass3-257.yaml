@@ -1,0 +1,18 @@
+id: mass3-257
+name: 'Mass field coupon2'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered coupon2 on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"u1","coupon2":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

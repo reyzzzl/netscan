@@ -1,0 +1,14 @@
+id: fp3-13
+name: 'Stack fastapi09'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'fastapi09 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'fastapi09'

@@ -1,0 +1,14 @@
+id: hdr3-16
+name: 'Debug header x-spring-debug'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - debug
+description: 'Debug header x-spring-debug present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-spring-debug'

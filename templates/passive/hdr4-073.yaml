@@ -1,0 +1,14 @@
+id: hdr4-073
+name: 'Header x-cain-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-cain-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-cain-2'

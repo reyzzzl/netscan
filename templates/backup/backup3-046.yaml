@@ -1,0 +1,15 @@
+id: backup3-046
+name: 'Exposed /wp-content/advanced-cache.php'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /wp-content/advanced-cache.php is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/advanced-cache.php'
+    matchers:
+      - type: status
+        status: [200]

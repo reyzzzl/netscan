@@ -1,0 +1,21 @@
+id: ssti-post2-018
+name: 'POST SSTI mako in view'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - post
+  - mako
+description: 'mako evaluates POST body on /render'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/render'
+    body: '{"view":"${7*7}"}'
+    sendHeaders:
+      Content-Type: 'application/json'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

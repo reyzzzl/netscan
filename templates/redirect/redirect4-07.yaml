@@ -1,0 +1,20 @@
+id: redirect4-07
+name: 'Allowlist trick in next'
+severity: high
+type: active
+tags:
+  - redirect
+  - open-redirect
+  - bypass
+description: 'Bypasses trusted.com allowlist via next'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      next:
+        - 'https://trusted.com#@evil.example/'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

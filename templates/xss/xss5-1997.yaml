@@ -1,0 +1,20 @@
+id: xss5-1997
+name: 'Raw XSS5 in prefix'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in prefix'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      prefix:
+        - '<table%09background=data:text/html,nx51996>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51996'

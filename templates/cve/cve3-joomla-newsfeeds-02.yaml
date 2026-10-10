@@ -1,0 +1,15 @@
+id: cve3-joomla-newsfeeds-02
+name: 'Joomla newsfeeds changelog.xml'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Joomla newsfeeds at /components/com_newsfeeds/changelog.xml — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/components/com_newsfeeds/changelog.xml'
+    matchers:
+      - type: status
+        status: [200]

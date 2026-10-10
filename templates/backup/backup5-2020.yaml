@@ -1,0 +1,15 @@
+id: backup5-2020
+name: 'Exposed /functions.php.copy'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /functions.php.copy is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/functions.php.copy'
+    matchers:
+      - type: status
+        status: [200]

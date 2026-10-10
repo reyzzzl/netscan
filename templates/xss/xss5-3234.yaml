@@ -1,0 +1,20 @@
+id: xss5-3234
+name: 'Raw XSS5 in label'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in label'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      label:
+        - '<svg%09onload=nx53233>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53233'

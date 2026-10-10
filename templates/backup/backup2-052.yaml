@@ -1,0 +1,15 @@
+id: backup2-052
+name: 'Exposed2 /version.txt'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /version.txt is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/version.txt'
+    matchers:
+      - type: status
+        status: [200]

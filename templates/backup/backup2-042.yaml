@@ -1,0 +1,15 @@
+id: backup2-042
+name: 'Exposed2 /junit.xml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /junit.xml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/junit.xml'
+    matchers:
+      - type: status
+        status: [200]

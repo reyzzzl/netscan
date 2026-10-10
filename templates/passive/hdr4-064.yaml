@@ -1,0 +1,14 @@
+id: hdr4-064
+name: 'Header x-medusa-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-medusa-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-medusa-2'

@@ -1,0 +1,15 @@
+id: backup6-0427
+name: 'Exposed /checkout.php.gz'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /checkout.php.gz is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/checkout.php.gz'
+    matchers:
+      - type: status
+        status: [200]

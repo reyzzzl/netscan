@@ -1,0 +1,15 @@
+id: cve6-crossplane3-11
+name: 'crossplane3 at /health'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'crossplane3 at /health — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/health'
+    matchers:
+      - type: status
+        status: [200]

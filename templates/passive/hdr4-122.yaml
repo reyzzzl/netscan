@@ -1,0 +1,14 @@
+id: hdr4-122
+name: 'Header x-otp-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-otp-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-otp-2'

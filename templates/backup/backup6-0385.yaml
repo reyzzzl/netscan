@@ -1,0 +1,15 @@
+id: backup6-0385
+name: 'Exposed /confirm.php.ini'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /confirm.php.ini is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/confirm.php.ini'
+    matchers:
+      - type: status
+        status: [200]

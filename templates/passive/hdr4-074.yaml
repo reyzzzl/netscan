@@ -1,0 +1,14 @@
+id: hdr4-074
+name: 'Header x-aircrack-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-aircrack-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-aircrack-2'

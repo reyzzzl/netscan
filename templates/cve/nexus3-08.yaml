@@ -1,0 +1,15 @@
+id: nexus3-08
+name: 'Nexus3 extdirect'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Nexus3 at /service/extdirect — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/service/extdirect?v=9'
+    matchers:
+      - type: status
+        status: [200]

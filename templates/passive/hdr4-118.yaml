@@ -1,0 +1,14 @@
+id: hdr4-118
+name: 'Header x-iam-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-iam-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-iam-2'

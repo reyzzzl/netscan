@@ -1,0 +1,14 @@
+id: hdr4-024
+name: 'Header x-watchguard-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-watchguard-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-watchguard-2'

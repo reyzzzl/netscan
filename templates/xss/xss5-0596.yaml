@@ -1,0 +1,20 @@
+id: xss5-0596
+name: 'Raw XSS5 in placeholder'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in placeholder'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      placeholder:
+        - '<a%0ahref=data:text/html,nx50595>click'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50595'

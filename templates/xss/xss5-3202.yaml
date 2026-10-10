@@ -1,0 +1,20 @@
+id: xss5-3202
+name: 'Raw XSS5 in s'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in s'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      s:
+        - '<input%09type=image%09formaction=javascript:nx53201>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53201'

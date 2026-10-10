@@ -1,0 +1,15 @@
+id: backup2-096
+name: 'Exposed2 /datasource.properties'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /datasource.properties is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/datasource.properties'
+    matchers:
+      - type: status
+        status: [200]

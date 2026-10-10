@@ -1,0 +1,15 @@
+id: hdr2-18
+name: 'Missing service-worker-allowed'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header service-worker-allowed not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'service-worker-allowed'
+    negative: true

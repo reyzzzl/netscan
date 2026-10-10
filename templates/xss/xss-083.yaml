@@ -1,0 +1,20 @@
+id: xss-083
+name: 'Reflected XSS ctx-24 via search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '\";alert(nx082c);//'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx082c'

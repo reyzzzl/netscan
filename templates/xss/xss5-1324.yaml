@@ -1,0 +1,20 @@
+id: xss5-1324
+name: 'Raw XSS5 in keyword'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in keyword'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      keyword:
+        - '<ScRiPt%0a>alert(nx51323)</ScRiPt>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51323'

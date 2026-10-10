@@ -1,0 +1,14 @@
+id: hdr4-043
+name: 'Header x-cylance-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-cylance-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-cylance-2'

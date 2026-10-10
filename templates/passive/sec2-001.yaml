@@ -1,0 +1,14 @@
+id: sec2-001
+name: 'Stripe live key'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Stripe live key in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'sk_live_'

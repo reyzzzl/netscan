@@ -1,0 +1,14 @@
+id: fp4-209
+name: 'Stack cms11x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'cms11x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'cms11x'

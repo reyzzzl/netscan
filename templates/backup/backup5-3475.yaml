@@ -1,0 +1,15 @@
+id: backup5-3475
+name: 'Exposed /sync.php.bundle'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sync.php.bundle is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sync.php.bundle'
+    matchers:
+      - type: status
+        status: [200]

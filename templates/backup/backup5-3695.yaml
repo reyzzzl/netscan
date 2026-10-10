@@ -1,0 +1,15 @@
+id: backup5-3695
+name: 'Exposed /job.php.db'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /job.php.db is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/job.php.db'
+    matchers:
+      - type: status
+        status: [200]

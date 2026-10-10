@@ -1,0 +1,20 @@
+id: xss4-317
+name: 'Raw XSS4 #36 in query'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in query'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      query:
+        - '<form action=javascript:alert(nx4316)><input type=submit>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx4316'

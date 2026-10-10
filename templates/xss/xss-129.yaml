@@ -1,0 +1,20 @@
+id: xss-129
+name: 'Reflected XSS ctx-12 via query'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in query'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      query:
+        - 'javascript:nx128c'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx128c'

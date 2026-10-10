@@ -1,0 +1,14 @@
+id: fp2-31
+name: 'Fingerprint fiber'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'fiber detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'fiber'

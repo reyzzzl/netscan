@@ -1,0 +1,14 @@
+id: hdr4-091
+name: 'Header x-binaryedge-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-binaryedge-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-binaryedge-2'

@@ -1,0 +1,20 @@
+id: ssti-flask-01
+name: 'SSTI flask via msg'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - flask
+description: 'flask evaluates payload in msg'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      msg:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

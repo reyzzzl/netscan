@@ -1,0 +1,20 @@
+id: ssti4-marko-07
+name: 'SSTI marko in b'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - marko
+description: 'marko evaluates payload in b'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      b:
+        - '${7*7}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

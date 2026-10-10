@@ -1,0 +1,14 @@
+id: err2-14
+name: 'Error page: flask.debug'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'flask.debug'

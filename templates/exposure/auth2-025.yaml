@@ -1,0 +1,15 @@
+id: auth2-025
+name: 'Staff at /staff'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Staff returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/staff'
+    matchers:
+      - type: status
+        status: [200]

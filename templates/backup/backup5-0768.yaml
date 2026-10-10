@@ -1,0 +1,15 @@
+id: backup5-0768
+name: 'Exposed /bootstrap.php.stage'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /bootstrap.php.stage is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/bootstrap.php.stage'
+    matchers:
+      - type: status
+        status: [200]

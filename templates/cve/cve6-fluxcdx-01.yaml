@@ -1,0 +1,15 @@
+id: cve6-fluxcdx-01
+name: 'fluxcdx at /'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'fluxcdx at / — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/'
+    matchers:
+      - type: status
+        status: [200]

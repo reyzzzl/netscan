@@ -1,0 +1,14 @@
+id: hdr4-027
+name: 'Header x-proofpoint-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-proofpoint-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-proofpoint-2'

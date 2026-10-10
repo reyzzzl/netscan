@@ -1,0 +1,15 @@
+id: backup5-2646
+name: 'Exposed /token.php.mdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /token.php.mdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/token.php.mdb'
+    matchers:
+      - type: status
+        status: [200]

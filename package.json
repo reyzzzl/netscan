@@ -1,0 +1,17 @@
+{
+  "name": "netscan",
+  "version": "0.1.0",
+  "description": "Template scanner + network trace (zero-dep). Authorized targets only.",
+  "type": "module",
+  "bin": {
+    "netscan": "./src/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "patt": "node scripts/generate-patt.mjs --clean",
+    "patt:map": "node scripts/generate-patt.mjs --map",
+    "patt:refresh-info": "node scripts/generate-patt.mjs --refresh-info"
+  }
+}

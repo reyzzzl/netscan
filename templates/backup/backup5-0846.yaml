@@ -1,0 +1,15 @@
+id: backup5-0846
+name: 'Exposed /routes.php.mdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /routes.php.mdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/routes.php.mdb'
+    matchers:
+      - type: status
+        status: [200]

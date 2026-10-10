@@ -1,0 +1,20 @@
+id: ssti-smarty-03
+name: 'SSTI smarty via view'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - smarty
+description: 'smarty evaluates payload in view'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      view:
+        - '{7*7}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

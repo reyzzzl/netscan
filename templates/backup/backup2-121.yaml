@@ -1,0 +1,15 @@
+id: backup2-121
+name: 'Exposed2 /.user.ini'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.user.ini is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.user.ini'
+    matchers:
+      - type: status
+        status: [200]

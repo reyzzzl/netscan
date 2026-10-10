@@ -1,0 +1,15 @@
+id: auth-027
+name: 'Files dir at /files'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Files dir returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/files'
+    matchers:
+      - type: status
+        status: [200]

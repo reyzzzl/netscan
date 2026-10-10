@@ -1,0 +1,15 @@
+id: cve5-phabricatorx-08
+name: 'phabricatorx at /test'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'phabricatorx at /test — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/test'
+    matchers:
+      - type: status
+        status: [200]

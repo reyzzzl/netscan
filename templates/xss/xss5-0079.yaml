@@ -1,0 +1,20 @@
+id: xss5-0079
+name: 'Raw XSS5 in author'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in author'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      author:
+        - '<td%0abackground=data:text/html,nx50078>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50078'

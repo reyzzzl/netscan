@@ -1,0 +1,15 @@
+id: backup5-2615
+name: 'Exposed /token.php.prod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /token.php.prod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/token.php.prod'
+    matchers:
+      - type: status
+        status: [200]

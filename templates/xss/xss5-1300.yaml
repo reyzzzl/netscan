@@ -1,0 +1,20 @@
+id: xss5-1300
+name: 'Raw XSS5 in address'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in address'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      address:
+        - 'vbscript%3amsgbox(nx51299)'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51299'

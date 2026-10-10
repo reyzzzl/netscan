@@ -1,0 +1,14 @@
+id: hdr4-038
+name: 'Header x-webroot-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-webroot-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-webroot-2'

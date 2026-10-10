@@ -1,0 +1,14 @@
+id: sec2-041
+name: 'API key assign alt'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'API key assign alt in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'api_key='

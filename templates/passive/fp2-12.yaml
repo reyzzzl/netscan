@@ -1,0 +1,14 @@
+id: fp2-12
+name: 'Fingerprint flask2'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'flask2 detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'flask2'

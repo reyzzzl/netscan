@@ -1,0 +1,15 @@
+id: pulse2-05
+name: 'Pulse root'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Pulse at /dana/html/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dana/html/?v=6'
+    matchers:
+      - type: status
+        status: [200]

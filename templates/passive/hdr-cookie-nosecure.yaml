@@ -1,0 +1,14 @@
+id: hdr-cookie-nosecure
+name: 'Cookie without Secure flag'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - cookie
+description: 'Cookie without Secure flag — check flags with show'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'set-cookie'

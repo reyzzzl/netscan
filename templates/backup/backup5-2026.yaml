@@ -1,0 +1,15 @@
+id: backup5-2026
+name: 'Exposed /functions.php.pkg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /functions.php.pkg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/functions.php.pkg'
+    matchers:
+      - type: status
+        status: [200]

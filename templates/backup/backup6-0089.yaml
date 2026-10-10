@@ -1,0 +1,15 @@
+id: backup6-0089
+name: 'Exposed /signout.php.toml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /signout.php.toml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/signout.php.toml'
+    matchers:
+      - type: status
+        status: [200]

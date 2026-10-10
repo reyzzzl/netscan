@@ -1,0 +1,20 @@
+id: xss2-262
+name: 'Reflected XSS2 ctx-21 via comment'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in comment'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      comment:
+        - '<xss style=x onauxclick=alert(nx2261)>click'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx2261'

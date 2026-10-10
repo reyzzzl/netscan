@@ -1,0 +1,18 @@
+id: mass3-030
+name: 'Mass field editor'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered editor on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"a1","editor":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

@@ -1,0 +1,15 @@
+id: backup5-3543
+name: 'Exposed /cron.php.mod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /cron.php.mod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/cron.php.mod'
+    matchers:
+      - type: status
+        status: [200]

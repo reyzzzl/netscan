@@ -1,0 +1,15 @@
+id: cve3-ghost-api-10
+name: 'Ghost api/invites invites'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Ghost api/invites at /ghost/api/invites — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/ghost/api/invites'
+    matchers:
+      - type: status
+        status: [200]

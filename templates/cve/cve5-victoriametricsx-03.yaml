@@ -1,0 +1,15 @@
+id: cve5-victoriametricsx-03
+name: 'victoriametricsx at /admin'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'victoriametricsx at /admin — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/admin'
+    matchers:
+      - type: status
+        status: [200]

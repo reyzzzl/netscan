@@ -1,0 +1,15 @@
+id: backup5-0341
+name: 'Exposed /db.sql.lock'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /db.sql.lock is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/db.sql.lock'
+    matchers:
+      - type: status
+        status: [200]

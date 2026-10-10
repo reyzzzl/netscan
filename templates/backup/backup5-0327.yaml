@@ -1,0 +1,15 @@
+id: backup5-0327
+name: 'Exposed /db.sql.tar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /db.sql.tar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/db.sql.tar'
+    matchers:
+      - type: status
+        status: [200]

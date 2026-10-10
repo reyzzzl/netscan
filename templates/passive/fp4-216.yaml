@@ -1,0 +1,14 @@
+id: fp4-216
+name: 'Stack docs11x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'docs11x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'docs11x'

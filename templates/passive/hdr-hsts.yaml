@@ -1,0 +1,15 @@
+id: hdr-hsts
+name: 'Missing Strict-Transport-Security'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Missing Strict-Transport-Security — header not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'strict-transport-security'
+    negative: true

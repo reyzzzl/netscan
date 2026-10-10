@@ -1,0 +1,23 @@
+id: sqli-mssql-03
+name: 'SQLi error mssql via item'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - mssql
+description: 'Triggers mssql error via item'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      item:
+        - ''' OR ''1''=''1'
+        - ''' UNION SELECT NULL--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'ODBC'
+          - 'SQL Server'
+          - 'Unclosed quotation mark'

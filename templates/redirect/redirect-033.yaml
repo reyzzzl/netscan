@@ -1,0 +1,20 @@
+id: redirect-033
+name: 'Open redirect via redirect'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Redirects to evil.example via redirect'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      redirect:
+        - 'https://evil.example/'
+        - '//evil.example/'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

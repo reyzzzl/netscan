@@ -1,0 +1,15 @@
+id: cve3-joomla-banners-02
+name: 'Joomla banners changelog.xml'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Joomla banners at /components/com_banners/changelog.xml — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/components/com_banners/changelog.xml'
+    matchers:
+      - type: status
+        status: [200]

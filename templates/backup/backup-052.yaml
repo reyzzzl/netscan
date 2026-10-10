@@ -1,0 +1,15 @@
+id: backup-052
+name: 'Exposed /trace.axd'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /trace.axd is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/trace.axd'
+    matchers:
+      - type: status
+        status: [200]

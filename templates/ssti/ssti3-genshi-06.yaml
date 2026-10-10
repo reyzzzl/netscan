@@ -1,0 +1,20 @@
+id: ssti3-genshi-06
+name: 'SSTI genshi in text'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - genshi
+description: 'genshi evaluates payload in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - '${7*7}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

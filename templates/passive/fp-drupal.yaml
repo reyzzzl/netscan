@@ -1,0 +1,15 @@
+id: fp-drupal
+name: 'Drupal fingerprint'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'Drupal fingerprint — detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'drupal.js'
+      - 'sites/default'

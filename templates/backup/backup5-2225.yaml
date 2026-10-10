@@ -1,0 +1,15 @@
+id: backup5-2225
+name: 'Exposed /sidebar.php.bundle'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sidebar.php.bundle is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sidebar.php.bundle'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,14 @@
+id: hdr4-052
+name: 'Header x-netsparker-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-netsparker-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-netsparker-2'

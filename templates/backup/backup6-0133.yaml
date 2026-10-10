@@ -1,0 +1,15 @@
+id: backup6-0133
+name: 'Exposed /register.php.conf'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /register.php.conf is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/register.php.conf'
+    matchers:
+      - type: status
+        status: [200]

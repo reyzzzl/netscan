@@ -1,0 +1,15 @@
+id: info-email-dump
+name: 'Email dump in body'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - exposure
+description: 'Email dump in body — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - '@gmail.com'
+      - '@yahoo.com'

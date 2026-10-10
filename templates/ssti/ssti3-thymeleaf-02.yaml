@@ -1,0 +1,20 @@
+id: ssti3-thymeleaf-02
+name: 'SSTI thymeleaf in bio'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - thymeleaf
+description: 'thymeleaf evaluates payload in bio'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      bio:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

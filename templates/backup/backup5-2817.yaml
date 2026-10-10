@@ -1,0 +1,15 @@
+id: backup5-2817
+name: 'Exposed /passwd.php.test'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /passwd.php.test is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/passwd.php.test'
+    matchers:
+      - type: status
+        status: [200]

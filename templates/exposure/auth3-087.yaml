@@ -1,0 +1,15 @@
+id: auth3-087
+name: 'Panel at /pingdom'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /pingdom returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/pingdom'
+    matchers:
+      - type: status
+        status: [200]

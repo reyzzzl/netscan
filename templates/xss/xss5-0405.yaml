@@ -1,0 +1,20 @@
+id: xss5-0405
+name: 'Raw XSS5 in name'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<svg%0aonload=nx50404>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50404'

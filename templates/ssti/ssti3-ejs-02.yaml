@@ -1,0 +1,20 @@
+id: ssti3-ejs-02
+name: 'SSTI ejs in content'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - ejs
+description: 'ejs evaluates payload in content'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      content:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

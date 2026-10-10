@@ -1,0 +1,20 @@
+id: xss5-0586
+name: 'Raw XSS5 in website'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in website'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      website:
+        - '<svg><animate%0aonbegin=nx50585 attributeName=x>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50585'

@@ -1,0 +1,15 @@
+id: backup-098
+name: 'Exposed /local_settings.py'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /local_settings.py is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/local_settings.py'
+    matchers:
+      - type: status
+        status: [200]

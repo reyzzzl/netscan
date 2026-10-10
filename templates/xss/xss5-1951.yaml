@@ -1,0 +1,20 @@
+id: xss5-1951
+name: 'Raw XSS5 in headline'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in headline'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      headline:
+        - '<embed%0asrc=data:text/html,nx51950>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51950'

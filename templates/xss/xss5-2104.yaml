@@ -1,0 +1,20 @@
+id: xss5-2104
+name: 'Raw XSS5 in zip'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in zip'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      zip:
+        - 'jaVasCript%3anx52103'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52103'

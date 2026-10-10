@@ -1,0 +1,15 @@
+id: backup5-1448
+name: 'Exposed /order.php.bakup'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /order.php.bakup is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/order.php.bakup'
+    matchers:
+      - type: status
+        status: [200]

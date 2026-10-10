@@ -1,0 +1,15 @@
+id: auth3-050
+name: 'Panel at /thanos'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /thanos returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/thanos'
+    matchers:
+      - type: status
+        status: [200]

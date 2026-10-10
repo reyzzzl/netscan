@@ -1,0 +1,20 @@
+id: xss-029
+name: 'Reflected XSS ctx-28 via query'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in query'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      query:
+        - '<video><source onerror=nx028c>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx028c'

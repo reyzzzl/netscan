@@ -1,0 +1,14 @@
+id: fp4-147
+name: 'Stack runtime8x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'runtime8x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'runtime8x'

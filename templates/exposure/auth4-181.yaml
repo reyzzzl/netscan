@@ -1,0 +1,15 @@
+id: auth4-181
+name: 'Panel at /secure/config'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /secure/config returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/secure/config'
+    matchers:
+      - type: status
+        status: [200]

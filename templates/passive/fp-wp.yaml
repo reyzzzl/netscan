@@ -1,0 +1,15 @@
+id: fp-wp
+name: 'WordPress fingerprint'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'WordPress fingerprint — detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'wp-content'
+      - 'wp-includes'

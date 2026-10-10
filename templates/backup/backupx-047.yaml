@@ -1,0 +1,15 @@
+id: backupx-047
+name: 'Exposed /.htaccess.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /.htaccess.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.htaccess.bak'
+    matchers:
+      - type: status
+        status: [200]

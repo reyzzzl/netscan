@@ -1,0 +1,15 @@
+id: backup5-0313
+name: 'Exposed /db.sql.5'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /db.sql.5 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/db.sql.5'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup-029
+name: 'Exposed /composer.json'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /composer.json is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/composer.json'
+    matchers:
+      - type: status
+        status: [200]

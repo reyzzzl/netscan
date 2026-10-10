@@ -1,0 +1,20 @@
+id: xss5-1893
+name: 'Raw XSS5 in value'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in value'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      value:
+        - '<p%0aoncut=nx51892>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51892'

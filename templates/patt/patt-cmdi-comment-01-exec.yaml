@@ -1,0 +1,20 @@
+id: patt-cmdi-comment-01-exec
+name: 'PATT cmdi patt-cmdi-comment-01 via exec'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - patt
+description: 'PATT Remove Arguments After Injection: # truncates trailing args. [patt:patt-cmdi-comment-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Command%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      exec:
+        - ';id #'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='

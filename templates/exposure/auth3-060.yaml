@@ -1,0 +1,15 @@
+id: auth3-060
+name: 'Panel at /cronitor'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /cronitor returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/cronitor'
+    matchers:
+      - type: status
+        status: [200]

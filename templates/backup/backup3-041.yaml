@@ -1,0 +1,15 @@
+id: backup3-041
+name: 'Exposed /.well-known/dnt-policy.txt'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.well-known/dnt-policy.txt is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.well-known/dnt-policy.txt'
+    matchers:
+      - type: status
+        status: [200]

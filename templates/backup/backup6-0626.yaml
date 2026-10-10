@@ -1,0 +1,15 @@
+id: backup6-0626
+name: 'Exposed /returns.php.tar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /returns.php.tar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/returns.php.tar'
+    matchers:
+      - type: status
+        status: [200]

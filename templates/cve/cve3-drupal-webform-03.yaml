@@ -1,0 +1,15 @@
+id: cve3-drupal-webform-03
+name: 'Drupal webform LICENSE.txt'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Drupal webform at /modules/contrib/webform/LICENSE.txt — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/modules/contrib/webform/LICENSE.txt'
+    matchers:
+      - type: status
+        status: [200]

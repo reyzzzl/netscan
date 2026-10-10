@@ -1,0 +1,15 @@
+id: cve3-laravel-misc-09
+name: 'Laravel yarn.lock yarn.lock'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Laravel yarn.lock at /yarn.lock — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/yarn.lock'
+    matchers:
+      - type: status
+        status: [200]

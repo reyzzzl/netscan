@@ -1,0 +1,20 @@
+id: xss4-396
+name: 'Raw XSS4 #35 in title'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in title'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      title:
+        - '<a href=vbscript:msgbox(nx4395)>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx4395'

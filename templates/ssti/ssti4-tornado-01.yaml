@@ -1,0 +1,20 @@
+id: ssti4-tornado-01
+name: 'SSTI tornado in content'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - tornado
+description: 'tornado evaluates payload in content'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      content:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

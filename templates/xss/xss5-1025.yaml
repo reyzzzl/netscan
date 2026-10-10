@@ -1,0 +1,20 @@
+id: xss5-1025
+name: 'Raw XSS5 in company'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in company'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      company:
+        - '<script> merely nx51024 </script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51024'

@@ -1,0 +1,14 @@
+id: hdr4-071
+name: 'Header x-ophcrack-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-ophcrack-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-ophcrack-2'

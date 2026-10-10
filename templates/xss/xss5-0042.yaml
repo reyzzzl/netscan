@@ -1,0 +1,20 @@
+id: xss5-0042
+name: 'Raw XSS5 in s'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in s'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      s:
+        - '<xss%0astyle=x%0aonpointerover=nx50041>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50041'

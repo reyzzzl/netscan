@@ -1,0 +1,20 @@
+id: ssti2-golang-03
+name: 'SSTI2 golang via text'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - golang
+description: 'golang evaluates payload in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - '{{.7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '7'

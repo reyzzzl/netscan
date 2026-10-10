@@ -1,0 +1,20 @@
+id: ssti-golang-03
+name: 'SSTI golang via page'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - golang
+description: 'golang evaluates payload in page'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      page:
+        - '{{.7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '7'

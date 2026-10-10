@@ -1,0 +1,15 @@
+id: backup3-003
+name: 'Exposed /readyz'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /readyz is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/readyz'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: crlf3-024
+name: 'CRLF into url'
+severity: medium
+type: active
+tags:
+  - crlf
+  - injection
+  - headers
+description: 'CRLF header injection via url'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      url:
+        - '%0d%0aX-Forwarded-Host: evil'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'x-test'

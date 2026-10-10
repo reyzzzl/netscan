@@ -1,0 +1,15 @@
+id: auth4-287
+name: 'Panel at /manager/dev'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /manager/dev returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/manager/dev'
+    matchers:
+      - type: status
+        status: [200]

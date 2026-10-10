@@ -1,0 +1,23 @@
+id: cmdi6-0600
+name: 'Shell injection in proc'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - injection
+  - rce
+description: 'OS command runs via proc'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      proc:
+        - '%60id%60'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='
+          - 'root:x:0:0'
+          - 'www-data'

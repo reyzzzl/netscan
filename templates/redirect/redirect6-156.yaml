@@ -1,0 +1,19 @@
+id: redirect6-156
+name: 'Redirect sink in file'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Redirects to evil.example via file'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      file:
+        - 'https://evil.example./'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

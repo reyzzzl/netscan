@@ -1,0 +1,15 @@
+id: backup5-1774
+name: 'Exposed /connect.php.archive'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /connect.php.archive is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/connect.php.archive'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: ssti4-smarty2-23
+name: 'SSTI smarty2 in b'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - smarty2
+description: 'smarty2 evaluates payload in b'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      b:
+        - '{$x=7*7}{$x}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

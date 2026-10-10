@@ -1,0 +1,15 @@
+id: backup6-0984
+name: 'Exposed /refund.php.cfg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /refund.php.cfg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/refund.php.cfg'
+    matchers:
+      - type: status
+        status: [200]

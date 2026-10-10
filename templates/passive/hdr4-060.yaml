@@ -1,0 +1,14 @@
+id: hdr4-060
+name: 'Header x-dirbuster-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-dirbuster-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-dirbuster-2'

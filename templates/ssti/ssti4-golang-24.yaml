@@ -1,0 +1,20 @@
+id: ssti4-golang-24
+name: 'SSTI golang in x'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - golang
+description: 'golang evaluates payload in x'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      x:
+        - '{{.7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '7'

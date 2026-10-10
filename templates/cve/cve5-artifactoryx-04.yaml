@@ -1,0 +1,15 @@
+id: cve5-artifactoryx-04
+name: 'artifactoryx at /api'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'artifactoryx at /api — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api'
+    matchers:
+      - type: status
+        status: [200]

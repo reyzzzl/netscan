@@ -1,0 +1,14 @@
+id: hdr4-080
+name: 'Header x-ettercap-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-ettercap-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-ettercap-2'

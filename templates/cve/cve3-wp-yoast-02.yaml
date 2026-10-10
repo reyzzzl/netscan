@@ -1,0 +1,15 @@
+id: cve3-wp-yoast-02
+name: 'WP yoast readme.md'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP yoast at /wp-content/plugins/yoast/readme.md — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/yoast/readme.md'
+    matchers:
+      - type: status
+        status: [200]

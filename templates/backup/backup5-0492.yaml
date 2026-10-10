@@ -1,0 +1,15 @@
+id: backup5-0492
+name: 'Exposed /database.sqlite.sum'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /database.sqlite.sum is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/database.sqlite.sum'
+    matchers:
+      - type: status
+        status: [200]

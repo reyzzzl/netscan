@@ -1,0 +1,15 @@
+id: auth3-039
+name: 'Panel at /adminer2'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /adminer2 returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/adminer2'
+    matchers:
+      - type: status
+        status: [200]

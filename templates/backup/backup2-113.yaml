@@ -1,0 +1,15 @@
+id: backup2-113
+name: 'Exposed2 /storage.rules'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /storage.rules is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/storage.rules'
+    matchers:
+      - type: status
+        status: [200]

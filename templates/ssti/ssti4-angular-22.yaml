@@ -1,0 +1,20 @@
+id: ssti4-angular-22
+name: 'SSTI angular in c'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - angular
+description: 'angular evaluates payload in c'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      c:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

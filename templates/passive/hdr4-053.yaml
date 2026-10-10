@@ -1,0 +1,14 @@
+id: hdr4-053
+name: 'Header x-appscan-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-appscan-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-appscan-2'

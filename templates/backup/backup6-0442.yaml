@@ -1,0 +1,15 @@
+id: backup6-0442
+name: 'Exposed /checkout.php.mod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /checkout.php.mod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/checkout.php.mod'
+    matchers:
+      - type: status
+        status: [200]

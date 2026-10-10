@@ -1,0 +1,20 @@
+id: xss-141
+name: 'Reflected XSS ctx-24 via q'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '\";alert(nx140c);//'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx140c'

@@ -1,0 +1,18 @@
+id: mass3-255
+name: 'Mass field token2'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered token2 on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"a1","token2":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

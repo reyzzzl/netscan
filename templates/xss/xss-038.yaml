@@ -1,0 +1,20 @@
+id: xss-038
+name: 'Reflected XSS ctx-8 via title'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in title'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      title:
+        - '</script><script>nx037c</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx037c'

@@ -1,0 +1,15 @@
+id: cve3-wp-elementor-10
+name: 'WP elementor screenshot.png'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP elementor at /wp-content/plugins/elementor/screenshot.png — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/elementor/screenshot.png'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup2-057
+name: 'Exposed2 /mix-manifest.json'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /mix-manifest.json is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/mix-manifest.json'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: xss-175
+name: 'Reflected XSS ctx-0 via name'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<script>nx174c</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx174c'

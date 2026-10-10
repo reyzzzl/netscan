@@ -1,0 +1,15 @@
+id: backupx-044
+name: 'Exposed /requirements.txt.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /requirements.txt.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/requirements.txt.bak'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: auth-015
+name: 'Debug console at /debug/console'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Debug console returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/debug/console'
+    matchers:
+      - type: status
+        status: [200]

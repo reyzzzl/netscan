@@ -1,0 +1,15 @@
+id: backup5-0482
+name: 'Exposed /database.sqlite.inc'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /database.sqlite.inc is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/database.sqlite.inc'
+    matchers:
+      - type: status
+        status: [200]

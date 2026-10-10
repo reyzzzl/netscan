@@ -1,0 +1,14 @@
+id: hdr3-25
+name: 'Debug header x-cache-debug'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - debug
+description: 'Debug header x-cache-debug present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-cache-debug'

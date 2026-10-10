@@ -1,0 +1,20 @@
+id: xss5-1460
+name: 'Raw XSS5 in address'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in address'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      address:
+        - '<audio%09src=x%09onerror=nx51459>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51459'

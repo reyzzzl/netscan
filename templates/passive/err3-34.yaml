@@ -1,0 +1,14 @@
+id: err3-34
+name: 'Framework error: type-graphql'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Framework error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'type-graphql'

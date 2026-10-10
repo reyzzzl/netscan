@@ -1,0 +1,14 @@
+id: fp2-36
+name: 'Fingerprint nestjs'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'nestjs detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'nestjs'

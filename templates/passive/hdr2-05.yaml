@@ -1,0 +1,15 @@
+id: hdr2-05
+name: 'Missing x-permitted-cross-domain-policies'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-permitted-cross-domain-policies not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-permitted-cross-domain-policies'
+    negative: true

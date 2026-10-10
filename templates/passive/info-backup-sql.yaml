@@ -1,0 +1,15 @@
+id: info-backup-sql
+name: 'Backup SQL reference'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - exposure
+description: 'Backup SQL reference — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'db_backup.sql'
+      - 'dump.sql'

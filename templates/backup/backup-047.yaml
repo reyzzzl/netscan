@@ -1,0 +1,15 @@
+id: backup-047
+name: 'Exposed /.DS_Store'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.DS_Store is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.DS_Store'
+    matchers:
+      - type: status
+        status: [200]

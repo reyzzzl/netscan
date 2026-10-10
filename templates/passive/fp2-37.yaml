@@ -1,0 +1,14 @@
+id: fp2-37
+name: 'Fingerprint adonis'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'adonis detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'adonis'

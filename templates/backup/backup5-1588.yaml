@@ -1,0 +1,15 @@
+id: backup5-1588
+name: 'Exposed /admin.php.yaml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /admin.php.yaml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/admin.php.yaml'
+    matchers:
+      - type: status
+        status: [200]

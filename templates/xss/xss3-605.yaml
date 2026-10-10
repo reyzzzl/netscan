@@ -1,0 +1,20 @@
+id: xss3-605
+name: 'Raw XSS3 #4 in name'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<ScRiPt>alert(nx3604)</ScRiPt>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3604'

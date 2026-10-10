@@ -1,0 +1,15 @@
+id: spring2-05
+name: 'Spring flyway flyway'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Spring flyway at /actuator/flyway — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/actuator/flyway'
+    matchers:
+      - type: status
+        status: [200]

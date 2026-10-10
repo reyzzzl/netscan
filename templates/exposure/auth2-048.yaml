@@ -1,0 +1,15 @@
+id: auth2-048
+name: 'Redash at /redash'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Redash returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/redash'
+    matchers:
+      - type: status
+        status: [200]

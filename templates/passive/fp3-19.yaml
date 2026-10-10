@@ -1,0 +1,14 @@
+id: fp3-19
+name: 'Stack springboot3'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'springboot3 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'springboot3'

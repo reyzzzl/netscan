@@ -1,0 +1,15 @@
+id: backup5-3834
+name: 'Exposed /sms.php.conf'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sms.php.conf is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sms.php.conf'
+    matchers:
+      - type: status
+        status: [200]

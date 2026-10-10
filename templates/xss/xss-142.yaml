@@ -1,0 +1,20 @@
+id: xss-142
+name: 'Reflected XSS ctx-25 via s'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in s'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      s:
+        - ''';alert(nx141c);//'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx141c'

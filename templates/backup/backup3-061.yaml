@@ -1,0 +1,15 @@
+id: backup3-061
+name: 'Exposed /uploads/.env'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /uploads/.env is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/uploads/.env'
+    matchers:
+      - type: status
+        status: [200]

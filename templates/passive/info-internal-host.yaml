@@ -1,0 +1,15 @@
+id: info-internal-host
+name: 'Internal hostname leaked'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - exposure
+description: 'Internal hostname leaked — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'internal.'
+      - 'intranet'

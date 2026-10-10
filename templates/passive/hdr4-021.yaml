@@ -1,0 +1,14 @@
+id: hdr4-021
+name: 'Header x-fortinet-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-fortinet-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-fortinet-2'

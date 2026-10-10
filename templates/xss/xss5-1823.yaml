@@ -1,0 +1,20 @@
+id: xss5-1823
+name: 'Raw XSS5 in state'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in state'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      state:
+        - '<img%09src=x%09onerror=nx51822>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51822'

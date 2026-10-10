@@ -1,0 +1,20 @@
+id: xss5-0043
+name: 'Raw XSS5 in search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '<xss%0d%0astyle=x%0d%0aonfocusin=nx50042 tabindex=1>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50042'

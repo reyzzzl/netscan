@@ -1,0 +1,14 @@
+id: fp4-062
+name: 'Stack stack4x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'stack4x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'stack4x'

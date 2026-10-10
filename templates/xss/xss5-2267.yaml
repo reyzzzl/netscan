@@ -1,0 +1,20 @@
+id: xss5-2267
+name: 'Raw XSS5 in subject'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in subject'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      subject:
+        - '<video%09><source%09onerror=nx52266>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52266'

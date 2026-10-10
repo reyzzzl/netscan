@@ -1,0 +1,20 @@
+id: xss5-2523
+name: 'Raw XSS5 in search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '<!--#include virtual="nx52522"-->'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52522'

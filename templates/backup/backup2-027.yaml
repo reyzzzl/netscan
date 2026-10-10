@@ -1,0 +1,15 @@
+id: backup2-027
+name: 'Exposed2 /apc.php'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /apc.php is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/apc.php'
+    matchers:
+      - type: status
+        status: [200]

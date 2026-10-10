@@ -1,0 +1,14 @@
+id: fp3-36
+name: 'Stack adonis6'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'adonis6 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'adonis6'

@@ -1,0 +1,14 @@
+id: hdr4-147
+name: 'Header x-xray-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-xray-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-xray-2'

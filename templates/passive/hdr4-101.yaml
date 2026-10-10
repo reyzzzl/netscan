@@ -1,0 +1,14 @@
+id: hdr4-101
+name: 'Header x-key-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-key-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-key-2'

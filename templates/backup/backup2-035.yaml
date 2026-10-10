@@ -1,0 +1,15 @@
+id: backup2-035
+name: 'Exposed2 /dist/'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /dist/ is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dist/'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup5-3026
+name: 'Exposed /index.html.pkg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /index.html.pkg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/index.html.pkg'
+    matchers:
+      - type: status
+        status: [200]

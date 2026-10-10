@@ -1,0 +1,15 @@
+id: backup-077
+name: 'Exposed /.aws/credentials'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.aws/credentials is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.aws/credentials'
+    matchers:
+      - type: status
+        status: [200]

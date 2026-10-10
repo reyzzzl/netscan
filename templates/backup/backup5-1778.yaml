@@ -1,0 +1,15 @@
+id: backup5-1778
+name: 'Exposed /connect.php.gz'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /connect.php.gz is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/connect.php.gz'
+    matchers:
+      - type: status
+        status: [200]

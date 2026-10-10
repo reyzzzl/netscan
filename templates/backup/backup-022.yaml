@@ -1,0 +1,15 @@
+id: backup-022
+name: 'Exposed /sitemap.xml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sitemap.xml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sitemap.xml'
+    matchers:
+      - type: status
+        status: [200]

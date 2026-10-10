@@ -1,0 +1,20 @@
+id: xss5-1735
+name: 'Raw XSS5 in word'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in word'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      word:
+        - '"><img%09src=x%09onerror=nx51734>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51734'

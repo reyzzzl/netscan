@@ -1,0 +1,20 @@
+id: xss5-3802
+name: 'Raw XSS5 in s'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in s'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      s:
+        - '<meta%09http-equiv=refresh%09content="0;javascript:nx53801">'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53801'

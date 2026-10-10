@@ -1,0 +1,18 @@
+id: mass3-127
+name: 'Mass field billing2'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered billing2 on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"t","billing2":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

@@ -1,0 +1,15 @@
+id: auth2-016
+name: 'RockMongo at /rockmongo'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'RockMongo returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/rockmongo'
+    matchers:
+      - type: status
+        status: [200]

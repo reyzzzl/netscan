@@ -1,0 +1,15 @@
+id: cve3-wp-contact-form-7-04
+name: 'WP contact-form-7 LICENSE'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP contact-form-7 at /wp-content/plugins/contact-form-7/LICENSE — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/contact-form-7/LICENSE'
+    matchers:
+      - type: status
+        status: [200]

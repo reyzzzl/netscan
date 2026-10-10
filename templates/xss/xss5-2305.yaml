@@ -1,0 +1,20 @@
+id: xss5-2305
+name: 'Raw XSS5 in company'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in company'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      company:
+        - '<mi%0ahref=javascript:nx52304>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52304'

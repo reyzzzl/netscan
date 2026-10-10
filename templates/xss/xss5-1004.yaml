@@ -1,0 +1,20 @@
+id: xss5-1004
+name: 'Raw XSS5 in keyword'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in keyword'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      keyword:
+        - '<div style="width:expression(nx51003)">'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51003'

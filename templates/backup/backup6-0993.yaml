@@ -1,0 +1,15 @@
+id: backup6-0993
+name: 'Exposed /refund.php.sqlite'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /refund.php.sqlite is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/refund.php.sqlite'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,25 @@
+id: xss7strict-0646
+name: 'Strict breakout XSS in message'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      message:
+        - '<button formaction=javascript:sx70645>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx70645'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx70645'

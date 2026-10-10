@@ -1,0 +1,15 @@
+id: backup6-0071
+name: 'Exposed /signout.php.duplicate'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /signout.php.duplicate is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/signout.php.duplicate'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,23 @@
+id: cmdi6-0651
+name: 'Shell injection in cmd'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - injection
+  - rce
+description: 'OS command runs via cmd'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      cmd:
+        - '%09id'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='
+          - 'root:x:0:0'
+          - 'www-data'

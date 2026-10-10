@@ -1,0 +1,14 @@
+id: fp4-057
+name: 'Stack api3x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'api3x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'api3x'

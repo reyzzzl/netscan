@@ -1,0 +1,14 @@
+id: fp4-023
+name: 'Stack framework2x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'framework2x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'framework2x'

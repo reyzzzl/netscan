@@ -1,0 +1,15 @@
+id: backup5-0193
+name: 'Exposed /.env.mod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.mod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.mod'
+    matchers:
+      - type: status
+        status: [200]

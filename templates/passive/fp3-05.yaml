@@ -1,0 +1,14 @@
+id: fp3-05
+name: 'Stack gatsby5'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'gatsby5 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'gatsby5'

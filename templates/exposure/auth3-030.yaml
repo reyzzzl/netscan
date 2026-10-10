@@ -1,0 +1,15 @@
+id: auth3-030
+name: 'Panel at /appwrite'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /appwrite returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/appwrite'
+    matchers:
+      - type: status
+        status: [200]

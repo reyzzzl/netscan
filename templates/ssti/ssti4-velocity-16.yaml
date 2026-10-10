@@ -1,0 +1,20 @@
+id: ssti4-velocity-16
+name: 'SSTI velocity in c'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - velocity
+description: 'velocity evaluates payload in c'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      c:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

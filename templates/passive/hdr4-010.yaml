@@ -1,0 +1,14 @@
+id: hdr4-010
+name: 'Header x-edge-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-edge-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-edge-2'

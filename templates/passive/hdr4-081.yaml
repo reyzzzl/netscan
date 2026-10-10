@@ -1,0 +1,14 @@
+id: hdr4-081
+name: 'Header x-bettercap-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-bettercap-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-bettercap-2'

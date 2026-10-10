@@ -1,0 +1,20 @@
+id: xss-174
+name: 'Reflected XSS ctx-28 via keyword'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in keyword'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      keyword:
+        - '<video><source onerror=nx173c>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx173c'

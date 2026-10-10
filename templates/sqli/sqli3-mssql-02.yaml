@@ -1,0 +1,22 @@
+id: sqli3-mssql-02
+name: 'SQLi mssql prefix #1 in sort'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - mssql
+description: 'Triggers mssql error via sort'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      sort:
+        - '''))'
+        - '1" OR "1"="1'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'ODBC'
+          - 'SQL Server'

@@ -1,0 +1,15 @@
+id: backup5-1992
+name: 'Exposed /migrate.php.sum'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /migrate.php.sum is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/migrate.php.sum'
+    matchers:
+      - type: status
+        status: [200]

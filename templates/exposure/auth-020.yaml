@@ -1,0 +1,15 @@
+id: auth-020
+name: 'Staging at /staging'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Staging returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/staging'
+    matchers:
+      - type: status
+        status: [200]

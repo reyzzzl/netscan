@@ -1,0 +1,14 @@
+id: fp3-01
+name: 'Stack nodejs20'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'nodejs20 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'nodejs20'

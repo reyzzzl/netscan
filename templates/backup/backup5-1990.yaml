@@ -1,0 +1,15 @@
+id: backup5-1990
+name: 'Exposed /migrate.php.toml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /migrate.php.toml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/migrate.php.toml'
+    matchers:
+      - type: status
+        status: [200]

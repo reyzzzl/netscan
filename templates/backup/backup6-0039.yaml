@@ -1,0 +1,15 @@
+id: backup6-0039
+name: 'Exposed /signin.php.toml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /signin.php.toml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/signin.php.toml'
+    matchers:
+      - type: status
+        status: [200]

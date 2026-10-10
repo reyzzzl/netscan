@@ -1,0 +1,15 @@
+id: cve2-harbor-06
+name: 'Harbor fingerprint /harbor/ v6'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Harbor at /harbor/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/harbor/'
+    matchers:
+      - type: status
+        status: [200]

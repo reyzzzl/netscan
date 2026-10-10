@@ -1,0 +1,15 @@
+id: backup5-2329
+name: 'Exposed /dbconnect.php.zip2'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /dbconnect.php.zip2 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dbconnect.php.zip2'
+    matchers:
+      - type: status
+        status: [200]

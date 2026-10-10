@@ -1,0 +1,15 @@
+id: cve3-wp-wordfence-05
+name: 'WP wordfence wordfence.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP wordfence at /wp-content/plugins/wordfence/wordfence.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/wordfence/wordfence.php'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: ssti2-perl-04
+name: 'SSTI2 perl via content'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - perl
+description: 'perl evaluates payload in content'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      content:
+        - '<% 7*7 %>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

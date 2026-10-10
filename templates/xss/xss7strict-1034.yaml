@@ -1,0 +1,25 @@
+id: xss7strict-1034
+name: 'Strict breakout XSS in label'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      label:
+        - '<a href=javascript:sx71033>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx71033'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx71033'

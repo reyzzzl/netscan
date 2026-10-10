@@ -1,0 +1,15 @@
+id: backup2-026
+name: 'Exposed2 /opcache-status'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /opcache-status is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/opcache-status'
+    matchers:
+      - type: status
+        status: [200]

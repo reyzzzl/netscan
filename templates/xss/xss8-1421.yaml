@@ -1,0 +1,20 @@
+id: xss8-1421
+name: 'Raw XSS8 in city'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in city'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      city:
+        - '<svg onload=nx81420/>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx81420'

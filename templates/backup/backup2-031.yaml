@@ -1,0 +1,15 @@
+id: backup2-031
+name: 'Exposed2 /sites/default/files/'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sites/default/files/ is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sites/default/files/'
+    matchers:
+      - type: status
+        status: [200]

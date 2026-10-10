@@ -1,0 +1,14 @@
+id: hdr4-006
+name: 'Header x-powered-cms2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-powered-cms2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-powered-cms2'

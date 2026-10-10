@@ -1,0 +1,15 @@
+id: backup2-081
+name: 'Exposed2 /terraform.tfstate'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /terraform.tfstate is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/terraform.tfstate'
+    matchers:
+      - type: status
+        status: [200]

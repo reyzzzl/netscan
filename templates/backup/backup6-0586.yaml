@@ -1,0 +1,15 @@
+id: backup6-0586
+name: 'Exposed /tracking.php.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /tracking.php.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/tracking.php.yml'
+    matchers:
+      - type: status
+        status: [200]

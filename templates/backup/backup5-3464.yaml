@@ -1,0 +1,15 @@
+id: backup5-3464
+name: 'Exposed /sync.php.dist'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sync.php.dist is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sync.php.dist'
+    matchers:
+      - type: status
+        status: [200]

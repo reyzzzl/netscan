@@ -1,0 +1,15 @@
+id: backup4-044
+name: 'Exposed /core.php.prod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /core.php.prod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/core.php.prod'
+    matchers:
+      - type: status
+        status: [200]

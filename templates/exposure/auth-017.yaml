@@ -1,0 +1,15 @@
+id: auth-017
+name: 'phpinfo at /phpinfo'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'phpinfo returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/phpinfo'
+    matchers:
+      - type: status
+        status: [200]

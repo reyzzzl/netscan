@@ -1,0 +1,20 @@
+id: xss5-3765
+name: 'Raw XSS5 in name'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<marquee%09behavior=slide%09onstart=nx53764>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53764'

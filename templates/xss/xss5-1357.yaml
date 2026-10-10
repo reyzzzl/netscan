@@ -1,0 +1,20 @@
+id: xss5-1357
+name: 'Raw XSS5 in prefix'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in prefix'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      prefix:
+        - '<video%0a><source%0aonerror=nx51356>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51356'

@@ -1,0 +1,20 @@
+id: xss5-3066
+name: 'Raw XSS5 in website'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in website'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      website:
+        - '<td%09background=javascript:nx53065>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53065'

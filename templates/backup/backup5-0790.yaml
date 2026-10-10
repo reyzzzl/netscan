@@ -1,0 +1,15 @@
+id: backup5-0790
+name: 'Exposed /bootstrap.php.toml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /bootstrap.php.toml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/bootstrap.php.toml'
+    matchers:
+      - type: status
+        status: [200]

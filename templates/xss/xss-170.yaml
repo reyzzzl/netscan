@@ -1,0 +1,20 @@
+id: xss-170
+name: 'Reflected XSS ctx-24 via text'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - '\";alert(nx169c);//'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx169c'

@@ -1,0 +1,20 @@
+id: xss5-3011
+name: 'Raw XSS5 in input'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in input'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      input:
+        - '<math%09href=javascript:nx53010>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53010'

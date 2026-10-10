@@ -1,0 +1,15 @@
+id: backup5-1988
+name: 'Exposed /migrate.php.yaml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /migrate.php.yaml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/migrate.php.yaml'
+    matchers:
+      - type: status
+        status: [200]

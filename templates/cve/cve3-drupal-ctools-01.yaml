@@ -1,0 +1,15 @@
+id: cve3-drupal-ctools-01
+name: 'Drupal ctools CHANGELOG.txt'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Drupal ctools at /modules/contrib/ctools/CHANGELOG.txt — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/modules/contrib/ctools/CHANGELOG.txt'
+    matchers:
+      - type: status
+        status: [200]

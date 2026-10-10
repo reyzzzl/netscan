@@ -1,0 +1,14 @@
+id: fp2-08
+name: 'Fingerprint astro'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'astro detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'astro'

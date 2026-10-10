@@ -1,0 +1,14 @@
+id: info-google-key
+name: 'Google API key pattern'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Google API key pattern — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'AIza'

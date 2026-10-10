@@ -1,0 +1,20 @@
+id: xss3-428
+name: 'Raw XSS3 #7 in title'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in title'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      title:
+        - '''><img%09src=x%09onerror=nx3427>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3427'

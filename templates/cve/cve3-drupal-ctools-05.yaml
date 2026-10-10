@@ -1,0 +1,15 @@
+id: cve3-drupal-ctools-05
+name: 'Drupal ctools ctools.module'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Drupal ctools at /modules/contrib/ctools/ctools.module — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/modules/contrib/ctools/ctools.module'
+    matchers:
+      - type: status
+        status: [200]

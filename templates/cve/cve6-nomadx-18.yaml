@@ -1,0 +1,15 @@
+id: cve6-nomadx-18
+name: 'nomadx at /api/v1'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'nomadx at /api/v1 — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/v1'
+    matchers:
+      - type: status
+        status: [200]

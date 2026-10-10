@@ -1,0 +1,15 @@
+id: backup5-1458
+name: 'Exposed /payment.php.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /payment.php.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/payment.php.bak'
+    matchers:
+      - type: status
+        status: [200]

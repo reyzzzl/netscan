@@ -1,0 +1,20 @@
+id: xss5-0143
+name: 'Raw XSS5 in state'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in state'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      state:
+        - '<xss%0astyle=x%0aonpointerover=nx50142>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50142'

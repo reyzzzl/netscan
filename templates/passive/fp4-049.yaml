@@ -1,0 +1,14 @@
+id: fp4-049
+name: 'Stack cms3x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'cms3x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'cms3x'

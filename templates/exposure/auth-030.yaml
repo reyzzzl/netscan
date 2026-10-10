@@ -1,0 +1,15 @@
+id: auth-030
+name: 'Private dir at /private'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Private dir returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/private'
+    matchers:
+      - type: status
+        status: [200]

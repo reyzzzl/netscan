@@ -1,0 +1,20 @@
+id: xss5-0987
+name: 'Raw XSS5 in subject'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in subject'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      subject:
+        - '<table%09background=data:text/html,nx50986>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50986'

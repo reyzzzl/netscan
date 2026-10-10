@@ -1,0 +1,15 @@
+id: hdr-csp-report
+name: 'CSP without report-uri'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'CSP without report-uri — header not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'report-uri'
+    negative: true

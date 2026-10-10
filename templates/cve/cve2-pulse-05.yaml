@@ -1,0 +1,15 @@
+id: cve2-pulse-05
+name: 'Pulse fingerprint /dana-na/ v5'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Pulse at /dana-na/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dana-na/'
+    matchers:
+      - type: status
+        status: [200]

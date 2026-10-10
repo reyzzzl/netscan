@@ -1,0 +1,15 @@
+id: backup5-1475
+name: 'Exposed /payment.php.bundle'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /payment.php.bundle is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/payment.php.bundle'
+    matchers:
+      - type: status
+        status: [200]

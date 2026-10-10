@@ -1,0 +1,14 @@
+id: fp3-53
+name: 'Stack framer2'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'framer2 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'framer2'

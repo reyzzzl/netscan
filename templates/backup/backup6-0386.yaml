@@ -1,0 +1,15 @@
+id: backup6-0386
+name: 'Exposed /confirm.php.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /confirm.php.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/confirm.php.yml'
+    matchers:
+      - type: status
+        status: [200]

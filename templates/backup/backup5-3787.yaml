@@ -1,0 +1,15 @@
+id: backup5-3787
+name: 'Exposed /mail.php.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /mail.php.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/mail.php.yml'
+    matchers:
+      - type: status
+        status: [200]

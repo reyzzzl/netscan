@@ -1,0 +1,15 @@
+id: backup5-0789
+name: 'Exposed /bootstrap.php.json5'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /bootstrap.php.json5 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/bootstrap.php.json5'
+    matchers:
+      - type: status
+        status: [200]

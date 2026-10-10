@@ -1,0 +1,15 @@
+id: cve2-exchange-02
+name: 'Exchange fingerprint /owa/ v2'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Exchange at /owa/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/owa/'
+    matchers:
+      - type: status
+        status: [200]

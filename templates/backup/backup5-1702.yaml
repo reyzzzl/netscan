@@ -1,0 +1,15 @@
+id: backup5-1702
+name: 'Exposed /database.php.old'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /database.php.old is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/database.php.old'
+    matchers:
+      - type: status
+        status: [200]

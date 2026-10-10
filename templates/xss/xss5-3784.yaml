@@ -1,0 +1,20 @@
+id: xss5-3784
+name: 'Raw XSS5 in zip'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in zip'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      zip:
+        - '<audio%0asrc=x%0aonerror=nx53783>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53783'

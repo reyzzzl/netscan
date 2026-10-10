@@ -1,0 +1,14 @@
+id: fp2-32
+name: 'Fingerprint actix'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'actix detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'actix'

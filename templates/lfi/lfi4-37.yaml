@@ -1,0 +1,20 @@
+id: lfi4-37
+name: 'System file /etc/group via path'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads /etc/group via path'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      path:
+        - '/etc/group'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:'

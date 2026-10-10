@@ -1,0 +1,15 @@
+id: backup2-134
+name: 'Exposed2 /grafana.ini'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /grafana.ini is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/grafana.ini'
+    matchers:
+      - type: status
+        status: [200]

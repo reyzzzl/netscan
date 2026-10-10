@@ -1,0 +1,20 @@
+id: xss5-0837
+name: 'Raw XSS5 in prefix'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in prefix'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      prefix:
+        - '<object%09data=javascript:nx50836>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50836'

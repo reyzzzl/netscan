@@ -1,0 +1,15 @@
+id: backup6-0735
+name: 'Exposed /contact.php.ini'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /contact.php.ini is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/contact.php.ini'
+    matchers:
+      - type: status
+        status: [200]

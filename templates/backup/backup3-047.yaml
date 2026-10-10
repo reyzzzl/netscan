@@ -1,0 +1,15 @@
+id: backup3-047
+name: 'Exposed /wp-content/db.php'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /wp-content/db.php is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/db.php'
+    matchers:
+      - type: status
+        status: [200]

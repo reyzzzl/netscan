@@ -1,0 +1,15 @@
+id: backup5-3028
+name: 'Exposed /index.html.gz'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /index.html.gz is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/index.html.gz'
+    matchers:
+      - type: status
+        status: [200]

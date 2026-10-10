@@ -1,0 +1,14 @@
+id: sec3-004
+name: 'Secret: 123456:AA'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Possible secret in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - '123456:AA'

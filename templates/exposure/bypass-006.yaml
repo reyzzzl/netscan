@@ -1,0 +1,17 @@
+id: bypass-006
+name: 'Header bypass X-Originating-IP'
+severity: high
+type: active
+tags:
+  - bypass
+  - auth
+  - headers
+description: 'Reaches /admin2 via X-Originating-IP'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/admin2'
+    sendHeaders:
+      X-Originating-IP: '127.0.0.1'
+    matchers:
+      - type: status
+        status: [200]

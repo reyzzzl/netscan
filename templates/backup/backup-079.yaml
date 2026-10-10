@@ -1,0 +1,15 @@
+id: backup-079
+name: 'Exposed /backup.tar.gz'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /backup.tar.gz is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/backup.tar.gz'
+    matchers:
+      - type: status
+        status: [200]

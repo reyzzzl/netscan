@@ -1,0 +1,19 @@
+id: cors3-180
+name: 'CORS origin https://e379.example'
+severity: medium
+type: active
+tags:
+  - cors
+  - headers
+  - api
+description: 'Origin reflected on /api/data'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/data'
+    sendHeaders:
+      Origin: 'https://e379.example'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'e379.example'

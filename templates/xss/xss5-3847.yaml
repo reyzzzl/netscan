@@ -1,0 +1,20 @@
+id: xss5-3847
+name: 'Raw XSS5 in comment'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in comment'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      comment:
+        - '<script%09>alert(nx53846)</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53846'

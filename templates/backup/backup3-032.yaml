@@ -1,0 +1,15 @@
+id: backup3-032
+name: 'Exposed /.well-known/assetlinks.json'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.well-known/assetlinks.json is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.well-known/assetlinks.json'
+    matchers:
+      - type: status
+        status: [200]

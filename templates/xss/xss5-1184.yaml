@@ -1,0 +1,20 @@
+id: xss5-1184
+name: 'Raw XSS5 in zip'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in zip'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      zip:
+        - '<div%0aonpointerleave=nx51183>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51183'

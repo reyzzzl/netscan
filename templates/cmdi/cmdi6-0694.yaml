@@ -1,0 +1,23 @@
+id: cmdi6-0694
+name: 'Shell injection in sh'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - injection
+  - rce
+description: 'OS command runs via sh'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      sh:
+        - '%26id'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='
+          - 'root:x:0:0'
+          - 'www-data'

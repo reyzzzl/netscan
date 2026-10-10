@@ -1,0 +1,17 @@
+id: hdr4-01
+name: 'Server banner version'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - fingerprint
+description: 'Server banner leaks version'
+matchers:
+  - type: regex
+    part: headers
+    regex:
+      - '[Aa]pache/[0-9]+\.[0-9]+'
+      - 'nginx/[0-9]+\.[0-9]+'
+      - 'Microsoft-IIS/[0-9]+'
+      - 'openresty/[0-9]+'

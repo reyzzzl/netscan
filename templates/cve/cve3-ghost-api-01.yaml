@@ -1,0 +1,15 @@
+id: cve3-ghost-api-01
+name: 'Ghost api/admin/session session'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Ghost api/admin/session at /ghost/api/admin/session — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/ghost/api/admin/session'
+    matchers:
+      - type: status
+        status: [200]

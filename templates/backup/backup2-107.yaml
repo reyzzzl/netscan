@@ -1,0 +1,15 @@
+id: backup2-107
+name: 'Exposed2 /Procfile'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /Procfile is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/Procfile'
+    matchers:
+      - type: status
+        status: [200]

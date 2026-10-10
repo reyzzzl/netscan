@@ -1,0 +1,15 @@
+id: auth2-020
+name: 'phpMiniAdmin at /phpminiadmin'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'phpMiniAdmin returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/phpminiadmin'
+    matchers:
+      - type: status
+        status: [200]

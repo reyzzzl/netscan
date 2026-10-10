@@ -1,0 +1,23 @@
+id: cmdi6-0879
+name: 'Shell injection in ping'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - injection
+  - rce
+description: 'OS command runs via ping'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      ping:
+        - '|echo${IFS}NX'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='
+          - 'root:x:0:0'
+          - 'www-data'

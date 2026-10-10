@@ -1,0 +1,15 @@
+id: cve3-joomla-users-02
+name: 'Joomla users changelog.xml'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Joomla users at /components/com_users/changelog.xml — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/components/com_users/changelog.xml'
+    matchers:
+      - type: status
+        status: [200]

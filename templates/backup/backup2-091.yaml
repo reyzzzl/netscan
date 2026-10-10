@@ -1,0 +1,15 @@
+id: backup2-091
+name: 'Exposed2 /logback.xml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /logback.xml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/logback.xml'
+    matchers:
+      - type: status
+        status: [200]

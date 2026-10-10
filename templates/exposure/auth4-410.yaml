@@ -1,0 +1,15 @@
+id: auth4-410
+name: 'Panel at /sso/beta'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /sso/beta returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sso/beta'
+    matchers:
+      - type: status
+        status: [200]

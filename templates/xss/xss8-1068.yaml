@@ -1,0 +1,20 @@
+id: xss8-1068
+name: 'Raw XSS8 in about'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in about'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      about:
+        - '<select autofocus onfocus=nx81067%0d%0a>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx81067'

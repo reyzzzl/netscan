@@ -1,0 +1,15 @@
+id: auth2-059
+name: 'Traefik at /traefik'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Traefik returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/traefik'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: xss3-582
+name: 'Raw XSS3 #11 in s'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in s'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      s:
+        - '<marquee%0aloop=1%0aonstart=nx3581>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3581'

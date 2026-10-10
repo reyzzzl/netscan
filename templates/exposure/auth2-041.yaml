@@ -1,0 +1,15 @@
+id: auth2-041
+name: 'Kibana at /kibana'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Kibana returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/kibana'
+    matchers:
+      - type: status
+        status: [200]

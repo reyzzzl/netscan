@@ -1,0 +1,15 @@
+id: hdr-perm
+name: 'Missing Permissions-Policy'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Missing Permissions-Policy — header not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'permissions-policy'
+    negative: true

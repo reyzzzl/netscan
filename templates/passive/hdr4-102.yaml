@@ -1,0 +1,14 @@
+id: hdr4-102
+name: 'Header x-secret-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-secret-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-secret-2'

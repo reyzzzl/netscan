@@ -1,0 +1,14 @@
+id: hdr4-087
+name: 'Header x-builtwith-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-builtwith-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-builtwith-2'

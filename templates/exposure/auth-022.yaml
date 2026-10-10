@@ -1,0 +1,15 @@
+id: auth-022
+name: 'SVN dir at /.svn'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'SVN dir returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.svn'
+    matchers:
+      - type: status
+        status: [200]

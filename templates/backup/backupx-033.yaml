@@ -1,0 +1,15 @@
+id: backupx-033
+name: 'Exposed /passwd.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /passwd.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/passwd.bak'
+    matchers:
+      - type: status
+        status: [200]

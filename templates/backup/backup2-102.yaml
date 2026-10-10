@@ -1,0 +1,15 @@
+id: backup2-102
+name: 'Exposed2 /Gemfile.lock.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /Gemfile.lock.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/Gemfile.lock.bak'
+    matchers:
+      - type: status
+        status: [200]

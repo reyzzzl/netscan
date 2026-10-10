@@ -1,0 +1,15 @@
+id: backup5-0172
+name: 'Exposed /.env.duplicate'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.duplicate is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.duplicate'
+    matchers:
+      - type: status
+        status: [200]

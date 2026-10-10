@@ -1,0 +1,15 @@
+id: cve3-wp-classic-editor-04
+name: 'WP classic-editor LICENSE'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP classic-editor at /wp-content/plugins/classic-editor/LICENSE — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/classic-editor/LICENSE'
+    matchers:
+      - type: status
+        status: [200]

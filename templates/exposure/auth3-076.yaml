@@ -1,0 +1,15 @@
+id: auth3-076
+name: 'Panel at /skylight'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /skylight returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/skylight'
+    matchers:
+      - type: status
+        status: [200]

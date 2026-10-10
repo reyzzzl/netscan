@@ -1,0 +1,20 @@
+id: xss5-3215
+name: 'Raw XSS5 in word'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in word'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      word:
+        - 'jaVasCript%3anx53214'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53214'

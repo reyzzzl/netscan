@@ -1,0 +1,15 @@
+id: backup5-2569
+name: 'Exposed /cookie.php.local'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /cookie.php.local is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/cookie.php.local'
+    matchers:
+      - type: status
+        status: [200]

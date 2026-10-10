@@ -1,0 +1,15 @@
+id: auth2-043
+name: 'Solr at /solr'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Solr returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/solr'
+    matchers:
+      - type: status
+        status: [200]

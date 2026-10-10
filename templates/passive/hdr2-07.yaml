@@ -1,0 +1,15 @@
+id: hdr2-07
+name: 'Missing nel'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header nel not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'nel'
+    negative: true

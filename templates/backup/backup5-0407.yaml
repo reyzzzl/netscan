@@ -1,0 +1,15 @@
+id: backup5-0407
+name: 'Exposed /backup.zip.bkp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /backup.zip.bkp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/backup.zip.bkp'
+    matchers:
+      - type: status
+        status: [200]

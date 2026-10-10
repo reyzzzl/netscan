@@ -1,0 +1,20 @@
+id: xss5-1210
+name: 'Raw XSS5 in text'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - '<!--#include virtual="nx51209"-->'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51209'

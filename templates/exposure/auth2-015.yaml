@@ -1,0 +1,15 @@
+id: auth2-015
+name: 'DB manager at /dbmanager'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'DB manager returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dbmanager'
+    matchers:
+      - type: status
+        status: [200]

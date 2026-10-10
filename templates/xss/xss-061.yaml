@@ -1,0 +1,20 @@
+id: xss-061
+name: 'Reflected XSS ctx-2 via q'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '''"><svg onload=nx060c>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx060c'

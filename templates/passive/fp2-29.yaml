@@ -1,0 +1,14 @@
+id: fp2-29
+name: 'Fingerprint gin-gonic'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'gin-gonic detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'gin-gonic'

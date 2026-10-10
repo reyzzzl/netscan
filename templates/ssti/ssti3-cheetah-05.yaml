@@ -1,0 +1,20 @@
+id: ssti3-cheetah-05
+name: 'SSTI cheetah in body'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - cheetah
+description: 'cheetah evaluates payload in body'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      body:
+        - '#echo 7*7'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

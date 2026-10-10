@@ -1,0 +1,20 @@
+id: xss4-111
+name: 'Raw XSS4 #30 in q'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '{{&nx4110}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx4110'

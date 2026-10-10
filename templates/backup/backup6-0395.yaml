@@ -1,0 +1,15 @@
+id: backup6-0395
+name: 'Exposed /confirm.php.mdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /confirm.php.mdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/confirm.php.mdb'
+    matchers:
+      - type: status
+        status: [200]

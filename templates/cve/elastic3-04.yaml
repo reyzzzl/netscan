@@ -1,0 +1,15 @@
+id: elastic3-04
+name: 'Elastic3 root'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Elastic3 at / — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/?v=5'
+    matchers:
+      - type: status
+        status: [200]

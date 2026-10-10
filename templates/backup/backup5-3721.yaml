@@ -1,0 +1,15 @@
+id: backup5-3721
+name: 'Exposed /task.php.clone'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /task.php.clone is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/task.php.clone'
+    matchers:
+      - type: status
+        status: [200]

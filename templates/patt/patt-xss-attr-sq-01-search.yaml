@@ -1,0 +1,19 @@
+id: patt-xss-attr-sq-01-search
+name: 'PATT xss patt-xss-attr-sq-01 via search'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+description: 'PATT breakout attribute single-quote generic. [patt:patt-xss-attr-sq-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '''><svg onload=nxp0012>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0012'

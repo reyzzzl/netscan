@@ -1,0 +1,23 @@
+id: cmdi6-0728
+name: 'Shell injection in run'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - injection
+  - rce
+description: 'OS command runs via run'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      run:
+        - '${IFS}id'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='
+          - 'root:x:0:0'
+          - 'www-data'

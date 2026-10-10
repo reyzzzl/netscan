@@ -1,0 +1,20 @@
+id: xss-022
+name: 'Reflected XSS ctx-21 via s'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in s'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      s:
+        - '${nx021c}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx021c'

@@ -1,0 +1,14 @@
+id: err4-136
+name: 'Error marker framework-error-135x'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Framework error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'framework-error-135x'

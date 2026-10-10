@@ -1,0 +1,15 @@
+id: cve3-magento-app-08
+name: 'Magento generated/code/ '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Magento generated/code/ at /app/etc/generated/code/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/app/etc/generated/code/'
+    matchers:
+      - type: status
+        status: [200]

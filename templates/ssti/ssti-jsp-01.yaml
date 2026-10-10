@@ -1,0 +1,20 @@
+id: ssti-jsp-01
+name: 'SSTI jsp via view'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - jsp
+description: 'jsp evaluates payload in view'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      view:
+        - '${7*7}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

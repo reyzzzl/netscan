@@ -1,0 +1,18 @@
+id: mass3-229
+name: 'Mass field grade'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered grade on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"t","grade":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

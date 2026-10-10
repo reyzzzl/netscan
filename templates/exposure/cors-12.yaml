@@ -1,0 +1,19 @@
+id: cors-12
+name: 'CORS reflect https://evil11.example'
+severity: medium
+type: active
+tags:
+  - cors
+  - headers
+  - api
+description: 'Origin https://evil11.example reflected on /api/data'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/data'
+    sendHeaders:
+      Origin: 'https://evil11.example'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil11.example'

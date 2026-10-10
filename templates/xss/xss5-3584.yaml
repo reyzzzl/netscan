@@ -1,0 +1,20 @@
+id: xss5-3584
+name: 'Raw XSS5 in zip'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in zip'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      zip:
+        - '<select%09autofocus%09onfocus=nx53583>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53583'

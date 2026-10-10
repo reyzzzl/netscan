@@ -1,0 +1,14 @@
+id: err3-30
+name: 'Framework error: postgraphile'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Framework error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'postgraphile'

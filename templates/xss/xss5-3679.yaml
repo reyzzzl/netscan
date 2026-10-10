@@ -1,0 +1,20 @@
+id: xss5-3679
+name: 'Raw XSS5 in author'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in author'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      author:
+        - '<xss%0d%0astyle=x%0d%0aonfocusin=nx53678 tabindex=1>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53678'

@@ -1,0 +1,20 @@
+id: xss4-298
+name: 'Raw XSS4 #17 in text'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - '<bgsound src=javascript:alert(nx4297)>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx4297'

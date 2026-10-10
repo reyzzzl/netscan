@@ -1,0 +1,15 @@
+id: auth3-012
+name: 'Panel at /hidden-admin'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /hidden-admin returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/hidden-admin'
+    matchers:
+      - type: status
+        status: [200]

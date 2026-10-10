@@ -1,0 +1,20 @@
+id: ssti2-smarty-02
+name: 'SSTI2 smarty via msg2'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - smarty
+description: 'smarty evaluates payload in msg2'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      msg2:
+        - '{7*7}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

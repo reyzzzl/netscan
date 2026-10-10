@@ -1,0 +1,20 @@
+id: patt-xss-eval-01-comment
+name: 'PATT xss patt-xss-eval-01 via comment'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+  - filterquote
+description: 'PATT Bypass Word Blacklist with Code Evaluation: splits alert string + eval. [patt:patt-xss-eval-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/1%20-%20XSS%20Filter%20Bypass.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      comment:
+        - ''';eval(''ale''+''rt(nxp0003)'');//'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0003'

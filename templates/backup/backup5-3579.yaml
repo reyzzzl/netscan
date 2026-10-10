@@ -1,0 +1,15 @@
+id: backup5-3579
+name: 'Exposed /queue.php.zip2'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /queue.php.zip2 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/queue.php.zip2'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,14 @@
+id: info-rails-debug
+name: 'Rails debug'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - debug
+description: 'Rails debug — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'ActionController::RoutingError'

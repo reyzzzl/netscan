@@ -1,0 +1,15 @@
+id: backup2-037
+name: 'Exposed2 /.next/'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.next/ is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.next/'
+    matchers:
+      - type: status
+        status: [200]

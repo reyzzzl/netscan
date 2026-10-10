@@ -1,0 +1,15 @@
+id: auth3-032
+name: 'Panel at /directus'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /directus returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/directus'
+    matchers:
+      - type: status
+        status: [200]

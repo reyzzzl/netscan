@@ -1,0 +1,20 @@
+id: xss5-1492
+name: 'Raw XSS5 in term'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in term'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      term:
+        - '<table%09background=data:text/html,nx51491>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51491'

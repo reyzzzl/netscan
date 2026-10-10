@@ -1,0 +1,15 @@
+id: backup5-0186
+name: 'Exposed /.env.ini'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.ini is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.ini'
+    matchers:
+      - type: status
+        status: [200]

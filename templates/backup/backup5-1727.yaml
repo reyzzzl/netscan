@@ -1,0 +1,15 @@
+id: backup5-1727
+name: 'Exposed /database.php.tar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /database.php.tar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/database.php.tar'
+    matchers:
+      - type: status
+        status: [200]

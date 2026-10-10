@@ -1,0 +1,19 @@
+id: patt-xss-title-01-q
+name: 'PATT xss patt-xss-title-01 via q'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+description: 'PATT breaks out of <title>. [patt:patt-xss-title-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '</title><svg><script>nxp0017</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0017'

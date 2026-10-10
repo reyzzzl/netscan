@@ -1,0 +1,15 @@
+id: auth2-058
+name: 'Nomad at /nomad'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Nomad returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/nomad'
+    matchers:
+      - type: status
+        status: [200]

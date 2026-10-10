@@ -1,0 +1,20 @@
+id: xss5-3302
+name: 'Raw XSS5 in country'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in country'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      country:
+        - '<isindex%09formaction=javascript:nx53301>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53301'

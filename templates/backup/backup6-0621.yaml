@@ -1,0 +1,15 @@
+id: backup6-0621
+name: 'Exposed /returns.php.duplicate'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /returns.php.duplicate is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/returns.php.duplicate'
+    matchers:
+      - type: status
+        status: [200]

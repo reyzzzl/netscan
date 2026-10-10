@@ -1,0 +1,20 @@
+id: xss5-3816
+name: 'Raw XSS5 in firstname'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in firstname'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      firstname:
+        - '<td%0abackground=data:text/html,nx53815>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53815'

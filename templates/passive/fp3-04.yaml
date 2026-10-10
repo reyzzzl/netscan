@@ -1,0 +1,14 @@
+id: fp3-04
+name: 'Stack nuxt3'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'nuxt3 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'nuxt3'

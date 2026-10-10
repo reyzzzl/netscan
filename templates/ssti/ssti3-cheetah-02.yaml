@@ -1,0 +1,20 @@
+id: ssti3-cheetah-02
+name: 'SSTI cheetah in bio'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - cheetah
+description: 'cheetah evaluates payload in bio'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      bio:
+        - '#echo 7*7'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

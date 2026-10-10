@@ -1,0 +1,18 @@
+id: mass3-046
+name: 'Mass field service'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered service on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"t","service":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

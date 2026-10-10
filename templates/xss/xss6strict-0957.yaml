@@ -1,0 +1,25 @@
+id: xss6strict-0957
+name: 'Strict raw XSS in prefix'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      prefix:
+        - '<video><source onerror=sx60956>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx60956'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx60956'

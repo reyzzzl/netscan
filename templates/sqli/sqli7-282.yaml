@@ -1,0 +1,25 @@
+id: sqli7-282
+name: 'UNION probe in user'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - union
+description: 'Triggers DB error via user'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      user:
+        - ''' UNION SELECT NULL,NULL--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'SQL syntax'
+          - 'mysql_fetch'
+          - 'PostgreSQL'
+          - 'ODBC'
+          - 'ORA-'
+          - 'SQLite'

@@ -1,0 +1,15 @@
+id: auth3-059
+name: 'Panel at /healthchecks'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /healthchecks returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/healthchecks'
+    matchers:
+      - type: status
+        status: [200]

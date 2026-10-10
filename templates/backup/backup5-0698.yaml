@@ -1,0 +1,15 @@
+id: backup5-0698
+name: 'Exposed /lib.php.bakup'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /lib.php.bakup is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/lib.php.bakup'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,14 @@
+id: fp4-020
+name: 'Stack site1x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'site1x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'site1x'

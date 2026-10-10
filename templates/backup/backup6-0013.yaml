@@ -1,0 +1,15 @@
+id: backup6-0013
+name: 'Exposed /signin.php.dist'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /signin.php.dist is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/signin.php.dist'
+    matchers:
+      - type: status
+        status: [200]

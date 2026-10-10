@@ -1,0 +1,22 @@
+id: graphql3-31
+name: 'Mutation probe in graphql'
+severity: medium
+type: active
+tags:
+  - graphql
+  - api
+  - mutation
+description: 'GraphQL mutation reachable via graphql'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      graphql:
+        - 'mutation{__typename}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '__schema'
+          - '__typename'
+          - 'data'

@@ -1,0 +1,15 @@
+id: info-github-token
+name: 'GitHub token pattern'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'GitHub token pattern — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'ghp_'
+      - 'github_token'

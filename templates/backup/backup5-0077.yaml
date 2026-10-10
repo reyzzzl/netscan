@@ -1,0 +1,15 @@
+id: backup5-0077
+name: 'Exposed /wp-config.php.tar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /wp-config.php.tar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-config.php.tar'
+    matchers:
+      - type: status
+        status: [200]

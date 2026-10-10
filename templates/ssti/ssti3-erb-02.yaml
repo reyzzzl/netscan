@@ -1,0 +1,20 @@
+id: ssti3-erb-02
+name: 'SSTI erb in comment'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - erb
+description: 'erb evaluates payload in comment'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      comment:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

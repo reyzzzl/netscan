@@ -1,0 +1,14 @@
+id: err2-09
+name: 'Error page: ORA-12154'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'ORA-12154'

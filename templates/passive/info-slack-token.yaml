@@ -1,0 +1,15 @@
+id: info-slack-token
+name: 'Slack token pattern'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Slack token pattern — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'xoxb-'
+      - 'xoxp-'

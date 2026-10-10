@@ -1,0 +1,15 @@
+id: backup6-0475
+name: 'Exposed /invoice.php.pkg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /invoice.php.pkg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/invoice.php.pkg'
+    matchers:
+      - type: status
+        status: [200]

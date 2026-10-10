@@ -1,0 +1,15 @@
+id: backup5-3923
+name: 'Exposed /log.php.backup'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /log.php.backup is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/log.php.backup'
+    matchers:
+      - type: status
+        status: [200]

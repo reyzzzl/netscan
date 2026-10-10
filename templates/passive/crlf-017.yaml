@@ -1,0 +1,20 @@
+id: crlf-017
+name: 'CRLF injection via name'
+severity: medium
+type: active
+tags:
+  - crlf
+  - injection
+  - headers
+description: 'CRLF header injection via name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - 'test%0d%0aX-Test: netscan'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'x-test'

@@ -1,0 +1,14 @@
+id: info-tomcat
+name: 'Tomcat manager'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - exposure
+description: 'Tomcat manager — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'Tomcat Web Application Manager'

@@ -1,0 +1,25 @@
+id: sqli7-190
+name: 'UNION probe in uid'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - union
+description: 'Triggers DB error via uid'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      uid:
+        - ''' UNION DISTINCT SELECT 1--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'SQL syntax'
+          - 'mysql_fetch'
+          - 'PostgreSQL'
+          - 'ODBC'
+          - 'ORA-'
+          - 'SQLite'

@@ -1,0 +1,15 @@
+id: auth-021
+name: 'Git dir at /.git'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Git dir returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.git'
+    matchers:
+      - type: status
+        status: [200]

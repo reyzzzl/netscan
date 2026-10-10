@@ -1,0 +1,15 @@
+id: cve3-wp-hello-10
+name: 'WP hello screenshot.png'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP hello at /wp-content/plugins/hello/screenshot.png — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/hello/screenshot.png'
+    matchers:
+      - type: status
+        status: [200]

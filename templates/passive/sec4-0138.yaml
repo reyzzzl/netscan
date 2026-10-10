@@ -1,0 +1,14 @@
+id: sec4-0138
+name: 'Token semantic-kernel2- (all)'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Possible token in all — verify manually'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'semantic-kernel2-'

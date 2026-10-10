@@ -1,0 +1,20 @@
+id: xss5-3517
+name: 'Raw XSS5 in prefix'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in prefix'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      prefix:
+        - '<mi%0ahref=javascript:nx53516>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53516'

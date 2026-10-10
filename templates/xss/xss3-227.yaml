@@ -1,0 +1,20 @@
+id: xss3-227
+name: 'Raw XSS3 #16 in comment'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in comment'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      comment:
+        - '<iframe%09srcdoc=<script>nx3226</script>>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3226'

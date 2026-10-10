@@ -1,0 +1,15 @@
+id: spring2-10
+name: 'Spring info info'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Spring info at /actuator/info — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/actuator/info'
+    matchers:
+      - type: status
+        status: [200]

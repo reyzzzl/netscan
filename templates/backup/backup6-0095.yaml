@@ -1,0 +1,15 @@
+id: backup6-0095
+name: 'Exposed /signout.php.mdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /signout.php.mdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/signout.php.mdb'
+    matchers:
+      - type: status
+        status: [200]

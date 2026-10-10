@@ -1,0 +1,15 @@
+id: backup5-0951
+name: 'Exposed /ajax.php.bk'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /ajax.php.bk is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/ajax.php.bk'
+    matchers:
+      - type: status
+        status: [200]

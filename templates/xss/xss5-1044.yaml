@@ -1,0 +1,20 @@
+id: xss5-1044
+name: 'Raw XSS5 in keyword'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in keyword'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      keyword:
+        - '<form%0aaction=javascript:nx51043><input type=submit>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51043'

@@ -1,0 +1,14 @@
+id: sec2-031
+name: 'GitHub OAuth alt'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'GitHub OAuth alt in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'gho_'

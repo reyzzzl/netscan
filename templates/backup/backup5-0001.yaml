@@ -1,0 +1,20 @@
+id: backup5-0001
+name: 'Exposed /internal/buildinfo'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /internal/buildinfo is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/internal/buildinfo'
+    match-all: true
+    matchers:
+      - type: status
+        status: [200]
+      - type: word
+        part: body
+        words:
+          - 'build'

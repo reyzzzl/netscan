@@ -1,0 +1,15 @@
+id: cve2-kibana2-03
+name: 'Kibana2 fingerprint /kibana/app/ v3'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Kibana2 at /kibana/app/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/kibana/app/'
+    matchers:
+      - type: status
+        status: [200]

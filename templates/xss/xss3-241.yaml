@@ -1,0 +1,20 @@
+id: xss3-241
+name: 'Raw XSS3 #0 in q'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '<svg%0aonload=nx3240>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3240'

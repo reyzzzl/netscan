@@ -1,0 +1,20 @@
+id: xss5-3964
+name: 'Raw XSS5 in keyword'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in keyword'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      keyword:
+        - '<details%09open%09ontoggle=nx53963>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53963'

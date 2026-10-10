@@ -1,0 +1,21 @@
+id: ssti-post2-122
+name: 'POST SSTI velocity in view'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - post
+  - velocity
+description: 'velocity evaluates POST body on /render'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/render'
+    body: '{"view":"{{7*7}}"}'
+    sendHeaders:
+      Content-Type: 'application/json'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

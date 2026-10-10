@@ -1,0 +1,15 @@
+id: backup5-0335
+name: 'Exposed /db.sql.cfg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /db.sql.cfg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/db.sql.cfg'
+    matchers:
+      - type: status
+        status: [200]

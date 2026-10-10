@@ -1,0 +1,15 @@
+id: auth3-072
+name: 'Panel at /airbrake'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /airbrake returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/airbrake'
+    matchers:
+      - type: status
+        status: [200]

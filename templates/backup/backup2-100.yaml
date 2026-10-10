@@ -1,0 +1,15 @@
+id: backup2-100
+name: 'Exposed2 /package-lock.json.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /package-lock.json.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/package-lock.json.bak'
+    matchers:
+      - type: status
+        status: [200]

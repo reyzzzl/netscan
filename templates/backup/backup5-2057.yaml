@@ -1,0 +1,15 @@
+id: backup5-2057
+name: 'Exposed /common.php.bkp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /common.php.bkp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/common.php.bkp'
+    matchers:
+      - type: status
+        status: [200]

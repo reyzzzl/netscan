@@ -1,0 +1,20 @@
+id: xss5-3252
+name: 'Raw XSS5 in term'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in term'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      term:
+        - '</textarea><svg%0aonload=nx53251>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53251'

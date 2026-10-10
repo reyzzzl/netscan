@@ -1,0 +1,19 @@
+id: patt-xss-attr-dq-01-q
+name: 'PATT xss patt-xss-attr-dq-01 via q'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+description: 'PATT breakout attribute double-quote generic. [patt:patt-xss-attr-dq-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '"><svg onload=nxp0011>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0011'

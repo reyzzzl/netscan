@@ -1,0 +1,14 @@
+id: fp3-51
+name: 'Stack squarespace7'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'squarespace7 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'squarespace7'

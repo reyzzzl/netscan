@@ -1,0 +1,20 @@
+id: xss3-101
+name: 'Raw XSS3 #10 in q'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '<details%09open%09ontoggle=nx3100>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3100'

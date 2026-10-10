@@ -1,0 +1,20 @@
+id: xss5-1870
+name: 'Raw XSS5 in details'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in details'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      details:
+        - '<input%09autofocus%09onfocus=nx51869>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51869'

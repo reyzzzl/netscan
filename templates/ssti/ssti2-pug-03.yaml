@@ -1,0 +1,20 @@
+id: ssti2-pug-03
+name: 'SSTI2 pug via bio'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - pug
+description: 'pug evaluates payload in bio'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      bio:
+        - '#{7*7}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

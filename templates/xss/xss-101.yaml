@@ -1,0 +1,20 @@
+id: xss-101
+name: 'Reflected XSS ctx-13 via q'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - 'JaVaScRiPt:nx100c'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx100c'

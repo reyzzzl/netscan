@@ -1,0 +1,20 @@
+id: xss5-3597
+name: 'Raw XSS5 in prefix'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in prefix'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      prefix:
+        - '<bgsound%09src=javascript:nx53596>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53596'

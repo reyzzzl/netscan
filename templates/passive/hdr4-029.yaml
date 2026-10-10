@@ -1,0 +1,14 @@
+id: hdr4-029
+name: 'Header x-rsa-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-rsa-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-rsa-2'

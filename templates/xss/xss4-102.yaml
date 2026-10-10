@@ -1,0 +1,20 @@
+id: xss4-102
+name: 'Raw XSS4 #21 in search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '<applet code=javascript:alert(nx4101)>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx4101'

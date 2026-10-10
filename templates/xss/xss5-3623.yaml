@@ -1,0 +1,20 @@
+id: xss5-3623
+name: 'Raw XSS5 in state'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in state'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      state:
+        - 'vbscript%3amsgbox(nx53622)'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53622'

@@ -1,0 +1,15 @@
+id: backup5-0820
+name: 'Exposed /routes.php.copy'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /routes.php.copy is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/routes.php.copy'
+    matchers:
+      - type: status
+        status: [200]

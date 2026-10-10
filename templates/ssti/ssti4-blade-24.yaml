@@ -1,0 +1,20 @@
+id: ssti4-blade-24
+name: 'SSTI blade in b'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - blade
+description: 'blade evaluates payload in b'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      b:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

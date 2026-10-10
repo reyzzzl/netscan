@@ -1,0 +1,20 @@
+id: xss-153
+name: 'Reflected XSS ctx-7 via search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '"-alert(nx152c)-"'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx152c'

@@ -1,0 +1,20 @@
+id: xss5-3704
+name: 'Raw XSS5 in zip'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in zip'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      zip:
+        - '<frame%09src=javascript:nx53703>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53703'

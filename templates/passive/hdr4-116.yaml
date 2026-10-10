@@ -1,0 +1,14 @@
+id: hdr4-116
+name: 'Header x-kms-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-kms-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-kms-2'

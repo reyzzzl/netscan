@@ -1,0 +1,15 @@
+id: backup2-030
+name: 'Exposed2 /wp-content/uploads/'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /wp-content/uploads/ is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/uploads/'
+    matchers:
+      - type: status
+        status: [200]

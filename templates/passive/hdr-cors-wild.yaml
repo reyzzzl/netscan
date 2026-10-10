@@ -1,0 +1,14 @@
+id: hdr-cors-wild
+name: 'CORS wildcard present'
+severity: medium
+type: passive
+tags:
+  - headers
+  - passive
+  - cors
+description: 'CORS wildcard present — detected'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'access-control-allow-origin'

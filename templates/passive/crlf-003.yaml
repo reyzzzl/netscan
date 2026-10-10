@@ -1,0 +1,20 @@
+id: crlf-003
+name: 'CRLF injection via redirect'
+severity: medium
+type: active
+tags:
+  - crlf
+  - injection
+  - headers
+description: 'CRLF header injection via redirect'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      redirect:
+        - 'test%0dX-Test: netscan'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'x-test'

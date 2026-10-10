@@ -1,0 +1,20 @@
+id: xss5-2333
+name: 'Raw XSS5 in value'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in value'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      value:
+        - '<script%0d>alert(nx52332)</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52332'

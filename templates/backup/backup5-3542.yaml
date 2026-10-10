@@ -1,0 +1,15 @@
+id: backup5-3542
+name: 'Exposed /cron.php.sum'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /cron.php.sum is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/cron.php.sum'
+    matchers:
+      - type: status
+        status: [200]

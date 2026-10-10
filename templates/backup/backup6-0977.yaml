@@ -1,0 +1,15 @@
+id: backup6-0977
+name: 'Exposed /refund.php.gz'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /refund.php.gz is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/refund.php.gz'
+    matchers:
+      - type: status
+        status: [200]

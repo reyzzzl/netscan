@@ -1,0 +1,18 @@
+id: mass3-125
+name: 'Mass field account2'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered account2 on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"u1","account2":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

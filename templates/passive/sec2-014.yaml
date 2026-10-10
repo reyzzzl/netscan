@@ -1,0 +1,14 @@
+id: sec2-014
+name: 'Password assign'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Password assign in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'password='

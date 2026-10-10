@@ -1,0 +1,15 @@
+id: backup5-1846
+name: 'Exposed /install.php.mdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /install.php.mdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/install.php.mdb'
+    matchers:
+      - type: status
+        status: [200]

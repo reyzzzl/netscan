@@ -1,0 +1,15 @@
+id: backup3-042
+name: 'Exposed /wp-content/uploads/backup.zip'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /wp-content/uploads/backup.zip is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/uploads/backup.zip'
+    matchers:
+      - type: status
+        status: [200]

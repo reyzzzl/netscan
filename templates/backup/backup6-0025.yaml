@@ -1,0 +1,15 @@
+id: backup6-0025
+name: 'Exposed /signin.php.pkg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /signin.php.pkg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/signin.php.pkg'
+    matchers:
+      - type: status
+        status: [200]

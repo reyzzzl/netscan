@@ -1,0 +1,14 @@
+id: hdr4-009
+name: 'Header x-cache-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-cache-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-cache-2'

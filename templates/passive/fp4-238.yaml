@@ -1,0 +1,14 @@
+id: fp4-238
+name: 'Stack app12x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'app12x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'app12x'

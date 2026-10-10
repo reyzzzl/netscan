@@ -1,0 +1,20 @@
+id: redirect7-230
+name: 'Trusted bypass in goto'
+severity: high
+type: active
+tags:
+  - redirect
+  - open-redirect
+  - bypass
+description: 'Bypasses trusted.com allowlist via goto'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      goto:
+        - 'https://trusted.com%252f.evil.example/'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

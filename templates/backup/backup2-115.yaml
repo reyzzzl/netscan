@@ -1,0 +1,15 @@
+id: backup2-115
+name: 'Exposed2 /vercel.json'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /vercel.json is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/vercel.json'
+    matchers:
+      - type: status
+        status: [200]

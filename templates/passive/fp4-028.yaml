@@ -1,0 +1,14 @@
+id: fp4-028
+name: 'Stack server2x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'server2x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'server2x'

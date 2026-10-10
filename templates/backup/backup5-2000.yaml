@@ -1,0 +1,15 @@
+id: backup5-2000
+name: 'Exposed /migrate.php.sav'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /migrate.php.sav is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/migrate.php.sav'
+    matchers:
+      - type: status
+        status: [200]

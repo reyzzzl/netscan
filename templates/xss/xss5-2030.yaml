@@ -1,0 +1,20 @@
+id: xss5-2030
+name: 'Raw XSS5 in details'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in details'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      details:
+        - '<script%0d>alert(nx52029)</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52029'

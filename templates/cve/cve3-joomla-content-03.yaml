@@ -1,0 +1,15 @@
+id: cve3-joomla-content-03
+name: 'Joomla content index.html'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Joomla content at /components/com_content/index.html — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/components/com_content/index.html'
+    matchers:
+      - type: status
+        status: [200]

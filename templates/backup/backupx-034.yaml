@@ -1,0 +1,15 @@
+id: backupx-034
+name: 'Exposed /shadow.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /shadow.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/shadow.bak'
+    matchers:
+      - type: status
+        status: [200]

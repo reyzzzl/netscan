@@ -1,0 +1,15 @@
+id: auth-013
+name: 'API docs at /api-docs'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'API docs returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api-docs'
+    matchers:
+      - type: status
+        status: [200]

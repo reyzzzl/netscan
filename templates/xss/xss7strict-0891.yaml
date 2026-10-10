@@ -1,0 +1,25 @@
+id: xss7strict-0891
+name: 'Strict breakout XSS in input'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      input:
+        - '"><svg onload=sx70890>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx70890'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx70890'

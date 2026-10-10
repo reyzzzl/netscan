@@ -1,0 +1,18 @@
+id: mass3-018
+name: 'Mass field sysadmin'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered sysadmin on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"a1","sysadmin":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

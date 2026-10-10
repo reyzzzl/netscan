@@ -1,0 +1,15 @@
+id: backup5-0783
+name: 'Exposed /bootstrap.php.tpl'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /bootstrap.php.tpl is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/bootstrap.php.tpl'
+    matchers:
+      - type: status
+        status: [200]

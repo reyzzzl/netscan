@@ -1,0 +1,15 @@
+id: auth3-017
+name: 'Panel at /wp-admin/install.php'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /wp-admin/install.php returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-admin/install.php'
+    matchers:
+      - type: status
+        status: [200]

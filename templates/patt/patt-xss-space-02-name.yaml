@@ -1,0 +1,20 @@
+id: patt-xss-space-02-name
+name: 'PATT xss patt-xss-space-02 via name'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+  - filterspace
+description: 'PATT space bypass: %0a (LF) as space. [patt:patt-xss-space-02] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<svg%0aonload=nxp0008>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0008'

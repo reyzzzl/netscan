@@ -1,0 +1,15 @@
+id: auth3-058
+name: 'Panel at /statping'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /statping returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/statping'
+    matchers:
+      - type: status
+        status: [200]

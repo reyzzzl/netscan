@@ -1,0 +1,20 @@
+id: xss4-304
+name: 'Raw XSS4 #23 in message'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in message'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      message:
+        - '<frameset onload=alert(nx4303)>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx4303'

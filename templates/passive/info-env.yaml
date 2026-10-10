@@ -1,0 +1,15 @@
+id: info-env
+name: 'ENV content in body'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - exposure
+description: 'ENV content in body — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'NODE_ENV'
+      - '.env'

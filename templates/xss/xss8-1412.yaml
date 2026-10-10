@@ -1,0 +1,20 @@
+id: xss8-1412
+name: 'Raw XSS8 in term'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in term'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      term:
+        - '<img src=x onerror=nx81411%0d%0a>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx81411'

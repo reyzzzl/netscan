@@ -1,0 +1,23 @@
+id: patt-gql-frag-01-q
+name: 'PATT GraphQL patt-gql-frag-01 via q'
+severity: medium
+type: active
+tags:
+  - graphql
+  - patt
+  - api
+  - introspection
+requires:
+  - graphql
+description: 'PATT GraphQL fragment when query plain diblok. [patt:patt-gql-frag-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/GraphQL%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '{...F}fragment F on Query{__typename}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '__typename'

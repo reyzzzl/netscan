@@ -1,0 +1,15 @@
+id: backup2-103
+name: 'Exposed2 /Pipfile.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /Pipfile.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/Pipfile.bak'
+    matchers:
+      - type: status
+        status: [200]

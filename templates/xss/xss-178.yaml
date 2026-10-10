@@ -1,0 +1,20 @@
+id: xss-178
+name: 'Reflected XSS ctx-3 via title'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in title'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      title:
+        - '<img src=x onerror=nx177c>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx177c'

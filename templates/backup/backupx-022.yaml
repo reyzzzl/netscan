@@ -1,0 +1,15 @@
+id: backupx-022
+name: 'Exposed /main.js.map'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /main.js.map is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/main.js.map'
+    matchers:
+      - type: status
+        status: [200]

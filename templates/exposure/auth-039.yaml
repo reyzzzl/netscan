@@ -1,0 +1,15 @@
+id: auth-039
+name: 'Config at /config'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Config returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/config'
+    matchers:
+      - type: status
+        status: [200]

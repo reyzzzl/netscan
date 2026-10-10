@@ -1,0 +1,20 @@
+id: xss8-0654
+name: 'Raw XSS8 in data'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in data'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      data:
+        - '<details open ontoggle=nx80653%09/>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx80653'

@@ -1,0 +1,15 @@
+id: cve5-bundlesizex-10
+name: 'bundlesizex at /status'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'bundlesizex at /status — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/status'
+    matchers:
+      - type: status
+        status: [200]

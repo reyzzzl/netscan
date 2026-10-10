@@ -1,0 +1,15 @@
+id: backup5-3014
+name: 'Exposed /index.html.dist'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /index.html.dist is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/index.html.dist'
+    matchers:
+      - type: status
+        status: [200]

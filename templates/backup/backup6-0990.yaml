@@ -1,0 +1,15 @@
+id: backup6-0990
+name: 'Exposed /refund.php.lock'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /refund.php.lock is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/refund.php.lock'
+    matchers:
+      - type: status
+        status: [200]

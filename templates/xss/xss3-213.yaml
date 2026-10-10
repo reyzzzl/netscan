@@ -1,0 +1,20 @@
+id: xss3-213
+name: 'Raw XSS3 #2 in value'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in value'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      value:
+        - '<img%09src=x%09onerror=nx3212>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3212'

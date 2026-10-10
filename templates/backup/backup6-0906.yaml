@@ -1,0 +1,15 @@
+id: backup6-0906
+name: 'Exposed /privacy.php.bkp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /privacy.php.bkp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/privacy.php.bkp'
+    matchers:
+      - type: status
+        status: [200]

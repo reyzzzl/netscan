@@ -1,0 +1,14 @@
+id: hdr4-023
+name: 'Header x-sophos-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-sophos-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-sophos-2'

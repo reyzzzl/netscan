@@ -1,0 +1,14 @@
+id: fp3-52
+name: 'Stack webflow2'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'webflow2 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'webflow2'

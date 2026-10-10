@@ -1,0 +1,15 @@
+id: backup5-3570
+name: 'Exposed /queue.php.copy'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /queue.php.copy is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/queue.php.copy'
+    matchers:
+      - type: status
+        status: [200]

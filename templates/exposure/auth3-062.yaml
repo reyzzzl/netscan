@@ -1,0 +1,15 @@
+id: auth3-062
+name: 'Panel at /sentry2'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /sentry2 returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sentry2'
+    matchers:
+      - type: status
+        status: [200]

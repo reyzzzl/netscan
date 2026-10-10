@@ -1,0 +1,20 @@
+id: backup-043
+name: 'Exposed /wp-login.php'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /wp-login.php is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-login.php'
+    match-all: true
+    matchers:
+      - type: status
+        status: [200]
+      - type: word
+        part: body
+        words:
+          - 'WordPress'

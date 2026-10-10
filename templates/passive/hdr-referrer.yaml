@@ -1,0 +1,15 @@
+id: hdr-referrer
+name: 'Missing Referrer-Policy'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Missing Referrer-Policy — header not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'referrer-policy'
+    negative: true

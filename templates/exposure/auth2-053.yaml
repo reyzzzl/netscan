@@ -1,0 +1,15 @@
+id: auth2-053
+name: 'SonarQube at /sonar'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'SonarQube returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sonar'
+    matchers:
+      - type: status
+        status: [200]

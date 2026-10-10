@@ -1,0 +1,15 @@
+id: backup6-0517
+name: 'Exposed /shipping.php.stage'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /shipping.php.stage is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/shipping.php.stage'
+    matchers:
+      - type: status
+        status: [200]

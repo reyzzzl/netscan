@@ -1,0 +1,15 @@
+id: backup2-135
+name: 'Exposed2 /zabbix.conf'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /zabbix.conf is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/zabbix.conf'
+    matchers:
+      - type: status
+        status: [200]

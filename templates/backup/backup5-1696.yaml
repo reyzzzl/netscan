@@ -1,0 +1,15 @@
+id: backup5-1696
+name: 'Exposed /settings.php.mdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /settings.php.mdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/settings.php.mdb'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: cve3-wp-hello-02
+name: 'WP hello readme.md'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP hello at /wp-content/plugins/hello/readme.md — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/hello/readme.md'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: xss5-1125
+name: 'Raw XSS5 in name'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<script>alert(String.fromCharCode(nx51124))</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51124'

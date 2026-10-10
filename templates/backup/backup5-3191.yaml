@@ -1,0 +1,15 @@
+id: backup5-3191
+name: 'Exposed /dev.php.lock'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /dev.php.lock is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dev.php.lock'
+    matchers:
+      - type: status
+        status: [200]

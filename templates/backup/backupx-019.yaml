@@ -1,0 +1,15 @@
+id: backupx-019
+name: 'Exposed /db.sqlite.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /db.sqlite.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/db.sqlite.bak'
+    matchers:
+      - type: status
+        status: [200]

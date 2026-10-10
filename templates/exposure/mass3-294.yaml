@@ -1,0 +1,18 @@
+id: mass3-294
+name: 'Mass field shipment'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered shipment on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"a1","shipment":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

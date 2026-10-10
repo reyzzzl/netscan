@@ -1,0 +1,15 @@
+id: cve3-wp-yoast-10
+name: 'WP yoast screenshot.png'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP yoast at /wp-content/plugins/yoast/screenshot.png — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/yoast/screenshot.png'
+    matchers:
+      - type: status
+        status: [200]

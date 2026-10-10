@@ -1,0 +1,20 @@
+id: xss5-3436
+name: 'Raw XSS5 in placeholder'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in placeholder'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      placeholder:
+        - '<svg%09onload=nx53435>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53435'

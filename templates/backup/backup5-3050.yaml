@@ -1,0 +1,15 @@
+id: backup5-3050
+name: 'Exposed /index.html.sav'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /index.html.sav is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/index.html.sav'
+    matchers:
+      - type: status
+        status: [200]

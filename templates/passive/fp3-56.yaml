@@ -1,0 +1,14 @@
+id: fp3-56
+name: 'Stack strapi45'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'strapi45 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'strapi45'

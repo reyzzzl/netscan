@@ -1,0 +1,15 @@
+id: cve3-wpt-twentytwentyone-07
+name: 'Theme twentytwentyone index.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Theme twentytwentyone at /wp-content/themes/twentytwentyone/index.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/themes/twentytwentyone/index.php'
+    matchers:
+      - type: status
+        status: [200]

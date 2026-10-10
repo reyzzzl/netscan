@@ -1,0 +1,14 @@
+id: fp2-23
+name: 'Fingerprint dotnet7'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'dotnet7 detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'dotnet7'

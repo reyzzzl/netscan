@@ -1,0 +1,20 @@
+id: crlf4-478
+name: 'CRLF into extra'
+severity: medium
+type: active
+tags:
+  - crlf
+  - injection
+  - headers
+description: 'CRLF header injection via extra'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      extra:
+        - '%00%0d%0aX-Test: t'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'x-test'

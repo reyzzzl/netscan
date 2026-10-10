@@ -1,0 +1,15 @@
+id: solr2-08
+name: 'Solr zk zookeeper'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Solr zk at /solr/admin/zookeeper — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/solr/admin/zookeeper?v=9'
+    matchers:
+      - type: status
+        status: [200]

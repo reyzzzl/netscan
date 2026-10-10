@@ -1,0 +1,20 @@
+id: xss8-0715
+name: 'Raw XSS8 in hint'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in hint'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      hint:
+        - '<marquee onstart=nx80714%0a>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx80714'

@@ -1,0 +1,20 @@
+id: lfi3-010
+name: 'Traversal to system file via asset'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via asset'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      asset:
+        - '/windows/system32/drivers/etc/hosts'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'localhost'

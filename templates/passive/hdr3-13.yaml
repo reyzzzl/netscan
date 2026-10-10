@@ -1,0 +1,14 @@
+id: hdr3-13
+name: 'Debug header x-laravel-debug'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - debug
+description: 'Debug header x-laravel-debug present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-laravel-debug'

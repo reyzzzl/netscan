@@ -1,0 +1,15 @@
+id: auth3-029
+name: 'Panel at /supabase/studio'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /supabase/studio returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/supabase/studio'
+    matchers:
+      - type: status
+        status: [200]

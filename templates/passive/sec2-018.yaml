@@ -1,0 +1,14 @@
+id: sec2-018
+name: 'Token assign'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Token assign in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'token='

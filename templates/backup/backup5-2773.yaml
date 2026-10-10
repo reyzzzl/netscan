@@ -1,0 +1,15 @@
+id: backup5-2773
+name: 'Exposed /pass.php.backup'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /pass.php.backup is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/pass.php.backup'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: cve3-wp-woocommerce-06
+name: 'WP woocommerce uninstall.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP woocommerce at /wp-content/plugins/woocommerce/uninstall.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/woocommerce/uninstall.php'
+    matchers:
+      - type: status
+        status: [200]

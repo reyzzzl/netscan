@@ -1,0 +1,20 @@
+id: ssti3-freemarker-05
+name: 'SSTI freemarker in content'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - freemarker
+description: 'freemarker evaluates payload in content'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      content:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

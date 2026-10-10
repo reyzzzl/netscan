@@ -1,0 +1,15 @@
+id: cve3-wp-elementor-03
+name: 'WP elementor CHANGELOG.md'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP elementor at /wp-content/plugins/elementor/CHANGELOG.md — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/elementor/CHANGELOG.md'
+    matchers:
+      - type: status
+        status: [200]

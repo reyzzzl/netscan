@@ -1,0 +1,15 @@
+id: cve2-gitlab2-01
+name: 'GitLab2 fingerprint /api/v4/projects v1'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'GitLab2 at /api/v4/projects — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/v4/projects'
+    matchers:
+      - type: status
+        status: [200]

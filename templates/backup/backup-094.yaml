@@ -1,0 +1,15 @@
+id: backup-094
+name: 'Exposed /passwd'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /passwd is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/passwd'
+    matchers:
+      - type: status
+        status: [200]

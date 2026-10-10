@@ -1,0 +1,20 @@
+id: xss5-1833
+name: 'Raw XSS5 in caption'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in caption'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      caption:
+        - '<script> merely nx51832 </script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51832'

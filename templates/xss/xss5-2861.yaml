@@ -1,0 +1,20 @@
+id: xss5-2861
+name: 'Raw XSS5 in city'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in city'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      city:
+        - '<form><button%09formaction=javascript:nx52860>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52860'

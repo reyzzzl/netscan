@@ -1,0 +1,20 @@
+id: xss5-2235
+name: 'Raw XSS5 in hint'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in hint'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      hint:
+        - '<script%00>alert(nx52234)</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52234'

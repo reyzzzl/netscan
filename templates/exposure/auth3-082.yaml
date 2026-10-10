@@ -1,0 +1,15 @@
+id: auth3-082
+name: 'Panel at /loggly'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /loggly returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/loggly'
+    matchers:
+      - type: status
+        status: [200]

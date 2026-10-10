@@ -1,0 +1,25 @@
+id: xss6strict-1247
+name: 'Strict raw XSS in comment'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      comment:
+        - '<video><source onerror=sx61246>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx61246'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx61246'

@@ -1,0 +1,15 @@
+id: hdr2-20
+name: 'Missing refresh'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header refresh not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'refresh'
+    negative: true

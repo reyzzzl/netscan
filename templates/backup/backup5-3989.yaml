@@ -1,0 +1,15 @@
+id: backup5-3989
+name: 'Exposed /debug.php.json5'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /debug.php.json5 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/debug.php.json5'
+    matchers:
+      - type: status
+        status: [200]

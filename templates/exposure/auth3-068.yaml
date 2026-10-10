@@ -1,0 +1,15 @@
+id: auth3-068
+name: 'Panel at /openreplay'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /openreplay returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/openreplay'
+    matchers:
+      - type: status
+        status: [200]

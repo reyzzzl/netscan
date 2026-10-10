@@ -1,0 +1,20 @@
+id: patt-redir-allow-01-next
+name: 'PATT redirect patt-redir-allow-01 via next'
+severity: high
+type: active
+tags:
+  - redirect
+  - patt
+  - allowlistsubdomain
+description: 'PATT allowlist bypass: glued subdomain. [patt:patt-redir-allow-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Open%20Redirect/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      next:
+        - 'https://trusted.com.evil.example/'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

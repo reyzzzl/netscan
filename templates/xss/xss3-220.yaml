@@ -1,0 +1,20 @@
+id: xss3-220
+name: 'Raw XSS3 #9 in address'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in address'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      address:
+        - '<body%0aonload=nx3219>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3219'

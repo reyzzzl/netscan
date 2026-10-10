@@ -1,0 +1,14 @@
+id: hdr4-039
+name: 'Header x-malwarebytes-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-malwarebytes-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-malwarebytes-2'

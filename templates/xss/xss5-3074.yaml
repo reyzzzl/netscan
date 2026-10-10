@@ -1,0 +1,20 @@
+id: xss5-3074
+name: 'Raw XSS5 in label'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in label'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      label:
+        - '<video%0a><source%0aonerror=nx53073>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53073'

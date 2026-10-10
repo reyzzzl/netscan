@@ -1,0 +1,15 @@
+id: backup5-3630
+name: 'Exposed /worker.php.7z'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /worker.php.7z is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/worker.php.7z'
+    matchers:
+      - type: status
+        status: [200]

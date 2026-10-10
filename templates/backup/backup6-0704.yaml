@@ -1,0 +1,15 @@
+id: backup6-0704
+name: 'Exposed /contact.php.swp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /contact.php.swp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/contact.php.swp'
+    matchers:
+      - type: status
+        status: [200]

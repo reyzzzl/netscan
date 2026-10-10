@@ -1,0 +1,15 @@
+id: backup2-016
+name: 'Exposed2 /altair'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /altair is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/altair'
+    matchers:
+      - type: status
+        status: [200]

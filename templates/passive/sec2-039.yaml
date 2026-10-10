@@ -1,0 +1,14 @@
+id: sec2-039
+name: 'Password assign alt'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Password assign alt in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'password='

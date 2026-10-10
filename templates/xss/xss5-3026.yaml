@@ -1,0 +1,20 @@
+id: xss5-3026
+name: 'Raw XSS5 in website'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in website'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      website:
+        - '<svg style="behavior:url(nx53025)">'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53025'

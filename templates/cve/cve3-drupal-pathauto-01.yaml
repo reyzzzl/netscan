@@ -1,0 +1,15 @@
+id: cve3-drupal-pathauto-01
+name: 'Drupal pathauto CHANGELOG.txt'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Drupal pathauto at /modules/contrib/pathauto/CHANGELOG.txt — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/modules/contrib/pathauto/CHANGELOG.txt'
+    matchers:
+      - type: status
+        status: [200]

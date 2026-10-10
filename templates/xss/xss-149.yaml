@@ -1,0 +1,20 @@
+id: xss-149
+name: 'Reflected XSS ctx-3 via query'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in query'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      query:
+        - '<img src=x onerror=nx148c>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx148c'

@@ -1,0 +1,15 @@
+id: backup-016
+name: 'Exposed /actuator/env'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /actuator/env is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/actuator/env'
+    matchers:
+      - type: status
+        status: [200]

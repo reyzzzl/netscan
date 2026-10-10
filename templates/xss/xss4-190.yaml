@@ -1,0 +1,20 @@
+id: xss4-190
+name: 'Raw XSS4 #29 in term'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in term'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      term:
+        - '<!--#exec cmd="echo nx4189"-->'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx4189'

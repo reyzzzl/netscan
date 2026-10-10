@@ -1,0 +1,18 @@
+id: mass3-202
+name: 'Mass field heart'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered heart on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"t","heart":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

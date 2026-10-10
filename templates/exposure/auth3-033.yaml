@@ -1,0 +1,15 @@
+id: auth3-033
+name: 'Panel at /payload'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /payload returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/payload'
+    matchers:
+      - type: status
+        status: [200]

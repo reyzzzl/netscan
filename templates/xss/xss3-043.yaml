@@ -1,0 +1,20 @@
+id: xss3-043
+name: 'Raw XSS3 #12 in search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '<object%09data=javascript:nx3042>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx3042'

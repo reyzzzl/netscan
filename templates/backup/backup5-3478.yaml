@@ -1,0 +1,15 @@
+id: backup5-3478
+name: 'Exposed /sync.php.gz'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sync.php.gz is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sync.php.gz'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup6-0138
+name: 'Exposed /register.php.json5'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /register.php.json5 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/register.php.json5'
+    matchers:
+      - type: status
+        status: [200]

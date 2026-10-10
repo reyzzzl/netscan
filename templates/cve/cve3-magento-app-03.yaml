@@ -1,0 +1,15 @@
+id: cve3-magento-app-03
+name: 'Magento di.xml di.xml'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Magento di.xml at /app/etc/di.xml — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/app/etc/di.xml'
+    matchers:
+      - type: status
+        status: [200]

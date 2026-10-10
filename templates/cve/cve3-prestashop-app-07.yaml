@@ -1,0 +1,15 @@
+id: cve3-prestashop-app-07
+name: 'PrestaShop modules/ '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'PrestaShop modules/ at /app/config/modules/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/app/config/modules/'
+    matchers:
+      - type: status
+        status: [200]

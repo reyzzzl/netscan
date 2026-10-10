@@ -1,0 +1,15 @@
+id: backup5-1983
+name: 'Exposed /migrate.php.tpl'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /migrate.php.tpl is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/migrate.php.tpl'
+    matchers:
+      - type: status
+        status: [200]

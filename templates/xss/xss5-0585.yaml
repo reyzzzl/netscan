@@ -1,0 +1,20 @@
+id: xss5-0585
+name: 'Raw XSS5 in company'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in company'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      company:
+        - '<svg><animate%09onbegin=nx50584 attributeName=x>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50584'

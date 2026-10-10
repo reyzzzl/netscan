@@ -1,0 +1,15 @@
+id: backup5-1108
+name: 'Exposed /import.php.bak'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /import.php.bak is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/import.php.bak'
+    matchers:
+      - type: status
+        status: [200]

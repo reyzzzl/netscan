@@ -1,0 +1,15 @@
+id: backup6-0925
+name: 'Exposed /privacy.php.pkg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /privacy.php.pkg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/privacy.php.pkg'
+    matchers:
+      - type: status
+        status: [200]

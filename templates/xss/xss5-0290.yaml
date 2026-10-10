@@ -1,0 +1,20 @@
+id: xss5-0290
+name: 'Raw XSS5 in text'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - 'vbscript%3amsgbox(nx50289)'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50289'

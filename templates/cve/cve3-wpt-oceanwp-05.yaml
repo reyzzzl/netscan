@@ -1,0 +1,15 @@
+id: cve3-wpt-oceanwp-05
+name: 'Theme oceanwp header.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Theme oceanwp at /wp-content/themes/oceanwp/header.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/themes/oceanwp/header.php'
+    matchers:
+      - type: status
+        status: [200]

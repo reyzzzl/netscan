@@ -1,0 +1,15 @@
+id: backup-030
+name: 'Exposed /Gemfile'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /Gemfile is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/Gemfile'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backupx-010
+name: 'Exposed /site.sql'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /site.sql is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/site.sql'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,22 @@
+id: sqli2-access-09
+name: 'SQLi error access via aid'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - access
+description: 'Triggers access error via aid'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      aid:
+        - ''' OR ''1''=''1'
+        - '''; SELECT 1--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'Microsoft JET'
+          - 'ODBC Microsoft Access'

@@ -1,0 +1,15 @@
+id: backup3-004
+name: 'Exposed /livez'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /livez is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/livez'
+    matchers:
+      - type: status
+        status: [200]

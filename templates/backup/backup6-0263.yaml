@@ -1,0 +1,15 @@
+id: backup6-0263
+name: 'Exposed /verify.php.dist'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /verify.php.dist is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/verify.php.dist'
+    matchers:
+      - type: status
+        status: [200]

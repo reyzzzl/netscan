@@ -1,0 +1,15 @@
+id: struts2-08
+name: 'Struts showcase.action'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Struts at /showcase.action — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/showcase.action?v=9'
+    matchers:
+      - type: status
+        status: [200]

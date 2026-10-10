@@ -1,0 +1,23 @@
+id: cmdi6-0468
+name: 'Shell injection in util'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - injection
+  - rce
+description: 'OS command runs via util'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      util:
+        - '%0a%0d'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='
+          - 'root:x:0:0'
+          - 'www-data'

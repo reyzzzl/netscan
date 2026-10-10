@@ -1,0 +1,18 @@
+id: mass3-214
+name: 'Mass field vote'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered vote on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"t","vote":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

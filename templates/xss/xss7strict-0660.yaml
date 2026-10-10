@@ -1,0 +1,25 @@
+id: xss7strict-0660
+name: 'Strict breakout XSS in address'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      address:
+        - '<table background=javascript:sx70659>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx70659'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx70659'

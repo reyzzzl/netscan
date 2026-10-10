@@ -1,0 +1,15 @@
+id: auth4-543
+name: 'Panel at /billing/health'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /billing/health returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/billing/health'
+    matchers:
+      - type: status
+        status: [200]

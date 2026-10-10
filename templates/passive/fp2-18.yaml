@@ -1,0 +1,14 @@
+id: fp2-18
+name: 'Fingerprint yii'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'yii detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'yii'

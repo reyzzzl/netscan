@@ -1,0 +1,15 @@
+id: backup2-123
+name: 'Exposed2 /my.cnf'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /my.cnf is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/my.cnf'
+    matchers:
+      - type: status
+        status: [200]

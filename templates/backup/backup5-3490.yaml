@@ -1,0 +1,15 @@
+id: backup5-3490
+name: 'Exposed /sync.php.toml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sync.php.toml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sync.php.toml'
+    matchers:
+      - type: status
+        status: [200]

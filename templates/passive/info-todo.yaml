@@ -1,0 +1,15 @@
+id: info-todo
+name: 'TODO/FIXME in prod JS'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - debug
+description: 'TODO/FIXME in prod JS — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'TODO:'
+      - 'FIXME:'

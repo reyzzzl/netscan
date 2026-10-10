@@ -1,0 +1,25 @@
+id: sqli3-stacked-034
+name: 'Stacked query in sort'
+severity: critical
+type: active
+tags:
+  - sqli
+  - injection
+  - stacked
+description: 'Extra SQL statement via sort'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      sort:
+        - '"; SELECT 1--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'SQL syntax'
+          - 'mysql_fetch'
+          - 'PostgreSQL'
+          - 'ODBC'
+          - 'ORA-'
+          - 'SQLite'

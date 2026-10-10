@@ -1,0 +1,15 @@
+id: backup5-3801
+name: 'Exposed /mail.php.bk'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /mail.php.bk is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/mail.php.bk'
+    matchers:
+      - type: status
+        status: [200]

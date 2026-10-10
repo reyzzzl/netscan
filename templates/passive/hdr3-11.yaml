@@ -1,0 +1,14 @@
+id: hdr3-11
+name: 'Debug header x-generator-debug'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - debug
+description: 'Debug header x-generator-debug present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-generator-debug'

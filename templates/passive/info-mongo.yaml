@@ -1,0 +1,14 @@
+id: info-mongo
+name: 'Mongo express'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - exposure
+description: 'Mongo express — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'mongo-express'

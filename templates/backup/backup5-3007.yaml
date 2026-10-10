@@ -1,0 +1,15 @@
+id: backup5-3007
+name: 'Exposed /index.html.bkp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /index.html.bkp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/index.html.bkp'
+    matchers:
+      - type: status
+        status: [200]

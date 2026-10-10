@@ -1,0 +1,15 @@
+id: zabbix2-07
+name: 'Zabbix api_jsonrpc.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Zabbix at /api_jsonrpc.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api_jsonrpc.php?v=8'
+    matchers:
+      - type: status
+        status: [200]

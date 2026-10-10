@@ -1,0 +1,20 @@
+id: ssti2-django-02
+name: 'SSTI2 django via msg2'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - django
+description: 'django evaluates payload in msg2'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      msg2:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

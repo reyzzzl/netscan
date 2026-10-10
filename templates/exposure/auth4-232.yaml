@@ -1,0 +1,15 @@
+id: auth4-232
+name: 'Panel at /panel/'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /panel/ returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/panel/'
+    matchers:
+      - type: status
+        status: [200]

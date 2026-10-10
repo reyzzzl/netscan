@@ -1,0 +1,15 @@
+id: auth-004
+name: 'Dashboard at /dashboard'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Dashboard returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/dashboard'
+    matchers:
+      - type: status
+        status: [200]

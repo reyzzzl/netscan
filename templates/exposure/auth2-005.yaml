@@ -1,0 +1,15 @@
+id: auth2-005
+name: 'Loggers at /actuator/loggers'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Loggers returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/actuator/loggers'
+    matchers:
+      - type: status
+        status: [200]

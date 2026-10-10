@@ -1,0 +1,14 @@
+id: sec2-047
+name: 'GCP key alt'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'GCP key alt in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'AIzaSy'

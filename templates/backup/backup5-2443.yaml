@@ -1,0 +1,15 @@
+id: backup5-2443
+name: 'Exposed /query.php.mod'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /query.php.mod is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/query.php.mod'
+    matchers:
+      - type: status
+        status: [200]

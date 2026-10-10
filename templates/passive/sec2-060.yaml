@@ -1,0 +1,14 @@
+id: sec2-060
+name: 'Discord webhook alt'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'Discord webhook alt in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'discord.com/api/webhooks'

@@ -1,0 +1,14 @@
+id: hdr3-22
+name: 'Debug header x-powered-cms'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - debug
+description: 'Debug header x-powered-cms present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-powered-cms'

@@ -1,0 +1,15 @@
+id: backup6-0153
+name: 'Exposed /forgot.php.save'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /forgot.php.save is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/forgot.php.save'
+    matchers:
+      - type: status
+        status: [200]

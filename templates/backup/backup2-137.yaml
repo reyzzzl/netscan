@@ -1,0 +1,15 @@
+id: backup2-137
+name: 'Exposed2 /nrpe.cfg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /nrpe.cfg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/nrpe.cfg'
+    matchers:
+      - type: status
+        status: [200]

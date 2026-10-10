@@ -1,0 +1,14 @@
+id: info-laravel-debug
+name: 'Laravel debug'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - debug
+description: 'Laravel debug — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'Whoops, looks like something went wrong'

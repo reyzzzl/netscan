@@ -1,0 +1,20 @@
+id: xss8-1337
+name: 'Raw XSS8 in lastname'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in lastname'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      lastname:
+        - '<audio src=x onerror=nx81336>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx81336'

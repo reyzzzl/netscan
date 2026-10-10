@@ -1,0 +1,14 @@
+id: fp4-007
+name: 'Stack runtime1x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'runtime1x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'runtime1x'

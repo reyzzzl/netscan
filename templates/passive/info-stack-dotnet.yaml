@@ -1,0 +1,14 @@
+id: info-stack-dotnet
+name: 'ASP.NET error'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - debug
+description: 'ASP.NET error — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'Server Error in ''/'' Application'

@@ -1,0 +1,15 @@
+id: backup4-337
+name: 'Exposed /api/v9/health'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /api/v9/health is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/v9/health'
+    matchers:
+      - type: status
+        status: [200]

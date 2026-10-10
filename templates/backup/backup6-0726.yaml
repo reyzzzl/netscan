@@ -1,0 +1,15 @@
+id: backup6-0726
+name: 'Exposed /contact.php.tar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /contact.php.tar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/contact.php.tar'
+    matchers:
+      - type: status
+        status: [200]

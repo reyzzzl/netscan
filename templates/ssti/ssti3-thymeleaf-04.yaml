@@ -1,0 +1,20 @@
+id: ssti3-thymeleaf-04
+name: 'SSTI thymeleaf in content'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - thymeleaf
+description: 'thymeleaf evaluates payload in content'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      content:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

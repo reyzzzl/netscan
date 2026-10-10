@@ -1,0 +1,14 @@
+id: err2-26
+name: 'Error page: mod_wsgi'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'mod_wsgi'

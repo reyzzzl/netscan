@@ -1,0 +1,15 @@
+id: backup6-0995
+name: 'Exposed /refund.php.mdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /refund.php.mdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/refund.php.mdb'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup5-0372
+name: 'Exposed /site.zip.duplicate'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /site.zip.duplicate is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/site.zip.duplicate'
+    matchers:
+      - type: status
+        status: [200]

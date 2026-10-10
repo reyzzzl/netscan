@@ -1,0 +1,20 @@
+id: xss5-0441
+name: 'Raw XSS5 in q'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '<iframe%09src=javascript:nx50440>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50440'

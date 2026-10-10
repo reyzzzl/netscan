@@ -1,0 +1,15 @@
+id: auth4-553
+name: 'Panel at /payment/login'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /payment/login returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/payment/login'
+    matchers:
+      - type: status
+        status: [200]

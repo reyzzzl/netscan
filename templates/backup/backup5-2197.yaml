@@ -1,0 +1,15 @@
+id: backup5-2197
+name: 'Exposed /footer.php.accdb'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /footer.php.accdb is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/footer.php.accdb'
+    matchers:
+      - type: status
+        status: [200]

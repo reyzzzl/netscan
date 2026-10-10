@@ -1,0 +1,15 @@
+id: backup5-2626
+name: 'Exposed /token.php.pkg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /token.php.pkg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/token.php.pkg'
+    matchers:
+      - type: status
+        status: [200]

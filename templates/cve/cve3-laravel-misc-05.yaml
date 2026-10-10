@@ -1,0 +1,15 @@
+id: cve3-laravel-misc-05
+name: 'Laravel vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php eval-stdin.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Laravel vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php at /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php'
+    matchers:
+      - type: status
+        status: [200]

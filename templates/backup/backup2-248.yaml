@@ -1,0 +1,15 @@
+id: backup2-248
+name: 'Exposed2 /site.zip.bkp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /site.zip.bkp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/site.zip.bkp'
+    matchers:
+      - type: status
+        status: [200]

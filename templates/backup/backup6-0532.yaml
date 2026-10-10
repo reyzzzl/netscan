@@ -1,0 +1,15 @@
+id: backup6-0532
+name: 'Exposed /shipping.php.tpl'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /shipping.php.tpl is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/shipping.php.tpl'
+    matchers:
+      - type: status
+        status: [200]

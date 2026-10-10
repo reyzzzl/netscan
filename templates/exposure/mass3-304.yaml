@@ -1,0 +1,18 @@
+id: mass3-304
+name: 'Mass field tariff'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered tariff on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"t","tariff":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

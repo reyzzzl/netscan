@@ -1,0 +1,20 @@
+id: backup-015
+name: 'Exposed /actuator/health'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /actuator/health is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/actuator/health'
+    match-all: true
+    matchers:
+      - type: status
+        status: [200]
+      - type: word
+        part: body
+        words:
+          - 'UP'

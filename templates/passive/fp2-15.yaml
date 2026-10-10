@@ -1,0 +1,14 @@
+id: fp2-15
+name: 'Fingerprint symfony'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'symfony detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'symfony'

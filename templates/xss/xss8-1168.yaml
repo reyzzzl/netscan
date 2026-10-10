@@ -1,0 +1,20 @@
+id: xss8-1168
+name: 'Raw XSS8 in title'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in title'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      title:
+        - '<select autofocus onfocus=nx81167%09%09>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx81167'

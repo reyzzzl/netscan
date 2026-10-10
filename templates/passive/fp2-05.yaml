@@ -1,0 +1,14 @@
+id: fp2-05
+name: 'Fingerprint gatsby'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'gatsby detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'gatsby'

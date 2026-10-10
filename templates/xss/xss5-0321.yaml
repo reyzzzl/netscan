@@ -1,0 +1,20 @@
+id: xss5-0321
+name: 'Raw XSS5 in q'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '"><img%09src=x%09onerror=nx50320>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50320'

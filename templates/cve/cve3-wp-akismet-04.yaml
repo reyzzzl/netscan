@@ -1,0 +1,15 @@
+id: cve3-wp-akismet-04
+name: 'WP akismet LICENSE'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP akismet at /wp-content/plugins/akismet/LICENSE — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/akismet/LICENSE'
+    matchers:
+      - type: status
+        status: [200]

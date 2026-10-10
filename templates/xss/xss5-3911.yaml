@@ -1,0 +1,20 @@
+id: xss5-3911
+name: 'Raw XSS5 in headline'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in headline'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      headline:
+        - '<div%0aonpointerleave=nx53910>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53910'

@@ -1,0 +1,19 @@
+id: redirect2-092
+name: 'Open redirect2 via link'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Unsafe redirect via link'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      link:
+        - 'https://evil.example/%2e'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

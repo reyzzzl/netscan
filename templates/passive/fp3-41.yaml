@@ -1,0 +1,14 @@
+id: fp3-41
+name: 'Stack joomla4'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'joomla4 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'joomla4'

@@ -1,0 +1,14 @@
+id: sec2-012
+name: 'npm token'
+severity: high
+type: passive
+tags:
+  - secret
+  - passive
+  - exposure
+description: 'npm token in body — verify manually'
+matchers:
+  - type: word
+    part: body
+    words:
+      - '_authToken'

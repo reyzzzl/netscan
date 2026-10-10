@@ -1,0 +1,14 @@
+id: fp3-26
+name: 'Stack sinatra3'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'sinatra3 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'sinatra3'

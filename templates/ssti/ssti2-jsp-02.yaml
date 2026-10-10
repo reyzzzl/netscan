@@ -1,0 +1,20 @@
+id: ssti2-jsp-02
+name: 'SSTI2 jsp via content'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - jsp
+description: 'jsp evaluates payload in content'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      content:
+        - '${7*7}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

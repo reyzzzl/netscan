@@ -1,0 +1,20 @@
+id: xss5-0692
+name: 'Raw XSS5 in term'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in term'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      term:
+        - 'JaVaScRiPt%3anx50691'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50691'

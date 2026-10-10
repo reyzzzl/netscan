@@ -1,0 +1,15 @@
+id: backup5-3792
+name: 'Exposed /mail.php.sum'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /mail.php.sum is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/mail.php.sum'
+    matchers:
+      - type: status
+        status: [200]

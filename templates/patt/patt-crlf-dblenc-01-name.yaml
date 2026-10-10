@@ -1,0 +1,20 @@
+id: patt-crlf-dblenc-01-name
+name: 'PATT crlf patt-crlf-dblenc-01 via name'
+severity: medium
+type: active
+tags:
+  - crlf
+  - patt
+  - encodedoubleurl
+description: 'PATT double-encode %250d%250a. [patt:patt-crlf-dblenc-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/CRLF%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - 'x%250d%250aX-Test: patt'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'x-test'

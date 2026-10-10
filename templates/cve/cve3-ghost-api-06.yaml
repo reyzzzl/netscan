@@ -1,0 +1,15 @@
+id: cve3-ghost-api-06
+name: 'Ghost api/posts posts'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Ghost api/posts at /ghost/api/posts — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/ghost/api/posts'
+    matchers:
+      - type: status
+        status: [200]

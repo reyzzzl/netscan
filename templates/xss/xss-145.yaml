@@ -1,0 +1,20 @@
+id: xss-145
+name: 'Reflected XSS ctx-28 via name'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<video><source onerror=nx144c>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx144c'

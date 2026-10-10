@@ -1,0 +1,15 @@
+id: hdr-ctype
+name: 'Missing X-Content-Type-Options'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Missing X-Content-Type-Options — header not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-content-type-options'
+    negative: true

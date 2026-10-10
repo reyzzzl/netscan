@@ -1,0 +1,15 @@
+id: auth4-533
+name: 'Panel at /billing/login'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /billing/login returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/billing/login'
+    matchers:
+      - type: status
+        status: [200]

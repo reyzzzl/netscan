@@ -1,0 +1,15 @@
+id: backup5-1977
+name: 'Exposed /migrate.php.tar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /migrate.php.tar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/migrate.php.tar'
+    matchers:
+      - type: status
+        status: [200]

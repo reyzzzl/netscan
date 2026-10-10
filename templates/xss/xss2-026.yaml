@@ -1,0 +1,20 @@
+id: xss2-026
+name: 'Reflected XSS2 ctx-25 via input'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in input'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      input:
+        - '<keygen autofocus onfocus=alert(nx2025)>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx2025'

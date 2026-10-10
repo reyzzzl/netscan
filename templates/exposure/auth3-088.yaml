@@ -1,0 +1,15 @@
+id: auth3-088
+name: 'Panel at /uptimerobot'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /uptimerobot returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/uptimerobot'
+    matchers:
+      - type: status
+        status: [200]

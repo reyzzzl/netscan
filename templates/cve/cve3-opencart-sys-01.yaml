@@ -1,0 +1,15 @@
+id: cve3-opencart-sys-01
+name: 'OpenCart config.php config.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'OpenCart config.php at /system/config.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/system/config.php'
+    matchers:
+      - type: status
+        status: [200]

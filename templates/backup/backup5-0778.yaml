@@ -1,0 +1,15 @@
+id: backup5-0778
+name: 'Exposed /bootstrap.php.gz'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /bootstrap.php.gz is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/bootstrap.php.gz'
+    matchers:
+      - type: status
+        status: [200]

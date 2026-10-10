@@ -1,0 +1,15 @@
+id: backup6-0847
+name: 'Exposed /about.php.bakup'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /about.php.bakup is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/about.php.bakup'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,19 @@
+id: redirect2-087
+name: 'Open redirect2 via ref'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Unsafe redirect via ref'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      ref:
+        - 'javascript:alert(1)'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'javascript:'

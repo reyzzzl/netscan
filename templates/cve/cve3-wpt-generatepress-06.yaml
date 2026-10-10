@@ -1,0 +1,15 @@
+id: cve3-wpt-generatepress-06
+name: 'Theme generatepress footer.php'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Theme generatepress at /wp-content/themes/generatepress/footer.php — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/themes/generatepress/footer.php'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,14 @@
+id: fp4-014
+name: 'Stack forum1x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'forum1x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'forum1x'

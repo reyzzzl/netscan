@@ -1,0 +1,15 @@
+id: backup2-188
+name: 'Exposed2 /.env.bkp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.env.bkp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.env.bkp'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: auth2-032
+name: 'Telescope at /telescope'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Telescope returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/telescope'
+    matchers:
+      - type: status
+        status: [200]

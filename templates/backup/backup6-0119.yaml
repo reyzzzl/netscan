@@ -1,0 +1,15 @@
+id: backup6-0119
+name: 'Exposed /register.php.copy'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /register.php.copy is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/register.php.copy'
+    matchers:
+      - type: status
+        status: [200]

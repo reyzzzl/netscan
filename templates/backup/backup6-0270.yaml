@@ -1,0 +1,15 @@
+id: backup6-0270
+name: 'Exposed /verify.php.clone'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /verify.php.clone is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/verify.php.clone'
+    matchers:
+      - type: status
+        status: [200]

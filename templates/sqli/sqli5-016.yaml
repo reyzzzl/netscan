@@ -1,0 +1,21 @@
+id: sqli5-016
+name: 'Oracle SQLi in dir'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - oracle
+description: 'Triggers oracle error via dir'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      dir:
+        - ''' OR ''a''||''b''=''ab'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'ORA-'
+          - 'Oracle error'

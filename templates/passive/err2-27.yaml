@@ -1,0 +1,14 @@
+id: err2-27
+name: 'Error page: uwsgi error'
+severity: medium
+type: passive
+tags:
+  - error
+  - passive
+  - debug
+description: 'Error text in body'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'uwsgi error'

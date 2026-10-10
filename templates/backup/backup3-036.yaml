@@ -1,0 +1,15 @@
+id: backup3-036
+name: 'Exposed /.well-known/jwks.json'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.well-known/jwks.json is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.well-known/jwks.json'
+    matchers:
+      - type: status
+        status: [200]

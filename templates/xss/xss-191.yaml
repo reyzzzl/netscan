@@ -1,0 +1,20 @@
+id: xss-191
+name: 'Reflected XSS ctx-16 via q'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in q'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - '"><ScRiPt>nx190c</ScRiPt>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx190c'

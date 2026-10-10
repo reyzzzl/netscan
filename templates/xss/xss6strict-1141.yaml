@@ -1,0 +1,25 @@
+id: xss6strict-1141
+name: 'Strict raw XSS in city'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      city:
+        - '<svg onload=sx61140>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx61140'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx61140'

@@ -1,0 +1,15 @@
+id: cve3-wpt-astra-02
+name: 'Theme astra screenshot.png'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Theme astra at /wp-content/themes/astra/screenshot.png — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/themes/astra/screenshot.png'
+    matchers:
+      - type: status
+        status: [200]

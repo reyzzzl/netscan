@@ -1,0 +1,25 @@
+id: xss6strict-1512
+name: 'Strict raw XSS in subtext'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      subtext:
+        - '<img src=x onerror=sx61511>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx61511'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx61511'

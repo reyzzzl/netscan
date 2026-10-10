@@ -1,0 +1,15 @@
+id: cve3-ghost-api-07
+name: 'Ghost api/pages pages'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Ghost api/pages at /ghost/api/pages — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/ghost/api/pages'
+    matchers:
+      - type: status
+        status: [200]

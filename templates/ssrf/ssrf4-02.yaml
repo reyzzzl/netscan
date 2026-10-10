@@ -1,0 +1,20 @@
+id: ssrf4-02
+name: 'SSRF scheme file via src'
+severity: high
+type: active
+tags:
+  - ssrf
+  - oob
+  - scheme
+description: 'Fetches file URL via src (verify manually)'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      src:
+        - 'file:///C:/Windows/win.ini'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

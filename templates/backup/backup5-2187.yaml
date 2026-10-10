@@ -1,0 +1,15 @@
+id: backup5-2187
+name: 'Exposed /footer.php.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /footer.php.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/footer.php.yml'
+    matchers:
+      - type: status
+        status: [200]

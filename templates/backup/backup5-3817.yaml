@@ -1,0 +1,15 @@
+id: backup5-3817
+name: 'Exposed /sms.php.test'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sms.php.test is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sms.php.test'
+    matchers:
+      - type: status
+        status: [200]

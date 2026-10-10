@@ -1,0 +1,19 @@
+id: redirect6-450
+name: 'Redirect sink in goto'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Redirects to evil.example via goto'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      goto:
+        - 'https://Evil.Example/'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

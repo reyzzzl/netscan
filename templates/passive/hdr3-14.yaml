@@ -1,0 +1,14 @@
+id: hdr3-14
+name: 'Debug header x-django-debug'
+severity: low
+type: passive
+tags:
+  - headers
+  - passive
+  - debug
+description: 'Debug header x-django-debug present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-django-debug'

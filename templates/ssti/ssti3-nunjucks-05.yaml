@@ -1,0 +1,20 @@
+id: ssti3-nunjucks-05
+name: 'SSTI nunjucks in bio'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - nunjucks
+description: 'nunjucks evaluates payload in bio'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      bio:
+        - '{{7*7}}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

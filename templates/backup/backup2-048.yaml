@@ -1,0 +1,15 @@
+id: backup2-048
+name: 'Exposed2 /CHANGELOG.md'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /CHANGELOG.md is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/CHANGELOG.md'
+    matchers:
+      - type: status
+        status: [200]

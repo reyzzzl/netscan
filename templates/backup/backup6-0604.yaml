@@ -1,0 +1,15 @@
+id: backup6-0604
+name: 'Exposed /returns.php.swp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /returns.php.swp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/returns.php.swp'
+    matchers:
+      - type: status
+        status: [200]

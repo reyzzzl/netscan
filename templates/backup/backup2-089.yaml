@@ -1,0 +1,15 @@
+id: backup2-089
+name: 'Exposed2 /application.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /application.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/application.yml'
+    matchers:
+      - type: status
+        status: [200]

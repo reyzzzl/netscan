@@ -1,0 +1,20 @@
+id: xss5-1691
+name: 'Raw XSS5 in input'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in input'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      input:
+        - '<p%0aoncut=nx51690>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51690'

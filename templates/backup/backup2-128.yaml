@@ -1,0 +1,15 @@
+id: backup2-128
+name: 'Exposed2 /kibana.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /kibana.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/kibana.yml'
+    matchers:
+      - type: status
+        status: [200]

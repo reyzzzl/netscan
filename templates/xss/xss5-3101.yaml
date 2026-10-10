@@ -1,0 +1,20 @@
+id: xss5-3101
+name: 'Raw XSS5 in city'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in city'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      city:
+        - '<input%09type=image%09formaction=javascript:nx53100>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx53100'

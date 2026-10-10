@@ -1,0 +1,20 @@
+id: xss2-216
+name: 'Reflected XSS2 ctx-5 via message'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in message'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      message:
+        - '<details open ontoggle=alert(nx2215)>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx2215'

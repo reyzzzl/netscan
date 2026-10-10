@@ -1,0 +1,15 @@
+id: auth4-523
+name: 'Panel at /org/health'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /org/health returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/org/health'
+    matchers:
+      - type: status
+        status: [200]

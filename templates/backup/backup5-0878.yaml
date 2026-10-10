@@ -1,0 +1,15 @@
+id: backup5-0878
+name: 'Exposed /api.php.gz'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /api.php.gz is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api.php.gz'
+    matchers:
+      - type: status
+        status: [200]

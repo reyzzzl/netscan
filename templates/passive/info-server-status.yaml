@@ -1,0 +1,14 @@
+id: info-server-status
+name: 'Server-status in body'
+severity: info
+type: passive
+tags:
+  - info
+  - passive
+  - exposure
+description: 'Server-status in body — verify with show'
+matchers:
+  - type: word
+    part: body
+    words:
+      - 'Apache Status'

@@ -1,0 +1,20 @@
+id: xss8-1565
+name: 'Raw XSS8 in name'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<marquee onstart=nx81564/>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx81564'

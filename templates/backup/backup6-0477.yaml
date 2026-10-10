@@ -1,0 +1,15 @@
+id: backup6-0477
+name: 'Exposed /invoice.php.gz'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /invoice.php.gz is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/invoice.php.gz'
+    matchers:
+      - type: status
+        status: [200]

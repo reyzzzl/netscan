@@ -1,0 +1,15 @@
+id: backup5-3837
+name: 'Exposed /sms.php.yml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /sms.php.yml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/sms.php.yml'
+    matchers:
+      - type: status
+        status: [200]

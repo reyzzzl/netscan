@@ -1,0 +1,15 @@
+id: backup-055
+name: 'Exposed /.bzr/branch.conf'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.bzr/branch.conf is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.bzr/branch.conf'
+    matchers:
+      - type: status
+        status: [200]

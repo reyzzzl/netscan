@@ -1,0 +1,15 @@
+id: backup6-0055
+name: 'Exposed /signout.php.tmp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /signout.php.tmp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/signout.php.tmp'
+    matchers:
+      - type: status
+        status: [200]

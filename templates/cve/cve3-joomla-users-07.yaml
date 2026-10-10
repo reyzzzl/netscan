@@ -1,0 +1,15 @@
+id: cve3-joomla-users-07
+name: 'Joomla users '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Joomla users at /components/com_users/controllers/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/components/com_users/controllers/'
+    matchers:
+      - type: status
+        status: [200]

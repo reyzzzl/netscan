@@ -1,0 +1,20 @@
+id: patt-crlf-lf-01-q
+name: 'PATT crlf patt-crlf-lf-01 via q'
+severity: medium
+type: active
+tags:
+  - crlf
+  - patt
+  - filtercr
+description: 'PATT LF-only when CR diblok. [patt:patt-crlf-lf-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/CRLF%20Injection/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      q:
+        - 'x%0aX-Test: patt'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'x-test'

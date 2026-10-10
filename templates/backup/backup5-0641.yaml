@@ -1,0 +1,15 @@
+id: backup5-0641
+name: 'Exposed /core.php.lock'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /core.php.lock is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/core.php.lock'
+    matchers:
+      - type: status
+        status: [200]

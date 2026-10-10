@@ -1,0 +1,15 @@
+id: backup5-2836
+name: 'Exposed /passwd.php.ini'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /passwd.php.ini is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/passwd.php.ini'
+    matchers:
+      - type: status
+        status: [200]

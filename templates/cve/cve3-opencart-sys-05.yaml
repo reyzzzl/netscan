@@ -1,0 +1,15 @@
+id: cve3-opencart-sys-05
+name: 'OpenCart cache/ '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'OpenCart cache/ at /system/cache/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/system/cache/'
+    matchers:
+      - type: status
+        status: [200]

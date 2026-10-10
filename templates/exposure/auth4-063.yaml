@@ -1,0 +1,15 @@
+id: auth4-063
+name: 'Panel at /backend/health'
+severity: low
+type: active
+tags:
+  - auth
+  - exposure
+  - discovery
+description: 'Panel at /backend/health returns 200 — check auth manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/backend/health'
+    matchers:
+      - type: status
+        status: [200]

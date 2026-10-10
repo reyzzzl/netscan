@@ -1,0 +1,20 @@
+id: ssti-freemarker-02
+name: 'SSTI freemarker via page'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - freemarker
+description: 'freemarker evaluates payload in page'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      page:
+        - '${7*7}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

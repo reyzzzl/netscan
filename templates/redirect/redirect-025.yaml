@@ -1,0 +1,20 @@
+id: redirect-025
+name: 'Open redirect via continue'
+severity: medium
+type: active
+tags:
+  - redirect
+  - open-redirect
+description: 'Redirects to evil.example via continue'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      continue:
+        - 'https://evil.example/'
+        - '//evil.example/'
+    matchers:
+      - type: word
+        part: headers
+        words:
+          - 'evil.example'

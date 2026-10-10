@@ -1,0 +1,15 @@
+id: cve3-drupal-webform-08
+name: 'Drupal webform '
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Drupal webform at /modules/contrib/webform/css/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/modules/contrib/webform/css/'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,21 @@
+id: sqli2-cockroach-11
+name: 'SQLi error cockroach via cat2'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - cockroach
+description: 'Triggers cockroach error via cat2'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      cat2:
+        - ''') OR (''1''=''1'
+        - '"'
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - 'CockroachDB'

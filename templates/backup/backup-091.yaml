@@ -1,0 +1,15 @@
+id: backup-091
+name: 'Exposed /privkey.pem'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /privkey.pem is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/privkey.pem'
+    matchers:
+      - type: status
+        status: [200]

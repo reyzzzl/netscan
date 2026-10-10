@@ -1,0 +1,20 @@
+id: xss5-1006
+name: 'Raw XSS5 in message'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in message'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      message:
+        - '<svg style="behavior:url(nx51005)">'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51005'

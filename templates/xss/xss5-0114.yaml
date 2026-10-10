@@ -1,0 +1,20 @@
+id: xss5-0114
+name: 'Raw XSS5 in label'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in label'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      label:
+        - '<script%00>alert(nx50113)</script>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx50113'

@@ -1,0 +1,15 @@
+id: exchange2-08
+name: 'Exchange root'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Exchange at /ecp/ — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/ecp/?v=9'
+    matchers:
+      - type: status
+        status: [200]

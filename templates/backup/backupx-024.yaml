@@ -1,0 +1,15 @@
+id: backupx-024
+name: 'Exposed /app.css.map'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Backup file /app.css.map is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/app.css.map'
+    matchers:
+      - type: status
+        status: [200]

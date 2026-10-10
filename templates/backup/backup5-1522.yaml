@@ -1,0 +1,15 @@
+id: backup5-1522
+name: 'Exposed /login.php.duplicate'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /login.php.duplicate is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/login.php.duplicate'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,20 @@
+id: ssti3-cheetah-04
+name: 'SSTI cheetah in content'
+severity: critical
+type: active
+tags:
+  - ssti
+  - injection
+  - cheetah
+description: 'cheetah evaluates payload in content'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      content:
+        - '#echo 7*7'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - '49'

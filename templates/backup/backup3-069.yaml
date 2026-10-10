@@ -1,0 +1,15 @@
+id: backup3-069
+name: 'Exposed /internal/metrics2'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /internal/metrics2 is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/internal/metrics2'
+    matchers:
+      - type: status
+        status: [200]

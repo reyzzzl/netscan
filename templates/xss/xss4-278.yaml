@@ -1,0 +1,20 @@
+id: xss4-278
+name: 'Raw XSS4 #37 in text'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in text'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      text:
+        - '<button formaction=javascript:alert(nx4277)>x'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx4277'

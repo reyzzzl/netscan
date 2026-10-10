@@ -1,0 +1,15 @@
+id: backup5-0031
+name: 'Exposed /index.php.rar'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /index.php.rar is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/index.php.rar'
+    matchers:
+      - type: status
+        status: [200]

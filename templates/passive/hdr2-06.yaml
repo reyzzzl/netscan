@@ -1,0 +1,15 @@
+id: hdr2-06
+name: 'Missing expect-ct'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header expect-ct not set'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'expect-ct'
+    negative: true

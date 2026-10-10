@@ -1,0 +1,20 @@
+id: xss5-2293
+name: 'Raw XSS5 in value'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in value'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      value:
+        - '<input%09type=image%09formaction=javascript:nx52292>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx52292'

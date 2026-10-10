@@ -1,0 +1,15 @@
+id: backup5-3284
+name: 'Exposed /stage.php.conf'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /stage.php.conf is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/stage.php.conf'
+    matchers:
+      - type: status
+        status: [200]

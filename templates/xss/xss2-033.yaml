@@ -1,0 +1,20 @@
+id: xss2-033
+name: 'Reflected XSS2 ctx-2 via search'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in search'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      search:
+        - '<math><mi//xlink:href="data:x,<script>alert(nx2032)</script>">'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx2032'

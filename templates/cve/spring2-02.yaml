@@ -1,0 +1,15 @@
+id: spring2-02
+name: 'Spring trace httptrace'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Spring trace at /actuator/httptrace — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/actuator/httptrace'
+    matchers:
+      - type: status
+        status: [200]

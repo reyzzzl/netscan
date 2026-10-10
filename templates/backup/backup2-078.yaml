@@ -1,0 +1,15 @@
+id: backup2-078
+name: 'Exposed2 /helm/'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /helm/ is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/helm/'
+    matchers:
+      - type: status
+        status: [200]

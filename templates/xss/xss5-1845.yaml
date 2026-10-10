@@ -1,0 +1,20 @@
+id: xss5-1845
+name: 'Raw XSS5 in name'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in name'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      name:
+        - '<marquee%0aloop=1%0aonstart=nx51844>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx51844'

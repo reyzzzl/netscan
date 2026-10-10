@@ -1,0 +1,14 @@
+id: fp3-28
+name: 'Stack phoenix17'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'phoenix17 stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'phoenix17'

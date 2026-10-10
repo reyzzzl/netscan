@@ -1,0 +1,15 @@
+id: backup2-038
+name: 'Exposed2 /.nuxt/'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.nuxt/ is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.nuxt/'
+    matchers:
+      - type: status
+        status: [200]

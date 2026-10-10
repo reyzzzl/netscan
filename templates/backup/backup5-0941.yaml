@@ -1,0 +1,15 @@
+id: backup5-0941
+name: 'Exposed /ajax.php.lock'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /ajax.php.lock is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/ajax.php.lock'
+    matchers:
+      - type: status
+        status: [200]

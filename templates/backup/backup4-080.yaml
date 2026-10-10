@@ -1,0 +1,15 @@
+id: backup4-080
+name: 'Exposed /bootstrap.php.tmp'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /bootstrap.php.tmp is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/bootstrap.php.tmp'
+    matchers:
+      - type: status
+        status: [200]

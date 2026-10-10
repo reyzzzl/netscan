@@ -1,0 +1,14 @@
+id: fp4-177
+name: 'Stack api9x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'api9x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'api9x'

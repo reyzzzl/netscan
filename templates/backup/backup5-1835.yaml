@@ -1,0 +1,15 @@
+id: backup5-1835
+name: 'Exposed /install.php.cfg'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /install.php.cfg is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/install.php.cfg'
+    matchers:
+      - type: status
+        status: [200]

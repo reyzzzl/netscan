@@ -1,0 +1,9 @@
+id: info-disclosure
+name: Info disclosure in body (passive)
+severity: info
+type: passive
+description: Finds env traces and keys with zero extra requests
+matchers:
+  - type: regex
+    part: body
+    regex: ["BEGIN PRIVATE KEY", "Traceback", "NODE_ENV", ".env"]

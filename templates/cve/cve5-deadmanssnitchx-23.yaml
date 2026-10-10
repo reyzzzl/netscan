@@ -1,0 +1,15 @@
+id: cve5-deadmanssnitchx-23
+name: 'deadmanssnitchx at /server-status'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'deadmanssnitchx at /server-status — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/server-status'
+    matchers:
+      - type: status
+        status: [200]

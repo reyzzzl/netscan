@@ -1,0 +1,18 @@
+id: mass3-112
+name: 'Mass field subscriber'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered subscriber on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"t","subscriber":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

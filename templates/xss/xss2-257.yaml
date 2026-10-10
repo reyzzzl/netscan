@@ -1,0 +1,20 @@
+id: xss2-257
+name: 'Reflected XSS2 ctx-16 via s'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in s'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      s:
+        - '<table background="javascript:alert(nx2256)">'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx2256'

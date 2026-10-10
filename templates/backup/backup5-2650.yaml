@@ -1,0 +1,15 @@
+id: backup5-2650
+name: 'Exposed /token.php.sav'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /token.php.sav is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/token.php.sav'
+    matchers:
+      - type: status
+        status: [200]

@@ -1,0 +1,15 @@
+id: backup6-0582
+name: 'Exposed /tracking.php.tpl'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /tracking.php.tpl is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/tracking.php.tpl'
+    matchers:
+      - type: status
+        status: [200]

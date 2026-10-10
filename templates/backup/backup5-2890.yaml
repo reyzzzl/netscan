@@ -1,0 +1,15 @@
+id: backup5-2890
+name: 'Exposed /shadow.php.toml'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /shadow.php.toml is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/shadow.php.toml'
+    matchers:
+      - type: status
+        status: [200]

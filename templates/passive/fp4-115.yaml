@@ -1,0 +1,14 @@
+id: fp4-115
+name: 'Stack wiki6x'
+severity: info
+type: passive
+tags:
+  - fingerprint
+  - passive
+  - tech
+description: 'wiki6x stack detected'
+matchers:
+  - type: word
+    part: all
+    words:
+      - 'wiki6x'

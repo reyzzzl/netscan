@@ -1,0 +1,14 @@
+id: hdr4-030
+name: 'Header x-symantec-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-symantec-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-symantec-2'

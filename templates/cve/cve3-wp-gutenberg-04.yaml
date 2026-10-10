@@ -1,0 +1,15 @@
+id: cve3-wp-gutenberg-04
+name: 'WP gutenberg LICENSE'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP gutenberg at /wp-content/plugins/gutenberg/LICENSE — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/gutenberg/LICENSE'
+    matchers:
+      - type: status
+        status: [200]

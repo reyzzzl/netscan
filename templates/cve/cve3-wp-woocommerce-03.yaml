@@ -1,0 +1,15 @@
+id: cve3-wp-woocommerce-03
+name: 'WP woocommerce CHANGELOG.md'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'WP woocommerce at /wp-content/plugins/woocommerce/CHANGELOG.md — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/wp-content/plugins/woocommerce/CHANGELOG.md'
+    matchers:
+      - type: status
+        status: [200]

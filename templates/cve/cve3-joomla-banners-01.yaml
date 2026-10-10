@@ -1,0 +1,20 @@
+id: cve3-joomla-banners-01
+name: 'Joomla banners readme.txt'
+severity: info
+type: active
+tags:
+  - cve
+  - fingerprint
+  - version
+description: 'Joomla banners at /components/com_banners/readme.txt — match version manually'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/components/com_banners/readme.txt'
+    match-all: true
+    matchers:
+      - type: status
+        status: [200]
+      - type: word
+        part: body
+        words:
+          - 'Stable tag'

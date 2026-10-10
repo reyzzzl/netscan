@@ -1,0 +1,15 @@
+id: backup2-041
+name: 'Exposed2 /.nyc_output/'
+severity: medium
+type: active
+tags:
+  - exposure
+  - backup
+  - config
+description: 'Sensitive file /.nyc_output/ is exposed'
+requests:
+  - method: GET
+    path: '{{BaseURL}}/.nyc_output/'
+    matchers:
+      - type: status
+        status: [200]

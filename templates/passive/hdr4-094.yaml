@@ -1,0 +1,14 @@
+id: hdr4-094
+name: 'Header x-leakix-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-leakix-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-leakix-2'

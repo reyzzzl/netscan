@@ -1,0 +1,20 @@
+id: xss8-1147
+name: 'Raw XSS8 in subject'
+severity: high
+type: active
+tags:
+  - xss
+  - injection
+  - client
+description: 'Unencoded reflection in subject'
+requests:
+  - method: GET
+    path: '{{BaseURL}}'
+    payloads:
+      subject:
+        - '<audio src=x onerror=nx81146%0a>'
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'nx81146'

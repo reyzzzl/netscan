@@ -1,0 +1,14 @@
+id: hdr4-075
+name: 'Header x-kismet-2'
+severity: info
+type: passive
+tags:
+  - headers
+  - passive
+  - config
+description: 'Header x-kismet-2 present'
+matchers:
+  - type: word
+    part: headers
+    words:
+      - 'x-kismet-2'
