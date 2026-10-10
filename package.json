@@ -3,6 +3,13 @@
   "version": "0.1.0",
   "description": "Template scanner + network trace (zero-dep). Authorized targets only.",
   "license": "GPL-2.0-only",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reyzzzl/netscan.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "type": "module",
   "bin": {
     "netscan": "./src/index.js"
