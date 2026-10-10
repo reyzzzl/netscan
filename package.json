@@ -1,7 +1,8 @@
 {
-  "name": "netscan",
+  "name": "@reyzzzl/netscan",
   "version": "0.1.0",
   "description": "Template scanner + network trace (zero-dep). Authorized targets only.",
+  "license": "GPL-2.0-only",
   "type": "module",
   "bin": {
     "netscan": "./src/index.js"
